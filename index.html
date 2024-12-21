@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StickApp サポート</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 5px; }
+        h1 { text-align: center; }
+        .contact-form { margin-top: 20px; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;x }
+        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>StickApp サポート</h1>
+        <p>StickAppに関するご質問や問題がございましたら、以下のフォームからお問い合わせください。</p>
+        
+        <div class="contact-form">
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                <label for="name">お名前:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">メッセージ:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">送信</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
