@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>StickApp サポートページ</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background-color: #4da6ff;
+      color: #fff;
+      padding: 16px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #fff;
+    }
+    footer {
+      background-color: #4da6ff;
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      margin-top: 24px;
+    }
+    h2 {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      border-bottom: 2px solid #4da6ff;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    h3 {
+      margin-top: 16px;
+      color: #333;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .qa-section {
+      margin-top: 16px;
+      border-left: 4px solid #4da6ff;
+      padding-left: 12px;
+    }
+    .qa-section h4 {
+      margin-top: 12px;
+      color: #555;
+    }
+    .qa-section p {
+      margin-bottom: 12px;
+    }
+    .contact-info, .policy-info {
+      background: #eee;
+      padding: 16px;
+      margin-top: 16px;
+      border-radius: 4px;
+    }
+    .contact-info p, .policy-info p {
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .contact-info strong {
+      display: inline-block;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>StickApp サポートページ</h1>
+  </header>
+
+  <main>
+    <section>
+      <p>
+        このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&A、利用規約・プライバシーポリシーへのリンクを案内しています。
+        ご不明点がある場合は下記の連絡先へご連絡ください。
+      </p>
+    </section>
+
+    <!-- 連絡先・サポート情報 -->
+    <section class="contact-info">
+      <h2>お問い合わせ先</h2>
+      <p>
+        アプリに関するご質問・不具合報告等は、以下メールアドレスまでご連絡ください。<br />
+        <strong>メール:</strong> <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a>
+      </p>
+    </section>
+
+    <!-- Q&Aセクション -->
+    <section class="qa-section">
+      <h2>よくある質問（FAQ）</h2>
+
+      <h4>Q1: ゲームのルールが分かりません。</h4>
+      <p>
+        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、最後の棒を
+        「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
+      </p>
+
+      <h4>Q2: ステージをやり直したいのですがどうすればいいですか？</h4>
+      <p>
+        A2: メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は
+        「Retry」ボタン（リトライ）から現在ステージを再挑戦することも可能です。
+      </p>
+
+      <h4>Q3: BGMや効果音を消したい場合はどうすればいいですか？</h4>
+      <p>
+        A3: アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。オフにすると
+        BGMやSEが再生されなくなります。
+      </p>
+
+      <h4>Q4: 広告を非表示にしたいのですが。</h4>
+      <p>
+        A4: ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニュー内の
+        「広告削除（¥300）」から行えます。購入後はUserDefaultsを通じて広告が表示されなくなるよう設定しています。
+      </p>
+
+      <h4>Q5: アプリが起動しなくなったり、クラッシュする場合は？</h4>
+      <p>
+        A5: ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて
+        <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお問い合わせください。再インストールで改善する場合もありますので、
+        まずはアプリを一旦削除→再インストールをお試しください。
+      </p>
+    </section>
+
+    <!-- 利用規約・プライバシーポリシー -->
+    <section class="policy-info">
+      <h2>利用規約 &amp; プライバシーポリシー</h2>
+      <p>
+        下記リンク先にて、StickApp の利用規約およびプライバシーポリシーを掲載しています。<br />
+        <a href="#">利用規約</a> / <a href="#">プライバシーポリシー</a><br /><br />
+        （実際にはそれぞれの詳細ページを別途作成し、リンクを設定してください。）
+      </p>
+    </section>
+
+    <section style="margin-top: 24px;">
+      <h2>サポートについて</h2>
+      <p>
+        アプリの最新情報やアップデート内容は、ストアページや当サイトに随時掲載していきます。  
+        「こうしてほしい」「この機能が欲しい」などご要望がありましたら、遠慮なくお問い合わせください。
+      </p>
+      <p>
+        いただいたご意見は、今後の改善や新機能追加の参考にさせていただきます。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 StickApp. All rights reserved.</p>
+  </footer>
+</body>
+</html>
