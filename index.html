@@ -75,6 +75,51 @@
       display: inline-block;
       width: 100px;
     }
+    /* 掲示板用スタイル */
+    .board-section {
+      background: #eee;
+      padding: 16px;
+      margin-top: 24px;
+      border-radius: 4px;
+    }
+    .board-section form {
+      margin-bottom: 16px;
+    }
+    .board-section label {
+      display: inline-block;
+      width: 60px;
+      margin-top: 8px;
+    }
+    .board-section input[type="text"],
+    .board-section textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+    .board-section button {
+      background-color: #4da6ff;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .board-section button:hover {
+      opacity: 0.8;
+    }
+    .message {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+    .message .author {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
   </style>
 </head>
 <body>
@@ -85,54 +130,8 @@
   <main>
     <section>
       <p>
-        このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&A、利用規約・プライバシーポリシーへのリンクを案内しています。
-        ご不明点がある場合は下記の掲示板、連絡先へご連絡ください。
-      </p>
-    </section>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("board-form");
-      const messagesContainer = document.getElementById("board-messages");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const authorInput = document.getElementById("author");
-        const contentInput = document.getElementById("content");
-
-        if (contentInput.value.trim() === "") {
-          alert("メッセージを入力してください！");
-          return;
-        }
-
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("message");
-
-        const authorDiv = document.createElement("div");
-        authorDiv.classList.add("author");
-        authorDiv.textContent = authorInput.value.trim() || "匿名";
-
-        const contentDiv = document.createElement("div");
-        contentDiv.classList.add("content");
-        contentDiv.textContent = contentInput.value.trim();
-
-        messageDiv.appendChild(authorDiv);
-        messageDiv.appendChild(contentDiv);
-
-        messagesContainer.appendChild(messageDiv);
-
-        authorInput.value = "";
-        contentInput.value = "";
-      });
-    });
-  </script>
-    
-    <!-- 連絡先・サポート情報 -->
-    <section class="contact-info">
-      <h2>お問い合わせ先</h2>
-      <p>
-        アプリに関するご質問・不具合報告等は、以下メールアドレスまでご連絡ください。<br />
-        <strong>メール:</strong> <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a>
+        このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&A、利用規約・プライバシーポリシーを案内しています。  
+        ご不明点がある場合は下記の掲示板、またはお問い合わせ先へご連絡ください。
       </p>
     </section>
 
@@ -142,8 +141,8 @@
 
       <h4>Q1: ゲームのルールが分かりません。</h4>
       <p>
-        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、最後の棒を
-        「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
+        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、
+        最後の棒を「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
       </p>
 
       <h4>Q2: ステージをやり直したいのですがどうすればいいですか？</h4>
@@ -172,13 +171,95 @@
       </p>
     </section>
 
+    <!-- 掲示板 -->
+    <section class="board-section">
+      <h2>掲示板</h2>
+      <form id="board-form">
+        <label for="author">投稿者:</label>
+        <input type="text" id="author" name="author" placeholder="名前 (任意)">
+        
+        <label for="content">内容:</label>
+        <textarea id="content" name="content" placeholder="メッセージを入力"></textarea>
+        
+        <button type="submit">投稿</button>
+      </form>
+      <div id="board-messages"></div>
+    </section>
+
+    <!-- 連絡先・サポート情報 -->
+    <section class="contact-info">
+      <h2>お問い合わせ先</h2>
+      <p>
+        アプリに関するご質問・不具合報告等は、以下メールアドレスまでご連絡ください。<br />
+        <strong>メール:</strong> <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a>
+      </p>
+    </section>
+
     <!-- 利用規約・プライバシーポリシー -->
     <section class="policy-info">
       <h2>利用規約 &amp; プライバシーポリシー</h2>
+      <p>以下に StickApp の利用規約とプライバシーポリシーを記載いたします。</p>
+
+      <!-- 利用規約 -->
+      <h3>利用規約</h3>
       <p>
-        下記リンク先にて、StickApp の利用規約およびプライバシーポリシーを掲載しています。<br />
-        <a href="#">利用規約</a> / <a href="#">プライバシーポリシー</a><br /><br />
-        （実際にはそれぞれの詳細ページを別途作成し、リンクを設定してください。）
+        1. 本規約の適用  
+        本規約は、StickApp（以下、「本アプリ」といいます）の利用条件を定めるものです。本アプリを利用される方（以下、「ユーザー」といいます）は、本規約に同意したものとみなします。
+      </p>
+      <p>
+        2. 規約の変更  
+        当社は、本規約をユーザーへの事前の通知なしに随時変更できるものとします。変更後の規約は本ページに掲載した時点で効力を生じるものとします。
+      </p>
+      <p>
+        3. 禁止事項  
+        ユーザーは、本アプリの利用にあたり、以下の行為を行ってはならないものとします。  
+        ・法令や公序良俗に反する行為  
+        ・著作権、知的財産権、プライバシー権などを侵害する行為  
+        ・本アプリやサーバーへの不正アクセス、改ざん行為  
+        ・その他、運営が不適切と判断する行為
+      </p>
+      <p>
+        4. 免責事項  
+        本アプリの利用や情報提供にあたって、当社はいかなる保証も行いません。また本アプリ利用によって生じたトラブル、損害等について、一切の責任を負わないものとします。
+      </p>
+      <p>
+        5. サービスの変更・中断・終了  
+        当社は、本アプリの内容をユーザーに通知することなく変更、追加、停止または終了する場合があります。
+      </p>
+      <p>
+        6. 準拠法・管轄裁判所  
+        本規約の解釈、適用にあたっては日本法を準拠法とします。万が一紛争が生じた場合は、当社の所在地を管轄する裁判所を専属的合意管轄裁判所とします。
+      </p>
+
+      <!-- プライバシーポリシー -->
+      <h3>プライバシーポリシー</h3>
+      <p>
+        1. 個人情報の取得と利用目的  
+        当社は、本アプリの運営に必要な範囲でユーザーの個人情報を取得する場合があります。取得した個人情報は、ユーザーサポートや問い合わせ対応、サービス向上のために利用します。
+      </p>
+      <p>
+        2. 取得する情報の種類  
+        当社が取得する情報には、端末情報、ログ情報、ユーザーが入力する情報、メールアドレスなどが含まれる場合があります。
+      </p>
+      <p>
+        3. 情報の第三者提供  
+        当社は、原則としてユーザーの同意なく個人情報を第三者に提供することはありません。ただし、法令に基づく要請や、ユーザーに明示した利用目的の範囲内で業務委託する場合はこの限りではありません。
+      </p>
+      <p>
+        4. 情報の管理  
+        当社は、取得した個人情報が漏洩、紛失、改ざんなどが行われないよう適切な管理を行うとともに、取り扱いを必要としなくなった情報は速やかに廃棄または削除いたします。
+      </p>
+      <p>
+        5. クッキー（Cookie）等の使用  
+        当社は、ユーザーの利用状況の分析やサービス改善のため、Cookie や類似技術を使用することがあります。ユーザーはブラウザ設定によりCookie の受け取りを拒否できますが、一部機能が利用できなくなる場合があります。
+      </p>
+      <p>
+        6. プライバシーポリシーの変更  
+        当社は、必要に応じて本ポリシーを改定する場合があります。改定後の内容は本ページに掲載された時点で有効といたします。
+      </p>
+      <p>
+        7. お問い合わせ  
+        本ポリシーに関するお問い合わせは、<a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお願いいたします。
       </p>
     </section>
 
@@ -197,5 +278,42 @@
   <footer>
     <p>© 2024 StickApp. All rights reserved.</p>
   </footer>
+
+  <!-- 掲示板用スクリプト -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("board-form");
+      const messagesContainer = document.getElementById("board-messages");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const authorInput = document.getElementById("author");
+        const contentInput = document.getElementById("content");
+
+        if (contentInput.value.trim() === "") {
+          alert("メッセージを入力してください！");
+          return;
+        }
+
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+
+        const authorDiv = document.createElement("div");
+        authorDiv.classList.add("author");
+        authorDiv.textContent = authorInput.value.trim() || "匿名";
+
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("content");
+        contentDiv.textContent = contentInput.value.trim();
+
+        messageDiv.appendChild(authorDiv);
+        messageDiv.appendChild(contentDiv);
+        messagesContainer.appendChild(messageDiv);
+
+        authorInput.value = "";
+        contentInput.value = "";
+      });
+    });
+  </script>
 </body>
 </html>
