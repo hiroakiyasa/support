@@ -41,41 +41,88 @@
       display: inline-block;
       padding-bottom: 4px;
     }
-    h3 {
-      margin-top: 16px;
-      color: #333;
+    .board-section {
+      margin-top: 24px;
     }
-    p {
-      line-height: 1.6;
-    }
-    .qa-section {
-      margin-top: 16px;
-      border-left: 4px solid #4da6ff;
-      padding-left: 12px;
-    }
-    .qa-section h4 {
-      margin-top: 12px;
-      color: #555;
-    }
-    .qa-section p {
-      margin-bottom: 12px;
-    }
-    .contact-info, .policy-info {
+    .board-form {
       background: #eee;
       padding: 16px;
-      margin-top: 16px;
+      margin-bottom: 16px;
       border-radius: 4px;
     }
-    .contact-info p, .policy-info p {
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+    .board-form textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 8px;
+      font-size: 14px;
+      padding: 8px;
     }
-    .contact-info strong {
-      display: inline-block;
-      width: 100px;
+    .board-form button {
+      background-color: #4da6ff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .board-messages {
+      background: #f7f7f7;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 16px;
+    }
+    .message {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .message:last-child {
+      border-bottom: none;
+    }
+    .message .author {
+      font-weight: bold;
+    }
+    .message .content {
+      margin-top: 4px;
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("board-form");
+      const messagesContainer = document.getElementById("board-messages");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const authorInput = document.getElementById("author");
+        const contentInput = document.getElementById("content");
+
+        if (contentInput.value.trim() === "") {
+          alert("メッセージを入力してください！");
+          return;
+        }
+
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+
+        const authorDiv = document.createElement("div");
+        authorDiv.classList.add("author");
+        authorDiv.textContent = authorInput.value.trim() || "匿名";
+
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("content");
+        contentDiv.textContent = contentInput.value.trim();
+
+        messageDiv.appendChild(authorDiv);
+        messageDiv.appendChild(contentDiv);
+
+        messagesContainer.appendChild(messageDiv);
+
+        authorInput.value = "";
+        contentInput.value = "";
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -85,75 +132,26 @@
   <main>
     <section>
       <p>
-        このページでは、「棒取り攻略！森のウッドゴーレム大冒険」 に関するサポート情報やお問い合わせ先、Q&A、利用規約・プライバシーポリシーへのリンクを案内しています。
-        ご不明点がある場合は下記の連絡先へご連絡ください。
+        このページでは、「棒取り攻略！森のウッドゴーレム大冒険」 に関するサポート情報やお問い合わせ先、Q&A、掲示板機能を提供しています。
+        改善案や不具合報告は、以下の掲示板に書き込んでください。
       </p>
     </section>
 
-    <!-- 連絡先・サポート情報 -->
-    <section class="contact-info">
-      <h2>お問い合わせ先</h2>
-      <p>
-        アプリに関するご質問・不具合報告等は、以下メールアドレスまでご連絡ください。<br />
-        <strong>メール:</strong> <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a>
-      </p>
-    </section>
-
-    <!-- Q&Aセクション -->
-    <section class="qa-section">
-      <h2>よくある質問（FAQ）</h2>
-
-      <h4>Q1: ゲームのルールが分かりません。</h4>
-      <p>
-        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、最後の棒を
-        「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
-      </p>
-
-      <h4>Q2: ステージをやり直したいのですがどうすればいいですか？</h4>
-      <p>
-        A2: メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は
-        「Retry」ボタン（リトライ）から現在ステージを再挑戦することも可能です。
-      </p>
-
-      <h4>Q3: BGMや効果音を消したい場合はどうすればいいですか？</h4>
-      <p>
-        A3: アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。オフにすると
-        BGMやSEが再生されなくなります。
-      </p>
-
-      <h4>Q4: 広告を非表示にしたいのですが。</h4>
-      <p>
-        A4: ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニュー内の
-        「広告削除（¥300）」から行えます。購入後はUserDefaultsを通じて広告が表示されなくなるよう設定しています。
-      </p>
-
-      <h4>Q5: アプリが起動しなくなったり、クラッシュする場合は？</h4>
-      <p>
-        A5: ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて
-        <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお問い合わせください。再インストールで改善する場合もありますので、
-        まずはアプリを一旦削除→再インストールをお試しください。
-      </p>
-    </section>
-
-    <!-- 利用規約・プライバシーポリシー -->
-    <section class="policy-info">
-      <h2>利用規約 &amp; プライバシーポリシー</h2>
-      <p>
-        下記リンク先にて、「棒取り攻略！森のウッドゴーレム大冒険」 の利用規約およびプライバシーポリシーを掲載しています。<br />
-        <a href="#">利用規約</a> / <a href="#">プライバシーポリシー</a><br /><br />
-        （実際にはそれぞれの詳細ページを別途作成し、リンクを設定してください。）
-      </p>
-    </section>
-
-    <section style="margin-top: 24px;">
-      <h2>サポートについて</h2>
-      <p>
-        アプリの最新情報やアップデート内容は、ストアページや当サイトに随時掲載していきます。  
-        「こうしてほしい」「この機能が欲しい」などご要望がありましたら、遠慮なくお問い合わせください。
-      </p>
-      <p>
-        いただいたご意見は、今後の改善や新機能追加の参考にさせていただきます。
-      </p>
+    <!-- 掲示板セクション -->
+    <section class="board-section">
+      <h2>掲示板</h2>
+      <div class="board-form">
+        <form id="board-form">
+          <label for="author">名前（任意）:</label><br />
+          <input type="text" id="author" name="author" placeholder="匿名" /><br /><br />
+          <label for="content">メッセージ:</label><br />
+          <textarea id="content" name="content" placeholder="ここに入力してください..."></textarea><br />
+          <button type="submit">投稿</button>
+        </form>
+      </div>
+      <div id="board-messages" class="board-messages">
+        <!-- 投稿されたメッセージがここに表示されます -->
+      </div>
     </section>
   </main>
 
