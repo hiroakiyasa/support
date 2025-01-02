@@ -1,193 +1,129 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>StickApp サポートページ</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StickApp サポート</title>
+
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
       margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #333;
     }
-    header {
-      background-color: #4da6ff;
-      color: #fff;
-      padding: 16px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    main {
+    .container {
       max-width: 800px;
-      margin: 0 auto;
-      padding: 24px;
+      margin: auto;
       background: #fff;
+      padding: 20px;
+      border-radius: 5px;
     }
-    footer {
-      background-color: #4da6ff;
-      color: #fff;
+    h1 {
       text-align: center;
-      padding: 16px;
-      margin-top: 24px;
     }
-    h2 {
-      margin-top: 24px;
-      margin-bottom: 8px;
-      border-bottom: 2px solid #4da6ff;
-      display: inline-block;
-      padding-bottom: 4px;
+    .contact-form {
+      margin-top: 20px;
     }
-    h3 {
-      margin-top: 16px;
-      color: #333;
-    }
-    p {
-      line-height: 1.6;
-    }
-    .qa-section {
-      margin-top: 16px;
-      border-left: 4px solid #4da6ff;
-      padding-left: 12px;
-    }
-    .qa-section h4 {
-      margin-top: 12px;
-      color: #555;
-    }
-    .qa-section p {
-      margin-bottom: 12px;
-    }
-    .contact-info, .policy-info {
-      background: #eee;
-      padding: 16px;
-      margin-top: 16px;
-      border-radius: 4px;
-    }
-    .contact-info p, .policy-info p {
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    .contact-info strong {
-      display: inline-block;
-      width: 100px;
-    }
-    /* 掲示板用スタイル */
-    .board-section {
-      background: #eee;
-      padding: 16px;
-      margin-top: 24px;
-      border-radius: 4px;
-    }
-    .board-section form {
-      margin-bottom: 16px;
-    }
-    .board-section label {
-      display: inline-block;
-      width: 60px;
-      margin-top: 8px;
-    }
-    .board-section input[type="text"],
-    .board-section textarea {
+    input, textarea {
       width: 100%;
-      box-sizing: border-box;
-      padding: 8px;
-      margin-top: 4px;
-      margin-bottom: 8px;
-    }
-    .board-section button {
-      background-color: #4da6ff;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .board-section button:hover {
-      opacity: 0.8;
-    }
-    .message {
-      background: #fff;
+      padding: 10px;
+      margin: 5px 0 10px 0;
       border: 1px solid #ccc;
       border-radius: 4px;
-      padding: 8px;
-      margin-bottom: 8px;
     }
-    .message .author {
-      font-weight: bold;
-      margin-bottom: 4px;
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* ここから言語切り替え用のスタイル */
+    /* 全言語ブロックは基本的に非表示にし、JSで必要なブロックだけdisplay:blockにします */
+    .language-content {
+      display: none;
+    }
+    /* 下記のように、現在選択中のブロックだけJSでdisplay:blockにするイメージ */
   </style>
+
+  <script>
+    // セレクトボックスで言語が切り替わったときに呼ばれる
+    function changeLanguage(lang) {
+      // すべての言語ブロックを非表示にする
+      const blocks = document.querySelectorAll('.language-content');
+      blocks.forEach(block => {
+        block.style.display = 'none';
+      });
+
+      // 選択された言語のブロックだけ表示
+      const target = document.getElementById(`lang-${lang}`);
+      if (target) {
+        target.style.display = 'block';
+      }
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>棒取り攻略！森のウッドゴーレム大冒険 アプリ　サポートページ</h1>
+
+<!-- ■■■ 言語切り替えセレクトボックス ■■■ -->
+<div style="text-align:center; margin-bottom:20px;">
+  <label for="languageSelect">言語を選択してください: </label>
+  <select id="languageSelect" onchange="changeLanguage(this.value)">
+    <option value="ja">日本語</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="hi">हिन्दी</option>
+    <option value="ko">한국어</option>
+    <option value="pt">Português</option>
+    <option value="zh">中文</option>
+  </select>
+</div>
+
+<!-- ■■■ 日本語版コンテンツ ■■■ -->
+<div id="lang-ja" class="language-content" style="display:block;"><!-- 初期表示を日本語にしたいので style="display:block;" -->
+  <div class="container">
+      <h1>StickApp サポート</h1>
+      <p>StickAppに関するご質問や問題がございましたら、以下のフォームからお問い合わせください。</p>
+      
+      <div class="contact-form">
+          <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+              <label for="name">お名前:</label>
+              <input type="text" id="name" name="name" required>
+              
+              <label for="email">メールアドレス:</label>
+              <input type="email" id="email" name="email" required>
+              
+              <label for="message">メッセージ:</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              
+              <button type="submit">送信</button>
+          </form>
+      </div>
+  </div>
+
+  <!-- 以下、「<!DOCTYPE html>」「<html>」「<head>」... といった行が
+       見本として書かれていますが、実際には不要なので折りたたんでいます。
+       そのまま残したい場合は、単にHTMLコードサンプルとして
+       表示用に書いているのだと割り切ってください。 -->
+
+  <header style="background-color: #4da6ff; color:#fff; padding:16px;">
+    <h1 style="margin:0; font-size:1.5rem;">StickApp サポートページ</h1>
   </header>
 
-  <main>
+  <main style="max-width:800px; margin:0 auto; padding:24px; background:#fff;">
     <section>
-      <p>
-        このページでは、棒取り攻略！森のウッドゴーレム大冒険 に関するサポート情報やお問い合わせ先、Q&A、利用規約・プライバシーポリシーを案内しています。  
-        ご不明点がある場合は下記の掲示板、またはお問い合わせ先へご連絡ください。
-      </p>
-    </section>
-
-    <!-- Q&Aセクション -->
-    <section class="qa-section">
-      <h2>よくある質問（FAQ）</h2>
-
-      <h4>Q1: ゲームのルールが分かりません。</h4>
-      <p>
-        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、
-        最後の棒を「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
-      </p>
-
-      <h4>Q2: ステージをやり直したいのですがどうすればいいですか？</h4>
-      <p>
-        A2: メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は
-        「Retry」ボタン（リトライ）から現在ステージを再挑戦することも可能です。
-      </p>
-
-      <h4>Q3: BGMや効果音を消したい場合はどうすればいいですか？</h4>
-      <p>
-        A3: アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。オフにすると
-        BGMやSEが再生されなくなります。
-      </p>
-
-      <h4>Q4: 広告を非表示にしたいのですが。</h4>
-      <p>
-        A4: ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニュー内の
-        「広告削除（¥300）」から行えます。購入後はUserDefaultsを通じて広告が表示されなくなるよう設定しています。
-      </p>
-
-      <h4>Q5: アプリが起動しなくなったり、クラッシュする場合は？</h4>
-      <p>
-        A5: ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて
-        <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお問い合わせください。再インストールで改善する場合もありますので、
-        まずはアプリを一旦削除→再インストールをお試しください。
-      </p>
-    </section>
-
-    <!-- 掲示板 -->
-    <section class="board-section">
-      <h2>掲示板</h2>
-      <form id="board-form">
-        <label for="author">投稿者:</label>
-        <input type="text" id="author" name="author" placeholder="名前 (任意)">
-        
-        <label for="content">内容:</label>
-        <textarea id="content" name="content" placeholder="メッセージを入力"></textarea>
-        
-        <button type="submit">投稿</button>
-      </form>
-      <div id="board-messages"></div>
+      <p>このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&amp;A、利用規約・プライバシーポリシーへのリンクを案内しています。ご不明点がある場合は下記の連絡先へご連絡ください。</p>
     </section>
 
     <!-- 連絡先・サポート情報 -->
-    <section class="contact-info">
+    <section class="contact-info" style="background:#eee; padding:16px; margin-top:16px; border-radius:4px;">
       <h2>お問い合わせ先</h2>
       <p>
         アプリに関するご質問・不具合報告等は、以下メールアドレスまでご連絡ください。<br />
@@ -195,71 +131,44 @@
       </p>
     </section>
 
+    <!-- Q&Aセクション -->
+    <section class="qa-section" style="margin-top:16px; border-left:4px solid #4da6ff; padding-left:12px;">
+      <h2>よくある質問（FAQ）</h2>
+
+      <h4>Q1: ゲームのルールが分かりません。</h4>
+      <p>
+        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、最後の棒を「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
+      </p>
+
+      <h4>Q2: ステージをやり直したいのですがどうすればいいですか？</h4>
+      <p>
+        A2: メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は「Retry」ボタン（リトライ）から現在ステージを再挑戦することも可能です。
+      </p>
+
+      <h4>Q3: BGMや効果音を消したい場合はどうすればいいですか？</h4>
+      <p>
+        A3: アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。オフにするとBGMやSEが再生されなくなります。
+      </p>
+
+      <h4>Q4: 広告を非表示にしたいのですが。</h4>
+      <p>
+        A4: ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニュー内の「広告削除（¥300）」から行えます。購入後はUserDefaultsを通じて広告が表示されなくなるよう設定しています。
+      </p>
+
+      <h4>Q5: アプリが起動しなくなったり、クラッシュする場合は？</h4>
+      <p>
+        A5: ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて
+        <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお問い合わせください。再インストールで改善する場合もありますので、まずはアプリを一旦削除→再インストールをお試しください。
+      </p>
+    </section>
+
     <!-- 利用規約・プライバシーポリシー -->
-    <section class="policy-info">
+    <section class="policy-info" style="background:#eee; padding:16px; margin-top:16px; border-radius:4px;">
       <h2>利用規約 &amp; プライバシーポリシー</h2>
-      <p>以下に StickApp の利用規約とプライバシーポリシーを記載いたします。</p>
-
-      <!-- 利用規約 -->
-      <h3>利用規約</h3>
       <p>
-        1. 本規約の適用  
-        本規約は、棒取り攻略！森のウッドゴーレム大冒険（以下、「本アプリ」といいます）の利用条件を定めるものです。本アプリを利用される方（以下、「ユーザー」といいます）は、本規約に同意したものとみなします。
-      </p>
-      <p>
-        2. 規約の変更  
-        当社は、本規約をユーザーへの事前の通知なしに随時変更できるものとします。変更後の規約は本ページに掲載した時点で効力を生じるものとします。
-      </p>
-      <p>
-        3. 禁止事項  
-        ユーザーは、本アプリの利用にあたり、以下の行為を行ってはならないものとします。  
-        ・法令や公序良俗に反する行為  
-        ・著作権、知的財産権、プライバシー権などを侵害する行為  
-        ・本アプリやサーバーへの不正アクセス、改ざん行為  
-        ・その他、運営が不適切と判断する行為
-      </p>
-      <p>
-        4. 免責事項  
-        本アプリの利用や情報提供にあたって、当社はいかなる保証も行いません。また本アプリ利用によって生じたトラブル、損害等について、一切の責任を負わないものとします。
-      </p>
-      <p>
-        5. サービスの変更・中断・終了  
-        当社は、本アプリの内容をユーザーに通知することなく変更、追加、停止または終了する場合があります。
-      </p>
-      <p>
-        6. 準拠法・管轄裁判所  
-        本規約の解釈、適用にあたっては日本法を準拠法とします。万が一紛争が生じた場合は、当社の所在地を管轄する裁判所を専属的合意管轄裁判所とします。
-      </p>
-
-      <!-- プライバシーポリシー -->
-      <h3>プライバシーポリシー</h3>
-      <p>
-        1. 個人情報の取得と利用目的  
-        当社は、本アプリの運営に必要な範囲でユーザーの個人情報を取得する場合があります。取得した個人情報は、ユーザーサポートや問い合わせ対応、サービス向上のために利用します。
-      </p>
-      <p>
-        2. 取得する情報の種類  
-        当社が取得する情報には、端末情報、ログ情報、ユーザーが入力する情報、メールアドレスなどが含まれる場合があります。
-      </p>
-      <p>
-        3. 情報の第三者提供  
-        当社は、原則としてユーザーの同意なく個人情報を第三者に提供することはありません。ただし、法令に基づく要請や、ユーザーに明示した利用目的の範囲内で業務委託する場合はこの限りではありません。
-      </p>
-      <p>
-        4. 情報の管理  
-        当社は、取得した個人情報が漏洩、紛失、改ざんなどが行われないよう適切な管理を行うとともに、取り扱いを必要としなくなった情報は速やかに廃棄または削除いたします。
-      </p>
-      <p>
-        5. クッキー（Cookie）等の使用  
-        当社は、ユーザーの利用状況の分析やサービス改善のため、Cookie や類似技術を使用することがあります。ユーザーはブラウザ設定によりCookie の受け取りを拒否できますが、一部機能が利用できなくなる場合があります。
-      </p>
-      <p>
-        6. プライバシーポリシーの変更  
-        当社は、必要に応じて本ポリシーを改定する場合があります。改定後の内容は本ページに掲載された時点で有効といたします。
-      </p>
-      <p>
-        7. お問い合わせ  
-        本ポリシーに関するお問い合わせは、<a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお願いいたします。
+        下記リンク先にて、StickApp の利用規約およびプライバシーポリシーを掲載しています。<br />
+        <a href="#">利用規約</a> / <a href="#">プライバシーポリシー</a><br /><br />
+        （実際にはそれぞれの詳細ページを別途作成し、リンクを設定してください。）
       </p>
     </section>
 
@@ -275,45 +184,78 @@
     </section>
   </main>
 
-  <footer>
+  <footer style="background-color: #4da6ff; color:#fff; text-align:center; padding:16px; margin-top:24px;">
     <p>© 2024 StickApp. All rights reserved.</p>
   </footer>
+</div>
+<!-- /lang-ja -->
 
-  <!-- 掲示板用スクリプト -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("board-form");
-      const messagesContainer = document.getElementById("board-messages");
+<!-- ■■■ 英語版コンテンツ（サンプル） ■■■ -->
+<div id="lang-en" class="language-content">
+  <!-- 以下の部分に英語版の文章を入れてください -->
+  <div class="container">
+    <h1>StickApp Support - English Version</h1>
+    <p>Here is the English version of the content...</p>
+    <!-- 以下省略 -->
+  </div>
+</div>
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const authorInput = document.getElementById("author");
-        const contentInput = document.getElementById("content");
+<!-- ■■■ スペイン語版コンテンツ（サンプル） ■■■ -->
+<div id="lang-es" class="language-content">
+  <!-- スペイン語版の文章を入れてください -->
+  <div class="container">
+    <h1>Soporte de StickApp - Versión en español</h1>
+    <p>Aquí se muestra el contenido en español...</p>
+    <!-- 以下省略 -->
+  </div>
+</div>
 
-        if (contentInput.value.trim() === "") {
-          alert("メッセージを入力してください！");
-          return;
-        }
+<!-- ■■■ ヒンディー語版コンテンツ（サンプル） ■■■ -->
+<div id="lang-hi" class="language-content">
+  <!-- ヒンディー語版の文章を入れてください -->
+  <div class="container">
+    <h1>StickApp सहायता - हिन्दी संस्करण</h1>
+    <p>यहां हिंदी में कंटेंट दिखाई देता है...</p>
+    <!-- 以下省略 -->
+  </div>
+</div>
 
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("message");
+<!-- ■■■ 韓国語版コンテンツ（サンプル） ■■■ -->
+<div id="lang-ko" class="language-content">
+  <!-- 韓国語版の文章を入れてください -->
+  <div class="container">
+    <h1>StickApp 지원 - 한국어 버전</h1>
+    <p>이곳은 한국어로 된 콘텐츠입니다...</p>
+    <!-- 以下省略 -->
+  </div>
+</div>
 
-        const authorDiv = document.createElement("div");
-        authorDiv.classList.add("author");
-        authorDiv.textContent = authorInput.value.trim() || "匿名";
+<!-- ■■■ ポルトガル語版コンテンツ（サンプル） ■■■ -->
+<div id="lang-pt" class="language-content">
+  <!-- ポルトガル語版の文章を入れてください -->
+  <div class="container">
+    <h1>Suporte StickApp - Versão em português</h1>
+    <p>Aqui está o conteúdo em português...</p>
+    <!-- 以下省略 -->
+  </div>
+</div>
 
-        const contentDiv = document.createElement("div");
-        contentDiv.classList.add("content");
-        contentDiv.textContent = contentInput.value.trim();
+<!-- ■■■ 中国語版コンテンツ（サンプル） ■■■ -->
+<div id="lang-zh" class="language-content">
+  <!-- 中国語版の文章を入れてください -->
+  <div class="container">
+    <h1>StickApp 支持 - 中文版</h1>
+    <p>这里显示中文内容...</p>
+    <!-- 以下省略 -->
+  </div>
+</div>
 
-        messageDiv.appendChild(authorDiv);
-        messageDiv.appendChild(contentDiv);
-        messagesContainer.appendChild(messageDiv);
+<script>
+  // ページ読み込み時に日本語が選択されている状態にする
+  window.onload = function(){
+    document.getElementById('languageSelect').value = 'ja';
+  };
+</script>
 
-        authorInput.value = "";
-        contentInput.value = "";
-      });
-    });
-  </script>
 </body>
 </html>
