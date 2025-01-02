@@ -4,19 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StickApp サポート</title>
+  <title>iphoneアプリ　棒取り攻略！森のウッドゴーレム大冒険 サポート</title>
 
   <style>
+    /* 背景画像を設定する */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 20px;
+      /* ここにウッドゴーレム画像を設定 */
+      background: url('woodgolem.png') no-repeat center center fixed;
+      background-size: cover;
       margin: 0;
+      padding: 20px;
     }
     .container {
       max-width: 800px;
       margin: auto;
-      background: #fff;
+      background: #fff;     /* 文字が見やすいよう白背景 */
       padding: 20px;
       border-radius: 5px;
     }
@@ -45,24 +48,19 @@
       background-color: #45a049;
     }
 
-    /* ここから言語切り替え用のスタイル */
-    /* 全言語ブロックは基本的に非表示にし、JSで必要なブロックだけdisplay:blockにします */
+    /* 言語切り替え用のスタイル */
     .language-content {
-      display: none;
+      display: none; /* JSで必要なものだけ表示 */
     }
-    /* 下記のように、現在選択中のブロックだけJSでdisplay:blockにするイメージ */
   </style>
 
   <script>
-    // セレクトボックスで言語が切り替わったときに呼ばれる
+    // 言語を切り替えたときの処理
     function changeLanguage(lang) {
-      // すべての言語ブロックを非表示にする
       const blocks = document.querySelectorAll('.language-content');
       blocks.forEach(block => {
         block.style.display = 'none';
       });
-
-      // 選択された言語のブロックだけ表示
       const target = document.getElementById(`lang-${lang}`);
       if (target) {
         target.style.display = 'block';
@@ -74,7 +72,7 @@
 
 <!-- ■■■ 言語切り替えセレクトボックス ■■■ -->
 <div style="text-align:center; margin-bottom:20px;">
-  <label for="languageSelect">言語を選択してください: </label>
+  <label for="languageSelect" style="color:#fff; font-weight:bold;">言語を選択してください: </label>
   <select id="languageSelect" onchange="changeLanguage(this.value)">
     <option value="ja">日本語</option>
     <option value="en">English</option>
@@ -86,24 +84,105 @@
   </select>
 </div>
 
-<!-- ■■■ ページ全体の構造 ■■■ -->
-<div class="container" style="background:#fff;">
-  <!-- 以下、「<!DOCTYPE html>」「<html>」「<head>」... といった行が
-       見本として書かれていますが、実際には不要なので折りたたんでいます。
-       そのまま残したい場合は、単にHTMLコードサンプルとして
-       表示用に書いているのだと割り切ってください。 -->
+<!-- ■■■ メインコンテンツ枠 ■■■ -->
+<div class="container">
 
-  <header style="background-color: #4da6ff; color:#fff; padding:16px;">
-    <h1 style="margin:0; font-size:1.5rem;">StickApp サポートページ</h1>
+  <header style="background-color: #4da6ff; color:#fff; padding:16px; border-radius:4px;">
+    <h1 style="margin:0; font-size:1.5rem;">棒取り攻略！森のウッドゴーレム大冒険 サポートページ</h1>
   </header>
 
-  <main style="max-width:800px; margin:0 auto; padding:24px; background:#fff;">
-    <section>
-      <p>このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&amp;A、そして同じページ上での利用規約・プライバシーポリシーを掲載しています。ご不明点がある場合は下記の連絡先へご連絡ください。</p>
+  <main style="margin:0 auto; padding:24px;">
+    
+    <!-- ▼▼ ゲーム概要 & 特徴 ▼▼ -->
+    <section style="margin-bottom:24px;">
+      <h2>ゲーム概要</h2>
+      <p>
+        『棒取り攻略！森のウッドゴーレム大冒険』は、単なるパズルゲームではありません。  
+        伝統的な棒引きゲームの戦略性に加え、ウッドゴーレムの成長を追体験できる魅力的なストーリーがあなたを待っています。
+      </p>
+      <ul>
+        <li><strong>深遠な戦略性</strong>: 各ステージは複雑な戦略を要求し、プレイヤーの思考力を試します。棒を引き抜くたびに変化する局面で、最善の手を見つけ出しましょう。</li>
+        <li><strong>ウッドゴーレムの成長物語</strong>: 小さなゴーレムがあなたの手によって成長していく過程を楽しめます。ステージをクリアするごとにゴーレムは新たな力を手に入れ、物語は次第に深まります。</li>
+        <li><strong>魅力的なストーリーライン</strong>: 森の奥深くで繰り広げられるゴーレムとの冒険。彼の故郷への帰還を助けるために、あなたは数々の試練に立ち向かいます。</li>
+        <li><strong>美麗なグラフィックスとサウンド</strong>: 手描きのアートスタイルと感動的なサウンドトラックが、ゲームの世界観を一層引き立てます。</li>
+        <li><strong>多彩なステージとチャレンジ</strong>: 様々な難易度のステージが用意されており、飽きることなく挑戦し続けられます。</li>
+        <li><strong>インタラクティブなヒントシステム</strong>: 必要な時に戦略的なアドバイスを提供し、プレイヤーのスキル向上をサポートします。</li>
+        <li><strong>広告削除オプション</strong>: アプリ内購入で広告を取り除き、シームレスなゲーム体験をお楽しみください。</li>
+      </ul>
+    </section>
+    
+    <!-- ▼▼ ストーリー (STORY_INTRO) ▼▼ -->
+    <section style="margin-bottom:24px;">
+      <h2>ストーリー</h2>
+      <p style="white-space:pre-wrap;">
+森の奥で、小さなウッドゴーレムと出会った。
+
+体は数本の木の棒だけでできていて、弱々しいが、その瞳にはどこか切ない光が宿っている。
+
+木の棒を一本与えると、体に吸い込まれ、少し成長した。
+
+ゴーレムは星空を見上げ、「元いた星に帰りたい」とつぶやく。
+
+その言葉を聞いたあなたは、彼を故郷へ帰すことを決意する。
+
+100本の木を集めて成長させれば、彼は故郷に帰れるという。
+
+しかし、木を集めるたび、森には謎の現象が起こり、不穏な気配が漂い始める。
+
+ゴーレムを完成させるとき、真実が明かされる。
+
+果たして彼を無事に帰すことはできるのだろうか？
+      </p>
+    </section>
+    
+    <!-- ▼▼ ルール (RULES) ▼▼ -->
+    <section style="margin-bottom:24px;">
+      <h2>ゲームの遊び方 (ルール)</h2>
+      
+      <h3>1. ゲームの目的</h3>
+      <p>棒引きゲームの目的は、最後の棒を相手に取らせることです。</p>
+      
+      <h3>2. ゲームの開始</h3>
+      <p>まず最初にプレイヤーは先行か後攻かを選びます。</p>
+      
+      <h3>3. 棒を取るルール</h3>
+      <p>自分のターンでは、任意の段から1本以上の棒を取ることができます。ただし、連続する棒のみを取ることができます。</p>
+      
+      <h3>4. ターンの交代</h3>
+      <p>一人が棒を取ったら、次は相手のターンになります。これを繰り返し、最後の棒を取る人が敗北します。</p>
+      
+      <h3>5. 戦略のポイント</h3>
+      <ul>
+        <li><strong>最善の手を打ち続ける</strong>: 一度でも相手が有利になると不利になります。画面上部のメッセージを参考に計画しましょう。</li>
+        <li><strong>最後を見据える</strong>: 終盤で相手に最後の棒を取らせるために、計画的に棒を取ります。</li>
+        <li><strong>相手の動きを予測</strong>: 相手がどの段からどれだけ棒を取るかを予測して、先回りする戦略を練りましょう。</li>
+      </ul>
+      
+      <h3>6. 勝利条件</h3>
+      <p>最後の棒を取った人が敗北です。相手に最後の棒を取らせることで勝利を確定させましょう。</p>
+    </section>
+
+    <!-- ▼▼ ゲームの楽しみ方 ▼▼ -->
+    <section style="margin-bottom:24px;">
+      <h2>ゲームの楽しみ方</h2>
+      <ol>
+        <li><strong>ステージを選択</strong>  
+          各ステージには異なる棒の配置と挑戦が待っています。自分のペースで進めていきましょう。
+        </li>
+        <li><strong>戦略を練る</strong>  
+          各棒を引き抜くタイミングと場所を慎重に選び、ゴーレムとの対戦に勝利を目指します。
+        </li>
+        <li><strong>ゴーレムを成長させる</strong>  
+          ステージをクリアするごとにゴーレムが成長し、新たな能力を獲得。物語も進展します。
+        </li>
+        <li><strong>物語を楽しむ</strong>  
+          ゴーレムとの絆が深まる中で、彼の過去や故郷に関する秘密が明らかになります。
+        </li>
+      </ol>
     </section>
 
     <!-- 連絡先・サポート情報 -->
-    <section class="contact-info" style="background:#eee; padding:16px; margin-top:16px; border-radius:4px;">
+    <section class="contact-info" style="background:#eee; padding:16px; margin-bottom:16px; border-radius:4px;">
       <h2>お問い合わせ先</h2>
       <p>
         アプリに関するご質問・不具合報告等は、以下メールアドレスまでご連絡ください。<br />
@@ -112,38 +191,39 @@
     </section>
 
     <!-- Q&Aセクション -->
-    <section class="qa-section" style="margin-top:16px; border-left:4px solid #4da6ff; padding-left:12px;">
+    <section class="qa-section" style="border-left:4px solid #4da6ff; padding-left:12px; margin-bottom:16px;">
       <h2>よくある質問（FAQ）</h2>
 
       <h4>Q1: ゲームのルールが分かりません。</h4>
       <p>
-        A1: アプリ内の「ルール」ボタンから詳細を確認できます。簡単に説明すると、複数の段に並んだ棒を交互に取っていき、最後の棒を「相手」に取らせれば勝利です。同じ段であれば連続する複数本を一度に取ることができます。
+        A1: アプリ内の「ルール」ボタンから詳細を確認できます。複数の段に並んだ棒を交互に取っていき、最後の棒を「相手」に取らせれば勝利です。
       </p>
 
       <h4>Q2: ステージをやり直したいのですがどうすればいいですか？</h4>
       <p>
-        A2: メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は「Retry」ボタン（リトライ）から現在ステージを再挑戦することも可能です。
+        A2: メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は「Retry」ボタン（リトライ）から再挑戦することも可能です。
       </p>
 
       <h4>Q3: BGMや効果音を消したい場合はどうすればいいですか？</h4>
       <p>
-        A3: アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。オフにするとBGMやSEが再生されなくなります。
+        A3: アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。
       </p>
 
       <h4>Q4: 広告を非表示にしたいのですが。</h4>
       <p>
-        A4: ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニュー内の「広告削除（¥300）」から行えます。購入後はUserDefaultsを通じて広告が表示されなくなるよう設定しています。
+        A4: ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニューの「広告削除（¥300）」から行えます。
       </p>
 
       <h4>Q5: アプリが起動しなくなったり、クラッシュする場合は？</h4>
       <p>
-        A5: ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて
-        <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a> までお問い合わせください。再インストールで改善する場合もありますので、まずはアプリを一旦削除→再インストールをお試しください。
+        A5: ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて 
+        <a href="mailto:shevachenkosan@gmail.com">shevachenkosan@gmail.com</a>
+        までお問い合わせください。再インストールで改善する場合もあります。
       </p>
     </section>
 
     <!-- 利用規約・プライバシーポリシー（同じページに全文を掲載） -->
-    <section class="policy-info" style="background:#eee; padding:16px; margin-top:16px; border-radius:4px;">
+    <section class="policy-info" style="background:#eee; padding:16px; border-radius:4px;">
       <h2>利用規約 &amp; プライバシーポリシー</h2>
       
       <!-- ▼▼ プライバシーポリシー本文 ▼▼ -->
@@ -171,7 +251,7 @@
       <div>
         <h3>利用規約</h3>
         <div style="white-space: pre-wrap;">
-本利用規約（以下、「本規約」といいます。）は、本アプリケーション「StickApp」（以下、「本アプリ」といいます。）の提供者（以下、「当社」といいます。）が提供する一切のサービス（以下、「本サービス」といいます。）の利用条件を定めるものです。本アプリのダウンロードおよびインストールならびに本サービスの利用にあたり、本規約にご同意いただく必要があります。
+本利用規約（以下、「本規約」といいます。）は、本アプリケーション「棒取り攻略！森のウッドゴーレム大冒険」（以下、「本アプリ」といいます。）の提供者（以下、「当社」といいます。）が提供する一切のサービス（以下、「本サービス」といいます。）の利用条件を定めるものです。本アプリのダウンロードおよびインストールならびに本サービスの利用にあたり、本規約にご同意いただく必要があります。
 
 1. 適用
    本規約は、ユーザー（本アプリを利用するすべての方）と当社との間の、本サービスの利用に関する一切の関係に適用されます。
@@ -205,19 +285,21 @@
         いただいたご意見は、今後の改善や新機能追加の参考にさせていただきます。
       </p>
     </section>
+
   </main>
 
-  <footer style="background-color: #4da6ff; color:#fff; text-align:center; padding:16px; margin-top:24px;">
-    <p>© 2024 StickApp. All rights reserved.</p>
+  <footer style="background-color: #4da6ff; color:#fff; text-align:center; padding:16px; margin-top:24px; border-radius:4px;">
+    <p>© 2024 棒取り攻略！森のウッドゴーレム大冒険. All rights reserved.</p>
   </footer>
 </div>
 
 
-<!-- ■■■ 日本語版コンテンツ ■■■ -->
-<div id="lang-ja" class="language-content" style="display:block;"><!-- 初期表示を日本語にしたいので style="display:block;" -->
+<!-- ■■■ 以下 各言語の切り替えコンテンツ ■■■ -->
+<!-- 日本語版コンテンツ -->
+<div id="lang-ja" class="language-content" style="display:block;">
   <div class="container">
-      <h1>StickApp サポート</h1>
-      <p>StickAppに関するご質問や問題がございましたら、以下のフォームからお問い合わせください。</p>
+      <h1>棒取り攻略！森のウッドゴーレム大冒険 サポート</h1>
+      <p>棒取り攻略！森のウッドゴーレム大冒険に関するご質問や問題がございましたら、以下のフォームからお問い合わせください。</p>
       
       <div class="contact-form">
           <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
@@ -235,11 +317,9 @@
       </div>
   </div>
 </div>
-<!-- /lang-ja -->
 
-<!-- ■■■ 英語版コンテンツ（サンプル） ■■■ -->
+<!-- 英語版コンテンツ（サンプル） -->
 <div id="lang-en" class="language-content">
-  <!-- 以下の部分に英語版の文章を入れてください -->
   <div class="container">
     <h1>StickApp Support - English Version</h1>
     <p>Here is the English version of the content...</p>
@@ -247,58 +327,53 @@
   </div>
 </div>
 
-<!-- ■■■ スペイン語版コンテンツ（サンプル） ■■■ -->
+<!-- スペイン語版コンテンツ（サンプル） -->
 <div id="lang-es" class="language-content">
-  <!-- スペイン語版の文章を入れてください -->
   <div class="container">
-    <h1>Soporte de StickApp - Versión en español</h1>
+    <h1>Soporte de棒取り攻略！森のウッドゴーレム大冒険 - Versión en español</h1>
     <p>Aquí se muestra el contenido en español...</p>
     <!-- 以下省略 -->
   </div>
 </div>
 
-<!-- ■■■ ヒンディー語版コンテンツ（サンプル） ■■■ -->
+<!-- ヒンディー語版コンテンツ（サンプル） -->
 <div id="lang-hi" class="language-content">
-  <!-- ヒンディー語版の文章を入れてください -->
   <div class="container">
-    <h1>StickApp सहायता - हिन्दी संस्करण</h1>
+    <h1>棒取り攻略！森のウッドゴーレム大冒険 सहायता - हिन्दी संस्करण</h1>
     <p>यहां हिंदी में कंटेंट दिखाई देता है...</p>
     <!-- 以下省略 -->
   </div>
 </div>
 
-<!-- ■■■ 韓国語版コンテンツ（サンプル） ■■■ -->
+<!-- 韓国語版コンテンツ（サンプル） -->
 <div id="lang-ko" class="language-content">
-  <!-- 韓国語版の文章を入れてください -->
   <div class="container">
-    <h1>StickApp 지원 - 한국어 버전</h1>
+    <h1>棒取り攻略！森のウッドゴーレム大冒険 지원 - 한국어 버전</h1>
     <p>이곳은 한국어로 된 콘텐츠입니다...</p>
     <!-- 以下省略 -->
   </div>
 </div>
 
-<!-- ■■■ ポルトガル語版コンテンツ（サンプル） ■■■ -->
+<!-- ポルトガル語版コンテンツ（サンプル） -->
 <div id="lang-pt" class="language-content">
-  <!-- ポルトガル語版の文章を入れてください -->
   <div class="container">
-    <h1>Suporte StickApp - Versão em português</h1>
+    <h1>Suporte 棒取り攻略！森のウッドゴーレム大冒険 - Versão em português</h1>
     <p>Aqui está o conteúdo em português...</p>
     <!-- 以下省略 -->
   </div>
 </div>
 
-<!-- ■■■ 中国語版コンテンツ（サンプル） ■■■ -->
+<!-- 中国語版コンテンツ（サンプル） -->
 <div id="lang-zh" class="language-content">
-  <!-- 中国語版の文章を入れてください -->
   <div class="container">
-    <h1>StickApp 支持 - 中文版</h1>
+    <h1>棒取り攻略！森のウッドゴーレム大冒険 支持 - 中文版</h1>
     <p>这里显示中文内容...</p>
     <!-- 以下省略 -->
   </div>
 </div>
 
 <script>
-  // ページ読み込み時に日本語が選択されている状態にする
+  // ページ読み込み時に日本語が選択される
   window.onload = function(){
     document.getElementById('languageSelect').value = 'ja';
   };
