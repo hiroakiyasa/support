@@ -86,28 +86,8 @@
   </select>
 </div>
 
-<!-- ■■■ 日本語版コンテンツ ■■■ -->
-<div id="lang-ja" class="language-content" style="display:block;"><!-- 初期表示を日本語にしたいので style="display:block;" -->
-  <div class="container">
-      <h1>StickApp サポート</h1>
-      <p>StickAppに関するご質問や問題がございましたら、以下のフォームからお問い合わせください。</p>
-      
-      <div class="contact-form">
-          <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-              <label for="name">お名前:</label>
-              <input type="text" id="name" name="name" required>
-              
-              <label for="email">メールアドレス:</label>
-              <input type="email" id="email" name="email" required>
-              
-              <label for="message">メッセージ:</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-              
-              <button type="submit">送信</button>
-          </form>
-      </div>
-  </div>
-
+<!-- ■■■ ページ全体の構造 ■■■ -->
+<div class="container" style="background:#fff;">
   <!-- 以下、「<!DOCTYPE html>」「<html>」「<head>」... といった行が
        見本として書かれていますが、実際には不要なので折りたたんでいます。
        そのまま残したい場合は、単にHTMLコードサンプルとして
@@ -119,7 +99,7 @@
 
   <main style="max-width:800px; margin:0 auto; padding:24px; background:#fff;">
     <section>
-      <p>このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&amp;A、利用規約・プライバシーポリシーへのリンクを案内しています。ご不明点がある場合は下記の連絡先へご連絡ください。</p>
+      <p>このページでは、StickApp に関するサポート情報やお問い合わせ先、Q&amp;A、そして同じページ上での利用規約・プライバシーポリシーを掲載しています。ご不明点がある場合は下記の連絡先へご連絡ください。</p>
     </section>
 
     <!-- 連絡先・サポート情報 -->
@@ -162,14 +142,57 @@
       </p>
     </section>
 
-    <!-- 利用規約・プライバシーポリシー -->
+    <!-- 利用規約・プライバシーポリシー（同じページに全文を掲載） -->
     <section class="policy-info" style="background:#eee; padding:16px; margin-top:16px; border-radius:4px;">
       <h2>利用規約 &amp; プライバシーポリシー</h2>
-      <p>
-        下記リンク先にて、StickApp の利用規約およびプライバシーポリシーを掲載しています。<br />
-        <a href="#">利用規約</a> / <a href="#">プライバシーポリシー</a><br /><br />
-        （実際にはそれぞれの詳細ページを別途作成し、リンクを設定してください。）
-      </p>
+      
+      <!-- ▼▼ プライバシーポリシー本文 ▼▼ -->
+      <div style="margin-bottom: 2em;">
+        <h3>プライバシーポリシー</h3>
+        <div style="white-space: pre-wrap;">
+本アプリは、お客様の個人情報を取得する機能を実装していません（個人を特定できる情報の入力フォームやアクセス解析による個人データ収集を行わない設計です）。
+
+1. 取得しない個人情報
+   当社は、お客様の氏名、住所、電話番号、メールアドレスなど、個人を特定できる情報を一切取得しません。
+
+2. 広告および解析
+   本アプリでは、広告配信や利用状況解析を行う場合があります。ただし、それらの目的においても個人を特定する情報は収集しません。詳細は広告配信事業者のプライバシーポリシー等をご確認ください。
+
+3. 問い合わせ先
+   本アプリに関するお問い合わせは、下記メールアドレスまでお願いいたします。
+   shevachenkosan@gmail.com
+
+4. 改定
+   当社は、必要と判断した場合には、本プライバシーポリシーを予告なく改定することができます。改定後の内容は、本アプリ内に掲載した時点で効力を生じるものとします。
+        </div>
+      </div>
+
+      <!-- ▼▼ 利用規約本文 ▼▼ -->
+      <div>
+        <h3>利用規約</h3>
+        <div style="white-space: pre-wrap;">
+本利用規約（以下、「本規約」といいます。）は、本アプリケーション「StickApp」（以下、「本アプリ」といいます。）の提供者（以下、「当社」といいます。）が提供する一切のサービス（以下、「本サービス」といいます。）の利用条件を定めるものです。本アプリのダウンロードおよびインストールならびに本サービスの利用にあたり、本規約にご同意いただく必要があります。
+
+1. 適用
+   本規約は、ユーザー（本アプリを利用するすべての方）と当社との間の、本サービスの利用に関する一切の関係に適用されます。
+
+2. 禁止事項
+   ユーザーは、以下の行為を行ってはならないものとします。
+   - 法令または公序良俗に違反する行為
+   - 本サービスの運営を妨害する行為
+   - 当社または第三者の権利を侵害する行為
+   - その他当社が不適切と判断する行為
+
+3. 免責事項
+   当社は、本サービスに関して、事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性等を含む）について保証しません。ユーザーが本サービスを利用して被った損害については、当社は一切の責任を負わないものとします。
+
+4. 利用規約の変更
+   当社は、必要と判断した場合には、本規約を予告なく変更することができます。変更後の規約は、本アプリ上に表示した時点より効力を生じるものとします。
+
+5. 準拠法および管轄
+   本規約は日本法に準拠し解釈されるものとします。また、本サービスに関して訴訟の必要が生じた場合には、当社の所在地を管轄する裁判所を専属的合意管轄裁判所とします。
+        </div>
+      </div>
     </section>
 
     <section style="margin-top: 24px;">
@@ -187,6 +210,30 @@
   <footer style="background-color: #4da6ff; color:#fff; text-align:center; padding:16px; margin-top:24px;">
     <p>© 2024 StickApp. All rights reserved.</p>
   </footer>
+</div>
+
+
+<!-- ■■■ 日本語版コンテンツ ■■■ -->
+<div id="lang-ja" class="language-content" style="display:block;"><!-- 初期表示を日本語にしたいので style="display:block;" -->
+  <div class="container">
+      <h1>StickApp サポート</h1>
+      <p>StickAppに関するご質問や問題がございましたら、以下のフォームからお問い合わせください。</p>
+      
+      <div class="contact-form">
+          <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+              <label for="name">お名前:</label>
+              <input type="text" id="name" name="name" required>
+              
+              <label for="email">メールアドレス:</label>
+              <input type="email" id="email" name="email" required>
+              
+              <label for="message">メッセージ:</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              
+              <button type="submit">送信</button>
+          </form>
+      </div>
+  </div>
 </div>
 <!-- /lang-ja -->
 
