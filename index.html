@@ -8,14 +8,14 @@
 
   <style>
     /* 背景画像を設定する */
-    body {
-      font-family: Arial, sans-serif;
-      /* ここにウッドゴーレム画像を設定 */
-      background: url('woodgolem.png') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      padding: 20px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  /* 横幅に合わせて画像サイズを調整し、縦方向に繰り返し表示。画像は固定されたまま */
+  background: url('woodgolem.png') repeat-y center top fixed;
+  background-size: 100% auto; /* 横幅100%で高さは自動 */
+  margin: 0;
+  padding: 20px;
+}
 .container {
   max-width: 800px;
   margin: auto;
