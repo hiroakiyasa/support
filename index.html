@@ -347,11 +347,12 @@
     }
     
     .app-screen {
-      height: 400px;
+      height: 450px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       transform: perspective(800px) rotateY(5deg);
       transition: all 0.5s ease;
+      object-fit: cover;
     }
     
     .app-screen:nth-child(2) {
@@ -954,11 +955,11 @@
   </script>
 </head>
 <body class="english-app">
-  <!-- ナビゲーションバー -->
+          <!-- ナビゲーションバー -->
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-logo">
-        <img src="https://via.placeholder.com/120x40?text=TrailFusion" alt="Trail Fusion Logo">
+        <img src="logo.PNG" alt="Trail Fusion Logo">
         <h2>TrailFusion AI</h2>
       </div>
     </div>
@@ -991,8 +992,8 @@
                 <i class="fab fa-apple"></i> App Storeでダウンロード
               </a>
               <div class="app-screens">
-                <img src="https://via.placeholder.com/250x450?text=英会話画面" alt="英会話画面" class="app-screen animate__animated animate__fadeInLeft animate-delay-2">
-                <img src="https://via.placeholder.com/250x450?text=単語学習ゲーム" alt="単語学習ゲーム" class="app-screen animate__animated animate__fadeInRight animate-delay-2">
+                <img src="Image3.jpg" alt="英会話画面" class="app-screen animate__animated animate__fadeInLeft animate-delay-2">
+                <img src="Image5.jpg" alt="単語学習ゲーム" class="app-screen animate__animated animate__fadeInRight animate-delay-2">
               </div>
             </div>
           </div>
@@ -1013,6 +1014,7 @@
                 </div>
                 <h3>リアルな英会話練習</h3>
                 <p>個性豊かな先生キャラクターと実際に会話できます。先進的な音声認識技術で話した英語を自動認識し、AIが自然な英語で返答します。</p>
+                <img src="Image4.jpg" alt="翻訳機能付き英会話画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
               </div>
               <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">
@@ -1020,6 +1022,7 @@
                 </div>
                 <h3>レベル別コース構成</h3>
                 <p>日常英会話コース（初級・中級・上級）と英文法コース（中学1年・2年・3年レベル）から選べます。自分のレベルに合わせて学習を進められます。</p>
+                <img src="Image1.jpg" alt="英語コース選択画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
               </div>
               <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">
@@ -1027,6 +1030,7 @@
                 </div>
                 <h3>フレーズブック機能</h3>
                 <p>レッスンごとに役立つ英語フレーズを収録。音声で発音を聞けたり、お気に入り登録で復習しやすくなっています。</p>
+                <img src="Image2.jpg" alt="フレーズブックとタスク画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
               </div>
               <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">
@@ -1034,6 +1038,7 @@
                 </div>
                 <h3>ワードブラスター</h3>
                 <p>宇宙を舞台にしたシューティングゲームで単語を学習。英検5級からTOEIC990点レベルまで幅広く対応し、楽しみながら単語力が身につきます。</p>
+                <img src="Image6.jpg" alt="ワードブラスターゲーム画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
               </div>
               <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">
@@ -1041,6 +1046,7 @@
                 </div>
                 <h3>学習進捗管理</h3>
                 <p>単語のマスター状況をビジュアル表示。学習統計でこれまでの成果を確認でき、間違えやすい単語を特定して集中学習できます。</p>
+                <img src="Image7.jpg" alt="学習チャレンジとカレンダー画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
               </div>
               <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">
@@ -1061,6 +1067,35 @@
               <h2>こんな方におすすめ</h2>
               <p>GPティーチャーズは、英語学習を始めたい方から、スキルアップを目指す方まで幅広く対応しています。</p>
             </div>
+            
+            <!-- ワードブラスター特集セクション -->
+            <div class="feature-highlight" style="background: rgba(65, 105, 225, 0.05); border-radius: 20px; padding: 2rem; margin-bottom: 3rem;">
+              <div class="row" style="display: flex; flex-wrap: wrap; align-items: center;">
+                <div class="col-md-6" style="flex: 0 0 50%; max-width: 50%; padding: 1rem;">
+                  <h3 style="color: var(--english-primary);">ワードブラスター機能</h3>
+                  <p>宇宙を舞台にした英単語シューティングゲームが大人気！</p>
+                  <ul style="list-style-type: none; padding-left: 0; margin-top: 1.5rem;">
+                    <li style="margin-bottom: 1rem; display: flex; align-items: center;">
+                      <i class="fas fa-check-circle" style="color: var(--english-primary); margin-right: 0.5rem;"></i>
+                      <span>英検5級からTOEIC990点まで幅広いレベル対応</span>
+                    </li>
+                    <li style="margin-bottom: 1rem; display: flex; align-items: center;">
+                      <i class="fas fa-check-circle" style="color: var(--english-primary); margin-right: 0.5rem;"></i>
+                      <span>宇宙船を操作して敵からの攻撃をかわしながら単語を学習</span>
+                    </li>
+                    <li style="margin-bottom: 1rem; display: flex; align-items: center;">
+                      <i class="fas fa-check-circle" style="color: var(--english-primary); margin-right: 0.5rem;"></i>
+                      <span>ステージ制で徐々に難易度が上がり、継続的に学習意欲を維持</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6" style="flex: 0 0 50%; max-width: 50%; padding: 1rem; text-align: center;">
+                  <img src="Image5.jpg" alt="ワードブラスターのレベル選択画面" style="width: 45%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin-right: 5%;">
+                  <img src="Image6.jpg" alt="ワードブラスターのゲームプレイ画面" style="width: 45%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+                </div>
+              </div>
+            </div>
+            
             <div class="feature-grid">
               <div class="feature-card animate-on-scroll">
                 <div class="feature-icon">
@@ -1440,7 +1475,7 @@
       <div class="footer-content">
         <div>
           <div class="footer-logo">
-            <img src="https://via.placeholder.com/120x40?text=TrailFusion" alt="Trail Fusion Logo">
+            <img src="logo.PNG" alt="Trail Fusion Logo">
             <h3>TrailFusion AI</h3>
           </div>
           <div class="footer-company">
