@@ -4,33 +4,61 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrailFusion アプリ公式サイト | GPティーチャーズ・森のウッドゴーレム</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Title and Description will be set by JavaScript -->
+  <title>TrailFusion アプリ公式サイト</title>
+  <meta name="description" content="TrailFusionの革新的なアプリ、GPティーチャーズと森のウッドゴーレムをご紹介。今すぐダウンロードして新しい体験を！">
+  
+  <!-- SEO: Add more meta tags as needed -->
+  <meta name="keywords" content="アプリ, モバイルアプリ, GPティーチャーズ, 森のウッドゴーレム, 英語学習, パズルゲーム, TrailFusion">
+  <meta name="author" content="TrailFusion AI">
+  <!-- SEO: Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="YOUR_WEBSITE_URL">
+  <meta property="og:title" content="TrailFusion アプリ公式サイト">
+  <meta property="og:description" content="TrailFusionの革新的なアプリ、GPティーチャーズと森のウッドゴーレムをご紹介。">
+  <meta property="og:image" content="YOUR_OG_IMAGE_URL"> <!-- Example: https://example.com/og-image.jpg -->
+  <!-- SEO: Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="YOUR_WEBSITE_URL">
+  <meta property="twitter:title" content="TrailFusion アプリ公式サイト">
+  <meta property="twitter:description" content="TrailFusionの革新的なアプリ、GPティーチャーズと森のウッドゴーレムをご紹介。">
+  <meta property="twitter:image" content="YOUR_TWITTER_IMAGE_URL"> <!-- Example: https://example.com/twitter-image.jpg -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* 基本スタイル */
     :root {
-      --primary-color: #4A9D67;
+      --primary-color: #4A9D67; /* Default Green */
       --primary-dark: #337548;
       --primary-light: #6BC288;
       --secondary-color: #F4A261;
       --accent-color: #E76F51;
-      --dark-color: #333;
-      --light-color: #F8F9FA;
-      --gray-color: #6c757d;
-      
+      --dark-color: #2c3e50; /* Darker Gray for text */
+      --light-color: #ffffff;
+      --gray-color: #7f8c8d; /* Lighter Gray */
+      --bg-color: #f8f9fa; /* Light background */
+      --card-bg: #ffffff;
+      --border-radius: 12px;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --font-primary: 'Poppins', 'Noto Sans JP', sans-serif;
+      --font-secondary: 'Noto Sans JP', 'Poppins', sans-serif;
+
       /* 英語アプリのカラー */
-      --english-primary: #4169E1;
-      --english-secondary: #87CEFA;
-      --english-accent: #1E90FF;
-      --english-dark: #191970;
+      --english-primary: #3498db; /* Brighter Blue */
+      --english-secondary: #5dade2;
+      --english-accent: #2980b9;
+      --english-dark: #2c3e50; /* Consistent dark for text */
       
       /* スティックアプリのカラー */
-      --stick-primary: #4A9D67;
-      --stick-secondary: #F4A261;
-      --stick-accent: #E76F51;
-      --stick-dark: #2E8B57;
+      --stick-primary: #27ae60; /* Brighter Green */
+      --stick-secondary: #f1c40f; /* Yellow Accent */
+      --stick-accent: #e67e22; /* Orange Accent */
+      --stick-dark: #2c3e50; /* Consistent dark for text */
     }
     
     * {
@@ -41,51 +69,77 @@
     
     html {
       scroll-behavior: smooth;
+      font-size: 16px; /* Base font size */
     }
     
     body {
-      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f7;
-      margin: 0;
+      font-family: var(--font-secondary);
+      line-height: 1.7;
+      background-color: var(--bg-color);
       color: var(--dark-color);
       position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.english-app-active {
+      --current-app-primary: var(--english-primary);
+      --current-app-secondary: var(--english-secondary);
+      --current-app-accent: var(--english-accent);
+      --current-app-dark: var(--english-dark);
+    }
+
+    body.stick-app-active {
+      --current-app-primary: var(--stick-primary);
+      --current-app-secondary: var(--stick-secondary);
+      --current-app-accent: var(--stick-accent);
+      --current-app-dark: var(--stick-dark);
     }
     
     h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-primary);
       font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+      color: var(--current-app-dark, var(--dark-color));
     }
+
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.8rem; }
+    h4 { font-size: 1.4rem; }
     
     p {
       margin-bottom: 1rem;
+      color: var(--gray-color);
     }
     
     a {
       text-decoration: none;
+      color: var(--current-app-primary, var(--primary-color));
       transition: all 0.3s ease;
     }
     
     a:hover {
-      text-decoration: underline;
+      color: var(--current-app-accent, var(--accent-color));
+      text-decoration: none;
     }
     
     img {
       max-width: 100%;
       height: auto;
-      border-radius: 12px;
+      border-radius: var(--border-radius);
     }
     
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
     
     .btn {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 2rem;
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -94,62 +148,86 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       text-align: center;
+      background: var(--current-app-primary, var(--primary-color));
+      color: var(--light-color);
     }
     
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      text-decoration: none;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background: var(--current-app-accent, var(--accent-color));
+      color: var(--light-color);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--current-app-primary, var(--primary-color));
+        border: 2px solid var(--current-app-primary, var(--primary-color));
+    }
+    .btn-outline:hover {
+        background: var(--current-app-primary, var(--primary-color));
+        color: var(--light-color);
     }
     
-    .text-center {
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
       text-align: center;
+      margin-bottom: 3rem;
     }
     
-    .mb-1 { margin-bottom: 0.5rem; }
-    .mb-2 { margin-bottom: 1rem; }
-    .mb-3 { margin-bottom: 1.5rem; }
-    .mb-4 { margin-bottom: 2rem; }
-    .mb-5 { margin-bottom: 3rem; }
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      color: var(--current-app-dark, var(--dark-color));
+    }
     
-    .mt-1 { margin-top: 0.5rem; }
-    .mt-2 { margin-top: 1rem; }
-    .mt-3 { margin-top: 1.5rem; }
-    .mt-4 { margin-top: 2rem; }
-    .mt-5 { margin-top: 3rem; }
-    
-    .py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-    .py-2 { padding-top: 1rem; padding-bottom: 1rem; }
-    .py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-    .py-4 { padding-top: 2rem; padding-bottom: 2rem; }
-    .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
-    
-    .px-1 { padding-left: 0.5rem; padding-right: 0.5rem; }
-    .px-2 { padding-left: 1rem; padding-right: 1rem; }
-    .px-3 { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .px-4 { padding-left: 2rem; padding-right: 2rem; }
-    .px-5 { padding-left: 3rem; padding-right: 3rem; }
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--current-app-primary, var(--primary-color));
+    }
+    .section-title p.subtitle {
+        font-size: 1.1rem;
+        color: var(--gray-color);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+    }
     
     /* ナビゲーション */
     .navbar {
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
       transition: all 0.3s ease;
     }
+    .navbar.scrolled {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.98);
+    }
     
     .navbar-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
     }
     
     .navbar-logo {
@@ -158,15 +236,58 @@
     }
     
     .navbar-logo img {
-      height: 40px;
-      border-radius: 0;
+      height: 45px;
+      border-radius: 0; /* Logo might not need rounding */
+      margin-right: 0.75rem;
     }
     
     .navbar-logo h2 {
       margin: 0;
-      margin-left: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       color: var(--dark-color);
+      font-weight: 700;
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+    .nav-item {
+        margin-left: 1.5rem;
+    }
+    .nav-link {
+        color: var(--dark-color);
+        font-weight: 600;
+        padding: 0.5rem 0;
+        position: relative;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--current-app-primary, var(--primary-color));
+        transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+        width: 100%;
+    }
+
+    /* 言語スイッチャー */
+    .language-switcher {
+        position: relative;
+    }
+    .language-switcher select {
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        background-color: var(--light-color);
+        font-family: var(--font-primary);
+        font-weight: 500;
+        cursor: pointer;
     }
     
     /* メインコンテンツ */
@@ -178,38 +299,45 @@
     .app-selector {
       display: flex;
       justify-content: center;
-      margin-bottom: 2rem;
-      gap: 1rem;
+      margin-bottom: 3rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
     
     .app-tab {
-      padding: 1rem 2rem;
-      background: white;
+      padding: 1rem 2.5rem;
+      background: var(--card-bg);
       border-radius: 50px;
       font-weight: 600;
       font-size: 1.1rem;
       cursor: pointer;
       transition: all 0.3s ease;
       border: 2px solid transparent;
-      min-width: 220px;
+      min-width: 250px;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      color: var(--dark-color);
     }
     
     .app-tab i {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
     }
     
+    .app-tab.active {
+      color: white;
+      transform: translateY(-3px);
+    }
+
     .app-tab.english-tab.active {
       background: var(--english-primary);
-      color: white;
       border-color: var(--english-primary);
+      box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
     }
-    
     .app-tab.english-tab:hover:not(.active) {
       border-color: var(--english-primary);
       color: var(--english-primary);
@@ -217,10 +345,9 @@
     
     .app-tab.stick-tab.active {
       background: var(--stick-primary);
-      color: white;
       border-color: var(--stick-primary);
+      box-shadow: 0 8px 15px rgba(39, 174, 96, 0.3);
     }
-    
     .app-tab.stick-tab:hover:not(.active) {
       border-color: var(--stick-primary);
       color: var(--stick-primary);
@@ -229,7 +356,7 @@
     /* アプリコンテンツエリア */
     .app-content {
       display: none;
-      animation: fadeIn 0.5s ease;
+      animation: fadeIn 0.6s ease-out;
     }
     
     .app-content.active {
@@ -237,435 +364,335 @@
     }
     
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
+      0% { opacity: 0; transform: translateY(25px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* 英語アプリのスタイル */
-    .english-app {
-      --app-color: var(--english-primary);
-      --app-color-light: var(--english-secondary);
-      --app-color-dark: var(--english-dark);
-      --app-color-accent: var(--english-accent);
-    }
-    
-    /* スティックアプリのスタイル */
-    .stick-app {
-      --app-color: var(--stick-primary);
-      --app-color-light: var(--stick-secondary);
-      --app-color-dark: var(--stick-dark);
-      --app-color-accent: var(--stick-accent);
     }
     
     /* ヒーローセクション */
     .hero {
       position: relative;
-      padding: 4rem 0;
-      background: linear-gradient(135deg, rgba(var(--app-color-rgb), 0.8), rgba(var(--app-color-light-rgb), 0.8));
+      padding: 5rem 0;
       color: white;
       text-align: center;
-      border-radius: 20px;
+      border-radius: var(--border-radius);
       overflow: hidden;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .english-app-active .hero {
+      background-image: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(41, 128, 185, 0.95));
     }
     
-    .english-app .hero {
-      background: linear-gradient(135deg, rgba(65, 105, 225, 0.8), rgba(135, 206, 250, 0.8));
-    }
-    
-    .stick-app .hero {
-      background: linear-gradient(135deg, rgba(74, 157, 103, 0.8), rgba(244, 162, 97, 0.8));
+    .stick-app-active .hero {
+      background-image: linear-gradient(135deg, rgba(39, 174, 96, 0.9), rgba(22, 160, 133, 0.95));
     }
     
     .hero-content {
       position: relative;
       z-index: 10;
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
     }
     
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1.5rem;
       color: white;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     }
     
-    .hero p {
-      font-size: 1.25rem;
+    .hero p.lead {
+      font-size: 1.3rem;
       max-width: 700px;
-      margin: 0 auto 2rem;
+      margin: 0 auto 2.5rem;
+      opacity: 0.9;
     }
     
-    .download-btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-size: 1.25rem;
+    .download-btn-hero {
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      margin-bottom: 2rem;
-      position: relative;
-      overflow: hidden;
+      margin: 0 0.5rem 1.5rem; /* Added bottom margin */
+    }
+    .download-btn-hero i {
+        margin-right: 0.75rem;
     }
     
-    .english-app .download-btn {
-      background: var(--english-accent);
-      color: white;
-    }
-    
-    .english-app .download-btn:hover {
-      background: var(--english-dark);
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      color: white;
-    }
-    
-    .stick-app .download-btn {
-      background: var(--stick-accent);
-      color: white;
-    }
-    
-    .stick-app .download-btn:hover {
-      background: var(--stick-dark);
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      color: white;
-    }
-    
-    .app-screens {
+    .app-screens-hero {
       display: flex;
       justify-content: center;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      margin-top: 3rem;
+      gap: 2rem;
+      flex-wrap: wrap; /* Allow wrapping on smaller screens */
     }
     
-    .app-screen {
-      height: 450px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      transform: perspective(800px) rotateY(5deg);
-      transition: all 0.5s ease;
+    .app-screen-hero {
+      height: 480px; /* Adjust as needed */
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      transform: perspective(1000px) rotateY(0deg);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
       object-fit: cover;
+      border: 5px solid white; /* Phone-like border */
     }
     
-    .app-screen:nth-child(2) {
-      transform: perspective(800px) rotateY(-5deg);
-    }
+    .app-screen-hero:nth-child(1) { transform: perspective(1000px) rotateY(-8deg) translateX(-20px); }
+    .app-screen-hero:nth-child(2) { transform: perspective(1000px) rotateY(8deg) translateX(20px); z-index: 5; }
     
-    .app-screen:hover {
-      transform: perspective(800px) rotateY(0) scale(1.05);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    .app-screen-hero:hover {
+      transform: perspective(1000px) rotateY(0) scale(1.05) translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      z-index: 10;
     }
     
     /* フィーチャーセクション */
     .features {
-      padding: 3rem 0;
-      background: white;
-      border-radius: 20px;
-      margin-bottom: 3rem;
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-title h2 {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .english-app .section-title h2 {
-      color: var(--english-primary);
-    }
-    
-    .stick-app .section-title h2 {
-      color: var(--stick-primary);
-    }
-    
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 4px;
-      border-radius: 2px;
-    }
-    
-    .english-app .section-title h2::after {
-      background: var(--english-primary);
-    }
-    
-    .stick-app .section-title h2::after {
-      background: var(--stick-primary);
+      background: var(--light-color); /* Cards will be on this background */
+      border-radius: var(--border-radius);
     }
     
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
-      padding: 0 1rem;
     }
     
     .feature-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
       transition: all 0.3s ease;
       height: 100%;
       display: flex;
       flex-direction: column;
-      border: 1px solid #eee;
+      border: 1px solid #e9ecef;
     }
     
     .feature-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
     }
     
     .feature-icon {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1.5rem;
       transition: all 0.3s ease;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(var(--current-app-primary-rgb, 74, 157, 103), 0.1);
+      color: var(--current-app-primary, var(--primary-color));
     }
     
-    .english-app .feature-icon {
-      color: var(--english-primary);
+    .feature-card:hover .feature-icon {
+      background-color: var(--current-app-primary, var(--primary-color));
+      color: var(--light-color);
     }
-    
-    .english-app .feature-card:hover .feature-icon {
-      color: var(--english-accent);
-    }
-    
-    .stick-app .feature-icon {
-      color: var(--stick-primary);
-    }
-    
-    .stick-app .feature-card:hover .feature-icon {
-      color: var(--stick-accent);
-    }
-    
+        
     .feature-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       margin-bottom: 1rem;
+      color: var(--current-app-dark, var(--dark-color));
     }
     
     .feature-card p {
       color: var(--gray-color);
       flex-grow: 1;
+      font-size: 0.95rem;
     }
-    
-    /* スクリーンショットセクション */
-    .screenshots {
-      padding: 3rem 0;
-      margin-bottom: 3rem;
+    .feature-image {
+        margin-top: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
     }
-    
+
+    /* スクリーンショットセクション (カルーセル) */
+    .screenshots-section {
+      padding: 4rem 0;
+    }
+    .screenshots-slider-wrapper {
+      position: relative;
+    }
     .screenshots-slider {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       gap: 1.5rem;
-      padding: 1rem 0;
-      scrollbar-width: none;
+      padding: 1rem 0.5rem; /* Padding for shadow visibility */
+      scrollbar-width: none; /* Firefox */
     }
-    
-    .screenshots-slider::-webkit-scrollbar {
-      display: none;
-    }
+    .screenshots-slider::-webkit-scrollbar { display: none; } /* Chrome, Safari */
     
     .screenshot-item {
       scroll-snap-align: center;
       min-width: 280px;
-      border-radius: 12px;
+      max-width: 300px; /* Control max width */
+      border-radius: 18px; /* More phone-like */
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
       transition: all 0.3s ease;
+      border: 4px solid #e0e0e0; /* Phone border */
     }
     
     .screenshot-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
     }
     
     .screenshot-item img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 0; /* Image itself has no border-radius, parent controls it */
+    }
+    .slider-nav {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    .slider-nav button {
+        background: var(--current-app-primary, var(--primary-color));
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        margin: 0 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .slider-nav button:hover {
+        background: var(--current-app-accent, var(--accent-color));
     }
     
     /* FAQセクション */
     .faq {
-      padding: 3rem 0;
-      background: white;
-      border-radius: 20px;
-      margin-bottom: 3rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding-top: 0.1px; /* Fix margin collapse */
+      padding-bottom: 0.1px; /* Fix margin collapse */
     }
-    
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
     .accordion {
       margin-bottom: 1rem;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9ecef;
     }
     
     .accordion-header {
-      padding: 1.25rem;
-      background: white;
+      padding: 1.5rem;
+      background: var(--light-color);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid #eee;
+      transition: background-color 0.3s ease;
     }
     
     .accordion-header h4 {
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      color: var(--current-app-dark, var(--dark-color));
+      font-weight: 600;
     }
     
     .accordion-header:hover {
-      background: #f5f5f5;
+      background: #f8f9fa;
     }
     
     .accordion-toggle {
-      font-size: 1.25rem;
-      transition: all 0.3s ease;
-    }
-    
-    .english-app .accordion-toggle {
-      color: var(--english-primary);
-    }
-    
-    .stick-app .accordion-toggle {
-      color: var(--stick-primary);
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+      color: var(--current-app-primary, var(--primary-color));
     }
     
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      background: white;
-      transition: max-height 0.3s ease;
+      background: #fdfdfd; /* Slightly different from card-bg for depth */
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      padding: 0 1.5rem;
     }
     
     .accordion-inner {
-      padding: 0 1.25rem 1.25rem;
+      padding: 1.5rem 0;
+    }
+    .accordion-inner p {
+        font-size: 0.95rem;
     }
     
     .accordion.active .accordion-toggle {
       transform: rotate(180deg);
     }
-    
+    .accordion.active .accordion-content {
+        padding: 0 1.5rem; /* Ensure padding is applied when active */
+    }
+
     /* コンタクトセクション */
-    .contact {
-      padding: 3rem 0;
-      border-radius: 20px;
-      margin-bottom: 3rem;
-    }
-    
-    .english-app .contact {
-      background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(135, 206, 250, 0.1));
-    }
-    
-    .stick-app .contact {
-      background: linear-gradient(135deg, rgba(74, 157, 103, 0.1), rgba(244, 162, 97, 0.1));
+    .contact-section {
+      background: linear-gradient(135deg, rgba(var(--current-app-primary-rgb, 74, 157, 103), 0.05), rgba(var(--current-app-secondary-rgb, 244, 162, 97), 0.05));
+      border-radius: var(--border-radius);
     }
     
     .contact-card {
-      background: white;
-      border-radius: 15px;
-      padding: 2.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 3rem;
+      box-shadow: var(--shadow);
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
     }
     
     .contact-icon {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 1.5rem;
+      color: var(--current-app-primary, var(--primary-color));
     }
-    
-    .english-app .contact-icon {
-      color: var(--english-primary);
-    }
-    
-    .stick-app .contact-icon {
-      color: var(--stick-primary);
-    }
-    
-    .contact-card h3 {
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .contact-card h3::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 3px;
-      border-radius: 1.5px;
-    }
-    
-    .english-app .contact-card h3::after {
-      background: var(--english-primary);
-    }
-    
-    .stick-app .contact-card h3::after {
-      background: var(--stick-primary);
-    }
-    
+        
     .contact-email {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 2rem;
       display: inline-block;
+      color: var(--current-app-primary, var(--primary-color));
     }
-    
-    .english-app .contact-email {
-      color: var(--english-primary);
-    }
-    
-    .stick-app .contact-email {
-      color: var(--stick-primary);
+    .contact-email:hover {
+        text-decoration: underline;
     }
     
     /* フッター */
     .footer {
-      padding: 3rem 0;
-      color: white;
+      padding: 4rem 0 2rem;
+      color: var(--light-color);
+      background: var(--dark-color); /* Common dark footer */
     }
-    
-    .english-app .footer {
-      background: var(--english-dark);
-    }
-    
-    .stick-app .footer {
-      background: var(--stick-dark);
-    }
-    
+    /* Specific app footer coloring if needed, can be done via body class */
+    body.english-app-active .footer { background: var(--english-dark); }
+    body.stick-app-active .footer { background: var(--stick-dark); }
+
     .footer-content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 2rem;
     }
     
+    .footer-logo-section {
+        margin-bottom: 1.5rem;
+    }
     .footer-logo {
       display: flex;
       align-items: center;
@@ -673,48 +700,53 @@
     }
     
     .footer-logo img {
-      height: 40px;
+      height: 45px;
       margin-right: 1rem;
-      border-radius: 0;
+      filter: brightness(0) invert(1); /* Make logo white if it's dark */
     }
     
     .footer-logo h3 {
-      color: white;
+      color: var(--light-color);
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
     
-    .footer-company {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
+    .footer-company-text {
+      font-size: 0.95rem;
       opacity: 0.8;
+      max-width: 300px;
     }
     
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
+    .footer-links-section h4, .footer-social-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: var(--light-color);
+        font-weight: 600;
     }
-    
+    .footer-links ul, .footer-social ul {
+        list-style: none;
+    }
+    .footer-links li {
+        margin-bottom: 0.5rem;
+    }
     .footer-link {
-      color: white;
+      color: var(--light-color);
       opacity: 0.8;
       transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
     
     .footer-link:hover {
       opacity: 1;
-      text-decoration: none;
+      text-decoration: underline;
     }
     
-    .footer-social {
+    .footer-social ul {
       display: flex;
       gap: 1rem;
-      margin-bottom: 1rem;
     }
     
-    .social-icon {
+    .social-icon-link {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -722,783 +754,1290 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 1.25rem;
+      color: var(--light-color);
+      font-size: 1.3rem;
       transition: all 0.3s ease;
     }
     
-    .social-icon:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .social-icon-link:hover {
+      background: var(--current-app-primary, var(--primary-color)); /* Use app color on hover */
       transform: translateY(-3px);
-      color: white;
+      color: var(--light-color);
     }
     
     .footer-bottom {
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 3rem;
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       font-size: 0.9rem;
       opacity: 0.8;
     }
     
-    /* 共通のアニメーション */
-    .animate__animated {
-      animation-duration: 1s;
-    }
-    
-    .animate-delay-1 {
-      animation-delay: 0.2s;
-    }
-    
-    .animate-delay-2 {
-      animation-delay: 0.4s;
-    }
-    
-    .animate-delay-3 {
-      animation-delay: 0.6s;
-    }
-    
     /* バッジ */
     .badge {
       display: inline-block;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.75rem;
-      font-weight: 600;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
       border-radius: 50px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      background-color: rgba(var(--current-app-primary-rgb, 74, 157, 103), 0.1);
+      color: var(--current-app-primary, var(--primary-color));
     }
     
-    .english-app .badge-primary {
-      background: rgba(65, 105, 225, 0.1);
-      color: var(--english-primary);
+    /* Helper classes */
+    .text-center { text-align: center; }
+    .mt-1 { margin-top: 0.5rem; } .mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 1.5rem; } .mt-4 { margin-top: 2rem; } .mt-5 { margin-top: 3rem; }
+    .mb-1 { margin-bottom: 0.5rem; } .mb-2 { margin-bottom: 1rem; } .mb-3 { margin-bottom: 1.5rem; } .mb-4 { margin-bottom: 2rem; } .mb-5 { margin-bottom: 3rem; }
+    .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+
+    /* Word Blaster Feature Highlight */
+    .feature-highlight {
+        background: rgba(var(--current-app-primary-rgb, 65, 105, 225), 0.05);
+        border-radius: var(--border-radius);
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        border: 1px solid rgba(var(--current-app-primary-rgb, 65, 105, 225), 0.1);
     }
-    
-    .stick-app .badge-primary {
-      background: rgba(74, 157, 103, 0.1);
-      color: var(--stick-primary);
+    .feature-highlight .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2rem;
     }
-    
-    /* レスポンシブ設計 */
+    .feature-highlight .col-md-6 {
+        flex: 1;
+        min-width: 300px; /* Ensure content doesn't get too squished */
+    }
+    .feature-highlight h3 {
+        color: var(--current-app-primary, var(--english-primary));
+        font-size: 1.8rem;
+    }
+    .feature-highlight ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 1.5rem;
+    }
+    .feature-highlight ul li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: flex-start; /* Align items to top for longer text */
+        font-size: 1rem;
+    }
+    .feature-highlight ul li i {
+        color: var(--current-app-primary, var(--english-primary));
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
+        margin-top: 0.2rem; /* Align icon better with text */
+    }
+    .feature-highlight-images {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .feature-highlight-images img {
+        width: calc(50% - 0.5rem); /* Two images side by side */
+        max-width: 200px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive Design */
     @media (max-width: 992px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1.1rem;
-      }
-      
-      .app-screen {
-        height: 300px;
-      }
-      
-      .feature-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
+      html { font-size: 15px; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p.lead { font-size: 1.15rem; }
+      .app-screen-hero { height: 400px; }
+      .feature-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .navbar-container { padding: 0 1rem; }
     }
     
     @media (max-width: 768px) {
       .navbar-container {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
       }
-      
+      .nav-menu {
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+      }
+      .nav-item {
+          margin: 0.5rem 0;
+          width: 100%;
+      }
+      .language-switcher { margin-top: 1rem; }
+
       .app-selector {
         flex-direction: column;
         gap: 1rem;
       }
+      .app-tab { width: 100%; max-width: 350px; margin-left:auto; margin-right:auto;}
       
-      .app-tab {
-        width: 100%;
-      }
-      
-      .hero {
-        padding: 3rem 0;
-      }
-      
-      .app-screens {
+      .hero { padding: 3.5rem 0; }
+      .hero h1 { font-size: 2.2rem; }
+      .app-screens-hero {
         flex-direction: column;
         align-items: center;
       }
-      
-      .app-screen {
+      .app-screen-hero {
         transform: none !important;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         height: auto;
-        max-width: 300px;
+        max-width: 320px;
       }
       
       .footer-content {
         flex-direction: column;
         text-align: center;
+        align-items: center;
       }
-      
-      .footer-logo, .footer-links, .footer-social {
-        justify-content: center;
+      .footer-logo-section, .footer-links-section, .footer-social-section {
+        width: 100%;
+        align-items: center;
+        text-align: center;
       }
+      .footer-social ul { justify-content: center; }
+
+      .feature-highlight .row { flex-direction: column; }
+      .feature-highlight-images img { max-width: 180px; }
     }
     
     @media (max-width: 576px) {
-      .hero h1 {
-        font-size: 1.75rem;
-      }
-      
-      .section-title h2 {
-        font-size: 1.75rem;
-      }
-      
-      .download-btn {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-      }
+      html { font-size: 14px; }
+      .container { padding: 0 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .section-title h2 { font-size: 2rem; }
+      .download-btn-hero { padding: 0.9rem 2rem; font-size: 1rem; width: 90%; margin-bottom: 1rem; }
+      .feature-card { padding: 2rem 1.5rem; }
+      .contact-card { padding: 2rem 1.5rem; }
+      .app-screen-hero { max-width: 280px; }
     }
-  </style>
 
-  <script>
-    // 必要なCSSのRGB値を設定
-    document.documentElement.style.setProperty('--english-primary-rgb', '65, 105, 225');
-    document.documentElement.style.setProperty('--english-secondary-rgb', '135, 206, 250');
-    document.documentElement.style.setProperty('--stick-primary-rgb', '74, 157, 103');
-    document.documentElement.style.setProperty('--stick-secondary-rgb', '244, 162, 97');
-    
-    // ページ読み込み時の処理
-    document.addEventListener('DOMContentLoaded', function() {
-      // アコーディオンの初期化
-      initAccordion();
-      
-      // アプリタブの初期化
-      initAppTabs();
-      
-      // スクロールアニメーション
-      initScrollAnimation();
-      
-      // スクロール時のナビゲーション変更
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-          document.querySelector('.navbar').classList.add('scrolled');
-        } else {
-          document.querySelector('.navbar').classList.remove('scrolled');
-        }
-      });
-    });
-    
-    // アコーディオンの初期化
-    function initAccordion() {
-      const accordions = document.querySelectorAll('.accordion');
-      
-      accordions.forEach(accordion => {
-        const header = accordion.querySelector('.accordion-header');
-        const content = accordion.querySelector('.accordion-content');
-        
-        header.addEventListener('click', () => {
-          accordion.classList.toggle('active');
-          
-          if (accordion.classList.contains('active')) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-          } else {
-            content.style.maxHeight = 0;
-          }
-        });
-      });
+  </style>
+  <!-- SEO: JSON-LD for SoftwareApplication (Example - fill with actual data) -->
+  <script type="application/ld+json" id="software-app-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GPティーチャーズ",
+    "operatingSystem": "iOS",
+    "applicationCategory": "EducationApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5", // Example
+      "reviewCount": "100"  // Example
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
     }
-    
-    // アプリタブの初期化
-    function initAppTabs() {
-      const tabs = document.querySelectorAll('.app-tab');
-      const contents = document.querySelectorAll('.app-content');
-      
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          // 全てのタブとコンテンツから active クラスを削除
-          tabs.forEach(t => t.classList.remove('active'));
-          contents.forEach(c => c.classList.remove('active'));
-          
-          // クリックしたタブと対応するコンテンツに active クラスを追加
-          tab.classList.add('active');
-          document.getElementById(tab.dataset.target).classList.add('active');
-          
-          // フッターとボディにクラスを設定
-          document.querySelector('.footer').className = 'footer ' + tab.dataset.target;
-          document.body.className = tab.dataset.target;
-          
-          // スムーズスクロール
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
-      });
-    }
-    
-    // スクロールアニメーションの初期化
-    function initScrollAnimation() {
-      const animatedElements = document.querySelectorAll('.animate-on-scroll');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-      
-      animatedElements.forEach(element => {
-        observer.observe(element);
-      });
-    }
+    // Add more properties for each app, potentially changing this dynamically
+  }
+  </script>
+  <!-- SEO: JSON-LD for FAQPage (Example - fill with actual data, can be dynamic) -->
+  <script type="application/ld+json" id="faq-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      // FAQ items will be added here by JavaScript
+    ]
+  }
   </script>
 </head>
-<body class="english-app">
-          <!-- ナビゲーションバー -->
+<body class="english-app-active"> <!-- Default to English app active or load from preference -->
+  <!-- ナビゲーションバー -->
   <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo">
+    <div class="navbar-container container">
+      <a href="#" class="navbar-logo">
         <img src="logo.PNG" alt="Trail Fusion Logo">
-        <h2>TrailFusion AI</h2>
-      </div>
+        <h2 data-translate-key="nav_brand">TrailFusion AI</h2>
+      </a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#english-app-section" class="nav-link active" data-translate-key="nav_gp_teachers">GPティーチャーズ</a></li>
+        <li class="nav-item"><a href="#stick-app-section" class="nav-link" data-translate-key="nav_wood_golem">森のウッドゴーレム</a></li>
+        <li class="nav-item"><a href="#faq-common-section" class="nav-link" data-translate-key="nav_faq">FAQ</a></li>
+        <li class="nav-item"><a href="#contact-common-section" class="nav-link" data-translate-key="nav_contact">お問い合わせ</a></li>
+        <li class="nav-item language-switcher">
+          <select id="languageSelector">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="pt">Português</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ru">Русский</option>
+            <option value="fr">Français</option>
+          </select>
+        </li>
+      </ul>
     </div>
   </nav>
 
   <!-- メインコンテンツ -->
-  <div class="main-content">
+  <main class="main-content">
     <div class="container">
       <!-- アプリ選択 -->
-      <div class="app-selector">
+      <section class="app-selector">
         <div class="app-tab english-tab active" data-target="english-app">
           <i class="fas fa-language"></i>
-          <span>GPティーチャーズ</span>
+          <span data-translate-key="tab_gp_teachers">GPティーチャーズ</span>
         </div>
         <div class="app-tab stick-tab" data-target="stick-app">
           <i class="fas fa-tree"></i>
-          <span>森のウッドゴーレム</span>
+          <span data-translate-key="tab_wood_golem">森のウッドゴーレム</span>
         </div>
-      </div>
+      </section>
       
-      <!-- 英語アプリのコンテンツ -->
+      <!-- GPティーチャーズのコンテンツ -->
       <div id="english-app" class="app-content english-app active">
-        <!-- ヒーローセクション -->
-        <section class="hero">
-          <div class="container">
-            <div class="hero-content">
-              <h1 class="animate__animated animate__fadeInDown">GPティーチャーズ</h1>
-              <p class="animate__animated animate__fadeInUp animate-delay-1">会話しながら英語が身につく！個性豊かな先生とリアルな英会話練習＆宇宙を舞台にした単語シューティングゲームで楽しく学習。</p>
-              <a href="https://apps.apple.com/jp/app/gptieachers/id1234567890" class="download-btn animate__animated animate__fadeInUp animate-delay-2" target="_blank">
-                <i class="fab fa-apple"></i> App Storeでダウンロード
-              </a>
-              <div class="app-screens">
-                <img src="Image3.jpg" alt="英会話画面" class="app-screen animate__animated animate__fadeInLeft animate-delay-2">
-                <img src="Image5.jpg" alt="単語学習ゲーム" class="app-screen animate__animated animate__fadeInRight animate-delay-2">
-              </div>
+        <section id="english-app-section" class="hero">
+          <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown" data-translate-key="gp_hero_title">GPティーチャーズ</h1>
+            <p class="lead animate__animated animate__fadeInUp animate-delay-1" data-translate-key="gp_hero_subtitle">会話しながら英語が身につく！個性豊かな先生とリアルな英会話練習＆宇宙を舞台にした単語シューティングゲームで楽しく学習。</p>
+            <a href="https://apps.apple.com/jp/app/gp-teachers/id6744263274" class="btn download-btn-hero animate__animated animate__fadeInUp animate-delay-2" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-apple"></i> <span data-translate-key="download_app_store">App Storeでダウンロード</span>
+            </a>
+            <div class="app-screens-hero">
+              <img src="Image3.jpg" alt_key="gp_alt_screen_conversation" class="app-screen-hero animate__animated animate__fadeInLeft animate-delay-2">
+              <img src="Image5.jpg" alt_key="gp_alt_screen_wordgame" class="app-screen-hero animate__animated animate__fadeInRight animate-delay-2">
             </div>
           </div>
         </section>
 
-        <!-- フィーチャーセクション -->
-        <section class="features">
+        <section id="gp-features" class="features section">
           <div class="container">
             <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">アプリの特徴</span>
-              <h2>GPティーチャーズの魅力</h2>
-              <p>「GPティーチャーズ」は、英会話と単語学習を楽しくゲーム感覚で行える革新的な英語学習アプリです。</p>
+              <span class="badge" data-translate-key="gp_features_badge">アプリの特徴</span>
+              <h2 data-translate-key="gp_features_title">GPティーチャーズの魅力</h2>
+              <p class="subtitle" data-translate-key="gp_features_subtitle">「GPティーチャーズ」は、英会話と単語学習を楽しくゲーム感覚で行える革新的な英語学習アプリです。</p>
             </div>
             <div class="feature-grid">
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-comments"></i>
-                </div>
-                <h3>リアルな英会話練習</h3>
-                <p>個性豊かな先生キャラクターと実際に会話できます。先進的な音声認識技術で話した英語を自動認識し、AIが自然な英語で返答します。</p>
-                <img src="Image4.jpg" alt="翻訳機能付き英会話画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <h3 data-translate-key="gp_feature1_title">リアルな英会話練習</h3>
+                <p data-translate-key="gp_feature1_desc">個性豊かな先生キャラクターと実際に会話できます。先進的な音声認識技術で話した英語を自動認識し、AIが自然な英語で返答します。</p>
+                <img src="Image4.jpg" alt_key="gp_alt_feature1_img" class="feature-image mt-3">
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>レベル別コース構成</h3>
-                <p>日常英会話コース（初級・中級・上級）と英文法コース（中学1年・2年・3年レベル）から選べます。自分のレベルに合わせて学習を進められます。</p>
-                <img src="Image1.jpg" alt="英語コース選択画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 data-translate-key="gp_feature2_title">レベル別コース構成</h3>
+                <p data-translate-key="gp_feature2_desc">日常英会話コース（初級・中級・上級）と英文法コース（中学1年・2年・3年レベル）から選べます。自分のレベルに合わせて学習を進められます。</p>
+                <img src="Image1.jpg" alt_key="gp_alt_feature2_img" class="feature-image mt-3">
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-book"></i>
-                </div>
-                <h3>フレーズブック機能</h3>
-                <p>レッスンごとに役立つ英語フレーズを収録。音声で発音を聞けたり、お気に入り登録で復習しやすくなっています。</p>
-                <img src="Image2.jpg" alt="フレーズブックとタスク画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                <div class="feature-icon"><i class="fas fa-book"></i></div>
+                <h3 data-translate-key="gp_feature3_title">フレーズブック機能</h3>
+                <p data-translate-key="gp_feature3_desc">レッスンごとに役立つ英語フレーズを収録。音声で発音を聞けたり、お気に入り登録で復習しやすくなっています。</p>
+                <img src="Image2.jpg" alt_key="gp_alt_feature3_img" class="feature-image mt-3">
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-gamepad"></i>
-                </div>
-                <h3>ワードブラスター</h3>
-                <p>宇宙を舞台にしたシューティングゲームで単語を学習。英検5級からTOEIC990点レベルまで幅広く対応し、楽しみながら単語力が身につきます。</p>
-                <img src="Image6.jpg" alt="ワードブラスターゲーム画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
+                <h3 data-translate-key="gp_feature4_title">ワードブラスター</h3>
+                <p data-translate-key="gp_feature4_desc">宇宙を舞台にしたシューティングゲームで単語を学習。英検5級からTOEIC990点レベルまで幅広く対応し、楽しみながら単語力が身につきます。</p>
+                <img src="Image6.jpg" alt_key="gp_alt_feature4_img" class="feature-image mt-3">
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>学習進捗管理</h3>
-                <p>単語のマスター状況をビジュアル表示。学習統計でこれまでの成果を確認でき、間違えやすい単語を特定して集中学習できます。</p>
-                <img src="Image7.jpg" alt="学習チャレンジとカレンダー画面" class="feature-image mt-3" style="width:100%; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3 data-translate-key="gp_feature5_title">学習進捗管理</h3>
+                <p data-translate-key="gp_feature5_desc">単語のマスター状況をビジュアル表示。学習統計でこれまでの成果を確認でき、間違えやすい単語を特定して集中学習できます。</p>
+                <img src="Image7.jpg" alt_key="gp_alt_feature5_img" class="feature-image mt-3">
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3>使いやすいインターフェース</h3>
-                <p>タブ式の直感的な操作性と魅力的なキャラクターで、楽しみながら学習できます。音声設定もカスタマイズ可能です。</p>
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 data-translate-key="gp_feature6_title">使いやすいインターフェース</h3>
+                <p data-translate-key="gp_feature6_desc">タブ式の直感的な操作性と魅力的なキャラクターで、楽しみながら学習できます。音声設定もカスタマイズ可能です。</p>
               </div>
             </div>
           </div>
         </section>
         
-        <!-- こんな方におすすめセクション -->
-        <section class="screenshots">
+        <section id="gp-target-users" class="screenshots-section section">
           <div class="container">
             <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">対象ユーザー</span>
-              <h2>こんな方におすすめ</h2>
-              <p>GPティーチャーズは、英語学習を始めたい方から、スキルアップを目指す方まで幅広く対応しています。</p>
+              <span class="badge" data-translate-key="gp_target_badge">対象ユーザー</span>
+              <h2 data-translate-key="gp_target_title">こんな方におすすめ</h2>
+              <p class="subtitle" data-translate-key="gp_target_subtitle">GPティーチャーズは、英語学習を始めたい方から、スキルアップを目指す方まで幅広く対応しています。</p>
             </div>
             
-            <!-- ワードブラスター特集セクション -->
-            <div class="feature-highlight" style="background: rgba(65, 105, 225, 0.05); border-radius: 20px; padding: 2rem; margin-bottom: 3rem;">
-              <div class="row" style="display: flex; flex-wrap: wrap; align-items: center;">
-                <div class="col-md-6" style="flex: 0 0 50%; max-width: 50%; padding: 1rem;">
-                  <h3 style="color: var(--english-primary);">ワードブラスター機能</h3>
-                  <p>宇宙を舞台にした英単語シューティングゲームが大人気！</p>
-                  <ul style="list-style-type: none; padding-left: 0; margin-top: 1.5rem;">
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;">
-                      <i class="fas fa-check-circle" style="color: var(--english-primary); margin-right: 0.5rem;"></i>
-                      <span>英検5級からTOEIC990点まで幅広いレベル対応</span>
-                    </li>
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;">
-                      <i class="fas fa-check-circle" style="color: var(--english-primary); margin-right: 0.5rem;"></i>
-                      <span>宇宙船を操作して敵からの攻撃をかわしながら単語を学習</span>
-                    </li>
-                    <li style="margin-bottom: 1rem; display: flex; align-items: center;">
-                      <i class="fas fa-check-circle" style="color: var(--english-primary); margin-right: 0.5rem;"></i>
-                      <span>ステージ制で徐々に難易度が上がり、継続的に学習意欲を維持</span>
-                    </li>
+            <div class="feature-highlight animate-on-scroll">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 data-translate-key="gp_wordblaster_title">ワードブラスター機能</h3>
+                  <p data-translate-key="gp_wordblaster_desc">宇宙を舞台にした英単語シューティングゲームが大人気！</p>
+                  <ul>
+                    <li><i class="fas fa-check-circle"></i> <span data-translate-key="gp_wordblaster_point1">英検5級からTOEIC990点まで幅広いレベル対応</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-translate-key="gp_wordblaster_point2">宇宙船を操作して敵からの攻撃をかわしながら単語を学習</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span data-translate-key="gp_wordblaster_point3">ステージ制で徐々に難易度が上がり、継続的に学習意欲を維持</span></li>
                   </ul>
                 </div>
-                <div class="col-md-6" style="flex: 0 0 50%; max-width: 50%; padding: 1rem; text-align: center;">
-                  <img src="Image5.jpg" alt="ワードブラスターのレベル選択画面" style="width: 45%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin-right: 5%;">
-                  <img src="Image6.jpg" alt="ワードブラスターのゲームプレイ画面" style="width: 45%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+                <div class="col-md-6 feature-highlight-images">
+                  <img src="Image5.jpg" alt_key="gp_alt_wordblaster_level" >
+                  <img src="Image6.jpg" alt_key="gp_alt_wordblaster_gameplay" >
                 </div>
               </div>
             </div>
             
             <div class="feature-grid">
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-user-friends"></i>
-                </div>
-                <h3>英会話の練習相手が欲しい方</h3>
-                <p>AIが会話パートナーとなり、いつでもどこでも英会話の練習ができます。発音やフレーズのフィードバックも受けられます。</p>
+                <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
+                <h3 data-translate-key="gp_target1_title">英会話の練習相手が欲しい方</h3>
+                <p data-translate-key="gp_target1_desc">AIが会話パートナーとなり、いつでもどこでも英会話の練習ができます。発音やフレーズのフィードバックも受けられます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-puzzle-piece"></i>
-                </div>
-                <h3>英語をゲーム感覚で楽しみたい方</h3>
-                <p>単語シューティングゲームで、楽しみながら英単語を覚えられます。ゲーム要素がモチベーション維持に役立ちます。</p>
+                <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <h3 data-translate-key="gp_target2_title">英語をゲーム感覚で楽しみたい方</h3>
+                <p data-translate-key="gp_target2_desc">単語シューティングゲームで、楽しみながら英単語を覚えられます。ゲーム要素がモチベーション維持に役立ちます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-award"></i>
-                </div>
-                <h3>英検やTOEIC対策をしたい方</h3>
-                <p>英検5級からTOEIC990点レベルまで対応した単語学習で、効率的に試験対策ができます。</p>
+                <div class="feature-icon"><i class="fas fa-award"></i></div>
+                <h3 data-translate-key="gp_target3_title">英検やTOEIC対策をしたい方</h3>
+                <p data-translate-key="gp_target3_desc">英検5級からTOEIC990点レベルまで対応した単語学習で、効率的に試験対策ができます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-clock"></i>
-                </div>
-                <h3>隙間時間に英語力を伸ばしたい方</h3>
-                <p>短時間でも効果的に学習できるレッスン構成で、忙しい方でも継続的に英語力を向上させられます。</p>
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3 data-translate-key="gp_target4_title">隙間時間に英語力を伸ばしたい方</h3>
+                <p data-translate-key="gp_target4_desc">短時間でも効果的に学習できるレッスン構成で、忙しい方でも継続的に英語力を向上させられます。</p>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- FAQセクション -->
-        <section class="faq">
-          <div class="container">
-            <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">サポート</span>
-              <h2>よくある質問（FAQ）</h2>
-              <p>GPティーチャーズに関するよくある質問と回答をご紹介します。</p>
-            </div>
-            <div class="accordion-container">
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>インストール後すぐに使えますか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>はい、インストール後すぐにお使いいただけます。初回起動時に簡単な設定があります。音声認識のためにマイクの使用許可を求められますので、許可していただくとスムーズです。</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>どのような英語レベルに対応していますか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>初級者（英検5級レベル）から上級者（TOEIC990点レベル）まで幅広く対応しています。レベル別のコース構成になっているので、自分に合ったレベルから始められます。</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>オフラインでも使用できますか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>一部の機能はオフラインでも使用できますが、AI会話機能や音声認識機能はインターネット接続が必要です。単語学習ゲームの一部はオフラインでもプレイ可能です。</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>広告を非表示にすることはできますか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>はい、アプリ内課金で「広告削除」オプションをご購入いただくと、すべての広告が表示されなくなります。一度購入すれば永続的に広告は表示されません。</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>音声認識の精度はどのくらいですか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>最新の音声認識技術を使用しており、クリアな発音であれば高い精度で認識します。ただし、周囲の騒音や発音の明瞭さによって精度が変わる場合があります。認識精度は継続的に改善されています。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- コンタクトセクション -->
-        <section class="contact">
-          <div class="container">
-            <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">お問い合わせ</span>
-              <h2>サポートについて</h2>
-              <p>アプリに関するご質問やご要望がありましたら、お気軽にお問い合わせください。</p>
-            </div>
-            <div class="contact-card animate-on-scroll">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <h3>お問い合わせ先</h3>
-              <a href="mailto:trailfusionai@gmail.com" class="contact-email">trailfusionai@gmail.com</a>
-              <p>ご意見・ご要望やバグ報告などございましたら、上記メールアドレスにご連絡ください。</p>
-              <p>いただいたフィードバックは今後のアップデートの参考にさせていただきます。</p>
-              <a href="https://apps.apple.com/jp/app/gp-teachers/id6744263274" class="btn download-btn mt-3" target="_blank">
-                <i class="fab fa-apple"></i> 今すぐダウンロード
-              </a>
-            </div>
-          </div>
-        </section>
+        <!-- FAQ, Contact sections will be shared or app-specific, placed below -->
       </div>
       
-      <!-- スティックアプリのコンテンツ -->
+      <!-- 森のウッドゴーレムのコンテンツ -->
       <div id="stick-app" class="app-content stick-app">
-        <!-- ヒーローセクション -->
-        <section class="hero">
-          <div class="container">
-            <div class="hero-content">
-              <h1 class="animate__animated animate__fadeInDown">棒取り攻略！森のウッドゴーレム大冒険</h1>
-              <p class="animate__animated animate__fadeInUp animate-delay-1">一風変わったパズルゲームで小さな木のゴーレムと一緒に大冒険へ出かけよう</p>
-              <a href="https://apps.apple.com/jp/app/%E6%A3%92%E5%8F%96%E3%82%8A%E6%94%BB%E7%95%A5-%E6%A3%AE%E3%81%AE%E3%82%A6%E3%83%83%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AC%E3%83%A0%E5%A4%A7%E5%86%92%E9%99%BA/id6739466549" class="download-btn animate__animated animate__fadeInUp animate-delay-2" target="_blank">
-                <i class="fab fa-apple"></i> App Storeでダウンロード
-              </a>
-              <div class="app-screens">
-                <img src="title.png" alt="ウッドゴーレムタイトル画面" class="app-screen animate__animated animate__fadeInLeft animate-delay-2">
-              </div>
+        <section id="stick-app-section" class="hero">
+          <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown" data-translate-key="wg_hero_title">棒取り攻略！森のウッドゴーレム大冒険</h1>
+            <p class="lead animate__animated animate__fadeInUp animate-delay-1" data-translate-key="wg_hero_subtitle">一風変わったパズルゲームで小さな木のゴーレムと一緒に大冒険へ出かけよう</p>
+            <a href="https://apps.apple.com/jp/app/%E6%A3%92%E5%8F%96%E3%82%8A%E6%94%BB%E7%95%A5-%E6%A3%AE%E3%81%AE%E3%82%A6%E3%83%83%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AC%E3%83%A0%E5%A4%A7%E5%86%92%E9%99%BA/id6739466549" class="btn download-btn-hero animate__animated animate__fadeInUp animate-delay-2" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-apple"></i> <span data-translate-key="download_app_store">App Storeでダウンロード</span>
+            </a>
+            <div class="app-screens-hero">
+              <img src="title.png" alt_key="wg_alt_screen_title" class="app-screen-hero animate__animated animate__fadeInUp animate-delay-2">
+              <!-- Add another screenshot if available -->
+              <!-- <img src="stick-app-screen2.jpg" alt="森のウッドゴーレム ゲームプレイ" class="app-screen-hero animate__animated animate__fadeInRight animate-delay-2"> -->
             </div>
           </div>
         </section>
 
-        <!-- フィーチャーセクション -->
-        <section class="features">
+        <section id="wg-features" class="features section">
           <div class="container">
             <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">ゲーム特徴</span>
-              <h2>ゲームの魅力</h2>
-              <p>『棒取り攻略！森のウッドゴーレム大冒険』は、単なるパズルゲームではありません。</p>
+              <span class="badge" data-translate-key="wg_features_badge">ゲーム特徴</span>
+              <h2 data-translate-key="wg_features_title">ゲームの魅力</h2>
+              <p class="subtitle" data-translate-key="wg_features_subtitle">『棒取り攻略！森のウッドゴーレム大冒険』は、単なるパズルゲームではありません。</p>
             </div>
             <div class="feature-grid">
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-chess-knight"></i>
-                </div>
-                <h3>深遠な戦略性</h3>
-                <p>各ステージは複雑な戦略を要求し、プレイヤーの思考力を試します。棒を引き抜くたびに変化する局面で、最善の手を見つけ出しましょう。</p>
+                <div class="feature-icon"><i class="fas fa-chess-knight"></i></div>
+                <h3 data-translate-key="wg_feature1_title">深遠な戦略性</h3>
+                <p data-translate-key="wg_feature1_desc">各ステージは複雑な戦略を要求し、プレイヤーの思考力を試します。棒を引き抜くたびに変化する局面で、最善の手を見つけ出しましょう。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-seedling"></i>
-                </div>
-                <h3>成長物語</h3>
-                <p>小さなゴーレムがあなたの手によって成長していく過程を楽しめます。ステージをクリアするごとにゴーレムは新たな力を手に入れます。</p>
+                <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+                <h3 data-translate-key="wg_feature2_title">成長物語</h3>
+                <p data-translate-key="wg_feature2_desc">小さなゴーレムがあなたの手によって成長していく過程を楽しめます。ステージをクリアするごとにゴーレムは新たな力を手に入れます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-book-open"></i>
-                </div>
-                <h3>魅力的なストーリー</h3>
-                <p>森の奥深くで繰り広げられるゴーレムとの冒険。彼の故郷への帰還を助けるために、あなたは数々の試練に立ち向かいます。</p>
+                <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                <h3 data-translate-key="wg_feature3_title">魅力的なストーリー</h3>
+                <p data-translate-key="wg_feature3_desc">森の奥深くで繰り広げられるゴーレムとの冒険。彼の故郷への帰還を助けるために、あなたは数々の試練に立ち向かいます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-palette"></i>
-                </div>
-                <h3>美麗なグラフィック</h3>
-                <p>手描きのアートスタイルと感動的なサウンドトラックが、ゲームの世界観を一層引き立てます。</p>
+                <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                <h3 data-translate-key="wg_feature4_title">美麗なグラフィック</h3>
+                <p data-translate-key="wg_feature4_desc">手描きのアートスタイルと感動的なサウンドトラックが、ゲームの世界観を一層引き立てます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-puzzle-piece"></i>
-                </div>
-                <h3>多彩なステージ</h3>
-                <p>様々な難易度のステージが用意されており、飽きることなく挑戦し続けられます。</p>
+                <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <h3 data-translate-key="wg_feature5_title">多彩なステージ</h3>
+                <p data-translate-key="wg_feature5_desc">様々な難易度のステージが用意されており、飽きることなく挑戦し続けられます。</p>
               </div>
               <div class="feature-card animate-on-scroll">
-                <div class="feature-icon">
-                  <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>ヒントシステム</h3>
-                <p>必要な時に戦略的なアドバイスを提供し、プレイヤーのスキル向上をサポートします。</p>
+                <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3 data-translate-key="wg_feature6_title">ヒントシステム</h3>
+                <p data-translate-key="wg_feature6_desc">必要な時に戦略的なアドバイスを提供し、プレイヤーのスキル向上をサポートします。</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- ストーリーセクション -->
-        <section class="features">
-          <div class="container">
-            <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">物語</span>
-              <h2>ウッドゴーレムの物語</h2>
-              <p>冒険の舞台は神秘的な森の中。あなたはそこで小さなウッドゴーレムと出会います。</p>
-            </div>
-            <div class="feature-card animate-on-scroll" style="max-width: 800px; margin: 0 auto;">
-              <p style="white-space:pre-wrap;">森の奥で、小さなウッドゴーレムと出会った。
-
-体は数本の木の棒だけでできていて、弱々しいが、その瞳にはどこか切ない光が宿っている。
-
-木の棒を一本与えると、体に吸い込まれ、少し成長した。
-
-ゴーレムは星空を見上げ、「元いた星に帰りたい」とつぶやく。
-
-その言葉を聞いたあなたは、彼を故郷へ帰すことを決意する。
-
-100本の木を集めて成長させれば、彼は故郷に帰れるという。
-
-しかし、木を集めるたび、森には謎の現象が起こり、不穏な気配が漂い始める。
-
-ゴーレムを完成させるとき、真実が明かされる。
-
-果たして彼を無事に帰すことはできるのだろうか？</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ゲームプレイセクション -->
-        <section class="features">
-          <div class="container">
-            <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">遊び方</span>
-              <h2>ゲーム攻略ガイド</h2>
-              <p>ゲームルールや効果的な戦略を学んで、ウッドゴーレムと一緒に冒険を楽しみましょう。</p>
-            </div>
-            
-            <div class="feature-card animate-on-scroll" style="max-width: 800px; margin: 0 auto 2rem auto;">
-              <h3>ゲームのルール</h3>
-              <ol style="margin-left: 1.5rem;">
-                <li>
-                  <h4>ゲームの目的</h4>
-                  <p>棒引きゲームの目的は、最後の棒を相手に取らせることです。</p>
-                </li>
-                <li>
-                  <h4>ゲームの開始</h4>
-                  <p>まず最初にプレイヤーは先行か後攻かを選びます。</p>
-                </li>
-                <li>
-                  <h4>棒を取るルール</h4>
-                  <p>自分のターンでは、任意の段から1本以上の棒を取ることができます。ただし、連続する棒のみを取ることができます。</p>
-                </li>
-                <li>
-                  <h4>ターンの交代</h4>
-                  <p>一人が棒を取ったら、次は相手のターンになります。これを繰り返し、最後の棒を取る人が敗北します。</p>
-                </li>
-              </ol>
-            </div>
-            
-            <div class="feature-card animate-on-scroll" style="max-width: 800px; margin: 0 auto 2rem auto;">
-              <h3>戦略のポイント</h3>
-              <ol style="margin-left: 1.5rem;">
-                <li>
-                  <h4>最善の手を打ち続ける</h4>
-                  <p>一度でも相手が有利になると不利になります。画面上部のメッセージを参考に計画しましょう。</p>
-                </li>
-                <li>
-                  <h4>最後を見据える</h4>
-                  <p>終盤で相手に最後の棒を取らせるために、計画的に棒を取ります。</p>
-                </li>
-                <li>
-                  <h4>相手の動きを予測</h4>
-                  <p>相手がどの段からどれだけ棒を取るかを予測して、先回りする戦略を練りましょう。</p>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        <!-- FAQセクション -->
-        <section class="faq">
-          <div class="container">
-            <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">サポート</span>
-              <h2>よくある質問（FAQ）</h2>
-              <p>ゲームプレイ中に疑問が生じた場合は、こちらの質問と回答をご参照ください。</p>
-            </div>
-            <div class="accordion-container">
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>ゲームのルールが分かりません。</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>アプリ内の「ルール」ボタンから詳細を確認できます。複数の段に並んだ棒を交互に取っていき、最後の棒を「相手」に取らせれば勝利です。</p>
-                  </div>
-                </div>
+        <section id="wg-story" class="features section" style="background-color: rgba(var(--current-app-primary-rgb, 39, 174, 96), 0.03);">
+            <div class="container">
+              <div class="section-title animate-on-scroll">
+                <span class="badge" data-translate-key="wg_story_badge">物語</span>
+                <h2 data-translate-key="wg_story_title">ウッドゴーレムの物語</h2>
+                <p class="subtitle" data-translate-key="wg_story_subtitle">冒険の舞台は神秘的な森の中。あなたはそこで小さなウッドゴーレムと出会います。</p>
               </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>ステージをやり直したいのですがどうすればいいですか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は「Retry」ボタン（リトライ）から再挑戦することも可能です。</p>
-                  </div>
-                </div>
+              <div class="feature-card animate-on-scroll" style="max-width: 800px; margin: 0 auto; background: var(--card-bg); box-shadow: var(--shadow);">
+                <p style="white-space:pre-wrap;" data-translate-key="wg_story_text">森の奥で、小さなウッドゴーレムと出会った。\n\n体は数本の木の棒だけでできていて、弱々しいが、その瞳にはどこか切ない光が宿っている。\n\n木の棒を一本与えると、体に吸い込まれ、少し成長した。\n\nゴーレムは星空を見上げ、「元いた星に帰りたい」とつぶやく。\n\nその言葉を聞いたあなたは、彼を故郷へ帰すことを決意する。\n\n100本の木を集めて成長させれば、彼は故郷に帰れるという。\n\nしかし、木を集めるたび、森には謎の現象が起こり、不穏な気配が漂い始める。\n\nゴーレムを完成させるとき、真実が明かされる。\n\n果たして彼を無事に帰すことはできるのだろうか？</p>
               </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>BGMや効果音を消したい場合はどうすればいいですか？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。</p>
-                  </div>
-                </div>
+            </div>
+          </section>
+  
+          <section id="wg-gameplay" class="features section">
+            <div class="container">
+              <div class="section-title animate-on-scroll">
+                <span class="badge" data-translate-key="wg_gameplay_badge">遊び方</span>
+                <h2 data-translate-key="wg_gameplay_title">ゲーム攻略ガイド</h2>
+                <p class="subtitle" data-translate-key="wg_gameplay_subtitle">ゲームルールや効果的な戦略を学んで、ウッドゴーレムと一緒に冒険を楽しみましょう。</p>
               </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>広告を非表示にしたいのですが。</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+              
+              <div class="feature-grid">
+                <div class="feature-card animate-on-scroll">
+                  <h3 data-translate-key="wg_rules_title">ゲームのルール</h3>
+                  <ol style="margin-left: 1.5rem; padding-left:0;">
+                    <li>
+                      <h4 data-translate-key="wg_rule1_title">ゲームの目的</h4>
+                      <p data-translate-key="wg_rule1_desc">棒引きゲームの目的は、最後の棒を相手に取らせることです。</p>
+                    </li>
+                    <li>
+                      <h4 data-translate-key="wg_rule2_title">ゲームの開始</h4>
+                      <p data-translate-key="wg_rule2_desc">まず最初にプレイヤーは先行か後攻かを選びます。</p>
+                    </li>
+                    <li>
+                      <h4 data-translate-key="wg_rule3_title">棒を取るルール</h4>
+                      <p data-translate-key="wg_rule3_desc">自分のターンでは、任意の段から1本以上の棒を取ることができます。ただし、連続する棒のみを取ることができます。</p>
+                    </li>
+                    <li>
+                      <h4 data-translate-key="wg_rule4_title">ターンの交代</h4>
+                      <p data-translate-key="wg_rule4_desc">一人が棒を取ったら、次は相手のターンになります。これを繰り返し、最後の棒を取る人が敗北します。</p>
+                    </li>
+                  </ol>
                 </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニューの「広告削除（¥300）」から行えます。</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion animate-on-scroll">
-                <div class="accordion-header">
-                  <h4>アプリが起動しなくなったり、クラッシュする場合は？</h4>
-                  <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
-                </div>
-                <div class="accordion-content">
-                  <div class="accordion-inner">
-                    <p>ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて <a href="mailto:trailfusionai@gmail.com">trailfusionai@gmail.com</a> までお問い合わせください。再インストールで改善する場合もあります。</p>
-                  </div>
+                
+                <div class="feature-card animate-on-scroll">
+                  <h3 data-translate-key="wg_strategy_title">戦略のポイント</h3>
+                  <ol style="margin-left: 1.5rem; padding-left:0;">
+                    <li>
+                      <h4 data-translate-key="wg_strategy1_title">最善の手を打ち続ける</h4>
+                      <p data-translate-key="wg_strategy1_desc">一度でも相手が有利になると不利になります。画面上部のメッセージを参考に計画しましょう。</p>
+                    </li>
+                    <li>
+                      <h4 data-translate-key="wg_strategy2_title">最後を見据える</h4>
+                      <p data-translate-key="wg_strategy2_desc">終盤で相手に最後の棒を取らせるために、計画的に棒を取ります。</p>
+                    </li>
+                    <li>
+                      <h4 data-translate-key="wg_strategy3_title">相手の動きを予測</h4>
+                      <p data-translate-key="wg_strategy3_desc">相手がどの段からどれだけ棒を取るかを予測して、先回りする戦略を練りましょう。</p>
+                    </li>
+                  </ol>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- コンタクトセクション -->
-        <section class="contact">
-          <div class="container">
-            <div class="section-title animate-on-scroll">
-              <span class="badge badge-primary">お問い合わせ</span>
-              <h2>サポートについて</h2>
-              <p>アプリの最新情報やアップデート内容は、ストアページや当サイトに随時掲載していきます。<br>「こうしてほしい」「この機能が欲しい」などご要望がありましたら、遠慮なくお問い合わせください。</p>
-            </div>
-            <div class="contact-card animate-on-scroll">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <h3>お問い合わせ先</h3>
-              <a href="mailto:trailfusionai@gmail.com" class="contact-email">trailfusionai@gmail.com</a>
-              <p>アプリに関するご質問・不具合報告等は、上記メールアドレスまでご連絡ください。</p>
-              <p>いただいたご意見は、今後の改善や新機能追加の参考にさせていただきます。</p>
-              <a href="https://apps.apple.com/jp/app/%E6%A3%92%E5%8F%96%E3%82%8A%E6%94%BB%E7%95%A5-%E6%A3%AE%E3%81%AE%E3%82%A6%E3%83%83%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AC%E3%83%A0%E5%A4%A7%E5%86%92%E9%99%BA/id6739466549" class="btn download-btn mt-3" target="_blank">
-                <i class="fab fa-apple"></i> 今すぐダウンロード
-              </a>
-            </div>
-          </div>
-        </section>
+          </section>
+        <!-- FAQ, Contact sections will be shared or app-specific, placed below -->
       </div>
-    </div>
-  </div>
 
-  <!-- フッター -->
-  <footer class="footer english-app">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="footer-logo">
-            <img src="logo.PNG" alt="Trail Fusion Logo">
-            <h3>TrailFusion AI</h3>
+      <!-- 共通FAQセクション -->
+      <section id="faq-common-section" class="faq section">
+        <div class="container">
+          <div class="section-title animate-on-scroll">
+            <span class="badge" data-translate-key="faq_common_badge">サポート</span>
+            <h2 data-translate-key="faq_common_title">よくある質問 (FAQ)</h2>
+            <p class="subtitle" data-translate-key="faq_common_subtitle">アプリに関するよくあるご質問と回答です。</p>
           </div>
-          <div class="footer-company">
-            <p>オリジナリティあふれるアプリ開発を目指しています</p>
+          <div class="faq-container">
+            <!-- GPティーチャーズのFAQ -->
+            <div class="faq-group english-app-faq">
+                <h3 class="text-center mb-3" data-translate-key="faq_gp_specific_title">GPティーチャーズ FAQ</h3>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                      <h4 data-translate-key="gp_faq1_q">インストール後すぐに使えますか？</h4>
+                      <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="gp_faq1_a">はい、インストール後すぐにお使いいただけます。初回起動時に簡単な設定があります。音声認識のためにマイクの使用許可を求められますので、許可していただくとスムーズです。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="gp_faq2_q">どのような英語レベルに対応していますか？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="gp_faq2_a">初級者（英検5級レベル）から上級者（TOEIC990点レベル）まで幅広く対応しています。レベル別のコース構成になっているので、自分に合ったレベルから始められます。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="gp_faq3_q">オフラインでも使用できますか？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="gp_faq3_a">一部の機能はオフラインでも使用できますが、AI会話機能や音声認識機能はインターネット接続が必要です。単語学習ゲームの一部はオフラインでもプレイ可能です。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="gp_faq4_q">広告を非表示にすることはできますか？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="gp_faq4_a">はい、アプリ内課金で「広告削除」オプションをご購入いただくと、すべての広告が表示されなくなります。一度購入すれば永続的に広告は表示されません。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="gp_faq5_q">音声認識の精度はどのくらいですか？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="gp_faq5_a">最新の音声認識技術を使用しており、クリアな発音であれば高い精度で認識します。ただし、周囲の騒音や発音の明瞭さによって精度が変わる場合があります。認識精度は継続的に改善されています。</p></div></div>
+                </div>
+            </div>
+            <!-- 森のウッドゴーレムのFAQ -->
+            <div class="faq-group stick-app-faq mt-5">
+                <h3 class="text-center mb-3" data-translate-key="faq_wg_specific_title">森のウッドゴーレム FAQ</h3>
+                <div class="accordion animate-on-scroll">
+                  <div class="accordion-header">
+                    <h4 data-translate-key="wg_faq1_q">ゲームのルールが分かりません。</h4>
+                    <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                  </div>
+                  <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="wg_faq1_a">アプリ内の「ルール」ボタンから詳細を確認できます。複数の段に並んだ棒を交互に取っていき、最後の棒を「相手」に取らせれば勝利です。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="wg_faq2_q">ステージをやり直したいのですがどうすればいいですか？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="wg_faq2_a">メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は「Retry」ボタン（リトライ）から再挑戦することも可能です。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="wg_faq3_q">BGMや効果音を消したい場合はどうすればいいですか？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="wg_faq3_a">アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="wg_faq4_q">広告を非表示にしたいのですが。</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="wg_faq4_a">ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニューの「広告削除（¥300）」から行えます。</p></div></div>
+                </div>
+                <div class="accordion animate-on-scroll">
+                    <div class="accordion-header">
+                        <h4 data-translate-key="wg_faq5_q">アプリが起動しなくなったり、クラッシュする場合は？</h4>
+                        <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content"><div class="accordion-inner"><p data-translate-key="wg_faq5_a_part1">ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて </p><a href="mailto:trailfusionai@gmail.com">trailfusionai@gmail.com</a><p data-translate-key="wg_faq5_a_part2"> までお問い合わせください。再インストールで改善する場合もあります。</p></div></div>
+                </div>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="footer-links">
-            <a href="#" class="footer-link">プライバシーポリシー</a>
-            <a href="#" class="footer-link">利用規約</a>
-            <a href="#" class="footer-link">サポート</a>
+      </section>
+
+      <!-- 共通コンタクトセクション -->
+      <section id="contact-common-section" class="contact-section section">
+        <div class="container">
+          <div class="section-title animate-on-scroll">
+            <span class="badge" data-translate-key="contact_badge">お問い合わせ</span>
+            <h2 data-translate-key="contact_title">サポートについて</h2>
+            <p class="subtitle" data-translate-key="contact_subtitle_english" id="contactSubtitleEnglish">アプリに関するご質問やご要望がありましたら、お気軽にお問い合わせください。</p>
+            <p class="subtitle" data-translate-key="contact_subtitle_stick" id="contactSubtitleStick" style="display:none;">アプリの最新情報やアップデート内容は、ストアページや当サイトに随時掲載していきます。<br>「こうしてほしい」「この機能が欲しい」などご要望がありましたら、遠慮なくお問い合わせください。</p>
           </div>
-          <div class="footer-social">
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <div class="contact-card animate-on-scroll">
+            <div class="contact-icon">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3 data-translate-key="contact_cta_title">お問い合わせ先</h3>
+            <a href="mailto:trailfusionai@gmail.com" class="contact-email">trailfusionai@gmail.com</a>
+            <p data-translate-key="contact_message_english" id="contactMessageEnglish">ご意見・ご要望やバグ報告などございましたら、上記メールアドレスにご連絡ください。いただいたフィードバックは今後のアップデートの参考にさせていただきます。</p>
+            <p data-translate-key="contact_message_stick" id="contactMessageStick" style="display:none;">アプリに関するご質問・不具合報告等は、上記メールアドレスまでご連絡ください。いただいたご意見は、今後の改善や新機能追加の参考にさせていただきます。</p>
+            
+            <a href="https://apps.apple.com/jp/app/gp-teachers/id6744263274" class="btn download-btn mt-3 english-app-download-link" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-apple"></i> <span data-translate-key="download_now">今すぐダウンロード</span>
+            </a>
+            <a href="https://apps.apple.com/jp/app/%E6%A3%92%E5%8F%96%E3%82%8A%E6%94%BB%E7%95%A5-%E6%A3%AE%E3%81%AE%E3%82%A6%E3%83%83%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AC%E3%83%A0%E5%A4%A7%E5%86%92%E9%99%BA/id6739466549" class="btn download-btn mt-3 stick-app-download-link" target="_blank" rel="noopener noreferrer" style="display:none;">
+                <i class="fab fa-apple"></i> <span data-translate-key="download_now">今すぐダウンロード</span>
+            </a>
           </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo-section">
+          <div class="footer-logo">
+            <img src="logo.PNG" alt="Trail Fusion Logo">
+            <h3 data-translate-key="footer_brand">TrailFusion AI</h3>
+          </div>
+          <p class="footer-company-text" data-translate-key="footer_tagline">オリジナリティあふれるアプリ開発を目指しています</p>
+        </div>
+        <div class="footer-links-section">
+          <h4 data-translate-key="footer_links_title">関連リンク</h4>
+          <ul>
+            <li><a href="#" class="footer-link" data-translate-key="footer_privacy">プライバシーポリシー</a></li>
+            <li><a href="#" class="footer-link" data-translate-key="footer_terms">利用規約</a></li>
+            <li><a href="#contact-common-section" class="footer-link" data-translate-key="footer_support">サポート</a></li>
+          </ul>
+        </div>
+        <div class="footer-social-section">
+            <h4 data-translate-key="footer_social_title">フォローする</h4>
+            <ul class="footer-social">
+              <li><a href="#" class="social-icon-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#" class="social-icon-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#" class="social-icon-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 TrailFusion AI. All rights reserved.</p>
+        <p>© <span id="currentYear"></span> TrailFusion AI. <span data-translate-key="footer_rights">All rights reserved.</span></p>
       </div>
     </div>
   </footer>
+
+  <script>
+    // --- Translations ---
+    const translations = {
+      ja: {
+        // Nav
+        nav_brand: "TrailFusion AI",
+        nav_gp_teachers: "GPティーチャーズ",
+        nav_wood_golem: "森のウッドゴーレム",
+        nav_faq: "FAQ",
+        nav_contact: "お問い合わせ",
+        // Tabs
+        tab_gp_teachers: "GPティーチャーズ",
+        tab_wood_golem: "森のウッドゴーレム",
+        // Common
+        download_app_store: "App Storeでダウンロード",
+        download_now: "今すぐダウンロード",
+        page_title: "TrailFusion アプリ公式サイト",
+        page_description: "TrailFusionの革新的なアプリ、GPティーチャーズと森のウッドゴーレムをご紹介。今すぐダウンロードして新しい体験を！",
+        // GP Teachers Hero
+        gp_hero_title: "GPティーチャーズ",
+        gp_hero_subtitle: "会話しながら英語が身につく！個性豊かな先生とリアルな英会話練習＆宇宙を舞台にした単語シューティングゲームで楽しく学習。",
+        gp_alt_screen_conversation: "GPティーチャーズ 英会話画面",
+        gp_alt_screen_wordgame: "GPティーチャーズ 単語学習ゲーム画面",
+        // GP Features
+        gp_features_badge: "アプリの特徴",
+        gp_features_title: "GPティーチャーズの魅力",
+        gp_features_subtitle: "「GPティーチャーズ」は、英会話と単語学習を楽しくゲーム感覚で行える革新的な英語学習アプリです。",
+        gp_feature1_title: "リアルな英会話練習",
+        gp_feature1_desc: "個性豊かな先生キャラクターと実際に会話できます。先進的な音声認識技術で話した英語を自動認識し、AIが自然な英語で返答します。",
+        gp_alt_feature1_img: "GPティーチャーズ 翻訳機能付き英会話画面",
+        gp_feature2_title: "レベル別コース構成",
+        gp_feature2_desc: "日常英会話コース（初級・中級・上級）と英文法コース（中学1年・2年・3年レベル）から選べます。自分のレベルに合わせて学習を進められます。",
+        gp_alt_feature2_img: "GPティーチャーズ 英語コース選択画面",
+        gp_feature3_title: "フレーズブック機能",
+        gp_feature3_desc: "レッスンごとに役立つ英語フレーズを収録。音声で発音を聞けたり、お気に入り登録で復習しやすくなっています。",
+        gp_alt_feature3_img: "GPティーチャーズ フレーズブックとタスク画面",
+        gp_feature4_title: "ワードブラスター",
+        gp_feature4_desc: "宇宙を舞台にしたシューティングゲームで単語を学習。英検5級からTOEIC990点レベルまで幅広く対応し、楽しみながら単語力が身につきます。",
+        gp_alt_feature4_img: "GPティーチャーズ ワードブラスターゲーム画面",
+        gp_feature5_title: "学習進捗管理",
+        gp_feature5_desc: "単語のマスター状況をビジュアル表示。学習統計でこれまでの成果を確認でき、間違えやすい単語を特定して集中学習できます。",
+        gp_alt_feature5_img: "GPティーチャーズ 学習チャレンジとカレンダー画面",
+        gp_feature6_title: "使いやすいインターフェース",
+        gp_feature6_desc: "タブ式の直感的な操作性と魅力的なキャラクターで、楽しみながら学習できます。音声設定もカスタマイズ可能です。",
+        // GP Target Users
+        gp_target_badge: "対象ユーザー",
+        gp_target_title: "こんな方におすすめ",
+        gp_target_subtitle: "GPティーチャーズは、英語学習を始めたい方から、スキルアップを目指す方まで幅広く対応しています。",
+        gp_wordblaster_title: "ワードブラスター機能",
+        gp_wordblaster_desc: "宇宙を舞台にした英単語シューティングゲームが大人気！",
+        gp_wordblaster_point1: "英検5級からTOEIC990点まで幅広いレベル対応",
+        gp_wordblaster_point2: "宇宙船を操作して敵からの攻撃をかわしながら単語を学習",
+        gp_wordblaster_point3: "ステージ制で徐々に難易度が上がり、継続的に学習意欲を維持",
+        gp_alt_wordblaster_level: "ワードブラスター レベル選択画面",
+        gp_alt_wordblaster_gameplay: "ワードブラスター ゲームプレイ画面",
+        gp_target1_title: "英会話の練習相手が欲しい方",
+        gp_target1_desc: "AIが会話パートナーとなり、いつでもどこでも英会話の練習ができます。発音やフレーズのフィードバックも受けられます。",
+        gp_target2_title: "英語をゲーム感覚で楽しみたい方",
+        gp_target2_desc: "単語シューティングゲームで、楽しみながら英単語を覚えられます。ゲーム要素がモチベーション維持に役立ちます。",
+        gp_target3_title: "英検やTOEIC対策をしたい方",
+        gp_target3_desc: "英検5級からTOEIC990点レベルまで対応した単語学習で、効率的に試験対策ができます。",
+        gp_target4_title: "隙間時間に英語力を伸ばしたい方",
+        gp_target4_desc: "短時間でも効果的に学習できるレッスン構成で、忙しい方でも継続的に英語力を向上させられます。",
+        // Wood Golem Hero
+        wg_hero_title: "棒取り攻略！森のウッドゴーレム大冒険",
+        wg_hero_subtitle: "一風変わったパズルゲームで小さな木のゴーレムと一緒に大冒険へ出かけよう",
+        wg_alt_screen_title: "森のウッドゴーレム タイトル画面",
+        // Wood Golem Features
+        wg_features_badge: "ゲーム特徴",
+        wg_features_title: "ゲームの魅力",
+        wg_features_subtitle: "『棒取り攻略！森のウッドゴーレム大冒険』は、単なるパズルゲームではありません。",
+        wg_feature1_title: "深遠な戦略性",
+        wg_feature1_desc: "各ステージは複雑な戦略を要求し、プレイヤーの思考力を試します。棒を引き抜くたびに変化する局面で、最善の手を見つけ出しましょう。",
+        wg_feature2_title: "成長物語",
+        wg_feature2_desc: "小さなゴーレムがあなたの手によって成長していく過程を楽しめます。ステージをクリアするごとにゴーレムは新たな力を手に入れます。",
+        wg_feature3_title: "魅力的なストーリー",
+        wg_feature3_desc: "森の奥深くで繰り広げられるゴーレムとの冒険。彼の故郷への帰還を助けるために、あなたは数々の試練に立ち向かいます。",
+        wg_feature4_title: "美麗なグラフィック",
+        wg_feature4_desc: "手描きのアートスタイルと感動的なサウンドトラックが、ゲームの世界観を一層引き立てます。",
+        wg_feature5_title: "多彩なステージ",
+        wg_feature5_desc: "様々な難易度のステージが用意されており、飽きることなく挑戦し続けられます。",
+        wg_feature6_title: "ヒントシステム",
+        wg_feature6_desc: "必要な時に戦略的なアドバイスを提供し、プレイヤーのスキル向上をサポートします。",
+        // Wood Golem Story
+        wg_story_badge: "物語",
+        wg_story_title: "ウッドゴーレムの物語",
+        wg_story_subtitle: "冒険の舞台は神秘的な森の中。あなたはそこで小さなウッドゴーレムと出会います。",
+        wg_story_text: "森の奥で、小さなウッドゴーレムと出会った。\n\n体は数本の木の棒だけでできていて、弱々しいが、その瞳にはどこか切ない光が宿っている。\n\n木の棒を一本与えると、体に吸い込まれ、少し成長した。\n\nゴーレムは星空を見上げ、「元いた星に帰りたい」とつぶやく。\n\nその言葉を聞いたあなたは、彼を故郷へ帰すことを決意する。\n\n100本の木を集めて成長させれば、彼は故郷に帰れるという。\n\nしかし、木を集めるたび、森には謎の現象が起こり、不穏な気配が漂い始める。\n\nゴーレムを完成させるとき、真実が明かされる。\n\n果たして彼を無事に帰すことはできるのだろうか？",
+        // Wood Golem Gameplay
+        wg_gameplay_badge: "遊び方",
+        wg_gameplay_title: "ゲーム攻略ガイド",
+        wg_gameplay_subtitle: "ゲームルールや効果的な戦略を学んで、ウッドゴーレムと一緒に冒険を楽しみましょう。",
+        wg_rules_title: "ゲームのルール",
+        wg_rule1_title: "ゲームの目的",
+        wg_rule1_desc: "棒引きゲームの目的は、最後の棒を相手に取らせることです。",
+        wg_rule2_title: "ゲームの開始",
+        wg_rule2_desc: "まず最初にプレイヤーは先行か後攻かを選びます。",
+        wg_rule3_title: "棒を取るルール",
+        wg_rule3_desc: "自分のターンでは、任意の段から1本以上の棒を取ることができます。ただし、連続する棒のみを取ることができます。",
+        wg_rule4_title: "ターンの交代",
+        wg_rule4_desc: "一人が棒を取ったら、次は相手のターンになります。これを繰り返し、最後の棒を取る人が敗北します。",
+        wg_strategy_title: "戦略のポイント",
+        wg_strategy1_title: "最善の手を打ち続ける",
+        wg_strategy1_desc: "一度でも相手が有利になると不利になります。画面上部のメッセージを参考に計画しましょう。",
+        wg_strategy2_title: "最後を見据える",
+        wg_strategy2_desc: "終盤で相手に最後の棒を取らせるために、計画的に棒を取ります。",
+        wg_strategy3_title: "相手の動きを予測",
+        wg_strategy3_desc: "相手がどの段からどれだけ棒を取るかを予測して、先回りする戦略を練りましょう。",
+        // Common FAQ
+        faq_common_badge: "サポート",
+        faq_common_title: "よくある質問 (FAQ)",
+        faq_common_subtitle: "アプリに関するよくあるご質問と回答です。",
+        faq_gp_specific_title: "GPティーチャーズ FAQ",
+        gp_faq1_q: "インストール後すぐに使えますか？",
+        gp_faq1_a: "はい、インストール後すぐにお使いいただけます。初回起動時に簡単な設定があります。音声認識のためにマイクの使用許可を求められますので、許可していただくとスムーズです。",
+        gp_faq2_q: "どのような英語レベルに対応していますか？",
+        gp_faq2_a: "初級者（英検5級レベル）から上級者（TOEIC990点レベル）まで幅広く対応しています。レベル別のコース構成になっているので、自分に合ったレベルから始められます。",
+        gp_faq3_q: "オフラインでも使用できますか？",
+        gp_faq3_a: "一部の機能はオフラインでも使用できますが、AI会話機能や音声認識機能はインターネット接続が必要です。単語学習ゲームの一部はオフラインでもプレイ可能です。",
+        gp_faq4_q: "広告を非表示にすることはできますか？",
+        gp_faq4_a: "はい、アプリ内課金で「広告削除」オプションをご購入いただくと、すべての広告が表示されなくなります。一度購入すれば永続的に広告は表示されません。",
+        gp_faq5_q: "音声認識の精度はどのくらいですか？",
+        gp_faq5_a: "最新の音声認識技術を使用しており、クリアな発音であれば高い精度で認識します。ただし、周囲の騒音や発音の明瞭さによって精度が変わる場合があります。認識精度は継続的に改善されています。",
+        faq_wg_specific_title: "森のウッドゴーレム FAQ",
+        wg_faq1_q: "ゲームのルールが分かりません。",
+        wg_faq1_a: "アプリ内の「ルール」ボタンから詳細を確認できます。複数の段に並んだ棒を交互に取っていき、最後の棒を「相手」に取らせれば勝利です。",
+        wg_faq2_q: "ステージをやり直したいのですがどうすればいいですか？",
+        wg_faq2_a: "メインメニューで「はじめから」を選択すると、ステージを初期状態にリセットできます。途中からやり直したい場合は「Retry」ボタン（リトライ）から再挑戦することも可能です。",
+        wg_faq3_q: "BGMや効果音を消したい場合はどうすればいいですか？",
+        wg_faq3_a: "アプリのメインメニューにある「設定」画面から「ミュージック有効」「効果音有効」の切り替えができます。",
+        wg_faq4_q: "広告を非表示にしたいのですが。",
+        wg_faq4_a: "ストア内課金で「広告削除」を購入いただくと、アプリ内の広告が表示されなくなります。購入ボタンはメインメニューの「広告削除（¥300）」から行えます。",
+        wg_faq5_q: "アプリが起動しなくなったり、クラッシュする場合は？",
+        wg_faq5_a_part1: "ご利用の機種名とOSバージョン、およびアプリのバージョンを添えて ", // Keep the space at the end
+        wg_faq5_a_part2: " までお問い合わせください。再インストールで改善する場合もあります。", // Keep the space at the beginning
+        // Common Contact
+        contact_badge: "お問い合わせ",
+        contact_title: "サポートについて",
+        contact_subtitle_english: "アプリに関するご質問やご要望がありましたら、お気軽にお問い合わせください。",
+        contact_subtitle_stick: "アプリの最新情報やアップデート内容は、ストアページや当サイトに随時掲載していきます。<br>「こうしてほしい」「この機能が欲しい」などご要望がありましたら、遠慮なくお問い合わせください。",
+        contact_cta_title: "お問い合わせ先",
+        contact_message_english: "ご意見・ご要望やバグ報告などございましたら、上記メールアドレスにご連絡ください。いただいたフィードバックは今後のアップデートの参考にさせていただきます。",
+        contact_message_stick: "アプリに関するご質問・不具合報告等は、上記メールアドレスまでご連絡ください。いただいたご意見は、今後の改善や新機能追加の参考にさせていただきます。",
+        // Footer
+        footer_brand: "TrailFusion AI",
+        footer_tagline: "オリジナリティあふれるアプリ開発を目指しています",
+        footer_links_title: "関連リンク",
+        footer_privacy: "プライバシーポリシー",
+        footer_terms: "利用規約",
+        footer_support: "サポート",
+        footer_social_title: "フォローする",
+        footer_rights: "All rights reserved.",
+      },
+      en: {
+        // Nav
+        nav_brand: "TrailFusion AI",
+        nav_gp_teachers: "GP Teachers",
+        nav_wood_golem: "Wood Golem",
+        nav_faq: "FAQ",
+        nav_contact: "Contact",
+        // Tabs
+        tab_gp_teachers: "GP Teachers",
+        tab_wood_golem: "Wood Golem Adventure",
+        // Common
+        download_app_store: "Download on the App Store",
+        download_now: "Download Now",
+        page_title: "TrailFusion Apps Official Site",
+        page_description: "Discover TrailFusion's innovative apps: GP Teachers and Wood Golem Adventure. Download now for a new experience!",
+        // GP Teachers Hero
+        gp_hero_title: "GP Teachers",
+        gp_hero_subtitle: "Learn English through conversation! Practice real English with unique teachers & enjoy a fun vocabulary shooter game set in space.",
+        gp_alt_screen_conversation: "GP Teachers English Conversation Screen",
+        gp_alt_screen_wordgame: "GP Teachers Word Learning Game Screen",
+        // GP Features
+        gp_features_badge: "App Features",
+        gp_features_title: "Discover GP Teachers",
+        gp_features_subtitle: "GP Teachers is an innovative English learning app that makes practicing conversation and vocabulary fun, like a game.",
+        gp_feature1_title: "Realistic Conversation Practice",
+        gp_feature1_desc: "Converse with unique teacher characters. Advanced voice recognition technology automatically understands your spoken English, and AI responds naturally.",
+        gp_alt_feature1_img: "GP Teachers Conversation Screen with Translation Feature",
+        gp_feature2_title: "Level-Based Course Structure",
+        gp_feature2_desc: "Choose from daily conversation courses (Beginner, Intermediate, Advanced) and grammar courses (Middle School 1st, 2nd, 3rd year levels). Learn at your own pace.",
+        gp_alt_feature2_img: "GP Teachers English Course Selection Screen",
+        gp_feature3_title: "Phrasebook Function",
+        gp_feature3_desc: "Contains useful English phrases for each lesson. Listen to pronunciations and save favorites for easy review.",
+        gp_alt_feature3_img: "GP Teachers Phrasebook and Task Screen",
+        gp_feature4_title: "Word Blaster Game",
+        gp_feature4_desc: "Learn vocabulary with a space-themed shooter game. Covers levels from Eiken 5 to TOEIC 990, making learning words enjoyable.",
+        gp_alt_feature4_img: "GP Teachers Word Blaster Game Screen",
+        gp_feature5_title: "Learning Progress Management",
+        gp_feature5_desc: "Visually track your word mastery. Check your progress with learning statistics and identify frequently mistaken words for focused study.",
+        gp_alt_feature5_img: "GP Teachers Learning Challenge and Calendar Screen",
+        gp_feature6_title: "User-Friendly Interface",
+        gp_feature6_desc: "Enjoy learning with an intuitive tab-based design and charming characters. Voice settings are customizable.",
+        // GP Target Users
+        gp_target_badge: "Recommended For",
+        gp_target_title: "Who is this app for?",
+        gp_target_subtitle: "GP Teachers is suitable for a wide range of users, from those starting to learn English to those aiming to improve their skills.",
+        gp_wordblaster_title: "Word Blaster Feature",
+        gp_wordblaster_desc: "The space-themed English vocabulary shooter game is very popular!",
+        gp_wordblaster_point1: "Covers a wide range of levels from Eiken Grade 5 to TOEIC 990.",
+        gp_wordblaster_point2: "Control a spaceship, dodge enemy attacks, and learn vocabulary.",
+        gp_wordblaster_point3: "Gradually increasing difficulty through stages keeps you motivated.",
+        gp_alt_wordblaster_level: "Word Blaster Level Selection Screen",
+        gp_alt_wordblaster_gameplay: "Word Blaster Gameplay Screen",
+        gp_target1_title: "Those who want a conversation partner",
+        gp_target1_desc: "AI acts as your conversation partner, allowing you to practice English anytime, anywhere. Get feedback on pronunciation and phrases.",
+        gp_target2_title: "Those who want to enjoy learning English like a game",
+        gp_target2_desc: "Learn English words while having fun with the vocabulary shooter game. Game elements help maintain motivation.",
+        gp_target3_title: "Those preparing for Eiken or TOEIC",
+        gp_target3_desc: "Effectively prepare for exams with vocabulary learning that covers levels from Eiken Grade 5 to TOEIC 990.",
+        gp_target4_title: "Those who want to improve English in their spare time",
+        gp_target4_desc: "Effectively learn even in short periods with well-structured lessons, helping busy individuals continuously improve their English.",
+         // Wood Golem Hero
+        wg_hero_title: "Stick Strategy! Wood Golem's Forest Adventure",
+        wg_hero_subtitle: "Embark on a grand adventure with a small wooden golem in this unique puzzle game.",
+        wg_alt_screen_title: "Wood Golem Title Screen",
+        // Wood Golem Features
+        wg_features_badge: "Game Features",
+        wg_features_title: "The Charm of the Game",
+        wg_features_subtitle: "Wood Golem's Forest Adventure is more than just a puzzle game.",
+        wg_feature1_title: "Profound Strategy",
+        wg_feature1_desc: "Each stage demands complex strategies, testing your thinking skills. Find the best move as the situation changes with every stick pulled.",
+        wg_feature2_title: "Growth Story",
+        wg_feature2_desc: "Enjoy the process of the little golem growing under your guidance. With each cleared stage, the golem gains new powers.",
+        wg_feature3_title: "Captivating Story",
+        wg_feature3_desc: "An adventure with the golem unfolds deep in the forest. You'll face numerous trials to help him return to his homeland.",
+        wg_feature4_title: "Beautiful Graphics",
+        wg_feature4_desc: "Hand-drawn art style and an emotional soundtrack enhance the game's world.",
+        wg_feature5_title: "Diverse Stages",
+        wg_feature5_desc: "Various difficulty levels are prepared, allowing you to keep challenging without getting bored.",
+        wg_feature6_title: "Hint System",
+        wg_feature6_desc: "Provides strategic advice when needed, supporting player skill improvement.",
+        // Wood Golem Story
+        wg_story_badge: "Story",
+        wg_story_title: "The Wood Golem's Tale",
+        wg_story_subtitle: "The adventure is set in a mystical forest where you meet a small wood golem.",
+        wg_story_text: "In the depths of the forest, you met a small wood golem.\n\nIts body, made of just a few wooden sticks, was frail, yet its eyes held a poignant light.\n\nWhen you gave it a wooden stick, it absorbed into its body, growing a little.\n\nThe golem looked up at the starry sky and murmured, \"I want to return to my home star.\"\n\nHearing these words, you decide to help it return home.\n\nIt is said that if it collects 100 pieces of wood and grows, it can return to its home.\n\nHowever, each time wood is collected, mysterious phenomena occur in the forest, and an unsettling atmosphere begins to drift.\n\nWhen the golem is completed, the truth will be revealed.\n\nWill you be able to send it home safely?",
+        // Wood Golem Gameplay
+        wg_gameplay_badge: "How to Play",
+        wg_gameplay_title: "Game Strategy Guide",
+        wg_gameplay_subtitle: "Learn the game rules and effective strategies to enjoy the adventure with the Wood Golem.",
+        wg_rules_title: "Game Rules",
+        wg_rule1_title: "Objective of the Game",
+        wg_rule1_desc: "The goal of the stick-pulling game is to make your opponent take the last stick.",
+        wg_rule2_title: "Starting the Game",
+        wg_rule2_desc: "First, the player chooses to go first or second.",
+        wg_rule3_title: "Rule for Taking Sticks",
+        wg_rule3_desc: "On your turn, you can take one or more sticks from any row. However, you can only take consecutive sticks.",
+        wg_rule4_title: "Alternating Turns",
+        wg_rule4_desc: "After one person takes sticks, it's the opponent's turn. This repeats, and the person who takes the last stick loses.",
+        wg_strategy_title: "Strategy Points",
+        wg_strategy1_title: "Keep Making the Best Moves",
+        wg_strategy1_desc: "If your opponent gains an advantage even once, you'll be at a disadvantage. Plan by referring to the message at the top of the screen.",
+        wg_strategy2_title: "Look to the End",
+        wg_strategy2_desc: "Strategically take sticks to make your opponent take the last one in the endgame.",
+        wg_strategy3_title: "Predict Opponent's Moves",
+        wg_strategy3_desc: "Predict which row and how many sticks your opponent will take, and strategize to preempt them.",
+        // Common FAQ
+        faq_common_badge: "Support",
+        faq_common_title: "Frequently Asked Questions (FAQ)",
+        faq_common_subtitle: "Here are common questions and answers about our apps.",
+        faq_gp_specific_title: "GP Teachers FAQ",
+        gp_faq1_q: "Can I use it immediately after installation?",
+        gp_faq1_a: "Yes, you can use it right after installation. There's a simple setup on first launch. You'll be asked for microphone permission for voice recognition; granting it ensures smooth operation.",
+        gp_faq2_q: "What English levels does it support?",
+        gp_faq2_a: "It supports a wide range from beginner (Eiken Grade 5 level) to advanced (TOEIC 990 level). Courses are structured by level, so you can start from what suits you.",
+        gp_faq3_q: "Can I use it offline?",
+        gp_faq3_a: "Some features can be used offline, but AI conversation and voice recognition require an internet connection. Parts of the word learning game can be played offline.",
+        gp_faq4_q: "Can I hide ads?",
+        gp_faq4_a: "Yes, by purchasing the 'Ad Removal' option via in-app purchase, all ads will be hidden. It's a one-time purchase for permanent ad removal.",
+        gp_faq5_q: "How accurate is the voice recognition?",
+        gp_faq5_a: "We use the latest voice recognition technology, which recognizes clear pronunciation with high accuracy. However, accuracy may vary depending on background noise and clarity of speech. Recognition accuracy is continuously being improved.",
+        faq_wg_specific_title: "Wood Golem Adventure FAQ",
+        wg_faq1_q: "I don't understand the game rules.",
+        wg_faq1_a: "You can check details from the 'Rules' button in the app. Players take turns removing sticks from multiple rows; you win if you make the opponent take the last stick.",
+        wg_faq2_q: "How can I restart a stage?",
+        wg_faq2_a: "Select 'Start Over' in the main menu to reset the stage. If you want to retry from the middle, you can use the 'Retry' button.",
+        wg_faq3_q: "How can I turn off BGM or sound effects?",
+        wg_faq3_a: "You can toggle 'Music Enabled' and 'Sound Effects Enabled' in the 'Settings' screen on the app's main menu.",
+        wg_faq4_q: "How can I hide ads?",
+        wg_faq4_a: "Purchasing 'Ad Removal' (¥300) from the in-app store will hide ads. The purchase button is on the main menu.",
+        wg_faq5_q: "What if the app won't launch or crashes?",
+        wg_faq5_a_part1: "Please contact ",
+        wg_faq5_a_part2: " with your device model, OS version, and app version. Reinstalling may also help.",
+        // Common Contact
+        contact_badge: "Contact",
+        contact_title: "Support Information",
+        contact_subtitle_english: "If you have any questions or requests regarding the app, please feel free to contact us.",
+        contact_subtitle_stick: "Latest information and updates about the app will be posted on the store page and this site.<br>If you have any requests like 'I want this feature,' please don't hesitate to contact us.",
+        contact_cta_title: "Contact Us",
+        contact_message_english: "For feedback, requests, or bug reports, please contact the email address above. Your feedback will be used to improve future updates.",
+        contact_message_stick: "For questions or bug reports about the app, please contact the email address above. Your feedback will be used for future improvements and new features.",
+        // Footer
+        footer_brand: "TrailFusion AI",
+        footer_tagline: "Striving to develop original and engaging apps.",
+        footer_links_title: "Quick Links",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Service",
+        footer_support: "Support",
+        footer_social_title: "Follow Us",
+        footer_rights: "All rights reserved.",
+      },
+      // Add zh, pt, es, de, hi, ru, fr translations here following the same structure
+      // Example for Chinese (zh) - Partial
+      zh: {
+        nav_brand: "TrailFusion AI (智径交汇)",
+        nav_gp_teachers: "GP教师",
+        download_app_store: "在 App Store 下载",
+        page_title: "TrailFusion 应用官方网站",
+        page_description: "探索 TrailFusion 的创新应用：GP教师 和 森林木偶大冒险。立即下载，体验全新境界！",
+        gp_hero_title: "GP教师",
+        gp_hero_subtitle: "通过对话学习英语！与独特的老师一起练习真实的英语对话，并享受设置在太空中的有趣词汇射击游戏。",
+        // ... more translations for zh
+      },
+    };
+
+    // --- Global Variables & Elements ---
+    let currentLang = 'ja';
+    const langSelector = document.getElementById('languageSelector');
+    const body = document.body;
+    const allAccordions = document.querySelectorAll('.accordion');
+    const appTabs = document.querySelectorAll('.app-tab');
+    const appContents = document.querySelectorAll('.app-content');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const softwareAppSchemaEl = document.getElementById('software-app-schema');
+    const faqSchemaEl = document.getElementById('faq-schema');
+
+    // --- Helper Functions ---
+    function setCssVariablesForApp(appPrefix) {
+        const root = document.documentElement.style;
+        if (appPrefix === 'english-app') {
+            root.setProperty('--current-app-primary-rgb', '52, 152, 219'); // --english-primary
+            root.setProperty('--current-app-secondary-rgb', '93, 173, 226'); // --english-secondary
+            body.classList.remove('stick-app-active');
+            body.classList.add('english-app-active');
+        } else if (appPrefix === 'stick-app') {
+            root.setProperty('--current-app-primary-rgb', '39, 174, 96'); // --stick-primary
+            root.setProperty('--current-app-secondary-rgb', '241, 196, 15'); // --stick-secondary
+            body.classList.remove('english-app-active');
+            body.classList.add('stick-app-active');
+        }
+        // Update contact section texts and download links based on active app
+        updateContactSection(appPrefix);
+    }
+
+    function updateContactSection(activeApp) {
+        const contactSubtitleEnglish = document.getElementById('contactSubtitleEnglish');
+        const contactSubtitleStick = document.getElementById('contactSubtitleStick');
+        const contactMessageEnglish = document.getElementById('contactMessageEnglish');
+        const contactMessageStick = document.getElementById('contactMessageStick');
+        const englishDownloadLink = document.querySelector('.english-app-download-link');
+        const stickDownloadLink = document.querySelector('.stick-app-download-link');
+
+        if (activeApp === 'english-app') {
+            contactSubtitleEnglish.style.display = 'block';
+            contactSubtitleStick.style.display = 'none';
+            contactMessageEnglish.style.display = 'block';
+            contactMessageStick.style.display = 'none';
+            englishDownloadLink.style.display = 'inline-block';
+            stickDownloadLink.style.display = 'none';
+        } else if (activeApp === 'stick-app') {
+            contactSubtitleEnglish.style.display = 'none';
+            contactSubtitleStick.style.display = 'block';
+            contactMessageEnglish.style.display = 'none';
+            contactMessageStick.style.display = 'block';
+            englishDownloadLink.style.display = 'none';
+            stickDownloadLink.style.display = 'inline-block';
+        }
+    }
+
+
+    // --- Translation Logic ---
+    function translatePage() {
+        document.querySelectorAll('[data-translate-key]').forEach(el => {
+            const key = el.dataset.translateKey;
+            const translation = translations[currentLang]?.[key] || translations.en?.[key] || key; // Fallback to English, then key itself
+            
+            // Handle multiline text for pre-wrap elements (like story)
+            if (el.style.whiteSpace === 'pre-wrap' && typeof translation === 'string') {
+                el.textContent = translation.replace(/\\n/g, '\n');
+            } else if (el.tagName === 'A' && el.classList.contains('contact-email') && key === 'wg_faq5_a_part1') {
+                 // Special handling for FAQ item with email link
+                const email = 'trailfusionai@gmail.com';
+                const part1 = translations[currentLang]?.wg_faq5_a_part1 || translations.en?.wg_faq5_a_part1 || "";
+                const part2 = translations[currentLang]?.wg_faq5_a_part2 || translations.en?.wg_faq5_a_part2 || "";
+                const parentP = el.closest('.accordion-inner').querySelector('p[data-translate-key="wg_faq5_a_part1"]');
+                if(parentP) parentP.innerHTML = `${part1}<a href="mailto:${email}">${email}</a>${part2}`;
+
+            } else {
+                el.innerHTML = translation; // Use innerHTML to allow for <i> tags etc. in translations if needed
+            }
+        });
+
+        document.querySelectorAll('img[alt_key]').forEach(img => {
+            const key = img.getAttribute('alt_key');
+            const altText = translations[currentLang]?.[key] || translations.en?.[key] || key;
+            img.alt = altText;
+        });
+
+        document.documentElement.lang = currentLang;
+        document.title = translations[currentLang]?.page_title || translations.en?.page_title || "TrailFusion Apps";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.content = translations[currentLang]?.page_description || translations.en?.page_description || "";
+        }
+        updateFaqSchema(); // Update FAQ schema after text translation
+    }
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('preferredLang', lang);
+        langSelector.value = lang;
+        translatePage();
+    }
+
+    // --- Accordion Logic ---
+    function initAccordion() {
+      allAccordions.forEach(accordion => {
+        const header = accordion.querySelector('.accordion-header');
+        const content = accordion.querySelector('.accordion-content');
+        
+        header.addEventListener('click', () => {
+          // Close other open accordions within the same FAQ group
+          const parentGroup = accordion.closest('.faq-group');
+          if (parentGroup) {
+              parentGroup.querySelectorAll('.accordion.active').forEach(openAccordion => {
+                  if (openAccordion !== accordion) {
+                      openAccordion.classList.remove('active');
+                      openAccordion.querySelector('.accordion-content').style.maxHeight = null;
+                  }
+              });
+          } else { // If not in a group (older structure or global accordion)
+            allAccordions.forEach(acc => {
+                if (acc !== accordion && acc.classList.contains('active')) {
+                    acc.classList.remove('active');
+                    acc.querySelector('.accordion-content').style.maxHeight = null;
+                }
+            });
+          }
+
+
+          accordion.classList.toggle('active');
+          if (accordion.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } else {
+            content.style.maxHeight = null;
+          }
+        });
+      });
+    }
+
+    // --- App Tabs Logic ---
+    function initAppTabs() {
+      appTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.dataset.target;
+          
+          appTabs.forEach(t => t.classList.remove('active'));
+          appContents.forEach(c => c.classList.remove('active'));
+          
+          tab.classList.add('active');
+          document.getElementById(targetId).classList.add('active');
+          
+          setCssVariablesForApp(targetId);
+
+          // Show/hide app-specific FAQ groups
+          document.querySelectorAll('.faq-group').forEach(group => group.style.display = 'none');
+          const activeFaqGroup = document.querySelector(`.faq-group.${targetId}-faq`);
+          if (activeFaqGroup) activeFaqGroup.style.display = 'block';
+          
+          // Scroll to the top of the app content or a specific section
+          const targetSection = document.getElementById(targetId + "-section");
+          if (targetSection) {
+            // Wait for content to be visible before scrolling
+            setTimeout(() => {
+                 targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100); // Small delay to ensure layout is stable
+          } else {
+            window.scrollTo({ top: document.querySelector('.app-selector').offsetTop - 100, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Initial setup for default active tab
+      const initiallyActiveTab = document.querySelector('.app-tab.active');
+      if (initiallyActiveTab) {
+        setCssVariablesForApp(initiallyActiveTab.dataset.target);
+        document.querySelectorAll('.faq-group').forEach(group => group.style.display = 'none');
+        const activeFaqGroup = document.querySelector(`.faq-group.${initiallyActiveTab.dataset.target}-faq`);
+        if (activeFaqGroup) activeFaqGroup.style.display = 'block';
+      }
+    }
+
+    // --- Scroll Animations ---
+    function initScrollAnimation() {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+            // Optional: Add staggered delays based on data attribute
+            const delay = entry.target.dataset.animationDelay;
+            if(delay) entry.target.style.animationDelay = delay;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      animatedElements.forEach(element => observer.observe(element));
+    }
+
+    // --- Navbar Scroll & Active Link ---
+    function handleNavbarScroll() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        let currentSectionId = '';
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - navbar.offsetHeight - 50) { // Adjusted offset
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // --- Dynamic Schema Update for FAQ ---
+    function updateFaqSchema() {
+        if (!faqSchemaEl) return;
+
+        const faqItems = [];
+        const activeAppId = document.querySelector('.app-tab.active')?.dataset.target;
+        const visibleFaqGroup = activeAppId ? document.querySelector(`.faq-group.${activeAppId}-faq`) : null;
+        
+        if (visibleFaqGroup) {
+            visibleFaqGroup.querySelectorAll('.accordion').forEach(accordion => {
+                const questionEl = accordion.querySelector('.accordion-header h4');
+                const answerEl = accordion.querySelector('.accordion-inner p'); // Simplified to first p
+                if (questionEl && answerEl) {
+                    faqItems.push({
+                        "@type": "Question",
+                        "name": questionEl.textContent.trim(),
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": answerEl.textContent.trim()
+                        }
+                    });
+                }
+            });
+        }
+        
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems
+        };
+        faqSchemaEl.textContent = JSON.stringify(faqSchema, null, 2); // Pretty print JSON
+    }
+    
+    // --- Dynamic Schema Update for SoftwareApplication ---
+    function updateSoftwareAppSchema(appId) {
+        if (!softwareAppSchemaEl) return;
+        let appData = {};
+
+        if (appId === 'english-app') {
+            appData = {
+                "name": translations[currentLang]?.gp_hero_title || "GP Teachers",
+                "operatingSystem": "iOS",
+                "applicationCategory": "EducationApplication",
+                "description": translations[currentLang]?.gp_hero_subtitle || "Learn English through conversation!",
+                "url": "https://apps.apple.com/jp/app/gp-teachers/id6744263274",
+                // Add more GP Teachers specific data
+            };
+        } else if (appId === 'stick-app') {
+            appData = {
+                "name": translations[currentLang]?.wg_hero_title || "Wood Golem Adventure",
+                "operatingSystem": "iOS",
+                "applicationCategory": "GameApplication",
+                "applicationSubCategory": "PuzzleGame",
+                "description": translations[currentLang]?.wg_hero_subtitle || "A unique puzzle game.",
+                "url": "https://apps.apple.com/jp/app/%E6%A3%92%E5%8F%96%E3%82%8A%E6%94%BB%E7%95%A5-%E6%A3%AE%E3%81%AE%E3%82%A6%E3%83%83%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AC%E3%83%A0%E5%A4%A7%E5%86%92%E9%99%BA/id6739466549",
+                // Add more Wood Golem specific data
+            };
+        }
+        
+        const softwareSchema = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            ...appData, // Spread app specific data
+            "offers": { // Example offer
+              "@type": "Offer",
+              "price": "0", // Assuming free with IAP
+              "priceCurrency": "JPY" // Adjust if your app has a price or different currency
+            }
+        };
+        softwareAppSchemaEl.textContent = JSON.stringify(softwareSchema, null, 2);
+    }
+
+
+    // --- DOMContentLoaded ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Language Selector Event
+        langSelector.addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+            // Update schema when language changes, based on active app
+            const activeAppId = document.querySelector('.app-tab.active')?.dataset.target;
+            if (activeAppId) updateSoftwareAppSchema(activeAppId);
+        });
+
+        // Load preferred language or default
+        const preferredLang = localStorage.getItem('preferredLang');
+        if (preferredLang && translations[preferredLang]) {
+            setLanguage(preferredLang);
+        } else {
+            setLanguage('ja'); // Default to Japanese
+        }
+
+        initAccordion();
+        initAppTabs(); // This will also call setCssVariablesForApp and updateFaqSchema
+        initScrollAnimation();
+        
+        window.addEventListener('scroll', handleNavbarScroll);
+        handleNavbarScroll(); // Initial check
+
+        // Update SoftwareApplication schema based on the initially active app
+        const initiallyActiveApp = document.querySelector('.app-tab.active')?.dataset.target;
+        if (initiallyActiveApp) {
+            updateSoftwareAppSchema(initiallyActiveApp);
+        }
+    });
+
+  </script>
 </body>
 </html>
