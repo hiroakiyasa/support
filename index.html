@@ -24,14 +24,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" data-i18n-key="twitter_title_default" content="TrailFusion AI | アプリコレクション">
   <meta name="twitter:description" data-i18n-key="twitter_desc_default" content="TrailFusion AIの革新的なアプリを発見しよう！GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー">
-  <meta name="twitter:image" content="twitter-card.jpg"> <!-- Update this path -->
+  <meta name="twitter:image" content="images/twitter-card.jpg">
   
   <!-- ファビコンとアップルタッチアイコン -->
   <link rel="icon" href="favicon.ico"> <!-- Update this path -->
   <link rel="apple-touch-icon" href="apple-touch-icon.png"> <!-- Update this path -->
   
   <!-- 外部ライブラリの読み込み -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -122,7 +122,23 @@
     h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.3; margin-bottom: var(--spacing-4); color: var(--dark-color); }
     h1 { font-size: var(--fs-4xl); } h2 { font-size: var(--fs-3xl); } h3 { font-size: var(--fs-2xl); } h4 { font-size: var(--fs-xl); }
     p { margin-bottom: var(--spacing-4); color: var(--gray-dark); }
-    img { max-width: 100%; height: auto; border-radius: var(--radius-lg); display: block; }
+    img { 
+      max-width: 100%; height: auto; border-radius: var(--radius-lg); display: block; 
+      transition: opacity var(--transition-normal);
+    }
+    img.lazy { opacity: 0.3; }
+    img[src=""], img:not([src]) { 
+      background-color: var(--gray-light); 
+      min-height: 200px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+    }
+    img[src=""]:before, img:not([src]):before { 
+      content: "画像を読み込み中..."; 
+      color: var(--gray-medium); 
+      font-size: var(--fs-sm); 
+    }
     a { color: var(--primary-color); text-decoration: none; transition: all var(--transition-fast); }
     a:hover { color: var(--primary-dark); text-decoration: none; }
     ul, ol { margin-bottom: var(--spacing-4); padding-left: var(--spacing-6); }
@@ -182,6 +198,760 @@
     .gpt-app .download-btn { background-color: var(--gpt-accent); }
     .golem-app .download-btn { background-color: var(--golem-accent); }
     .wordblaster-app .download-btn { background-color: var(--wb-accent); }
+    
+    /* ウッドゴーレム攻略法セクション用スタイル */
+    .strategy-section {
+      margin-bottom: var(--spacing-16);
+      padding: var(--spacing-8);
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-lg);
+      border-left: 5px solid var(--golem-primary);
+    }
+    
+    .strategy-section h3 {
+      color: var(--golem-primary);
+      margin-bottom: var(--spacing-6);
+      font-size: var(--fs-2xl);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+    
+    /* 棒の図解スタイル */
+    .stick-diagram {
+      background: #f8f9fa;
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      margin: var(--spacing-4) 0;
+    }
+    
+    .stick-row {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: var(--spacing-3);
+      gap: var(--spacing-2);
+      min-height: 40px;
+    }
+    
+    .row-label {
+      font-weight: 600;
+      color: var(--golem-dark);
+      min-width: 50px;
+    }
+    
+    .stick {
+      width: 8px;
+      height: 30px;
+      margin: 2px 0;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-normal);
+      display: inline-block;
+    }
+    
+    .stick.active {
+      background-color: var(--golem-primary);
+      box-shadow: 0 2px 4px rgba(74, 157, 103, 0.3);
+    }
+    
+    .stick.removed {
+      background-color: var(--gray-light);
+      opacity: 0.5;
+      position: relative;
+    }
+    
+    .stick.removed::after {
+      content: '×';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 12px;
+    }
+    
+    .stick.highlight {
+      background-color: var(--golem-accent);
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    /* ルール説明 */
+    .rule-explanation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-8);
+      align-items: center;
+    }
+    
+    .rule-text ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .rule-text li {
+      padding: var(--spacing-3);
+      margin-bottom: var(--spacing-2);
+      background: var(--golem-secondary);
+      border-radius: var(--radius-md);
+      color: var(--dark-color);
+      font-weight: 500;
+      position: relative;
+      padding-left: var(--spacing-8);
+    }
+    
+    .rule-text li::before {
+      content: '✓';
+      position: absolute;
+      left: var(--spacing-3);
+      color: var(--golem-primary);
+      font-weight: bold;
+    }
+    
+    /* ビフォーアフター表示 */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--spacing-6);
+      align-items: center;
+      margin: var(--spacing-6) 0;
+    }
+    
+    .game-state {
+      text-align: center;
+      padding: var(--spacing-4);
+      background: var(--light-color);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--golem-primary);
+    }
+    
+    .game-state h5 {
+      color: var(--golem-dark);
+      margin-bottom: var(--spacing-3);
+      font-size: var(--fs-lg);
+    }
+    
+    .state-info {
+      font-size: var(--fs-sm);
+      color: var(--gray-dark);
+      font-weight: 600;
+      margin-top: var(--spacing-2);
+    }
+    
+    .arrow {
+      font-size: var(--fs-2xl);
+      color: var(--golem-primary);
+      font-weight: bold;
+    }
+    
+    .move-explanation {
+      font-size: var(--fs-sm);
+      color: var(--golem-dark);
+      font-weight: 600;
+      margin-top: var(--spacing-2);
+    }
+    
+    /* ニム和計算テーブル */
+    .binary-table table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--spacing-4) 0;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .binary-table th,
+    .binary-table td {
+      padding: var(--spacing-3);
+      text-align: center;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    
+    .binary-table th {
+      background-color: var(--golem-primary);
+      color: var(--white);
+      font-weight: 600;
+    }
+    
+    .binary-table tr.result {
+      background-color: var(--golem-secondary);
+      font-weight: bold;
+    }
+    
+    /* 戦略ルールボックス */
+    .strategy-rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-4);
+      margin: var(--spacing-6) 0;
+    }
+    
+    .rule-box {
+      padding: var(--spacing-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      border: 2px solid;
+    }
+    
+    .rule-box.winning {
+      background-color: rgba(74, 157, 103, 0.1);
+      border-color: var(--golem-primary);
+    }
+    
+    .rule-box.losing {
+      background-color: rgba(231, 111, 81, 0.1);
+      border-color: var(--accent-color);
+    }
+    
+    .rule-box h6 {
+      margin-bottom: var(--spacing-2);
+      font-size: var(--fs-lg);
+    }
+    
+    .rule-box.winning h6 {
+      color: var(--golem-primary);
+    }
+    
+    .rule-box.losing h6 {
+      color: var(--accent-color);
+    }
+    
+    /* フローチャート */
+    .flowchart {
+      padding: var(--spacing-8);
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: var(--radius-2xl);
+      margin: var(--spacing-6) 0;
+    }
+    
+    .flow-step {
+      margin-bottom: var(--spacing-8);
+    }
+    
+    .step-box {
+      padding: var(--spacing-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      margin: var(--spacing-2) 0;
+    }
+    
+    .step-box.start {
+      background-color: var(--golem-primary);
+      color: var(--white);
+    }
+    
+    .step-box.decision {
+      background-color: var(--golem-secondary);
+      color: var(--dark-color);
+    }
+    
+    .step-box.action {
+      background-color: var(--golem-accent);
+      color: var(--white);
+    }
+    
+    .step-box.wait {
+      background-color: var(--gray-medium);
+      color: var(--white);
+    }
+    
+    .arrow-down {
+      text-align: center;
+      font-size: var(--fs-2xl);
+      color: var(--golem-primary);
+      font-weight: bold;
+    }
+    
+    .flow-branches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-4);
+    }
+    
+    .branch {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+    }
+    
+    .branch-label {
+      background-color: var(--golem-dark);
+      color: var(--white);
+      padding: var(--spacing-2) var(--spacing-3);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: var(--fs-sm);
+      white-space: nowrap;
+    }
+    
+    .arrow-right {
+      color: var(--golem-primary);
+      font-weight: bold;
+      font-size: var(--fs-lg);
+    }
+    
+    .sub-branches {
+      margin-top: var(--spacing-3);
+    }
+    
+    .sub-branch {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      margin-bottom: var(--spacing-2);
+    }
+    
+    .sub-branch span {
+      background-color: var(--white);
+      padding: var(--spacing-1) var(--spacing-2);
+      border-radius: var(--radius-sm);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      border: 1px solid var(--golem-primary);
+    }
+    
+    /* 練習問題 */
+    .practice-problems {
+      margin-top: var(--spacing-6);
+    }
+    
+    .problem {
+      background: var(--white);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-6);
+      border: 2px solid var(--golem-secondary);
+    }
+    
+    .problem h4 {
+      color: var(--golem-dark);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .problem-solution {
+      background: var(--light-color);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-md);
+      margin-top: var(--spacing-4);
+      border-left: 4px solid var(--golem-primary);
+    }
+    
+    .solution-toggle {
+      background-color: var(--golem-primary);
+      color: var(--white);
+      border: none;
+      padding: var(--spacing-2) var(--spacing-4);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all var(--transition-normal);
+      margin-top: var(--spacing-4);
+    }
+    
+    .solution-toggle:hover {
+      background-color: var(--golem-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .rule-explanation {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+      }
+      
+      .before-after {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+      }
+      
+      .arrow {
+        transform: rotate(90deg);
+      }
+      
+      .strategy-rules {
+        grid-template-columns: 1fr;
+      }
+      
+      .flow-branches {
+        grid-template-columns: 1fr;
+      }
+      
+      .branch {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .arrow-right {
+        transform: rotate(90deg);
+      }
+      
+      .stick {
+        width: 6px;
+        height: 25px;
+      }
+    }
+    
+    /* ウッドゴーレム実践ゲーム用スタイル */
+    .game-container {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-8);
+      box-shadow: var(--shadow-xl);
+      border: 3px solid var(--golem-primary);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-6);
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+    }
+    
+    .game-info h3 {
+      color: var(--golem-primary);
+      margin-bottom: var(--spacing-2);
+      font-size: var(--fs-xl);
+    }
+    
+    .game-status {
+      display: flex;
+      gap: var(--spacing-4);
+      align-items: center;
+    }
+    
+    .game-status span {
+      padding: var(--spacing-2) var(--spacing-3);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: var(--fs-sm);
+    }
+    
+    #game-turn {
+      background-color: var(--golem-primary);
+      color: var(--white);
+    }
+    
+    #game-turn.ai-turn {
+      background-color: var(--golem-accent);
+    }
+    
+    #game-message {
+      background-color: var(--golem-secondary);
+      color: var(--dark-color);
+    }
+    
+    .game-controls {
+      display: flex;
+      gap: var(--spacing-3);
+    }
+    
+    .game-board {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-6);
+      margin-bottom: var(--spacing-6);
+      min-height: 200px;
+      border: 2px solid var(--golem-secondary);
+    }
+    
+    .game-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: var(--spacing-4);
+      gap: var(--spacing-2);
+      min-height: 60px;
+      position: relative;
+    }
+    
+    .sticks-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+    }
+    
+    .row-label-game {
+      font-weight: 600;
+      color: var(--golem-dark);
+      min-width: 60px;
+      align-self: center;
+      font-size: var(--fs-sm);
+    }
+    
+    .game-stick {
+      width: 16px;
+      height: 50px;
+      margin: 3px;
+      border-radius: 8px 8px 2px 2px;
+      background: linear-gradient(135deg, #8B4513 0%, #A0522D 30%, #CD853F  70%, #DEB887 100%);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      position: relative;
+      box-shadow: 
+        0 2px 4px rgba(139, 69, 19, 0.3),
+        inset 0 1px 0 rgba(222, 184, 135, 0.5),
+        inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+      border: 1px solid #8B4513;
+    }
+    
+    .game-stick::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 80%;
+      background: linear-gradient(to bottom, #654321, #8B4513);
+      border-radius: 1px;
+    }
+    
+    .game-stick::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      width: 60%;
+      height: 2px;
+      background: rgba(139, 69, 19, 0.4);
+      border-radius: 1px;
+    }
+    
+    .game-stick:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 4px 8px rgba(139, 69, 19, 0.4),
+        inset 0 1px 0 rgba(222, 184, 135, 0.7),
+        inset 0 -1px 0 rgba(139, 69, 19, 0.5);
+      filter: brightness(1.1);
+    }
+    
+    .game-stick.selected {
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 30%, #FFA726 70%, #FFB74D 100%);
+      transform: translateY(-3px);
+      box-shadow: 
+        0 6px 12px rgba(255, 107, 53, 0.5),
+        inset 0 1px 0 rgba(255, 183, 77, 0.7),
+        inset 0 -1px 0 rgba(255, 107, 53, 0.5);
+      border-color: #FF6B35;
+    }
+    
+    .game-stick.removed {
+      background-color: var(--gray-light);
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .game-stick.removed::after {
+      content: '×';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .stick-count {
+      font-size: var(--fs-sm);
+      color: var(--golem-dark);
+      font-weight: 600;
+      margin-left: var(--spacing-2);
+      align-self: center;
+    }
+    
+    .nim-info {
+      background: var(--white);
+      border: 2px solid var(--golem-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-4);
+      margin-bottom: var(--spacing-4);
+      font-family: 'Courier New', monospace;
+    }
+    
+    .nim-info h4 {
+      color: var(--golem-primary);
+      margin-bottom: var(--spacing-3);
+      font-size: var(--fs-lg);
+    }
+    
+    .nim-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-2);
+      padding: var(--spacing-2);
+      background: var(--golem-secondary);
+      border-radius: var(--radius-md);
+    }
+    
+    .nim-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .nim-label {
+      font-weight: 600;
+      color: var(--golem-dark);
+    }
+    
+    .nim-binary {
+      font-family: 'Courier New', monospace;
+      color: var(--golem-primary);
+      font-weight: bold;
+    }
+    
+    .nim-sum {
+      background: var(--golem-primary);
+      color: var(--white);
+      padding: var(--spacing-2) var(--spacing-3);
+      border-radius: var(--radius-md);
+      font-weight: bold;
+      text-align: center;
+      margin-top: var(--spacing-3);
+    }
+    
+    .nim-sum.zero {
+      background: var(--success-color);
+    }
+    
+    .nim-sum.non-zero {
+      background: var(--accent-color);
+    }
+    
+    .game-actions {
+      text-align: center;
+    }
+    
+    .move-instruction {
+      background: var(--golem-secondary);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .move-instruction p {
+      color: var(--golem-dark);
+      font-size: var(--fs-sm);
+      margin: 0;
+      text-align: center;
+    }
+    
+    .role-selection {
+      background: var(--golem-secondary);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .role-selection h4 {
+      color: var(--golem-dark);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .role-buttons {
+      display: flex;
+      gap: var(--spacing-4);
+      justify-content: center;
+    }
+    
+    .game-result {
+      background: var(--light-color);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--golem-primary);
+    }
+    
+    .game-result h4 {
+      color: var(--golem-dark);
+      margin-bottom: var(--spacing-4);
+      font-size: var(--fs-xl);
+    }
+    
+    .result-buttons {
+      display: flex;
+      gap: var(--spacing-4);
+      justify-content: center;
+    }
+    
+    .hint-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .hint-content {
+      background: var(--white);
+      padding: var(--spacing-8);
+      border-radius: var(--radius-lg);
+      max-width: 500px;
+      margin: var(--spacing-4);
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .hint-content h4 {
+      color: var(--golem-primary);
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .hint-content p {
+      color: var(--dark-color);
+      margin-bottom: var(--spacing-6);
+      line-height: 1.6;
+    }
+    
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .game-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .game-controls {
+        justify-content: center;
+      }
+      
+      .role-buttons,
+      .result-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .game-stick {
+        width: 12px;
+        height: 40px;
+      }
+      
+      .game-container {
+        padding: var(--spacing-4);
+        margin: var(--spacing-2);
+      }
+    }
+    
     .ronpa-app .download-btn { background-color: var(--ronpa-accent); }
     .hackingtimer-app .download-btn { background-color: var(--ht-accent); }
 
@@ -547,6 +1317,99 @@
     }
     .scroll-top.active { opacity: 1; visibility: visible; transform: translateY(0); }
     .scroll-top:hover { transform: translateY(-5px); }
+
+    /* 動画ボタンスタイル */
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .video-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-btn i {
+      font-size: 1.1em;
+    }
+
+    /* 動画モーダルスタイル */
+    .video-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(5px);
+    }
+
+    .video-modal-content {
+      position: relative;
+      margin: 5% auto;
+      width: 90%;
+      max-width: 900px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10001;
+      transition: color 0.3s ease;
+    }
+
+    .video-modal-close:hover {
+      color: #ff6b6b;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
     
     /* アニメーション (省略) */
     [data-aos]{opacity:0;transition-property:opacity,transform}[data-aos].aos-animate{opacity:1}[data-aos=fade-up]{transform:translateY(30px)}[data-aos=fade-up].aos-animate{transform:translateY(0)}[data-aos=fade-down]{transform:translateY(-30px)}[data-aos=fade-down].aos-animate{transform:translateY(0)}[data-aos=fade-right]{transform:translateX(-30px)}[data-aos=fade-right].aos-animate{transform:translateX(0)}[data-aos=fade-left]{transform:translateX(30px)}[data-aos=fade-left].aos-animate{transform:translateX(0)}[data-aos=zoom-in]{transform:scale(.9)}[data-aos=zoom-in].aos-animate{transform:scale(1)}
@@ -578,6 +1441,29 @@
       .footer-logo, .footer-social { justify-content: center; }
       .footer-nav { grid-template-columns: 1fr; text-align: center; }
       .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+      
+      /* 動画ボタンのレスポンシブ対応 */
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .video-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+
+      .video-modal-content {
+        margin: 10% auto;
+        width: 95%;
+      }
+
+      .video-modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+      }
     }
     @media (max-width: 576px) {
       :root { --fs-5xl: 1.75rem; --fs-4xl: 1.5rem; --fs-3xl: 1.375rem; --fs-2xl: 1.25rem; --fs-xl: 1.125rem; --fs-lg: 1rem; }
@@ -664,9 +1550,14 @@
           <div class="hero-content">
             <h1 data-aos="fade-down" data-i18n-key="gpt_hero_title">GPティーチャーズ</h1>
             <p data-aos="fade-up" data-aos-delay="100" data-i18n-key="gpt_hero_desc">AI英会話パートナーとリアルな練習！個性豊かな先生たちと、いつでもどこでも英語力アップ。</p>
-            <a href="https://apps.apple.com/jp/app/gp-teachers/id6744263274" class="download-btn" data-aos="zoom-in" data-aos-delay="200" target="_blank">
-              <i class="fab fa-apple"></i> <span data-i18n-key="download_appstore">App Storeでダウンロード</span>
-            </a>
+            <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="200">
+              <a href="https://apps.apple.com/jp/app/gp-teachers-ai%E8%8B%B1%E4%BC%9A%E8%A9%B1-%E8%8B%B1%E5%8D%98%E8%AA%9E%E3%82%B2%E3%83%BC%E3%83%A0/id6744263274" class="download-btn" target="_blank">
+                <i class="fab fa-apple"></i> <span data-i18n-key="download_appstore">App Storeでダウンロード</span>
+              </a>
+              <button class="video-btn" onclick="openVideoModal('gpt-video')">
+                <i class="fas fa-play"></i> <span data-i18n-key="watch_demo">デモ動画を見る</span>
+              </button>
+            </div>
             <div class="app-screens">
               <img src="images/gpt_hero_main.jpg" alt="英会話画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="gpt_alt_conversation_screen">
               <img src="images/gpt_feature_levels.jpg" alt="コース選択画面" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="gpt_alt_course_selection_screen">
@@ -794,6 +1685,389 @@
                 </div>
             </div>
         </section>
+        
+        <!-- ウッドゴーレム攻略法セクション -->
+        <section id="strategy-golem" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="golem_strategy_badge">攻略ガイド</span>
+                    <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="golem_strategy_title">ウッドゴーレム完全攻略法</h2>
+                    <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="golem_strategy_desc">ニム理論に基づく必勝法を図解で分かりやすく解説します。</p>
+                </div>
+                
+                <!-- 基本ルール -->
+                <div class="strategy-section" data-aos="fade-up" data-aos-delay="300">
+                    <h3 data-i18n-key="golem_basic_rules_title">🎯 基本ルール</h3>
+                    <div class="rule-explanation">
+                        <div class="rule-visual">
+                            <div class="stick-diagram">
+                                <div class="stick-row">
+                                    <span class="row-label">段1:</span>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                </div>
+                                <div class="stick-row">
+                                    <span class="row-label">段2:</span>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                </div>
+                                <div class="stick-row">
+                                    <span class="row-label">段3:</span>
+                                    <div class="stick active"></div>
+                                    <div class="stick active"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rule-text">
+                            <ul data-i18n-key="golem_basic_rules_list">
+                                <li>各段から1本以上の棒を取る</li>
+                                <li>同じ段からなら何本でも取れる</li>
+                                <li>最後の1本を取った人が負け</li>
+                                <li>相手に最後の1本を取らせれば勝利</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 必勝パターン1: 終盤戦略 -->
+                <div class="strategy-section" data-aos="fade-up" data-aos-delay="400">
+                    <h3 data-i18n-key="golem_endgame_title">🏆 必勝パターン1: 終盤戦略</h3>
+                    <div class="strategy-pattern">
+                        <div class="pattern-case">
+                            <h4 data-i18n-key="golem_case1_title">ケース1: 大きな山が1つ + 1本山が複数</h4>
+                            <div class="case-visual">
+                                <div class="before-after">
+                                    <div class="game-state">
+                                        <h5>現在の状況</h5>
+                                        <div class="stick-diagram">
+                                            <div class="stick-row">
+                                                <span class="row-label">段1:</span>
+                                                <div class="stick active"></div>
+                                                <div class="stick active"></div>
+                                                <div class="stick active"></div>
+                                                <div class="stick active"></div>
+                                                <div class="stick active highlight"></div>
+                                            </div>
+                                            <div class="stick-row">
+                                                <span class="row-label">段2:</span>
+                                                <div class="stick active"></div>
+                                            </div>
+                                            <div class="stick-row">
+                                                <span class="row-label">段3:</span>
+                                                <div class="stick active"></div>
+                                            </div>
+                                        </div>
+                                        <p class="state-info">5本山×1 + 1本山×2 = 偶数個の1本山</p>
+                                    </div>
+                                    <div class="arrow">→</div>
+                                    <div class="game-state">
+                                        <h5>最適な手</h5>
+                                        <div class="stick-diagram">
+                                            <div class="stick-row">
+                                                <span class="row-label">段1:</span>
+                                                <div class="stick removed"></div>
+                                                <div class="stick removed"></div>
+                                                <div class="stick removed"></div>
+                                                <div class="stick removed"></div>
+                                                <div class="stick active"></div>
+                                            </div>
+                                            <div class="stick-row">
+                                                <span class="row-label">段2:</span>
+                                                <div class="stick active"></div>
+                                            </div>
+                                            <div class="stick-row">
+                                                <span class="row-label">段3:</span>
+                                                <div class="stick active"></div>
+                                            </div>
+                                        </div>
+                                        <p class="state-info">4本取って1本残し → 1本山×3 = 奇数個</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="strategy-explanation">
+                                <p data-i18n-key="golem_case1_explanation">
+                                    <strong>戦略:</strong> 1本山が偶数個の時は、大きな山を1本残しにして奇数個にする。
+                                    1本山が奇数個の時は、大きな山を全部取って奇数個を維持する。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 必勝パターン2: ニム和戦略 -->
+                <div class="strategy-section" data-aos="fade-up" data-aos-delay="500">
+                    <h3 data-i18n-key="golem_nim_title">🧮 必勝パターン2: ニム和戦略</h3>
+                    <div class="strategy-pattern">
+                        <div class="nim-explanation">
+                            <h4 data-i18n-key="golem_nim_concept_title">ニム和とは？</h4>
+                            <p data-i18n-key="golem_nim_concept_desc">各段の棒の本数をXOR演算（排他的論理和）で計算した値です。</p>
+                            
+                            <div class="nim-calculation">
+                                <div class="calculation-example">
+                                    <h5>計算例</h5>
+                                    <div class="calc-step">
+                                        <div class="binary-table">
+                                            <table>
+                                                <tr><th>段</th><th>本数</th><th>2進数</th></tr>
+                                                <tr><td>1</td><td>3</td><td>011</td></tr>
+                                                <tr><td>2</td><td>5</td><td>101</td></tr>
+                                                <tr><td>3</td><td>2</td><td>010</td></tr>
+                                                <tr class="result"><td colspan="2"><strong>ニム和</strong></td><td><strong>100 (=4)</strong></td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="nim-strategy">
+                                    <h5 data-i18n-key="golem_nim_strategy_title">ニム和戦略</h5>
+                                    <div class="strategy-rules">
+                                        <div class="rule-box winning">
+                                            <h6>✅ 勝利条件</h6>
+                                            <p>ニム和 = 0 の状態を作る</p>
+                                        </div>
+                                        <div class="rule-box losing">
+                                            <h6>❌ 敗北条件</h6>
+                                            <p>ニム和 ≠ 0 の状態で手番が回る</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="nim-example">
+                            <h4 data-i18n-key="golem_nim_example_title">実践例</h4>
+                            <div class="before-after">
+                                <div class="game-state">
+                                    <h5>現在の状況 (ニム和 = 4)</h5>
+                                    <div class="stick-diagram">
+                                        <div class="stick-row">
+                                            <span class="row-label">段1:</span>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                        </div>
+                                        <div class="stick-row">
+                                            <span class="row-label">段2:</span>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                            <div class="stick active highlight"></div>
+                                        </div>
+                                        <div class="stick-row">
+                                            <span class="row-label">段3:</span>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="arrow">→</div>
+                                <div class="game-state">
+                                    <h5>最適な手 (ニム和 = 0)</h5>
+                                    <div class="stick-diagram">
+                                        <div class="stick-row">
+                                            <span class="row-label">段1:</span>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                        </div>
+                                        <div class="stick-row">
+                                            <span class="row-label">段2:</span>
+                                            <div class="stick active"></div>
+                                        </div>
+                                        <div class="stick-row">
+                                            <span class="row-label">段3:</span>
+                                            <div class="stick active"></div>
+                                            <div class="stick active"></div>
+                                        </div>
+                                    </div>
+                                    <p class="move-explanation">段2から4本取る → 5^4 = 1本残し</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 実践的な判断フロー -->
+                <div class="strategy-section" data-aos="fade-up" data-aos-delay="600">
+                    <h3 data-i18n-key="golem_flowchart_title">🎯 実践的な判断フロー</h3>
+                    <div class="flowchart">
+                        <div class="flow-step">
+                            <div class="step-box start">
+                                <h4>ゲーム開始</h4>
+                                <p>現在の盤面を確認</p>
+                            </div>
+                            <div class="arrow-down">↓</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-box decision">
+                                <h4>大きな山(3本以上)は何個？</h4>
+                            </div>
+                            <div class="flow-branches">
+                                <div class="branch">
+                                    <div class="branch-label">1個だけ</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="step-box action">
+                                        <h4>終盤戦略を使用</h4>
+                                        <p>1本山の個数を確認<br>
+                                        偶数→大きな山を1本残し<br>
+                                        奇数→大きな山を全取り</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="branch">
+                                    <div class="branch-label">2個以上</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="step-box decision">
+                                        <h4>ニム和を計算</h4>
+                                        <div class="sub-branches">
+                                            <div class="sub-branch">
+                                                <span>ニム和 = 0</span>
+                                                <div class="arrow-right">→</div>
+                                                <div class="step-box wait">
+                                                    <p>相手の手を待つ<br>(有利な状況)</p>
+                                                </div>
+                                            </div>
+                                            <div class="sub-branch">
+                                                <span>ニム和 ≠ 0</span>
+                                                <div class="arrow-right">→</div>
+                                                <div class="step-box action">
+                                                    <p>ニム和を0にする手を打つ</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="branch">
+                                    <div class="branch-label">0個(全て1本以下)</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="step-box action">
+                                        <h4>1本山戦略</h4>
+                                        <p>1本山が奇数個になるように調整</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 練習問題 -->
+                <div class="strategy-section" data-aos="fade-up" data-aos-delay="700">
+                    <h3 data-i18n-key="golem_practice_title">📝 練習問題</h3>
+                    <div class="practice-problems">
+                        <div class="problem">
+                            <h4>問題1: 次の局面で最適な手は？</h4>
+                            <div class="problem-diagram">
+                                <div class="stick-diagram">
+                                    <div class="stick-row">
+                                        <span class="row-label">段1:</span>
+                                        <div class="stick active"></div>
+                                        <div class="stick active"></div>
+                                        <div class="stick active"></div>
+                                        <div class="stick active"></div>
+                                    </div>
+                                    <div class="stick-row">
+                                        <span class="row-label">段2:</span>
+                                        <div class="stick active"></div>
+                                        <div class="stick active"></div>
+                                    </div>
+                                    <div class="stick-row">
+                                        <span class="row-label">段3:</span>
+                                        <div class="stick active"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="problem-solution" style="display: none;">
+                                <h5>解答</h5>
+                                <p>ニム和: 4^2^1 = 7 ≠ 0<br>
+                                段1から3本取って1本残し → ニム和: 1^2^1 = 2<br>
+                                または段1から全部取る → ニム和: 0^2^1 = 3<br>
+                                <strong>正解: 段1から全部取る</strong> (ニム和を最小にする)</p>
+                            </div>
+                            <button class="solution-toggle" onclick="toggleSolution(this)">解答を見る</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ウッドゴーレム実践ゲームセクション -->
+        <section id="game-golem" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="golem_game_badge">実践ゲーム</span>
+                    <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="golem_game_title">ウッドゴーレム棒取りゲーム</h2>
+                    <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="golem_game_desc">学んだ攻略法を実際に試してみましょう！AIと対戦して腕試し。</p>
+                </div>
+                
+                <div class="game-container" data-aos="fade-up" data-aos-delay="300">
+                    <div class="game-header">
+                        <div class="game-info">
+                            <h3 id="game-stage" data-i18n-key="golem_game_stage">ステージ 1</h3>
+                            <div class="game-status">
+                                <span id="game-turn" data-i18n-key="golem_game_your_turn">あなたの番</span>
+                                <span id="game-message"></span>
+                            </div>
+                        </div>
+                        <div class="game-controls">
+                            <button id="hint-btn" class="btn btn-outline" data-i18n-key="golem_game_hint">ヒント</button>
+                            <button id="restart-btn" class="btn btn-outline" data-i18n-key="golem_game_restart">リスタート</button>
+                        </div>
+                    </div>
+                    
+                    <div class="nim-info" id="nim-info">
+                        <h4 data-i18n-key="golem_game_nim_title">ニム和計算</h4>
+                        <div id="nim-rows">
+                            <!-- ニム和の計算がここに表示されます -->
+                        </div>
+                        <div id="nim-sum-display" class="nim-sum">
+                            ニム和: 0
+                        </div>
+                    </div>
+                    
+                    <div class="game-board" id="game-board">
+                        <!-- ゲームボードがここに動的に生成されます -->
+                    </div>
+                    
+                    <div class="game-actions">
+                        <div class="move-instruction" id="move-instruction" style="display: none;">
+                            <p data-i18n-key="golem_game_drag_instruction">棒をドラッグして選択してください。マウスを離すと手が確定されます。</p>
+                        </div>
+                        
+                        <div class="role-selection" id="role-selection">
+                            <h4 data-i18n-key="golem_game_select_role">先攻・後攻を選択してください</h4>
+                            <div class="role-buttons">
+                                <button id="first-btn" class="btn btn-primary" data-i18n-key="golem_game_first">先攻</button>
+                                <button id="second-btn" class="btn btn-accent" data-i18n-key="golem_game_second">後攻</button>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="game-result" style="display: none;">
+                            <h4 id="result-message"></h4>
+                            <div class="result-buttons">
+                                <button id="retry-btn" class="btn btn-primary" data-i18n-key="golem_game_retry">リトライ</button>
+                                <button id="next-btn" class="btn btn-accent" data-i18n-key="golem_game_next" style="display: none;">次のステージ</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hint-overlay" id="hint-overlay" style="display: none;">
+                        <div class="hint-content">
+                            <h4 data-i18n-key="golem_game_hint_title">ヒント</h4>
+                            <p id="hint-text"></p>
+                            <button id="close-hint-btn" class="btn btn-primary" data-i18n-key="golem_game_close">閉じる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <section id="testimonials-golem" class="section section-white">
             <div class="container">
                 <div class="section-title">
@@ -840,12 +2114,17 @@
           <div class="hero-content">
             <h1 data-aos="fade-down" data-i18n-key="wb_hero_title">ワードブラスター</h1>
             <p data-aos="fade-up" data-aos-delay="100" data-i18n-key="wb_hero_desc">宇宙を舞台に英単語を撃ち落とせ！レベル別単語学習シューティングゲーム。</p>
-            <a href="#" class="download-btn" data-aos="zoom-in" data-aos-delay="200" target="_blank"> <!-- Update App Store link -->
-              <i class="fab fa-apple"></i> <span data-i18n-key="download_appstore">App Storeでダウンロード</span>
-            </a>
+            <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="200">
+              <a href="https://apps.apple.com/jp/app/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%96%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC/id6745741796" class="download-btn" target="_blank">
+                <i class="fab fa-apple"></i> <span data-i18n-key="download_appstore">App Storeでダウンロード</span>
+              </a>
+              <button class="video-btn" onclick="openVideoModal('wb-video')">
+                <i class="fas fa-play"></i> <span data-i18n-key="watch_demo">デモ動画を見る</span>
+              </button>
+            </div>
             <div class="app-screens">
-              <img src="images/wb_hero_main.jpg" alt="ワードブラスターメイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="wb_alt_main_screen">
-              <img src="images/wb_level_select.jpg" alt="ワードブラスターレベル選択" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="wb_alt_level_screen">
+              <img src="images/wb_level_select.jpg" alt="ワードブラスターメイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="wb_alt_main_screen">
+              <img src="images/wb_boss_battle.jpg" alt="ワードブラスターレベル選択" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="wb_alt_level_screen">
             </div>
           </div>
         </section>
@@ -859,7 +2138,7 @@
                 <div class="grid">
                   <div class="card" data-aos="fade-up"><div class="card-icon"><i class="fas fa-layer-group"></i></div><h3 data-i18n-key="wb_feature1_title">多彩な単語レベル</h3><p data-i18n-key="wb_feature1_desc">英検5級からTOEIC高得点レベルまで、幅広い単語を網羅。あなたのレベルに合わせて学習できます。</p><img src="images/wb_gameplay_action.jpg" alt="ゲームプレイ" class="card-image" data-i18n-alt-key="wb_feature1_alt"></div>
                   <div class="card" data-aos="fade-up" data-aos-delay="100"><div class="card-icon"><i class="fas fa-gamepad"></i></div><h3 data-i18n-key="wb_feature2_title">爽快シューティング</h3><p data-i18n-key="wb_feature2_desc">次々と現れる敵（単語）を正しい翻訳を選んで撃ち落とす！ステージクリア型のゲームプレイで飽きさせません。</p><img src="images/wb_boss_battle.jpg" alt="ボス戦" class="card-image" data-i18n-alt-key="wb_feature2_alt"></div>
-                  <div class="card" data-aos="fade-up" data-aos-delay="200"><div class="card-icon"><i class="fas fa-user-astronaut"></i></div><h3 data-i18n-key="wb_feature3_title">強力なボスバトル</h3><p data-i18n-key="wb_feature3_desc">各レベルの最後には手強いボスが出現。特殊な攻撃をかわし、弱点となるキー単語を狙い撃て！</p></div>
+                  <div class="card" data-aos="fade-up" data-aos-delay="200"><div class="card-icon"><i class="fas fa-user-astronaut"></i></div><h3 data-i18n-key="wb_feature3_title">強力なボスバトル</h3><p data-i18n-key="wb_feature3_desc">各レベルの最後には手強いボスが出現。特殊な攻撃をかわし、弱点となるキー単語を狙い撃て！</p><img src="images/wb_boss_battle.jpg" alt="ボスバトル" class="card-image" data-i18n-alt-key="wb_feature3_alt"></div>
                   <div class="card" data-aos="fade-up"><div class="card-icon"><i class="fas fa-globe"></i></div><h3 data-i18n-key="wb_feature4_title">多言語対応</h3><p data-i18n-key="wb_feature4_desc">学習したい言語（英語、日本語など）と、あなたの母国語を柔軟に設定可能。世界中の学習者をサポートします。</p><img src="images/wb_settings_language.jpg" alt="言語設定" class="card-image" data-i18n-alt-key="wb_feature4_alt"></div>
                 </div>
             </div>
@@ -873,7 +2152,7 @@
           <div class="hero-content">
             <h1 data-aos="fade-down" data-i18n-key="ronpa_hero_title">論破王 - AIディベートバトル</h1>
             <p data-aos="fade-up" data-aos-delay="100" data-i18n-key="ronpa_hero_desc">AI論客を打ち破れ！最強のディベート力を身につけろ。</p>
-            <a href="https://apps.apple.com/jp/app/g-p%E3%83%86%E3%82%A3%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%82%BA/id6744263274" class="download-btn" data-aos="zoom-in" data-aos-delay="200" target="_blank"> <!-- Update App Store link -->
+            <a href="#" class="download-btn" data-aos="zoom-in" data-aos-delay="200" target="_blank"> <!-- 論破王のApp Storeリンクを追加予定 -->
               <i class="fab fa-apple"></i> <span data-i18n-key="download_appstore">App Storeでダウンロード</span>
             </a>
             <div class="app-screens">
@@ -890,8 +2169,8 @@
                   <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="ronpa_features_desc">AIとの白熱ディベートで、あなたの論理的思考力と表現力を極限まで高めよう。</p>
                 </div>
                 <div class="grid">
-                  <div class="card" data-aos="fade-up"><div class="card-icon"><i class="fas fa-users"></i></div><h3 data-i18n-key="ronpa_feature1_title">個性豊かなAI論客</h3><p data-i18n-key="ronpa_feature1_desc">ひろゆき風、呂布風など、多彩なAIキャラクターとディベートバトル。それぞれ独自のスタイルであなたに挑みます。</p><img src="images/ronpa_analysis.jpg" alt="論点分析" class="card-image" data-i18n-alt-key="ronpa_feature1_alt"></div>
-                  <div class="card" data-aos="fade-up" data-aos-delay="100"><div class="card-icon"><i class="fas fa-brain"></i></div><h3 data-i18n-key="ronpa_feature2_title">詳細な分析とフィードバック</h3><p data-i18n-key="ronpa_feature2_desc">AIがあなたの議論をリアルタイムで分析。論点のズレ、弱点を指摘し、より説得力のある議論のための改善点を提案します。</p></div>
+                                      <div class="card" data-aos="fade-up"><div class="card-icon"><i class="fas fa-users"></i></div><h3 data-i18n-key="ronpa_feature1_title">個性豊かなAI論客</h3><p data-i18n-key="ronpa_feature1_desc">ひろゆき風、呂布風など、多彩なAIキャラクターとディベートバトル。それぞれ独自のスタイルであなたに挑みます。</p><img src="images/ronpa_settings_voice.jpg" alt="AI論客設定" class="card-image" data-i18n-alt-key="ronpa_feature1_alt"></div>
+                  <div class="card" data-aos="fade-up" data-aos-delay="100"><div class="card-icon"><i class="fas fa-brain"></i></div><h3 data-i18n-key="ronpa_feature2_title">詳細な分析とフィードバック</h3><p data-i18n-key="ronpa_feature2_desc">AIがあなたの議論をリアルタイムで分析。論点のズレ、弱点を指摘し、より説得力のある議論のための改善点を提案します。</p><img src="images/ronpa_analysis.jpg" alt="論点分析" class="card-image" data-i18n-alt-key="ronpa_feature2_alt"></div>
                   <div class="card" data-aos="fade-up" data-aos-delay="200"><div class="card-icon"><i class="fas fa-graduation-cap"></i></div><h3 data-i18n-key="ronpa_feature3_title">実践的ディベート練習</h3><p data-i18n-key="ronpa_feature3_desc">特定のテーマとタスクに基づいたレッスンモードで、段階的にディベートスキルを向上。日常会話からビジネス交渉まで役立つ力が身につきます。</p><img src="images/ronpa_result.jpg" alt="ディベート結果" class="card-image" data-i18n-alt-key="ronpa_feature3_alt"></div>
                 </div>
             </div>
@@ -947,7 +2226,14 @@
             <p data-i18n-key="footer_brand_desc">オリジナリティあふれるアプリ開発を目指しています</p>
           </div>
           <div class="footer-social">
-            <a href="https://x.com/trailfusionai" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://x.com/trailfusionai" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <i class="fab fa-x-twitter"></i>
+              <i class="fab fa-twitter" style="display: none;"></i>
+              <!-- 代替SVGアイコン（Font Awesomeが読み込まれない場合） -->
+              <svg style="display: none; width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24" class="twitter-fallback">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
             <a href="https://www.tiktok.com/@trailfusionai?is_from_webapp=1&sender_device=pc" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
             <a href="https://youtube.com/@van_oasis?si=K0dI4mXwARnPZ12t" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
@@ -991,8 +2277,217 @@
     <i class="fas fa-chevron-up"></i>
   </div>
 
+  <!-- 動画モーダル -->
+  <div id="video-modal" class="video-modal">
+    <div class="video-modal-content">
+      <span class="video-modal-close" onclick="closeVideoModal()">&times;</span>
+      <div class="video-container">
+        <video id="modal-video" controls preload="none">
+          <source id="video-source" src="" type="video/quicktime">
+          <p data-i18n-key="video_not_supported">お使いのブラウザは動画の再生をサポートしていません。</p>
+        </video>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // 動画モーダル機能
+    function openVideoModal(videoType) {
+      const modal = document.getElementById('video-modal');
+      const videoSource = document.getElementById('video-source');
+      const video = document.getElementById('modal-video');
+      
+      // 動画ファイルのパスを設定
+      let videoPath = '';
+             if (videoType === 'gpt-video') {
+         // GPティーチャーズの動画（現在は利用可能な動画がないため、アラートを表示）
+         alert('GPティーチャーズのデモ動画は準備中です。しばらくお待ちください。');
+         return;
+             } else if (videoType === 'wb-video') {
+         // ワードブラスターの動画
+         const currentLang = getCurrentLanguage();
+         if (currentLang === 'ja') {
+           videoPath = 'images/' + encodeURIComponent('Wordblaster＿jp.mov');
+         } else {
+           videoPath = 'images/' + encodeURIComponent('word blaster_en.mov');
+         }
+       }
+      
+             if (videoPath) {
+         videoSource.src = videoPath;
+         // 動画の形式を設定
+         if (videoPath.endsWith('.mov')) {
+           videoSource.type = 'video/quicktime';
+         } else if (videoPath.endsWith('.mp4')) {
+           videoSource.type = 'video/mp4';
+         } else if (videoPath.endsWith('.webm')) {
+           videoSource.type = 'video/webm';
+         }
+         video.load(); // 動画を再読み込み
+         modal.style.display = 'block';
+         document.body.style.overflow = 'hidden'; // スクロールを無効化
+       } else {
+         alert('動画ファイルが見つかりません。');
+       }
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const video = document.getElementById('modal-video');
+      
+      modal.style.display = 'none';
+      video.pause(); // 動画を停止
+      video.currentTime = 0; // 動画を最初に戻す
+      document.body.style.overflow = 'auto'; // スクロールを有効化
+    }
+
+    // モーダル外をクリックしたときに閉じる
+    window.onclick = function(event) {
+      const modal = document.getElementById('video-modal');
+      if (event.target === modal) {
+        closeVideoModal();
+      }
+    }
+
+    // ESCキーでモーダルを閉じる
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeVideoModal();
+      }
+    });
+
+    // 画像読み込みエラーハンドリング
+    function handleImageError(img) {
+      console.warn('画像の読み込みに失敗しました:', img.src);
+      
+      // 代替画像があれば設定
+      const fallbackSrc = img.dataset.fallback;
+      if (fallbackSrc && img.src !== fallbackSrc) {
+        console.log('代替画像に切り替え:', fallbackSrc);
+        img.src = fallbackSrc;
+        return;
+      }
+      
+      // 拡張子を変更して再試行
+      const currentSrc = img.src;
+      if (currentSrc.endsWith('.jpg')) {
+        const pngSrc = currentSrc.replace('.jpg', '.png');
+        console.log('PNG形式で再試行:', pngSrc);
+        img.src = pngSrc;
+        return;
+      } else if (currentSrc.endsWith('.png')) {
+        const jpegSrc = currentSrc.replace('.png', '.jpeg');
+        console.log('JPEG形式で再試行:', jpegSrc);
+        img.src = jpegSrc;
+        return;
+      }
+      
+      // 最終的に失敗した場合は非表示
+      img.style.display = 'none';
+      img.parentElement.style.minHeight = '0';
+    }
+
+    // Font Awesomeアイコンの代替表示
+    function checkFontAwesome() {
+      // Font Awesomeが読み込まれているかチェック
+      const testElement = document.createElement('i');
+      testElement.className = 'fab fa-twitter';
+      testElement.style.position = 'absolute';
+      testElement.style.left = '-9999px';
+      document.body.appendChild(testElement);
+      
+      const computedStyle = window.getComputedStyle(testElement, ':before');
+      const isLoaded = computedStyle.content !== 'none' && computedStyle.content !== '';
+      
+      document.body.removeChild(testElement);
+      
+      if (!isLoaded) {
+        // Font Awesomeが読み込まれていない場合、SVGアイコンを表示
+        const allTwitterIcons = document.querySelectorAll('.fab.fa-twitter, .fab.fa-x-twitter');
+        const twitterFallbacks = document.querySelectorAll('.twitter-fallback');
+        
+        allTwitterIcons.forEach(icon => icon.style.display = 'none');
+        twitterFallbacks.forEach(svg => svg.style.display = 'block');
+      } else {
+        // Font Awesomeが読み込まれている場合、fa-x-twitterを優先表示
+        const xTwitterIcons = document.querySelectorAll('.fab.fa-x-twitter');
+        const oldTwitterIcons = document.querySelectorAll('.fab.fa-twitter');
+        
+        if (xTwitterIcons.length > 0) {
+          // X (Twitter)アイコンが利用可能な場合
+          xTwitterIcons.forEach(icon => icon.style.display = 'inline');
+          oldTwitterIcons.forEach(icon => icon.style.display = 'none');
+        } else {
+          // 古いTwitterアイコンにフォールバック
+          oldTwitterIcons.forEach(icon => icon.style.display = 'inline');
+        }
+      }
+    }
+
+    // 画像の遅延読み込み
+    function lazyLoadImages() {
+      const images = document.querySelectorAll('img[data-src]');
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => imageObserver.observe(img));
+    }
+
+    // 画像パスを正規化する関数
+    function normalizeImagePath(src) {
+      // 絶対パスの場合はそのまま返す
+      if (src.startsWith('http') || src.startsWith('/')) {
+        return src;
+      }
+      
+      // 相対パスの場合、現在のページのベースURLを考慮
+      const baseUrl = window.location.href.replace(/\/[^\/]*$/, '/');
+      
+      // パスの先頭の './' を削除
+      const cleanSrc = src.replace(/^\.\//, '');
+      
+      return baseUrl + cleanSrc;
+    }
+
+    // 全ての画像にエラーハンドリングを追加
+    function initImageErrorHandling() {
+      const images = document.querySelectorAll('img');
+      console.log(`画像の総数: ${images.length}`);
+      console.log(`現在のベースURL: ${window.location.href}`);
+      
+      images.forEach((img, index) => {
+        // 画像パスを正規化
+        const originalSrc = img.getAttribute('src');
+        const normalizedSrc = normalizeImagePath(originalSrc);
+        
+        console.log(`画像 ${index + 1}: ${originalSrc} -> ${normalizedSrc}`);
+        
+        // エラーハンドリングを追加（重複を避けるため一度だけ）
+        if (!img.dataset.errorHandlerAdded) {
+          img.addEventListener('error', () => handleImageError(img));
+          img.addEventListener('load', () => {
+            console.log(`画像読み込み成功: ${img.src}`);
+          });
+          img.dataset.errorHandlerAdded = 'true';
+        }
+        
+        // 画像が既に読み込まれているかチェック
+        if (img.complete && img.naturalHeight === 0) {
+          handleImageError(img);
+        } else if (img.complete && img.naturalHeight > 0) {
+          console.log(`画像既に読み込み済み: ${img.src}`);
+        }
+      });
+    }
     // translations object will be populated by the generated locales_XX.json content
     const translations = {
         // --- SEO and Generic ---
@@ -1033,6 +2528,8 @@
         },
         "loading_text": { "ja": "読み込み中...", "en": "Loading...", "zh": "加载中..." },
         "download_appstore": { "ja": "App Storeでダウンロード", "en": "Download on the App Store", "zh": "在 App Store 下载" },
+      "watch_demo": { "ja": "デモ動画を見る", "en": "Watch Demo", "zh": "观看演示" },
+      "video_not_supported": { "ja": "お使いのブラウザは動画の再生をサポートしていません。", "en": "Your browser does not support video playback.", "zh": "您的浏览器不支持视频播放。" },
 
         // --- Navbar ---
         "nav_features": { "ja": "機能", "en": "Features", "zh": "功能" },
@@ -1063,9 +2560,9 @@
         // --- GP Teachers (gpt_) ---
         "gpt_hero_title": { "ja": "GPティーチャーズ", "en": "GP Teachers", "zh": "GP教师" },
         "gpt_hero_desc": { 
-            "ja": "AI英会話パートナーとリアルな練習！個性豊かな先生たちと、いつでもどこでも英語力アップ。",
-            "en": "Practice realistically with an AI English conversation partner! Improve your English skills anytime, anywhere with unique teachers.",
-            "zh": "与AI英语会话伙伴进行真实练习！随时随地与个性丰富的老师们一起提升英语能力。"
+            "ja": "AI英会話レッスンが楽しめる新感覚アプリ！リアルなAI講師とレッスンやフリートークでスピーキング力UP！",
+            "en": "A new sensation app where you can enjoy AI English conversation lessons! Improve your speaking skills with realistic AI instructors through lessons and free talk!",
+            "zh": "可以享受AI英语会话课程的新感觉应用！通过与真实的AI讲师进行课程和自由对话来提升口语能力！"
         },
         "gpt_alt_conversation_screen": { "ja": "英会話画面", "en": "Conversation Screen", "zh": "英语会话界面" },
         "gpt_alt_course_selection_screen": { "ja": "コース選択画面", "en": "Course Selection Screen", "zh": "课程选择界面"},
@@ -1076,11 +2573,11 @@
             "en": "\"GP Teachers\" is an innovative English learning app that allows you to practically improve your English conversation skills through dialogue with AI.",
             "zh": "“GP教师”是一款创新的英语学习应用，您可以通过与AI对话，实际提高您的英语会话能力。"
         },
-        "gpt_feature1_title": { "ja": "リアルな英会話練習", "en": "Realistic English Conversation Practice", "zh": "真实的英语会话练习" },
+        "gpt_feature1_title": { "ja": "AI先生とリアル英会話", "en": "Real English Conversation with AI Teachers", "zh": "与AI老师进行真实英语会话" },
         "gpt_feature1_desc": {
-            "ja": "個性豊かな先生キャラクターと実際に会話できます。先進的な音声認識技術で話した英語を自動認識し、AIが自然な英語で返答します。",
-            "en": "Converse with unique teacher characters. Advanced voice recognition technology automatically recognizes your spoken English, and AI responds naturally.",
-            "zh": "与独特的教师角色进行实际对话。先进的语音识别技术能自动识别您说的英语，AI会用自然的英语作出回应。"
+            "ja": "GPT系AIがあなた専属の講師に。音声認識で即レスポンス。「カフェで注文」「道案内」などタスク式シナリオで実践力UP。翻訳・文法チェック・単語解説をワンタップ表示。",
+            "en": "GPT-based AI becomes your dedicated instructor. Instant response with voice recognition. Improve practical skills with task-based scenarios like ordering at a cafe and giving directions. One-tap display of translation, grammar check, and word explanations.",
+            "zh": "基于GPT的AI成为您的专属讲师。语音识别即时响应。通过咖啡厅点餐、指路等任务式场景提升实践能力。一键显示翻译、语法检查和单词解释。"
         },
         "gpt_feature1_alt": { "ja": "翻訳機能付き英会話画面", "en": "Conversation screen with translation feature", "zh": "带翻译功能的会话界面" },
         "gpt_feature2_title": { "ja": "レベル別コース構成", "en": "Level-Specific Course Structure", "zh": "分级课程结构" },
@@ -1113,19 +2610,26 @@
         "gpt_testimonials_badge": { "ja": "ユーザーの声", "en": "User Reviews", "zh": "用户评价" },
         "gpt_testimonials_title": { "ja": "みんなの評価", "en": "What People Are Saying", "zh": "大家的评价" },
         "gpt_testimonials_desc": { "ja": "GPティーチャーズを使用している方々からの声をご紹介します。", "en": "Here's what users are saying about GP Teachers.", "zh": "介绍一下GP教师用户们的感想。" },
-        "gpt_review1_content": { "ja": "英会話の練習にぴったり！AIが自然な会話をしてくれるので、スピーキング力が向上しました。", "en": "Perfect for conversation practice! The AI provides natural conversation, improving my speaking skills.", "zh": "非常适合练习英语会话！AI能够进行自然的对话，我的口语能力得到了提高。" },
-        "gpt_review1_author": { "ja": "佐藤 美咲", "en": "Misaki Sato", "zh": "佐藤美咲" },
-        "gpt_review1_author_info": { "ja": "会社員 / 32歳", "en": "Office Worker / 32", "zh": "公司职员 / 32岁" },
-        "gpt_review2_content_no_wb": { "ja": "レベル別のコースが充実していて、自分のペースで学べるのが良いです。フレーズブックも復習に役立ちます。", "en": "The level-specific courses are extensive, and I like that I can learn at my own pace. The phrasebook is also helpful for review.", "zh": "分级课程非常丰富，可以按照自己的节奏学习，这点很好。短语手册对复习也很有帮助。" },
-        "gpt_review2_author": { "ja": "田中 悠人", "en": "Yuto Tanaka", "zh": "田中悠人" },
-        "gpt_review2_author_info": { "ja": "高校生 / 17歳", "en": "High School Student / 17", "zh": "高中生 / 17岁" },
+        "gpt_review1_content": { "ja": "AI先生だから気軽に話せる✨ 以前、オンライン英会話のレッスンを受けようとしましたが、あまりの緊張で1回で挫折しました。GPティーチャーズは、そんな私にとって救世主です！AIの先生だとわかっているからこそ、間違えても全く気にならないんです。", "en": "I can speak casually because it's an AI teacher✨ I tried online English conversation lessons before, but I gave up after one session due to extreme nervousness. GP Teachers is a savior for someone like me! Knowing it's an AI teacher, I don't mind making mistakes at all.", "zh": "因为是AI老师所以可以轻松对话✨ 之前我尝试过在线英语会话课程，但由于过度紧张在一次课后就放弃了。GP教师对我这样的人来说是救世主！知道是AI老师，即使犯错也完全不在意。" },
+        "gpt_review1_author": { "ja": "19…Bby", "en": "19…Bby", "zh": "19…Bby" },
+        "gpt_review1_author_info": { "ja": "App Store レビュー", "en": "App Store Review", "zh": "App Store 评价" },
+        "gpt_review2_content_no_wb": { "ja": "ハンズフリーで英会話を楽しめる👍 英会話スクールに通う時間がなく、アプリを探していた時に出会いました。マーサー先生との会話が本当に自然で、自分の発音やフレーズの間違いも丁寧に指摘してくれます。通勤中の車でハンズフリーで会話できるのも最高です😃", "en": "Enjoy hands-free English conversation👍 I found this app when I was looking for one because I didn't have time to attend English conversation school. The conversation with Teacher Mercer is really natural, and she politely points out my pronunciation and phrase mistakes. It's great that I can have hands-free conversations in the car during my commute😃", "zh": "可以享受免提英语会话👍 因为没有时间去英语会话学校，在寻找应用时遇到了这个。与Mercer老师的对话非常自然，她会礼貌地指出我的发音和短语错误。在通勤途中的车里可以免提对话真是太棒了😃" },
+        "gpt_review2_author": { "ja": "Shefuchenko haya", "en": "Shefuchenko haya", "zh": "Shefuchenko haya" },
+        "gpt_review2_author_info": { "ja": "App Store レビュー", "en": "App Store Review", "zh": "App Store 评价" },
+        "gpt_review3_content": { "ja": "めちゃ楽しい！単語をサクサク覚えれておすすめです！", "en": "So much fun! I can learn vocabulary quickly and easily, highly recommended!", "zh": "超级有趣！可以轻松快速地记住单词，强烈推荐！" },
+        "gpt_review3_author": { "ja": "りみあや", "en": "rimiaiya", "zh": "りみあや" },
+        "gpt_review3_author_info": { "ja": "App Store レビュー", "en": "App Store Review", "zh": "App Store 评价" },
         "gpt_faq_badge": { "ja": "サポート", "en": "Support", "zh": "支持" },
         "gpt_faq_title": { "ja": "よくある質問（FAQ）", "en": "Frequently Asked Questions (FAQ)", "zh": "常见问题 (FAQ)" },
         "gpt_faq_desc": { "ja": "GPティーチャーズに関するよくある質問と回答をご紹介します。", "en": "Here are common questions and answers about GP Teachers.", "zh": "这里是关于GP教师的常见问题及其解答。" },
         "gpt_faq1_q": { "ja": "インストール後すぐに使えますか？", "en": "Can I use it immediately after installation?", "zh": "安装后可以马上使用吗？" },
         "gpt_faq1_a": { "ja": "はい、インストール後すぐにお使いいただけます。初回起動時に簡単な設定があります。", "en": "Yes, you can use it immediately after installation. There's a simple setup on first launch.", "zh": "是的，安装后即可立即使用。首次启动时会有简单的设置。" },
         "gpt_faq2_q": { "ja": "どのような英語レベルに対応していますか？", "en": "What English levels does it support?", "zh": "支持哪些英语水平？" },
-        "gpt_faq2_a": { "ja": "初級者から上級者まで幅広く対応しています。レベル別のコース構成になっています。", "en": "It supports a wide range from beginner to advanced. Courses are structured by level.", "zh": "广泛支持从初学者到高级用户。课程按级别设置。" },
+        "gpt_faq2_a": { "ja": "日常英会話（初級・中級・上級）と英文法（中学1年・2年・3年レベル）から選べます。英検やTOEIC対策にも対応しています。", "en": "You can choose from daily conversation courses (beginner, intermediate, advanced) and grammar courses (junior high 1st, 2nd, 3rd year levels). Also supports EIKEN and TOEIC preparation.", "zh": "可选择日常会话课程（初级、中级、高级）和语法课程（初中1、2、3年级水平）。还支持英检和TOEIC备考。" },
+        "gpt_faq3_q": { "ja": "音声認識の精度はどうですか？", "en": "How accurate is the voice recognition?", "zh": "语音识别的精度如何？" },
+        "gpt_faq3_a": { "ja": "最新のAI技術により高精度な音声認識を実現。発音の間違いも丁寧に指摘し、改善点を提案します。", "en": "Achieves high-precision voice recognition with the latest AI technology. Politely points out pronunciation mistakes and suggests improvements.", "zh": "采用最新AI技术实现高精度语音识别。礼貌地指出发音错误并提出改进建议。" },
+        "gpt_faq4_q": { "ja": "オフラインでも使用できますか？", "en": "Can I use it offline?", "zh": "可以离线使用吗？" },
+        "gpt_faq4_a": { "ja": "AI会話機能にはインターネット接続が必要ですが、フレーズブックなど一部機能はオフラインでもご利用いただけます。", "en": "Internet connection is required for AI conversation features, but some functions like the phrasebook can be used offline.", "zh": "AI会话功能需要互联网连接，但短语手册等部分功能可以离线使用。" },
         "gpt_contact_badge": { "ja": "お問い合わせ", "en": "Contact Us", "zh": "联系我们" },
         "gpt_contact_title": { "ja": "サポートについて", "en": "About Support", "zh": "关于支持" },
         "gpt_contact_desc": { "ja": "アプリに関するご質問やご要望がありましたら、お気軽にお問い合わせください。", "en": "If you have any questions or requests regarding the app, please feel free to contact us.", "zh": "如果您对应用有任何疑问或建议，请随时与我们联系。" },
@@ -1156,21 +2660,64 @@
         "golem_contact_badge": { "ja": "お問い合わせ", "en": "Contact Us", "zh": "联系我们" },
         "golem_contact_title": { "ja": "サポートについて", "en": "About Support", "zh": "关于支持" },
         "golem_contact_heading": { "ja": "お問い合わせ先", "en": "Contact Information", "zh": "联系方式" },
+        
+        // ウッドゴーレム実践ゲーム
+        "golem_game_badge": { "ja": "実践ゲーム", "en": "Practice Game", "zh": "实战游戏" },
+        "golem_game_title": { "ja": "ウッドゴーレム棒取りゲーム", "en": "Wood Golem Stick Game", "zh": "森林木偶取棒游戏" },
+        "golem_game_desc": { "ja": "学んだ攻略法を実際に試してみましょう！AIと対戦して腕試し。", "en": "Try out the strategies you've learned! Test your skills against AI.", "zh": "试试你学到的攻略法！与AI对战测试技能。" },
+        "golem_game_stage": { "ja": "ステージ 1", "en": "Stage 1", "zh": "关卡 1" },
+        "golem_game_your_turn": { "ja": "あなたの番", "en": "Your Turn", "zh": "你的回合" },
+        "golem_game_hint": { "ja": "ヒント", "en": "Hint", "zh": "提示" },
+        "golem_game_restart": { "ja": "リスタート", "en": "Restart", "zh": "重新开始" },
+        "golem_game_select_role": { "ja": "先攻・後攻を選択してください", "en": "Choose to go first or second", "zh": "请选择先攻或后攻" },
+        "golem_game_first": { "ja": "先攻", "en": "First", "zh": "先攻" },
+        "golem_game_second": { "ja": "後攻", "en": "Second", "zh": "后攻" },
+        "golem_game_retry": { "ja": "リトライ", "en": "Retry", "zh": "重试" },
+        "golem_game_next": { "ja": "次のステージ", "en": "Next Stage", "zh": "下一关" },
+        "golem_game_hint_title": { "ja": "ヒント", "en": "Hint", "zh": "提示" },
+        "golem_game_close": { "ja": "閉じる", "en": "Close", "zh": "关闭" },
+        "golem_game_drag_instruction": { "ja": "棒をドラッグして選択してください。マウスを離すと手が確定されます。", "en": "Drag to select sticks. Release mouse to confirm your move.", "zh": "拖拽选择棒子。松开鼠标确认移动。" },
+        "golem_game_nim_title": { "ja": "ニム和計算", "en": "Nim Sum Calculation", "zh": "尼姆和计算" },
+        
+        // ウッドゴーレム攻略法セクション
+        "golem_strategy_badge": { "ja": "攻略ガイド", "en": "Strategy Guide", "zh": "攻略指南" },
+        "golem_strategy_title": { "ja": "ウッドゴーレム完全攻略法", "en": "Complete Wood Golem Strategy Guide", "zh": "森林木偶完全攻略法" },
+        "golem_strategy_desc": { "ja": "ニム理論に基づく必勝法を図解で分かりやすく解説します。", "en": "Easy-to-understand illustrated explanation of winning strategies based on Nim theory.", "zh": "基于尼姆理论的必胜法，通过图解进行易懂的解说。" },
+        "golem_basic_rules_title": { "ja": "🎯 基本ルール", "en": "🎯 Basic Rules", "zh": "🎯 基本规则" },
+        "golem_basic_rules_list": { 
+            "ja": ["各段から1本以上の棒を取る", "同じ段からなら何本でも取れる", "最後の1本を取った人が負け", "相手に最後の1本を取らせれば勝利"],
+            "en": ["Take at least one stick from each row", "You can take any number from the same row", "The person who takes the last stick loses", "Make your opponent take the last stick to win"],
+            "zh": ["从每行至少取一根棒", "从同一行可以取任意数量", "取最后一根棒的人输", "让对手取最后一根棒就获胜"]
+        },
+        "golem_endgame_title": { "ja": "🏆 必勝パターン1: 終盤戦略", "en": "🏆 Winning Pattern 1: Endgame Strategy", "zh": "🏆 必胜模式1：终盘策略" },
+        "golem_case1_title": { "ja": "ケース1: 大きな山が1つ + 1本山が複数", "en": "Case 1: One Large Pile + Multiple Single Piles", "zh": "情况1：一个大堆 + 多个单根堆" },
+        "golem_case1_explanation": { 
+            "ja": "戦略: 1本山が偶数個の時は、大きな山を1本残しにして奇数個にする。1本山が奇数個の時は、大きな山を全部取って奇数個を維持する。",
+            "en": "Strategy: When there are an even number of single piles, leave one stick in the large pile to make it odd. When there are an odd number of single piles, take all from the large pile to maintain the odd number.",
+            "zh": "策略：当单根堆为偶数个时，在大堆中留一根使其变为奇数个。当单根堆为奇数个时，全部取走大堆以维持奇数个。"
+        },
+        "golem_nim_title": { "ja": "🧮 必勝パターン2: ニム和戦略", "en": "🧮 Winning Pattern 2: Nim Sum Strategy", "zh": "🧮 必胜模式2：尼姆和策略" },
+        "golem_nim_concept_title": { "ja": "ニム和とは？", "en": "What is Nim Sum?", "zh": "什么是尼姆和？" },
+        "golem_nim_concept_desc": { "ja": "各段の棒の本数をXOR演算（排他的論理和）で計算した値です。", "en": "The value calculated by XOR operation (exclusive OR) of the number of sticks in each row.", "zh": "通过对各行棒数进行XOR运算（异或）计算得出的值。" },
+        "golem_nim_strategy_title": { "ja": "ニム和戦略", "en": "Nim Sum Strategy", "zh": "尼姆和策略" },
+        "golem_nim_example_title": { "ja": "実践例", "en": "Practical Example", "zh": "实践例子" },
+        "golem_flowchart_title": { "ja": "🎯 実践的な判断フロー", "en": "🎯 Practical Decision Flow", "zh": "🎯 实用判断流程" },
+        "golem_practice_title": { "ja": "📝 練習問題", "en": "📝 Practice Problems", "zh": "📝 练习题" },
 
         // --- ワードブラスター (wb_) ---
         "wb_hero_title": { "ja": "ワードブラスター", "en": "Word Blaster", "zh": "单词冲击波" },
         "wb_hero_desc": { 
-            "ja": "宇宙を舞台に英単語を撃ち落とせ！レベル別単語学習シューティングゲーム。",
-            "en": "Shoot down English words in space! A level-based vocabulary learning shooter game.",
-            "zh": "在宇宙中击落英语单词！分级词汇学习射击游戏。"
+            "ja": "10言語対応の単語学習シューティングゲーム！迫りくる単語を撃ち落として語彙力をアップしよう。",
+            "en": "A vocabulary learning shooter game supporting 10 languages! Shoot down approaching words to boost your vocabulary!",
+            "zh": "支持10种语言的词汇学习射击游戏！击落迫近的单词来提升您的词汇量！"
         },
         "wb_alt_main_screen": { "ja": "ワードブラスターメイン画面", "en": "Word Blaster Main Screen", "zh": "单词冲击波主界面" },
         "wb_alt_level_screen": { "ja": "ワードブラスターレベル選択", "en": "Word Blaster Level Selection", "zh": "单词冲击波等级选择" },
         "wb_features_badge": { "ja": "アプリの特徴", "en": "App Features", "zh": "应用特色" },
         "wb_features_title": { "ja": "ワードブラスターの魅力", "en": "The Appeal of Word Blaster", "zh": "单词冲击波的魅力" },
         "wb_features_desc": { 
-            "ja": "ゲームで楽しく英単語をマスター！「ワードブラスター」で語彙力を飛躍的に向上させよう。",
-            "en": "Master English vocabulary having fun with a game! Dramatically improve your vocabulary with \"Word Blaster\".",
+            "ja": "10言語対応の革新的な単語学習ゲーム！迫りくる単語を撃ち落として語彙力をアップ。英検5級からTOEIC990点レベルまで対応し、全国ランキングでやる気倍増！",
+            "en": "An innovative vocabulary learning game supporting 10 languages! Shoot down approaching words to boost your vocabulary. Covers from EIKEN Level 5 to TOEIC 990 points, with national rankings to double your motivation!",
             "zh": "通过游戏愉快地掌握英语词汇！用“单词冲击波”飞跃提升您的词汇量。"
         },
         "wb_feature1_title": { "ja": "多彩な単語レベル", "en": "Various Vocabulary Levels", "zh": "多样的词汇级别" },
@@ -1181,6 +2728,7 @@
         "wb_feature2_alt": { "ja": "ボス戦", "en": "Boss Battle", "zh": "Boss战" },
         "wb_feature3_title": { "ja": "強力なボスバトル", "en": "Intense Boss Battles", "zh": "激烈的Boss战" },
         "wb_feature3_desc": { "ja": "各レベルの最後には手強いボスが出現。特殊な攻撃をかわし、弱点となるキー単語を狙い撃て！", "en": "A formidable boss appears at the end of each level. Dodge special attacks and aim for the key vocabulary weaknesses!", "zh": "每个级别的最后都会出现强大的Boss。躲避特殊攻击，瞄准作为弱点的关键词汇射击！" },
+        "wb_feature3_alt": { "ja": "ボスバトル", "en": "Boss Battle", "zh": "Boss战斗" },
         "wb_feature4_title": { "ja": "多言語対応", "en": "Multilingual Support", "zh": "多语言支持" },
         "wb_feature4_desc": { "ja": "学習したい言語（英語、日本語など）と、あなたの母国語を柔軟に設定可能。世界中の学習者をサポートします。", "en": "Flexibly set the language you want to learn (English, Japanese, etc.) and your native language. Supports learners worldwide.", "zh": "灵活设置您想学习的语言（如英语、日语）和您的母语。支持全球学习者。" },
         "wb_feature4_alt": { "ja": "言語設定", "en": "Language Settings", "zh": "语言设置" },
@@ -1215,9 +2763,10 @@
         },
         "ronpa_feature1_title": { "ja": "個性豊かなAI論客", "en": "Unique AI Debaters", "zh": "个性丰富的AI辩手" },
         "ronpa_feature1_desc": { "ja": "ひろゆき風、呂布風など、多彩なAIキャラクターとディベートバトル。それぞれ独自のスタイルであなたに挑みます。", "en": "Debate battle with diverse AI characters like Hiroyuki-style, Lu Bu-style. Each challenges you with their unique style.", "zh": "与ひろゆき风格、吕布风格等多种AI角色进行辩论战。他们各自以独特的风格向您挑战。" },
-        "ronpa_feature1_alt": { "ja": "論点分析", "en": "Argument Analysis", "zh": "论点分析" },
+        "ronpa_feature1_alt": { "ja": "AI論客設定", "en": "AI Debater Settings", "zh": "AI辩手设置" },
         "ronpa_feature2_title": { "ja": "詳細な分析とフィードバック", "en": "Detailed Analysis & Feedback", "zh": "详细分析与反馈" },
         "ronpa_feature2_desc": { "ja": "AIがあなたの議論をリアルタイムで分析。論点のズレ、弱点を指摘し、より説得力のある議論のための改善点を提案します。", "en": "AI analyzes your arguments in real-time, pointing out deviations, weaknesses, and suggesting improvements for more persuasive arguments.", "zh": "AI实时分析您的论点，指出论点偏差、弱点，并为更有说服力的论证提出改进建议。" },
+        "ronpa_feature2_alt": { "ja": "論点分析", "en": "Argument Analysis", "zh": "论点分析" },
         "ronpa_feature3_title": { "ja": "実践的ディベート練習", "en": "Practical Debate Practice", "zh": "实用辩论练习" },
         "ronpa_feature3_desc": { "ja": "特定のテーマとタスクに基づいたレッスンモードで、段階的にディベートスキルを向上。日常会話からビジネス交渉まで役立つ力が身につきます。", "en": "Improve debate skills step-by-step in lesson mode based on specific themes and tasks. Acquire skills useful from daily conversation to business negotiations.", "zh": "在基于特定主题和任务的课程模式中逐步提高辩论技巧。掌握从日常会话到商务谈判均有用的能力。" },
         "ronpa_feature3_alt": { "ja": "ディベート結果", "en": "Debate Results", "zh": "辩论结果" },
@@ -1500,6 +3049,22 @@
 
       const preferredLanguage = localStorage.getItem('preferredLanguage') || navigator.language.split('-')[0] || 'ja';
       applyTranslations(preferredLanguage);
+      
+      // 画像エラーハンドリングを初期化
+      initImageErrorHandling();
+      
+      // 遅延読み込みを初期化（必要に応じて）
+      if ('IntersectionObserver' in window) {
+        lazyLoadImages();
+      }
+      
+      // Font Awesomeアイコンのチェック
+      setTimeout(checkFontAwesome, 1000);
+      
+      // ウッドゴーレムゲームの初期化（少し遅らせる）
+      setTimeout(() => {
+        initWoodGolemGame();
+      }, 500);
     });
     
     function initAccordion() {
@@ -1514,6 +3079,465 @@
         }
       });
     }
+    
+    // 攻略法の解答表示機能
+    function toggleSolution(button) {
+      const solution = button.previousElementSibling;
+      if (solution.style.display === 'none' || solution.style.display === '') {
+        solution.style.display = 'block';
+        button.textContent = '解答を隠す';
+      } else {
+        solution.style.display = 'none';
+        button.textContent = '解答を見る';
+      }
+    }
+    
+    // グローバルスコープに関数を追加
+    window.toggleSolution = toggleSolution;
+    
+    // ウッドゴーレム棒取りゲーム
+    class WoodGolemGame {
+      constructor() {
+        this.stages = [
+          { sticks: [1, 1], hint: "まずは一つとってみよう" },
+          { sticks: [1, 2], hint: "2段目から1本棒を取って、相手に最後の棒を取らせよう。" },
+          { sticks: [1, 1, 2], hint: "3段目から1本棒を取って、すべての段に1本ずつ棒を残そう。" },
+          { sticks: [2, 2], hint: "先行を選んだら勝てない。後攻を選んでみよう。" },
+          { sticks: [2, 3], hint: "2段目から1本棒を取って、相手に均等にさせよう。" },
+          { sticks: [3, 3], hint: "後攻を選んで様子をみよう。" },
+          { sticks: [3, 4], hint: "2段目から1本棒を取って、均等な状態を目指そう。" },
+          { sticks: [1, 2, 3], hint: "後攻を選んで様子をみよう。" },
+          { sticks: [1, 3, 4], hint: "3段目から2本棒を取って、均等に保とう。" },
+          { sticks: [2, 4, 6], hint: "後攻を選んで様子をみよう。" }
+        ];
+        
+        this.currentStage = 0;
+        this.rows = [];
+        this.isPlayerTurn = true;
+        this.gameStarted = false;
+        this.selectedSticks = [];
+        this.selectedRow = -1;
+        
+        this.initializeGame();
+        this.bindEvents();
+      }
+      
+      initializeGame() {
+        this.loadStage(this.currentStage);
+        this.updateDisplay();
+      }
+      
+      loadStage(stageIndex) {
+        if (stageIndex >= this.stages.length) {
+          this.showGameComplete();
+          return;
+        }
+        
+        const stage = this.stages[stageIndex];
+        this.rows = stage.sticks.map(count => Array(count).fill(true));
+        this.gameStarted = false;
+        this.selectedSticks = [];
+        this.selectedRow = -1;
+        this.updateDisplay();
+        this.showRoleSelection();
+      }
+      
+      updateDisplay() {
+        // ステージ表示更新
+        document.getElementById('game-stage').textContent = `ステージ ${this.currentStage + 1}`;
+        
+        // ゲームボード描画
+        this.renderBoard();
+        
+        // ターン表示更新
+        this.updateTurnDisplay();
+      }
+      
+      renderBoard() {
+        const board = document.getElementById('game-board');
+        board.innerHTML = '';
+        
+        this.rows.forEach((row, rowIndex) => {
+          const rowDiv = document.createElement('div');
+          rowDiv.className = 'game-row';
+          
+          const label = document.createElement('span');
+          label.className = 'row-label-game';
+          label.textContent = `段${rowIndex + 1}:`;
+          rowDiv.appendChild(label);
+          
+          const sticksContainer = document.createElement('div');
+          sticksContainer.className = 'sticks-container';
+          
+          row.forEach((stick, stickIndex) => {
+            if (stick) {
+              const stickDiv = document.createElement('div');
+              stickDiv.className = 'game-stick';
+              stickDiv.dataset.row = rowIndex;
+              stickDiv.dataset.stick = stickIndex;
+              
+              sticksContainer.appendChild(stickDiv);
+            }
+          });
+          
+          rowDiv.appendChild(sticksContainer);
+          
+          const count = document.createElement('span');
+          count.className = 'stick-count';
+          count.textContent = `${row.filter(s => s).length}本`;
+          rowDiv.appendChild(count);
+          
+          board.appendChild(rowDiv);
+        });
+        
+        this.setupDragEvents();
+        this.updateNimDisplay();
+      }
+      
+      setupDragEvents() {
+        if (!this.gameStarted || !this.isPlayerTurn) return;
+        
+        let isDragging = false;
+        let dragStartRow = -1;
+        let dragStartStick = -1;
+        
+        document.querySelectorAll('.game-stick').forEach(stick => {
+          stick.addEventListener('mousedown', (e) => {
+            if (!this.gameStarted || !this.isPlayerTurn) return;
+            
+            e.preventDefault();
+            isDragging = true;
+            dragStartRow = parseInt(stick.dataset.row);
+            dragStartStick = parseInt(stick.dataset.stick);
+            
+            this.selectedRow = dragStartRow;
+            this.selectedSticks = [dragStartStick];
+            this.updateStickSelection();
+          });
+          
+          stick.addEventListener('mouseenter', (e) => {
+            if (!isDragging || !this.gameStarted || !this.isPlayerTurn) return;
+            
+            const currentRow = parseInt(stick.dataset.row);
+            const currentStick = parseInt(stick.dataset.stick);
+            
+            // 同じ行でのみドラッグ選択を許可
+            if (currentRow === dragStartRow) {
+              const minIndex = Math.min(dragStartStick, currentStick);
+              const maxIndex = Math.max(dragStartStick, currentStick);
+              
+              this.selectedSticks = [];
+              for (let i = minIndex; i <= maxIndex; i++) {
+                if (this.rows[currentRow][i]) {
+                  this.selectedSticks.push(i);
+                }
+              }
+              this.updateStickSelection();
+            }
+          });
+        });
+        
+        document.addEventListener('mouseup', () => {
+          if (isDragging && this.gameStarted && this.isPlayerTurn && this.selectedSticks.length > 0) {
+            this.makePlayerMove();
+          }
+          isDragging = false;
+          dragStartRow = -1;
+          dragStartStick = -1;
+        });
+      }
+      
+      clearSelection() {
+        document.querySelectorAll('.game-stick.selected').forEach(stick => {
+          stick.classList.remove('selected');
+        });
+      }
+      
+      updateStickSelection() {
+        this.clearSelection();
+        
+        if (this.selectedRow >= 0) {
+          this.selectedSticks.forEach(stickIndex => {
+            const stickElement = document.querySelector(`[data-row="${this.selectedRow}"][data-stick="${stickIndex}"]`);
+            if (stickElement) {
+              stickElement.classList.add('selected');
+            }
+          });
+        }
+      }
+      
+      makePlayerMove() {
+        if (this.selectedRow >= 0 && this.selectedSticks.length > 0) {
+          // 棒を取る
+          this.selectedSticks.forEach(stickIndex => {
+            this.rows[this.selectedRow][stickIndex] = false;
+          });
+          
+          // ニム和チェック
+          const nimSum = this.calculateNimSum();
+          const message = nimSum === 0 ? "最善手です！" : "";
+          document.getElementById('game-message').textContent = message;
+          
+          this.selectedRow = -1;
+          this.selectedSticks = [];
+          
+          if (this.checkGameEnd()) {
+            return;
+          }
+          
+          this.isPlayerTurn = false;
+          this.updateTurnDisplay();
+          this.renderBoard();
+          document.getElementById('move-instruction').style.display = 'none';
+          
+          // AIの手を少し遅らせる
+          setTimeout(() => {
+            this.makeAIMove();
+          }, 1000);
+        }
+      }
+      
+      makeAIMove() {
+        const move = this.findBestMove();
+        
+        if (move) {
+          move.indices.forEach(index => {
+            this.rows[move.row][index] = false;
+          });
+        } else {
+          // ランダムな手
+          for (let r = 0; r < this.rows.length; r++) {
+            const availableIndices = this.rows[r].map((stick, index) => stick ? index : -1).filter(i => i >= 0);
+            if (availableIndices.length > 0) {
+              const randomCount = Math.floor(Math.random() * availableIndices.length) + 1;
+              for (let i = 0; i < randomCount; i++) {
+                this.rows[r][availableIndices[i]] = false;
+              }
+              break;
+            }
+          }
+        }
+        
+        if (this.checkGameEnd()) {
+          return;
+        }
+        
+        this.isPlayerTurn = true;
+        this.updateTurnDisplay();
+        this.renderBoard();
+        document.getElementById('move-instruction').style.display = 'block';
+      }
+      
+      findBestMove() {
+        const heapSizes = this.rows.map(row => row.filter(stick => stick).length);
+        const heapsMoreThanOne = heapSizes.filter(size => size > 1).length;
+        const nimSum = this.calculateNimSum();
+        const totalPiles = heapSizes.filter(size => size > 0).length;
+        const numberOfOnes = heapSizes.filter(size => size === 1).length;
+        
+        // 3本以上の山が1つだけの場合の特別処理
+        const bigHeaps = heapSizes.map((size, index) => ({ index, size })).filter(heap => heap.size >= 3);
+        if (bigHeaps.length === 1 && bigHeaps.length + numberOfOnes === totalPiles) {
+          const { index: r, size: bigSize } = bigHeaps[0];
+          
+          if (numberOfOnes % 2 === 0) {
+            // 1本残し
+            const removeCount = bigSize - 1;
+            const indices = this.getAvailableIndices(r).slice(0, removeCount);
+            return { row: r, indices };
+          } else {
+            // 全部取り
+            const indices = this.getAvailableIndices(r);
+            return { row: r, indices };
+          }
+        }
+        
+        // 通常のニム戦略
+        if (nimSum !== 0) {
+          for (let r = 0; r < heapSizes.length; r++) {
+            const size = heapSizes[r];
+            const target = size ^ nimSum;
+            if (target < size) {
+              const removeCount = size - target;
+              const indices = this.getAvailableIndices(r).slice(0, removeCount);
+              return { row: r, indices };
+            }
+          }
+        }
+        
+        return null;
+      }
+      
+      getAvailableIndices(rowIndex) {
+        return this.rows[rowIndex].map((stick, index) => stick ? index : -1).filter(i => i >= 0);
+      }
+      
+      calculateNimSum() {
+        const heapSizes = this.rows.map(row => row.filter(stick => stick).length);
+        return heapSizes.reduce((sum, size) => sum ^ size, 0);
+      }
+      
+      updateNimDisplay() {
+        const heapSizes = this.rows.map(row => row.filter(stick => stick).length);
+        const nimSum = this.calculateNimSum();
+        
+        const nimRowsContainer = document.getElementById('nim-rows');
+        nimRowsContainer.innerHTML = '';
+        
+        heapSizes.forEach((size, index) => {
+          const rowDiv = document.createElement('div');
+          rowDiv.className = 'nim-row';
+          
+          const label = document.createElement('span');
+          label.className = 'nim-label';
+          label.textContent = `段${index + 1}: ${size}本`;
+          
+          const binary = document.createElement('span');
+          binary.className = 'nim-binary';
+          binary.textContent = `(${size.toString(2).padStart(4, '0')})`;
+          
+          rowDiv.appendChild(label);
+          rowDiv.appendChild(binary);
+          nimRowsContainer.appendChild(rowDiv);
+        });
+        
+        const nimSumDisplay = document.getElementById('nim-sum-display');
+        nimSumDisplay.textContent = `ニム和: ${nimSum} (${nimSum.toString(2).padStart(4, '0')})`;
+        nimSumDisplay.className = `nim-sum ${nimSum === 0 ? 'zero' : 'non-zero'}`;
+      }
+      
+      checkGameEnd() {
+        const hasSticks = this.rows.some(row => row.some(stick => stick));
+        
+        if (!hasSticks) {
+          const winner = this.isPlayerTurn ? "AIの勝利！" : "あなたの勝利！";
+          this.showGameResult(winner);
+          return true;
+        }
+        
+        return false;
+      }
+      
+      updateTurnDisplay() {
+        const turnElement = document.getElementById('game-turn');
+        if (this.isPlayerTurn) {
+          turnElement.textContent = "あなたの番";
+          turnElement.classList.remove('ai-turn');
+        } else {
+          turnElement.textContent = "AIの番";
+          turnElement.classList.add('ai-turn');
+        }
+      }
+      
+      showRoleSelection() {
+        document.getElementById('role-selection').style.display = 'block';
+        document.getElementById('game-result').style.display = 'none';
+      }
+      
+      showGameResult(message) {
+        document.getElementById('result-message').textContent = message;
+        document.getElementById('game-result').style.display = 'block';
+        document.getElementById('role-selection').style.display = 'none';
+        
+        const nextBtn = document.getElementById('next-btn');
+        if (message.includes("あなたの勝利") && this.currentStage < this.stages.length - 1) {
+          nextBtn.style.display = 'inline-block';
+        } else {
+          nextBtn.style.display = 'none';
+        }
+      }
+      
+      showGameComplete() {
+        document.getElementById('result-message').textContent = "全ステージクリア！おめでとうございます！";
+        document.getElementById('game-result').style.display = 'block';
+        document.getElementById('role-selection').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'none';
+      }
+      
+      startGame(playerFirst) {
+        this.isPlayerTurn = playerFirst;
+        this.gameStarted = true;
+        document.getElementById('role-selection').style.display = 'none';
+        document.getElementById('game-message').textContent = '';
+        this.updateTurnDisplay();
+        this.renderBoard(); // ドラッグイベントを設定するため
+        
+        if (playerFirst) {
+          document.getElementById('move-instruction').style.display = 'block';
+        } else {
+          document.getElementById('move-instruction').style.display = 'none';
+          setTimeout(() => {
+            this.makeAIMove();
+          }, 1000);
+        }
+      }
+      
+      restartStage() {
+        this.loadStage(this.currentStage);
+      }
+      
+      nextStage() {
+        this.currentStage++;
+        this.loadStage(this.currentStage);
+      }
+      
+      showHint() {
+        const hint = this.stages[this.currentStage].hint;
+        document.getElementById('hint-text').textContent = hint;
+        document.getElementById('hint-overlay').style.display = 'flex';
+      }
+      
+      hideHint() {
+        document.getElementById('hint-overlay').style.display = 'none';
+      }
+      
+      bindEvents() {
+        // 先攻・後攻選択
+        document.getElementById('first-btn').addEventListener('click', () => {
+          this.startGame(true);
+        });
+        
+        document.getElementById('second-btn').addEventListener('click', () => {
+          this.startGame(false);
+        });
+        
+        // ゲーム操作
+        document.getElementById('restart-btn').addEventListener('click', () => {
+          this.restartStage();
+        });
+        
+        document.getElementById('retry-btn').addEventListener('click', () => {
+          this.restartStage();
+        });
+        
+        document.getElementById('next-btn').addEventListener('click', () => {
+          this.nextStage();
+        });
+        
+        // ヒント
+        document.getElementById('hint-btn').addEventListener('click', () => {
+          this.showHint();
+        });
+        
+        document.getElementById('close-hint-btn').addEventListener('click', () => {
+          this.hideHint();
+        });
+        
+        // ドラッグ選択は setupDragEvents() で処理
+      }
+    }
+    
+    // ゲーム初期化
+    let woodGolemGame = null;
+    
+    function initWoodGolemGame() {
+      if (document.getElementById('game-board')) {
+        woodGolemGame = new WoodGolemGame();
+      }
+    }
+    
+    // グローバルスコープに追加
+    window.initWoodGolemGame = initWoodGolemGame;
     
     function initAppTabs() {
       const tabs = document.querySelectorAll('.app-tab');
