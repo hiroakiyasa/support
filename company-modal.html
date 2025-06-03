@@ -1,108 +1,128 @@
 <!-- 会社紹介モーダル -->
-<div id="company-modal" class="company-modal">
+<div id="companyModal" class="company-modal">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeCompanyModal()">
-      <i class="fas fa-times"></i>
-    </button>
+    <button class="modal-close" onclick="closeCompanyModal()">&times;</button>
+    
     <div class="modal-body">
-      <!-- 会社紹介セクション -->
-      <section class="company-section">
-        <div class="container">
-          <!-- ヒーローセクション -->
-          <div class="hero-content" style="text-align: center; margin-bottom: 4rem;">
-            <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1;">TrailFusion AI</h1>
-            <div class="hero-logo-container" style="display: flex; justify-content: center; margin: 4rem 0; z-index: 10; position: relative;">
-              <div class="hero-logo" style="width: 300px; height: 300px; border-radius: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); border: 3px solid rgba(255, 255, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 100px rgba(99, 102, 241, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;">
-                <img src="logo.jpg" alt="TrailFusion AI Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 1.5rem; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));" />
-              </div>
+      <div class="company-section">
+        <!-- Hero Section -->
+        <section class="hero-section mb-20">
+          <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4" data-i18n-key="company_hero_title">TrailFusion AI</h1>
+            <p class="text-xl text-gray-600 mb-8" data-i18n-key="company_hero_subtitle">"路上でプログラミング。すべてのコードが自由を意味する。"</p>
+            <div class="hero-logo">
+              <img src="images/trailfusion-logo.png" alt="TrailFusion AI Logo" class="w-24 h-24 mx-auto mb-6 rounded-lg shadow-lg">
             </div>
-            <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">"Code on the road. Freedom in every line."</p>
           </div>
+        </section>
 
-          <!-- プロフィールセクション -->
-          <div class="profile-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(16px); border-radius: 2rem; padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); display: grid; grid-template-columns: 350px 1fr; gap: 3rem; align-items: center; position: relative; overflow: hidden; margin-bottom: 4rem;">
-            <div class="profile-image-container" style="position: relative;">
-              <div class="profile-image" style="width: 300px; height: 300px; border-radius: 2rem; margin: 0 auto; overflow: hidden; position: relative; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 8px; box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3); transition: all 0.3s ease;">
-                <img src="camper/profile.jpg" alt="代表者プロフィール写真" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1.5rem; background: #0f172a;" />
-              </div>
-            </div>
-            <div class="profile-info">
-              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">シェフチェンコ</h3>
-              <p style="color: #f59e0b; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">TrailFusion AI 代表・リードデベロッパー</p>
-              <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 2rem;">
-                大手自動車企業でBEV開発に従事した後、「真にユーザーに寄り添うアプリ開発」を求めて独立。
-                キャンピングカー生活を送りながら、世界各地でユーザーの声を直接聞き、
-                それをアプリ開発に活かすスタイルを確立。「移動する開発者」として、
-                地域や文化の境界を越えたユニバーサルなアプリ体験の創造を目指している。
-                <br><br>
-                「コードを書くことは旅と同じ。新しい発見と学びの連続です。
-                ユーザーの笑顔こそが、私たちの最高の報酬だと信じています。」
-              </p>
-              
-              <div class="hobbies-section">
-                <h4 style="font-size: 1.25rem; color: #06b6d4; margin-bottom: 1rem; font-weight: 600;">趣味・特技</h4>
-                <ul style="list-style: none; padding: 0;">
-                  <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🚐 バンライフ・車中泊（全国47都道府県制覇）</li>
-                  <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🔧 DIY・木工作業（日曜大工歴10年）</li>
-                  <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">📱 アプリ開発（iOS/Android）</li>
-                  <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🏕️ キャンプ・アウトドア</li>
-                  <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">📸 旅行写真・動画撮影</li>
-                  <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🍳 車中泊飯・アウトドア料理</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        <!-- Profile Card -->
+        <section class="profile-section mb-20">
+          <div class="container mx-auto px-4">
+            <div class="profile-card max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/3 p-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                  <div class="text-center">
+                    <div class="profile-image w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                      <img src="images/shevchenko-profile.jpg" alt="代表者写真" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n-key="company_profile_name">シェフチェンコ</h3>
+                    <p class="text-blue-100 text-sm" data-i18n-key="company_profile_title">TrailFusion AI 代表・メイン開発者</p>
+                  </div>
+                </div>
+                <div class="md:w-2/3 p-8">
+                  <div class="mb-6">
+                    <p class="text-gray-700 leading-relaxed" data-i18n-key="company_profile_description">
+                      大手自動車メーカーでBEV開発に従事した後、"真にユーザーに寄り添うアプリ開発"を追求するため独立。バンライフの中で世界各地でユーザーの声を直接聞き、それをアプリ開発に活かすスタイルを確立。"移動型開発者"として、地域や文化の壁を越えたユニバーサルなアプリ体験の創造に取り組んでいる。
+                    </p>
+                  </div>
+                  
+                  <div class="bg-blue-50 p-6 rounded-lg">
+                    <blockquote class="text-blue-800 italic text-lg" data-i18n-key="company_profile_quote">
+                      "プログラミングは旅と同じです。新しい発見と学びの連続なのです。ユーザーの笑顔こそが私たちの最高の報酬だと信じています。"
+                    </blockquote>
+                  </div>
 
-          <!-- 企業理念セクション -->
-          <div style="margin-bottom: 4rem;">
-            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; text-align: center; margin-bottom: 4rem; position: relative; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">企業理念</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-              <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
-                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
-                  <i class="fas fa-heart"></i>
+                  <div class="mt-6">
+                    <h4 class="text-lg font-semibold mb-3 text-gray-800" data-i18n-key="company_hobbies_title">趣味・特技</h4>
+                    <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                      <div data-i18n-key="company_hobby_vanlife">バンライフ・車中泊（全国47都道府県制覇）</div>
+                      <div data-i18n-key="company_hobby_diy">DIY・木工作業（DIY歴10年）</div>
+                      <div data-i18n-key="company_hobby_app">アプリ開発（iOS/Android）</div>
+                      <div data-i18n-key="company_hobby_camp">キャンプ・アウトドア</div>
+                      <div data-i18n-key="company_hobby_photo">旅行写真・動画撮影</div>
+                      <div data-i18n-key="company_hobby_cooking">車中飯・アウトドア料理</div>
+                    </div>
+                  </div>
                 </div>
-                <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">ユーザーファースト</h4>
-                <p style="color: #cbd5e1; line-height: 1.7;">
-                  すべての判断基準はユーザーの利益です。機能を追加する前に「これは本当にユーザーのためになるか？」を自問し、
-                  真に価値のある機能のみを実装します。ユーザーの声に真摯に耳を傾け、期待を超える体験を提供します。
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Company Philosophy -->
+        <section class="philosophy-section">
+          <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl font-bold mb-4" data-i18n-key="company_philosophy_title">企業理念</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <!-- Philosophy Card 1 -->
+              <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                    <span class="text-white text-xl">👥</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_1_title">ユーザーファースト</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_1_desc">
+                  すべての判断基準はユーザーの利益です。機能を追加する前に「これは本当にユーザーにとって価値があるか？」を自問し、真に価値のある機能のみを実装します。ユーザーの声に真摯に耳を傾け、期待を超える体験を提供します。
                 </p>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
-                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
-                  <i class="fas fa-globe"></i>
+
+              <!-- Philosophy Card 2 -->
+              <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
+                    <span class="text-white text-xl">🌍</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_2_title">ボーダーレス創造</h3>
                 </div>
-                <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">境界のない創造</h4>
-                <p style="color: #cbd5e1; line-height: 1.7;">
-                  物理的な制約にとらわれず、世界中どこからでも最高品質のアプリを開発できることを証明します。
-                  移動式オフィスだからこそ実現できる、多様な環境での検証と文化を超えたユニバーサルデザインを追求します。
+                <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_2_desc">
+                  物理的制約にとらわれず、世界のどこからでも最高品質のアプリが開発できることを証明します。移動式オフィスだからこそ実現できる、多様な環境での検証と文化を超えたユニバーサルデザインを追求します。
                 </p>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
-                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
-                  <i class="fas fa-leaf"></i>
+
+              <!-- Philosophy Card 3 -->
+              <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center mr-4">
+                    <span class="text-white text-xl">🌱</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_3_title">持続可能な成長</h3>
                 </div>
-                <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">持続可能な成長</h4>
-                <p style="color: #cbd5e1; line-height: 1.7;">
-                  環境に配慮したソーラーパワードオフィスで、地球にやさしい開発を実践。
-                  短期的な利益より長期的な信頼関係を重視し、お客様とともに成長し続ける
-                  パートナーシップを大切にします。
+                <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_3_desc">
+                  環境に優しいソーラーオフィスで地球に配慮した開発を実践します。短期利益よりも長期的な信頼関係を重視し、お客様と共に成長するパートナーシップを大切にします。
                 </p>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
-                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
-                  <i class="fas fa-handshake"></i>
+
+              <!-- Philosophy Card 4 -->
+              <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center mr-4">
+                    <span class="text-white text-xl">💎</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_4_title">透明性と誠実さ</h3>
                 </div>
-                <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">透明性と誠実さ</h4>
-                <p style="color: #cbd5e1; line-height: 1.7;">
-                  開発プロセス、価格設定、進捗状況をすべて透明に共有します。
-                  約束は必ず守り、できないことは正直にお伝えする。
-                  この誠実さこそが、長期的な信頼関係の基盤だと考えています。
+                <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_4_desc">
+                  開発プロセス、価格設定、進捗状況をすべて透明に共有します。約束は必ず守り、できないことは正直にお伝えします。この誠実さが長期的な信頼関係の基盤だと考えています。
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </div>
 </div> 

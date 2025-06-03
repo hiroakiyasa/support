@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-key="seo_title_default">TrailFusion AI | アプリコレクション</title>
+  <meta name="description" data-i18n-key="seo_desc_default" content="TrailFusion AIが提供する革新的なアプリコレクション！英語学習「GPティーチャーズ」、戦略パズル「森のウッドゴーレム」、単語ゲーム「ワードブラスター」、ディベートAI「論破王」、集中タイマー「ハッキングタイマー」をチェック！">
+  <meta name="keywords" data-i18n-key="seo_keywords_default" content="TrailFusion AI, GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー, 英語学習, パズルゲーム, 単語ゲーム, ディベートAI, 集中タイマー, Apple Watchアプリ">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trailfusion.ai/">
+  <meta property="og:title" data-i18n-key="og_title_default" content="TrailFusion AI | アプリコレクション">
+  <meta property="og:description" data-i18n-key="og_desc_default" content="TrailFusion AIの革新的なアプリを発見しよう！GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー">
+  <meta property="og:image" content="https://trailfusion.ai/logo.PNG">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://trailfusion.ai/">
+  <meta property="twitter:title" data-i18n-key="twitter_title_default" content="TrailFusion AI | アプリコレクション">
+  <meta property="twitter:description" data-i18n-key="twitter_desc_default" content="TrailFusion AIの革新的なアプリを発見しよう！GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー">
+  <meta property="twitter:image" content="https://trailfusion.ai/logo.PNG">
+
+  <link rel="icon" type="image/png" href="logo.PNG">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="company-modal.css">
+  
+  <style>
+    /* Language switcher styles */
+    .language-switcher {
+      position: relative;
+    }
+    
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+    
+    .language-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .language-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .language-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      border-radius: 8px;
+      margin: 4px;
+      color: var(--text-dark);
+    }
+    
+    .language-option:hover {
+      background: var(--primary-light);
+    }
+    
+    .language-option.active {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .language-flag {
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body class="gpt-app">
+  <!-- アプリケーションシェル -->
+  <div id="app-shell" style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f5f5f7; z-index: 9999; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+    <img src="logo.PNG" alt="TrailFusion Logo" style="width: 80px; height: 80px; animation: pulse 2s infinite;">
+    <div style="width: 200px; height: 4px; background-color: #eee; border-radius: 4px; overflow: hidden; position: relative;">
+      <div id="loading-bar" style="width: 0; height: 100%; background: linear-gradient(90deg, var(--primary-color), var(--primary-light)); transition: width 0.3s;"></div>
+    </div>
+    <p style="margin: 0; color: #718096; font-size: 14px;" data-i18n-key="loading_text">Loading...</p>
+  </div>
+  
+  <!-- ナビゲーションバー -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <div class="navbar-logo">
+        <img src="logo.PNG" alt="TrailFusion Logo">
+        <h2>TrailFusion AI</h2>
+      </div>
+      <div class="navbar-menu" id="navbar-menu">
+        <button class="nav-link company-intro-btn" onclick="openCompanyModal()" data-i18n-key="nav_company" style="background: none; border: none; cursor: pointer; font-size: inherit; color: inherit; padding: 0; font-family: inherit;">会社紹介</button>
+        <a href="#" class="nav-link apps-intro-btn" data-target="apps-section" data-i18n-key="nav_apps">アプリ紹介</a>
+        <a href="#" class="nav-link vanlife-intro-btn" data-target="vanlife-section" data-i18n-key="nav_vanlife">キャンピングカー紹介</a>
+        <a href="#contact" class="nav-link contact-btn" data-i18n-key="nav_contact">お問い合わせ</a>
+      </div>
+      <div class="navbar-actions">
+        <div class="language-switcher">
+          <button class="language-btn" id="language-btn">
+            <i class="fas fa-globe"></i>
+            <span id="current-language">日本語</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="language-dropdown" id="language-dropdown">
+            <div class="language-option" data-lang="ja">
+              <span class="language-flag">🇯🇵</span>
+              <span>日本語</span>
+            </div>
+            <div class="language-option" data-lang="en">
+              <span class="language-flag">🇺🇸</span>
+              <span>English</span>
+            </div>
+            <div class="language-option" data-lang="zh">
+              <span class="language-flag">🇨🇳</span>
+              <span>中文</span>
+            </div>
+          </div>
+        </div>
+        <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="navbar-spacer"></div>
+  
+  <!-- 会社紹介モーダル -->
+  <div id="companyModal" class="company-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCompanyModal()">&times;</button>
+      
+      <div class="modal-body">
+        <div class="company-section">
+          <!-- Hero Section -->
+          <section class="hero-section mb-20">
+            <div class="container mx-auto px-4 text-center">
+              <h1 class="text-5xl font-bold mb-4" data-i18n-key="company_hero_title">TrailFusion AI</h1>
+              <p class="text-xl text-gray-600 mb-8" data-i18n-key="company_hero_subtitle">"路上でプログラミング。すべてのコードが自由を意味する。"</p>
+              <div class="hero-logo">
+                <img src="images/trailfusion-logo.png" alt="TrailFusion AI Logo" class="w-24 h-24 mx-auto mb-6 rounded-lg shadow-lg">
+              </div>
+            </div>
+          </section>
+
+          <!-- Profile Card -->
+          <section class="profile-section mb-20">
+            <div class="container mx-auto px-4">
+              <div class="profile-card max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="flex flex-col md:flex-row">
+                  <div class="md:w-1/3 p-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                    <div class="text-center">
+                      <div class="profile-image w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                        <img src="images/shevchenko-profile.jpg" alt="代表者写真" class="w-full h-full object-cover">
+                      </div>
+                      <h3 class="text-2xl font-bold mb-2" data-i18n-key="company_profile_name">シェフチェンコ</h3>
+                      <p class="text-blue-100 text-sm" data-i18n-key="company_profile_title">TrailFusion AI 代表・メイン開発者</p>
+                    </div>
+                  </div>
+                  <div class="md:w-2/3 p-8">
+                    <div class="mb-6">
+                      <p class="text-gray-700 leading-relaxed" data-i18n-key="company_profile_description">
+                        大手自動車メーカーでBEV開発に従事した後、"真にユーザーに寄り添うアプリ開発"を追求するため独立。バンライフの中で世界各地でユーザーの声を直接聞き、それをアプリ開発に活かすスタイルを確立。"移動型開発者"として、地域や文化の壁を越えたユニバーサルなアプリ体験の創造に取り組んでいる。
+                      </p>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                      <blockquote class="text-blue-800 italic text-lg" data-i18n-key="company_profile_quote">
+                        "プログラミングは旅と同じです。新しい発見と学びの連続なのです。ユーザーの笑顔こそが私たちの最高の報酬だと信じています。"
+                      </blockquote>
+                    </div>
+
+                    <div class="mt-6">
+                      <h4 class="text-lg font-semibold mb-3 text-gray-800" data-i18n-key="company_hobbies_title">趣味・特技</h4>
+                      <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                        <div data-i18n-key="company_hobby_vanlife">バンライフ・車中泊（全国47都道府県制覇）</div>
+                        <div data-i18n-key="company_hobby_diy">DIY・木工作業（DIY歴10年）</div>
+                        <div data-i18n-key="company_hobby_app">アプリ開発（iOS/Android）</div>
+                        <div data-i18n-key="company_hobby_camp">キャンプ・アウトドア</div>
+                        <div data-i18n-key="company_hobby_photo">旅行写真・動画撮影</div>
+                        <div data-i18n-key="company_hobby_cooking">車中飯・アウトドア料理</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Company Philosophy -->
+          <section class="philosophy-section">
+            <div class="container mx-auto px-4">
+              <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" data-i18n-key="company_philosophy_title">企業理念</h2>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Philosophy Card 1 -->
+                <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">👥</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_1_title">ユーザーファースト</h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_1_desc">
+                    すべての判断基準はユーザーの利益です。機能を追加する前に「これは本当にユーザーにとって価値があるか？」を自問し、真に価値のある機能のみを実装します。ユーザーの声に真摯に耳を傾け、期待を超える体験を提供します。
+                  </p>
+                </div>
+
+                <!-- Philosophy Card 2 -->
+                <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">🌍</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_2_title">ボーダーレス創造</h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_2_desc">
+                    物理的制約にとらわれず、世界のどこからでも最高品質のアプリが開発できることを証明します。移動式オフィスだからこそ実現できる、多様な環境での検証と文化を超えたユニバーサルデザインを追求します。
+                  </p>
+                </div>
+
+                <!-- Philosophy Card 3 -->
+                <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">🌱</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_3_title">持続可能な成長</h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_3_desc">
+                    環境に優しいソーラーオフィスで地球に配慮した開発を実践します。短期利益よりも長期的な信頼関係を重視し、お客様と共に成長するパートナーシップを大切にします。
+                  </p>
+                </div>
+
+                <!-- Philosophy Card 4 -->
+                <div class="philosophy-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-amber-500 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-white text-xl">💎</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800" data-i18n-key="company_philosophy_4_title">透明性と誠実さ</h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed" data-i18n-key="company_philosophy_4_desc">
+                    開発プロセス、価格設定、進捗状況をすべて透明に共有します。約束は必ず守り、できないことは正直にお伝えします。この誠実さが長期的な信頼関係の基盤だと考えています。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- メインコンテンツは省略（元のindex.htmlから流用） -->
+  
+  <!-- スクリプト -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="i18n.js"></script>
+  <script src="company-modal.js"></script>
+  <script src="script.js"></script>
+  
+  <script>
+    // 初期化
+    document.addEventListener('DOMContentLoaded', function() {
+      // AOS初期化
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+      });
+      
+      // アプリシェル非表示
+      setTimeout(() => {
+        const appShell = document.getElementById('app-shell');
+        if (appShell) {
+          appShell.style.display = 'none';
+        }
+      }, 1500);
+    });
+  </script>
+</body>
+</html> 
