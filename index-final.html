@@ -1,0 +1,335 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO対策のためのメタタグ -->
+  <title data-i18n-key="seo_title_default">TrailFusion AI | アプリコレクション</title>
+  <meta name="description" data-i18n-key="seo_desc_default" content="TrailFusion AIが提供する革新的なアプリコレクション！英語学習「GPティーチャーズ」、戦略パズル「森のウッドゴーレム」、単語ゲーム「ワードブラスター」、ディベートAI「論破王」、集中タイマー「ハッキングタイマー」をチェック！">
+  <meta name="keywords" data-i18n-key="seo_keywords_default" content="TrailFusion AI, GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー, 英語学習, パズルゲーム, 単語ゲーム, ディベートAI, 集中タイマー, Apple Watchアプリ">
+  <meta name="author" content="TrailFusion AI">
+  
+  <!-- OGP設定 -->
+  <meta property="og:title" data-i18n-key="og_title_default" content="TrailFusion AI | アプリコレクション">
+  <meta property="og:description" data-i18n-key="og_desc_default" content="TrailFusion AIの革新的なアプリを発見しよう！GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー">
+  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:url" content="https://www.trailfusionai.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card設定 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-key="twitter_title_default" content="TrailFusion AI | アプリコレクション">
+  <meta name="twitter:description" data-i18n-key="twitter_desc_default" content="TrailFusion AIの革新的なアプリを発見しよう！GPティーチャーズ, 森のウッドゴーレム, ワードブラスター, 論破王, ハッキングタイマー">
+  <meta name="twitter:image" content="images/twitter-card.jpg">
+  
+  <!-- ファビコンとアップルタッチアイコン -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <!-- 外部ライブラリの読み込み -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <style>
+    /* 会社紹介モーダルスタイル */
+    .company-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .company-modal.show {
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #2563eb 50%, #7c3aed 75%, #0f172a 100%);
+      border-radius: 1rem;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalSlideIn 0.3s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .modal-body {
+      padding: 2rem;
+      color: #ffffff;
+    }
+
+    .company-section {
+      padding: 0;
+    }
+
+    /* レスポンシブデザイン */
+    @media (max-width: 768px) {
+      .modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
+        margin: 1rem;
+      }
+      
+      .modal-body {
+        padding: 1rem;
+      }
+      
+      .profile-card {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+        gap: 2rem !important;
+      }
+      
+      .hero-logo {
+        width: 200px !important;
+        height: 200px !important;
+      }
+      
+      .profile-image {
+        width: 250px !important;
+        height: 250px !important;
+      }
+    }
+
+    /* その他の基本スタイル */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    /* ナビゲーションボタンのスタイル */
+    .nav-link.company-intro-btn {
+      background: none !important;
+      border: none !important;
+      cursor: pointer !important;
+      font-size: inherit !important;
+      color: inherit !important;
+      padding: 0 !important;
+      font-family: inherit !important;
+      text-decoration: none !important;
+    }
+  </style>
+  <link rel="stylesheet" href="voicelink-styles.css">
+</head>
+
+<body class="gpt-app">
+  <!-- ナビゲーションバー -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <div class="navbar-logo">
+        <img src="logo.PNG" alt="TrailFusion Logo">
+        <h2>TrailFusion AI</h2>
+      </div>
+      <div class="navbar-menu" id="navbar-menu">
+        <button class="nav-link company-intro-btn" onclick="openCompanyModal()" data-i18n-key="nav_company">会社紹介</button>
+        <a href="#" class="nav-link apps-intro-btn" data-target="apps-section" data-i18n-key="nav_apps">アプリ紹介</a>
+        <a href="#" class="nav-link vanlife-intro-btn" data-target="vanlife-section" data-i18n-key="nav_vanlife">キャンピングカー紹介</a>
+        <a href="#contact" class="nav-link contact-btn" data-i18n-key="nav_contact">お問い合わせ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- メインコンテンツ -->
+  <div class="main-content">
+    <!-- アプリセクションなどのメインコンテンツは省略 -->
+    <h1>TrailFusion AI</h1>
+    <p>革新的なアプリコレクション</p>
+  </div>
+
+  <!-- 会社紹介モーダル -->
+  <div id="company-modal" class="company-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCompanyModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-body">
+        <!-- 会社紹介セクション -->
+        <section class="company-section">
+          <div class="container">
+            <!-- ヒーローセクション -->
+            <div class="hero-content" style="text-align: center; margin-bottom: 4rem;">
+              <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1;">TrailFusion AI</h1>
+              <div class="hero-logo-container" style="display: flex; justify-content: center; margin: 4rem 0; z-index: 10; position: relative;">
+                <div class="hero-logo" style="width: 300px; height: 300px; border-radius: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); border: 3px solid rgba(255, 255, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 100px rgba(99, 102, 241, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                  <img src="logo.jpg" alt="TrailFusion AI Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 1.5rem; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));" />
+                </div>
+              </div>
+              <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">"Code on the road. Freedom in every line."</p>
+            </div>
+
+            <!-- プロフィールセクション -->
+            <div class="profile-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(16px); border-radius: 2rem; padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); display: grid; grid-template-columns: 350px 1fr; gap: 3rem; align-items: center; position: relative; overflow: hidden; margin-bottom: 4rem;">
+              <div class="profile-image-container" style="position: relative;">
+                <div class="profile-image" style="width: 300px; height: 300px; border-radius: 2rem; margin: 0 auto; overflow: hidden; position: relative; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 8px; box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3); transition: all 0.3s ease;">
+                  <img src="camper/profile.jpg" alt="代表者プロフィール写真" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1.5rem; background: #0f172a;" />
+                </div>
+              </div>
+              <div class="profile-info">
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">シェフチェンコ</h3>
+                <p style="color: #f59e0b; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">TrailFusion AI 代表・リードデベロッパー</p>
+                <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 2rem;">
+                  大手自動車企業でBEV開発に従事した後、「真にユーザーに寄り添うアプリ開発」を求めて独立。
+                  キャンピングカー生活を送りながら、世界各地でユーザーの声を直接聞き、
+                  それをアプリ開発に活かすスタイルを確立。「移動する開発者」として、
+                  地域や文化の境界を越えたユニバーサルなアプリ体験の創造を目指している。
+                  <br><br>
+                  「コードを書くことは旅と同じ。新しい発見と学びの連続です。
+                  ユーザーの笑顔こそが、私たちの最高の報酬だと信じています。」
+                </p>
+                
+                <div class="hobbies-section">
+                  <h4 style="font-size: 1.25rem; color: #06b6d4; margin-bottom: 1rem; font-weight: 600;">趣味・特技</h4>
+                  <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🚐 バンライフ・車中泊（全国47都道府県制覇）</li>
+                    <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🔧 DIY・木工作業（日曜大工歴10年）</li>
+                    <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">📱 アプリ開発（iOS/Android）</li>
+                    <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🏕️ キャンプ・アウトドア</li>
+                    <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">📸 旅行写真・動画撮影</li>
+                    <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🍳 車中泊飯・アウトドア料理</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 企業理念セクション -->
+            <div style="margin-bottom: 4rem;">
+              <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; text-align: center; margin-bottom: 4rem; position: relative; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">企業理念</h2>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                  <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">ユーザーファースト</h4>
+                  <p style="color: #cbd5e1; line-height: 1.7;">
+                    すべての判断基準はユーザーの利益です。機能を追加する前に「これは本当にユーザーのためになるか？」を自問し、
+                    真に価値のある機能のみを実装します。ユーザーの声に真摯に耳を傾け、期待を超える体験を提供します。
+                  </p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                  <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                    <i class="fas fa-globe"></i>
+                  </div>
+                  <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">境界のない創造</h4>
+                  <p style="color: #cbd5e1; line-height: 1.7;">
+                    物理的な制約にとらわれず、世界中どこからでも最高品質のアプリを開発できることを証明します。
+                    移動式オフィスだからこそ実現できる、多様な環境での検証と文化を超えたユニバーサルデザインを追求します。
+                  </p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                  <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                    <i class="fas fa-leaf"></i>
+                  </div>
+                  <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">持続可能な成長</h4>
+                  <p style="color: #cbd5e1; line-height: 1.7;">
+                    環境に配慮したソーラーパワードオフィスで、地球にやさしい開発を実践。
+                    短期的な利益より長期的な信頼関係を重視し、お客様とともに成長し続ける
+                    パートナーシップを大切にします。
+                  </p>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+                  <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">透明性と誠実さ</h4>
+                  <p style="color: #cbd5e1; line-height: 1.7;">
+                    開発プロセス、価格設定、進捗状況をすべて透明に共有します。
+                    約束は必ず守り、できないことは正直にお伝えする。
+                    この誠実さこそが、長期的な信頼関係の基盤だと考えています。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 会社紹介モーダル機能
+    function openCompanyModal() {
+      const modal = document.getElementById('company-modal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          modal.classList.add('show');
+        }, 10);
+      }
+    }
+
+    function closeCompanyModal() {
+      const modal = document.getElementById('company-modal');
+      if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+          modal.style.display = 'none';
+        }, 300);
+      }
+    }
+
+    // モーダル外クリックで閉じる
+    document.addEventListener('click', function(event) {
+      const modal = document.getElementById('company-modal');
+      if (modal && event.target === modal) {
+        closeCompanyModal();
+      }
+    });
+
+    // ESCキーでモーダルを閉じる
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeCompanyModal();
+      }
+    });
+  </script>
+</body>
+</html> 
