@@ -1,12 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社紹介 - TrailFusion AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #2563eb 50%, #7c3aed 75%, #0f172a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .nav-header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .back-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            color: #8b5cf6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        @media (max-width: 768px) {
+            .profile-card {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+            }
+            .profile-image-container {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-header">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            ホームに戻る
+        </a>
+    </div>
+
     <!-- 会社紹介セクション -->
-    <section id="about-company" class="section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #2563eb 50%, #7c3aed 75%, #0f172a 100%); color: #ffffff; padding: 6rem 0; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1);">
+    <section id="about-company" class="section" style="color: #ffffff; padding: 6rem 0; position: relative; overflow: hidden;">
       <div class="container">
         <!-- ヒーローセクション -->
         <div class="hero-content" style="text-align: center; margin-bottom: 4rem;">
           <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1;">TrailFusion AI</h1>
           <div class="hero-logo-container" style="display: flex; justify-content: center; margin: 4rem 0; z-index: 10; position: relative;">
             <div class="hero-logo" style="width: 300px; height: 300px; border-radius: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); border: 3px solid rgba(255, 255, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 100px rgba(99, 102, 241, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;">
-              <img src="logo.jpg" alt="TrailFusion AI Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 1.5rem; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));" />
+              <img src="logo.PNG" alt="TrailFusion AI Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 1.5rem; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));" />
             </div>
           </div>
           <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">"Code on the road. Freedom in every line."</p>
@@ -95,4 +160,6 @@
           </div>
         </div>
       </div>
-    </section> 
+    </section>
+</body>
+</html> 

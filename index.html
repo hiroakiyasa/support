@@ -2783,7 +2783,7 @@
         <h2>TrailFusion AI</h2>
       </div>
       <div class="navbar-menu" id="navbar-menu">
-        <a href="about.html" class="nav-link company-intro-btn" data-i18n-key="nav_company">会社紹介</a>
+        <a href="about_section.html" class="nav-link company-intro-btn" data-i18n-key="nav_company">会社紹介</a>
         <a href="#" class="nav-link apps-intro-btn" data-target="apps-section" data-i18n-key="nav_apps">アプリ紹介</a>
         <a href="#" class="nav-link vanlife-intro-btn" data-target="vanlife-section" data-i18n-key="nav_vanlife">キャンピングカー紹介</a>
         <a href="#contact" class="nav-link contact-btn" data-i18n-key="nav_contact">お問い合わせ</a>
@@ -2969,10 +2969,10 @@
                 <!-- VoiceLink AI通訳のコンテンツ -->
         <div id="voicelink-app" class="app-content voicelink-app">
           <!-- ヒーローセクション -->
-          <section class="hero">
+          <section class="hero" style="background: linear-gradient(135deg, #667EEA, #764BA2); color: white; padding: 4rem 0;">
             <div class="hero-content">
-              <h1 data-aos="fade-down">VoiceLink AI通訳</h1>
-              <p data-aos="fade-up" data-aos-delay="100">最新AI搭載のリアルタイム音声翻訳アプリ。10言語対応で自然で正確な翻訳を瞬時に実現。文脈を理解する高精度音声認識と要約機能付き。</p>
+              <h1 data-aos="fade-down" style="color: white;">VoiceLink AI通訳</h1>
+              <p data-aos="fade-up" data-aos-delay="100" style="color: rgba(255,255,255,0.9);">最新AI搭載のリアルタイム音声翻訳アプリ。10言語対応で自然で正確な翻訳を瞬時に実現。文脈を理解する高精度音声認識と要約機能付き。</p>
               <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="200">
                 <a href="#" class="download-btn" target="_blank">
                   <i class="fab fa-apple"></i> <span>App Storeでダウンロード</span>
@@ -2982,8 +2982,8 @@
                 </a>
               </div>
               <div class="app-screens">
-                <img src="images/voicelink_hero_main.png" alt="VoiceLink AI通訳メイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300">
-                <img src="images/voicelink_hero_main.png" alt="翻訳機能画面" class="app-screen" data-aos="fade-left" data-aos-delay="300">
+                <img src="images/voicelink_hero_main1.png" alt="VoiceLink AI通訳メイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300">
+                <img src="images/voicelink_hero_main2.png" alt="翻訳機能画面" class="app-screen" data-aos="fade-left" data-aos-delay="300">
               </div>
             </div>
           </section>
@@ -4224,7 +4224,6 @@
                 <p data-i18n-key="vanlife_feature4_desc">昼はソファ、夜はベッドに変身。限られたスペースを最大限活用する独自設計。</p>
               </div>
             </div>
-          </div>
         </section>
 
   
@@ -4340,9 +4339,9 @@
           <div class="footer-col">
             <h4 data-i18n-key="footer_company_title">会社情報</h4>
             <ul class="footer-links">
-              <li><a href="about.html" data-i18n-key="footer_company_overview">会社概要</a></li>
-              <li><a href="privacy.html" data-i18n-key="footer_company_privacy">プライバシーポリシー</a></li>
-              <li><a href="terms.html" data-i18n-key="footer_company_terms">利用規約</a></li>
+              <li><a href="about_section.html" data-i18n-key="footer_company_overview">会社概要</a></li>
+              <li><a href="privacy-policy.html" data-i18n-key="footer_company_privacy">プライバシーポリシー</a></li>
+              <li><a href="terms-of-service.html" data-i18n-key="footer_company_terms">利用規約</a></li>
             </ul>
           </div>
         </div>
@@ -4386,9 +4385,9 @@
     
     async function loadTranslationsAndApply(lang) {
       try {
-        const response = await fetch(`${lang}.json`);
+        const response = await fetch(`locales/${lang}.json`);
         if (!response.ok) {
-          throw new Error(`Failed to load ${lang}.json: ${response.statusText}`);
+          throw new Error(`Failed to load locales/${lang}.json: ${response.statusText}`);
         }
         currentTranslations = await response.json();
         applyTranslationsInternal(lang);
@@ -4396,12 +4395,12 @@
       } catch (error) {
         console.error(`Error loading translations for ${lang}:`, error);
         if (lang !== 'ja') { // Fallback to Japanese if loading fails and it's not already Japanese
-          console.warn(`Falling back to Japanese because ${lang}.json could not be loaded.`);
+          console.warn(`Falling back to Japanese because locales/${lang}.json could not be loaded.`);
           await loadTranslationsAndApply('ja');
         } else {
             // If Japanese also fails, there's a bigger issue.
             // For now, just log it. You might want to display a user-friendly error.
-            console.error("Failed to load Japanese translations (ja.json). Site may not display correctly.");
+            console.error("Failed to load Japanese translations (locales/ja.json). Site may not display correctly.");
         }
       }
     }
@@ -4789,6 +4788,10 @@
       // 言語選択機能を初期化
       initLanguageSwitcher();
       
+      // 初期翻訳を読み込み
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'ja';
+      await loadTranslationsAndApply(savedLanguage);
+      
       // ギャラリータブ機能を初期化
       initGalleryTabs();
       
@@ -4822,7 +4825,9 @@
           const selectedLang = this.dataset.lang;
           currentLang = selectedLang;
           localStorage.setItem('selectedLanguage', selectedLang);
-          updateLanguageDisplay(selectedLang);
+          
+          // 翻訳を実際に適用
+          loadTranslationsAndApply(selectedLang);
           
           // ドロップダウンを閉じる
           languageDropdown.classList.remove('active');

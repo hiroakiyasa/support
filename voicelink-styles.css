@@ -200,4 +200,16 @@
   background: rgba(255,255,255,0.2);
   border-color: rgba(255,255,255,0.5);
   transform: translateY(-2px);
+}
+
+/* VoiceLink フッター背景色 */
+.voicelink-app .footer {
+  background: var(--vl-dark);
+}
+
+/* VoiceLink アプリ色継承設定 */
+.voicelink-app {
+  --app-color: var(--vl-primary);
+  --app-dark: var(--vl-dark);
+  --app-gradient: var(--vl-gradient);
 } 
