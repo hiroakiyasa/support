@@ -1,37 +1,37 @@
-// 会社紹介モーダルを開く
+// 会社紹介モーダル機能
 function openCompanyModal() {
-  const modal = document.getElementById('companyModal');
+  const modal = document.getElementById('company-modal');
   if (modal) {
-    modal.classList.add('show');
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    
-    // Re-translate modal content if i18n is available
-    if (window.i18n) {
-      window.i18n.translatePage();
-    }
+    setTimeout(() => {
+      modal.classList.add('show');
+    }, 10);
   }
 }
 
-// 会社紹介モーダルを閉じる
 function closeCompanyModal() {
-  const modal = document.getElementById('companyModal');
+  const modal = document.getElementById('company-modal');
   if (modal) {
     modal.classList.remove('show');
     document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300);
   }
 }
 
-// ESCキーでモーダルを閉じる
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
+// モーダル外クリックで閉じる
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('company-modal');
+  if (modal && event.target === modal) {
     closeCompanyModal();
   }
 });
 
-// モーダル外側クリックで閉じる
-document.addEventListener('click', function(event) {
-  const modal = document.getElementById('companyModal');
-  if (modal && event.target === modal) {
+// ESCキーでモーダルを閉じる
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
     closeCompanyModal();
   }
 }); 
