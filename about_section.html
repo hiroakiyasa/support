@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会社紹介 - TrailFusion AI</title>
+    <title data-i18n-key="about_page_title">会社紹介 - TrailFusion AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
@@ -23,6 +23,9 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .back-link {
             color: #ffffff;
@@ -37,6 +40,66 @@
         .back-link:hover {
             color: #8b5cf6;
         }
+        
+        /* 言語選択 */
+        .language-selector {
+            position: relative;
+        }
+        .language-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+            z-index: 1000;
+        }
+        .language-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            color: #333;
+            transition: background-color 0.2s ease;
+        }
+        .language-option:hover {
+            background-color: #f0f0f0;
+        }
+        .language-option.active {
+            background-color: #007AFF;
+            color: white;
+        }
+        .language-flag {
+            font-size: 16px;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -50,6 +113,10 @@
             .profile-image-container {
                 order: -1;
             }
+            .nav-header {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -59,8 +126,61 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            ホームに戻る
+            <span data-i18n-key="nav_back_home">ホームに戻る</span>
         </a>
+        
+        <!-- 言語選択 -->
+        <div class="language-selector">
+            <button class="language-toggle" id="language-toggle">
+                <span class="language-flag">🌍</span>
+                <span id="current-language">日本語</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="language-dropdown" id="language-dropdown">
+                <div class="language-option active" data-lang="ja">
+                    <span class="language-flag">🇯🇵</span>
+                    <span>日本語</span>
+                </div>
+                <div class="language-option" data-lang="en">
+                    <span class="language-flag">🇺🇸</span>
+                    <span>English</span>
+                </div>
+                <div class="language-option" data-lang="cn">
+                    <span class="language-flag">🇨🇳</span>
+                    <span>中文</span>
+                </div>
+                <div class="language-option" data-lang="ko">
+                    <span class="language-flag">🇰🇷</span>
+                    <span>한국어</span>
+                </div>
+                <div class="language-option" data-lang="fr">
+                    <span class="language-flag">🇫🇷</span>
+                    <span>Français</span>
+                </div>
+                <div class="language-option" data-lang="ge">
+                    <span class="language-flag">🇩🇪</span>
+                    <span>Deutsch</span>
+                </div>
+                <div class="language-option" data-lang="sp">
+                    <span class="language-flag">🇪🇸</span>
+                    <span>Español</span>
+                </div>
+                <div class="language-option" data-lang="ru">
+                    <span class="language-flag">🇷🇺</span>
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" data-lang="hi">
+                    <span class="language-flag">🇮🇳</span>
+                    <span>हिन्दी</span>
+                </div>
+                <div class="language-option" data-lang="po">
+                    <span class="language-flag">🇵🇹</span>
+                    <span>Português</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 会社紹介セクション -->
@@ -74,7 +194,7 @@
               <img src="logo.PNG" alt="TrailFusion AI Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 1.5rem; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));" />
             </div>
           </div>
-          <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">"Code on the road. Freedom in every line."</p>
+          <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;" data-i18n-key="about_company_slogan">"Code on the road. Freedom in every line."</p>
         </div>
 
         <!-- プロフィールセクション -->
@@ -85,9 +205,9 @@
             </div>
           </div>
           <div class="profile-info">
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">シェフチェンコ</h3>
-            <p style="color: #f59e0b; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">TrailFusion AI 代表・リードデベロッパー</p>
-            <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 2rem;">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-i18n-key="about_ceo_name">シェフチェンコ</h3>
+            <p style="color: #f59e0b; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;" data-i18n-key="about_ceo_title">TrailFusion AI 代表・リードデベロッパー</p>
+            <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.8; margin-bottom: 2rem;" data-i18n-key="about_ceo_description">
               大手自動車企業でBEV開発に従事した後、「真にユーザーに寄り添うアプリ開発」を求めて独立。
               キャンピングカー生活を送りながら、世界各地でユーザーの声を直接聞き、
               それをアプリ開発に活かすスタイルを確立。「移動する開発者」として、
@@ -98,8 +218,8 @@
             </p>
             
             <div class="hobbies-section">
-              <h4 style="font-size: 1.25rem; color: #06b6d4; margin-bottom: 1rem; font-weight: 600;">趣味・特技</h4>
-              <ul style="list-style: none; padding: 0;">
+              <h4 style="font-size: 1.25rem; color: #06b6d4; margin-bottom: 1rem; font-weight: 600;" data-i18n-key="about_hobbies_title">趣味・特技</h4>
+              <ul style="list-style: none; padding: 0;" data-i18n-key="about_hobbies_list">
                 <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🚐 バンライフ・車中泊（全国47都道府県制覇）</li>
                 <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">🔧 DIY・木工作業（日曜大工歴10年）</li>
                 <li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">📱 アプリ開発（iOS/Android）</li>
@@ -113,14 +233,14 @@
 
         <!-- 企業理念セクション -->
         <div style="margin-bottom: 4rem;">
-          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; text-align: center; margin-bottom: 4rem; position: relative; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">企業理念</h2>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; text-align: center; margin-bottom: 4rem; position: relative; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-i18n-key="about_mission_title">企業理念</h2>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
               <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
                 <i class="fas fa-heart"></i>
               </div>
-              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">ユーザーファースト</h4>
-              <p style="color: #cbd5e1; line-height: 1.7;">
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;" data-i18n-key="about_mission_1_title">ユーザーファースト</h4>
+              <p style="color: #cbd5e1; line-height: 1.7;" data-i18n-key="about_mission_1_description">
                 すべての判断基準はユーザーの利益です。機能を追加する前に「これは本当にユーザーのためになるか？」を自問し、
                 真に価値のある機能のみを実装します。ユーザーの声に真摯に耳を傾け、期待を超える体験を提供します。
               </p>
@@ -129,8 +249,8 @@
               <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
                 <i class="fas fa-globe"></i>
               </div>
-              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">境界のない創造</h4>
-              <p style="color: #cbd5e1; line-height: 1.7;">
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;" data-i18n-key="about_mission_2_title">境界のない創造</h4>
+              <p style="color: #cbd5e1; line-height: 1.7;" data-i18n-key="about_mission_2_description">
                 物理的な制約にとらわれず、世界中どこからでも最高品質のアプリを開発できることを証明します。
                 移動式オフィスだからこそ実現できる、多様な環境での検証と文化を超えたユニバーサルデザインを追求します。
               </p>
@@ -139,8 +259,8 @@
               <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
                 <i class="fas fa-leaf"></i>
               </div>
-              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">持続可能な成長</h4>
-              <p style="color: #cbd5e1; line-height: 1.7;">
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;" data-i18n-key="about_mission_3_title">持続可能な成長</h4>
+              <p style="color: #cbd5e1; line-height: 1.7;" data-i18n-key="about_mission_3_description">
                 環境に配慮したソーラーパワードオフィスで、地球にやさしい開発を実践。
                 短期的な利益より長期的な信頼関係を重視し、お客様とともに成長し続ける
                 パートナーシップを大切にします。
@@ -150,8 +270,8 @@
               <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
                 <i class="fas fa-handshake"></i>
               </div>
-              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">透明性と誠実さ</h4>
-              <p style="color: #cbd5e1; line-height: 1.7;">
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;" data-i18n-key="about_mission_4_title">透明性と誠実さ</h4>
+              <p style="color: #cbd5e1; line-height: 1.7;" data-i18n-key="about_mission_4_description">
                 開発プロセス、価格設定、進捗状況をすべて透明に共有します。
                 約束は必ず守り、できないことは正直にお伝えする。
                 この誠実さこそが、長期的な信頼関係の基盤だと考えています。
@@ -161,5 +281,147 @@
         </div>
       </div>
     </section>
+
+    <script>
+        // ===== 多言語対応機能 =====
+        let currentTranslations = {};
+        let currentLanguage = 'ja';
+
+        // 言語設定マップ
+        const languageConfig = {
+            ja: { name: '日本語', flag: '🇯🇵' },
+            en: { name: 'English', flag: '🇺🇸' },
+            cn: { name: '中文', flag: '🇨🇳' },
+            ko: { name: '한국어', flag: '🇰🇷' },
+            fr: { name: 'Français', flag: '🇫🇷' },
+            ge: { name: 'Deutsch', flag: '🇩🇪' },
+            sp: { name: 'Español', flag: '🇪🇸' },
+            ru: { name: 'Русский', flag: '🇷🇺' },
+            hi: { name: 'हिन्दी', flag: '🇮🇳' },
+            po: { name: 'Português', flag: '🇵🇹' }
+        };
+
+        // JSONファイルから翻訳データを読み込む
+        async function loadTranslations(language) {
+            try {
+                const response = await fetch(`locales/${language}.json`);
+                const translations = await response.json();
+                return translations;
+            } catch (error) {
+                console.error('翻訳ファイルの読み込みに失敗しました:', error);
+                return {};
+            }
+        }
+
+        // UIを指定言語で更新
+        function updateUI(translations) {
+            // data-i18n-key属性を持つすべての要素を更新
+            document.querySelectorAll('[data-i18n-key]').forEach(element => {
+                const key = element.getAttribute('data-i18n-key');
+                if (translations[key]) {
+                    if (key === 'about_hobbies_list') {
+                        // 趣味リストの特別処理
+                        const hobbiesList = translations[key];
+                        if (Array.isArray(hobbiesList)) {
+                            element.innerHTML = hobbiesList.map(hobby => 
+                                `<li style="margin-bottom: 0.75rem; font-size: 1rem; color: #94a3b8; padding-left: 2rem; position: relative; transition: all 0.3s ease;">${hobby}</li>`
+                            ).join('');
+                        }
+                    } else {
+                        element.innerHTML = translations[key];
+                    }
+                }
+            });
+
+            // ページタイトルも更新
+            if (translations.about_page_title) {
+                document.title = translations.about_page_title;
+            }
+        }
+
+        // 言語を切り替える
+        async function switchLanguage(language) {
+            const translations = await loadTranslations(language);
+            if (Object.keys(translations).length > 0) {
+                currentTranslations = translations;
+                currentLanguage = language;
+                updateUI(translations);
+                
+                // 言語選択UIを更新
+                updateLanguageUI(language);
+                
+                // ローカルストレージに保存
+                localStorage.setItem('selectedLanguage', language);
+            }
+        }
+
+        // 言語選択UIを更新
+        function updateLanguageUI(language) {
+            const config = languageConfig[language];
+            if (config) {
+                document.getElementById('current-language').textContent = config.name;
+                
+                // アクティブな言語オプションを更新
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.dataset.lang === language) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        // ブラウザの言語設定から初期言語を決定
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('selectedLanguage');
+            if (saved && languageConfig[saved]) {
+                return saved;
+            }
+            
+            const browserLang = navigator.language.toLowerCase();
+            if (browserLang.startsWith('en')) return 'en';
+            if (browserLang.startsWith('zh')) return 'cn';
+            if (browserLang.startsWith('ko')) return 'ko';
+            if (browserLang.startsWith('fr')) return 'fr';
+            if (browserLang.startsWith('de')) return 'ge';
+            if (browserLang.startsWith('es')) return 'sp';
+            if (browserLang.startsWith('ru')) return 'ru';
+            if (browserLang.startsWith('hi')) return 'hi';
+            if (browserLang.startsWith('pt')) return 'po';
+            
+            return 'ja'; // デフォルト
+        }
+
+        // イベントリスナーの設定
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 言語切り替えイベント
+            const languageToggle = document.getElementById('language-toggle');
+            const languageDropdown = document.getElementById('language-dropdown');
+            
+            languageToggle.addEventListener('click', () => {
+                languageDropdown.classList.toggle('show');
+            });
+            
+            // 言語オプションクリックイベント
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    const lang = option.dataset.lang;
+                    switchLanguage(lang);
+                    languageDropdown.classList.remove('show');
+                });
+            });
+            
+            // 外側クリックでドロップダウンを閉じる
+            document.addEventListener('click', (e) => {
+                if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            });
+            
+            // 初期言語の設定
+            const initialLanguage = getInitialLanguage();
+            await switchLanguage(initialLanguage);
+        });
+    </script>
 </body>
 </html> 

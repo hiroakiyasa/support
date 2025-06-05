@@ -1507,10 +1507,10 @@
       overflow: hidden;
     }
     
-    .language-dropdown.active { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
+    .language-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
     
     .language-option { 
@@ -1528,13 +1528,13 @@
       border-bottom: none;
     }
     
-    .language-option:hover { 
-      background-color: var(--gray-light); 
+    .language-option:hover {
+      background-color: var(--gray-light);
     }
     
-    .language-option.active { 
-      background-color: var(--primary-color); 
-      color: var(--white); 
+    .language-option.active {
+      background-color: var(--primary-color);
+      color: var(--white);
     }
     
     .language-flag {
@@ -2796,7 +2796,7 @@
             <i class="fas fa-chevron-down"></i>
           </button>
           <div class="language-dropdown" id="language-dropdown">
-            <div class="language-option" data-lang="ja">
+            <div class="language-option active" data-lang="ja">
               <span class="language-flag">🇯🇵</span>
               <span>日本語</span>
             </div>
@@ -2804,9 +2804,37 @@
               <span class="language-flag">🇺🇸</span>
               <span>English</span>
             </div>
-            <div class="language-option" data-lang="zh">
+            <div class="language-option" data-lang="cn">
               <span class="language-flag">🇨🇳</span>
               <span>中文</span>
+            </div>
+            <div class="language-option" data-lang="ko">
+              <span class="language-flag">🇰🇷</span>
+              <span>한국어</span>
+            </div>
+            <div class="language-option" data-lang="fr">
+              <span class="language-flag">🇫🇷</span>
+              <span>Français</span>
+            </div>
+            <div class="language-option" data-lang="ge">
+              <span class="language-flag">🇩🇪</span>
+              <span>Deutsch</span>
+            </div>
+            <div class="language-option" data-lang="sp">
+              <span class="language-flag">🇪🇸</span>
+              <span>Español</span>
+            </div>
+            <div class="language-option" data-lang="ru">
+              <span class="language-flag">🇷🇺</span>
+              <span>Русский</span>
+            </div>
+            <div class="language-option" data-lang="hi">
+              <span class="language-flag">🇮🇳</span>
+              <span>हिन्दी</span>
+            </div>
+            <div class="language-option" data-lang="po">
+              <span class="language-flag">🇵🇹</span>
+              <span>Português</span>
             </div>
           </div>
         </div>
@@ -3067,14 +3095,14 @@
           <section id="pricing-voicelink" class="section section-white">
             <div class="container">
               <div class="section-title">
-                <span class="badge badge-primary" data-aos="fade-up">料金プラン</span>
-                <h2 data-aos="fade-up" data-aos-delay="100">お手頃価格で高品質翻訳</h2>
-                <p data-aos="fade-up" data-aos-delay="200">まずは無料でお試しいただき、プレミアム機能で無制限にご利用ください。</p>
+                <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="pricing_badge">料金プラン</span>
+                <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="pricing_title">お手頃価格で高品質翻訳</h2>
+                <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="pricing_desc">まずは無料でお試しいただき、プレミアム機能で無制限にご利用ください。</p>
               </div>
               <div class="pricing-grid">
                 <div class="pricing-card free-plan" data-aos="fade-up">
                   <div class="pricing-header">
-                    <h3>無料プラン</h3>
+                    <h3 data-i18n-key="free_plan_title">無料プラン</h3>
                     <div class="price">
                       <span class="currency">¥</span>
                       <span class="amount">0</span>
@@ -3082,32 +3110,32 @@
                     </div>
                   </div>
                   <ul class="features-list">
-                    <li><i class="fas fa-check"></i><span>初回15回利用可能</span></li>
-                    <li><i class="fas fa-check"></i><span>1日1回利用可能</span></li>
-                    <li><i class="fas fa-check"></i><span>基本翻訳機能</span></li>
-                    <li><i class="fas fa-check"></i><span>10言語対応</span></li>
+                    <li><i class="fas fa-check"></i><span data-i18n-key="free_plan_feature1">初回15回利用可能</span></li>
+                    <li><i class="fas fa-check"></i><span data-i18n-key="free_plan_feature2">1日1回利用可能</span></li>
+                    <li><i class="fas fa-check"></i><span data-i18n-key="free_plan_feature3">基本翻訳機能</span></li>
+                    <li><i class="fas fa-check"></i><span data-i18n-key="free_plan_feature4">10言語対応</span></li>
                   </ul>
-                  <a href="#" class="plan-btn free-btn">無料で始める</a>
+                  <a href="#" class="plan-btn free-btn" data-i18n-key="free_plan_btn">無料で始める</a>
                 </div>
                 <div class="pricing-card premium-plan featured" data-aos="fade-up" data-aos-delay="100">
-                  <div class="featured-badge">おすすめ</div>
+                  <div class="featured-badge" data-i18n-key="premium_plan_badge">おすすめ</div>
                   <div class="pricing-header">
-                    <h3>プレミアムプラン</h3>
+                    <h3 data-i18n-key="premium_plan_title">プレミアムプラン</h3>
                     <div class="price">
                       <span class="currency">¥</span>
                       <span class="amount">480</span>
                       <span class="period">/月</span>
                     </div>
-                    <div class="trial-info">3日間無料トライアル</div>
+                    <div class="trial-info" data-i18n-key="premium_plan_trial">3日間無料トライアル</div>
                   </div>
                   <ul class="features-list">
-                    <li><i class="fas fa-crown"></i><span>無制限翻訳</span></li>
-                    <li><i class="fas fa-crown"></i><span>AI要約機能</span></li>
-                    <li><i class="fas fa-crown"></i><span>高品質音声認識</span></li>
-                    <li><i class="fas fa-crown"></i><span>広告表示なし</span></li>
-                    <li><i class="fas fa-crown"></i><span>優先カスタマーサポート</span></li>
+                    <li><i class="fas fa-crown"></i><span data-i18n-key="premium_plan_feature1">無制限翻訳</span></li>
+                    <li><i class="fas fa-crown"></i><span data-i18n-key="premium_plan_feature2">AI要約機能</span></li>
+                    <li><i class="fas fa-crown"></i><span data-i18n-key="premium_plan_feature3">高品質音声認識</span></li>
+                    <li><i class="fas fa-crown"></i><span data-i18n-key="premium_plan_feature4">広告表示なし</span></li>
+                    <li><i class="fas fa-crown"></i><span data-i18n-key="premium_plan_feature5">優先カスタマーサポート</span></li>
                   </ul>
-                  <a href="#" class="plan-btn premium-btn">3日間無料で試す</a>
+                  <a href="#" class="plan-btn premium-btn" data-i18n-key="premium_plan_btn">3日間無料で試す</a>
                 </div>
               </div>
             </div>
@@ -3117,18 +3145,18 @@
           <section id="testimonials-voicelink" class="section">
             <div class="container">
               <div class="section-title">
-                <span class="badge badge-primary" data-aos="fade-up">ユーザーの声</span>
-                <h2 data-aos="fade-up" data-aos-delay="100">実際の利用者からの評価</h2>
-                <p data-aos="fade-up" data-aos-delay="200">VoiceLink AI通訳を使用している方々からの声をご紹介します。</p>
+                <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="testimonials_badge">ユーザーの声</span>
+                <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="testimonials_title">実際の利用者からの評価</h2>
+                <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="testimonials_desc">VoiceLink AI通訳を使用している方々からの声をご紹介します。</p>
               </div>
               <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="300">
                 <div class="testimonial-item">
-                  <div class="testimonial-content">海外との商談で使っています。翻訳の精度が本当に高くて、相手の微妙なニュアンスまで理解できます。特にAI要約機能が素晴らしく、会議後の議事録作成が超楽になりました。</div>
+                  <div class="testimonial-content" data-i18n-key="testimonial1_content">海外との商談で使っています。翻訳の精度が本当に高くて、相手の微妙なニュアンスまで理解できます。特にAI要約機能が素晴らしく、会議後の議事録作成が超楽になりました。</div>
                   <div class="testimonial-author">
                     <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
                     <div class="testimonial-info">
-                      <h4>田中 太郎</h4>
-                      <p>商社勤務 / 42歳</p>
+                      <h4 data-i18n-key="testimonial1_author">田中 太郎</h4>
+                      <p data-i18n-key="testimonial1_info">商社勤務 / 42歳</p>
                       <div class="rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                       </div>
@@ -3136,12 +3164,12 @@
                   </div>
                 </div>
                 <div class="testimonial-item">
-                  <div class="testimonial-content">ヨーロッパ周遊で使用。現地の人との会話が楽しくて、旅行の満足度が10倍になりました！操作も簡単で、スマホに慣れていない両親でも使えそう。</div>
+                  <div class="testimonial-content" data-i18n-key="testimonial2_content">ヨーロッパ周遊で使用。現地の人との会話が楽しくて、旅行の満足度が10倍になりました！操作も簡単で、スマホに慣れていない両親でも使えそう。</div>
                   <div class="testimonial-author">
                     <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
                     <div class="testimonial-info">
-                      <h4>佐藤 花子</h4>
-                      <p>旅行好き主婦 / 38歳</p>
+                      <h4 data-i18n-key="testimonial2_author">佐藤 花子</h4>
+                      <p data-i18n-key="testimonial2_info">旅行好き主婦 / 38歳</p>
                       <div class="rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                       </div>
@@ -3149,12 +3177,12 @@
                   </div>
                 </div>
                 <div class="testimonial-item">
-                  <div class="testimonial-content">中国語を勉強中ですが、このアプリで実践練習ができます。自分の発音をチェックしたり、自然な表現を学んだり。語学学校の先生にも勧められました。</div>
+                  <div class="testimonial-content" data-i18n-key="testimonial3_content">中国語を勉強中ですが、このアプリで実践練習ができます。自分の発音をチェックしたり、自然な表現を学んだり。語学学校の先生にも勧められました。</div>
                   <div class="testimonial-author">
                     <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
                     <div class="testimonial-info">
-                      <h4>山田 学</h4>
-                      <p>大学生 / 21歳</p>
+                      <h4 data-i18n-key="testimonial3_author">山田 学</h4>
+                      <p data-i18n-key="testimonial3_info">大学生 / 21歳</p>
                       <div class="rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                       </div>
@@ -3176,45 +3204,45 @@
               <div class="accordion-container">
                 <div class="accordion" data-aos="fade-up">
                   <div class="accordion-header">
-                    <h4>オフラインでも使えますか？</h4>
+                    <h4 data-i18n-key="faq1_q">オフラインでも使えますか？</h4>
                     <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
                   </div>
                   <div class="accordion-content">
                     <div class="accordion-inner">
-                      <p>現在はオンライン環境が必要ですが、2025年内にオフライン翻訳機能をリリース予定です。</p>
+                      <p data-i18n-key="faq1_a">現在はオンライン環境が必要ですが、2025年内にオフライン翻訳機能をリリース予定です。</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion" data-aos="fade-up" data-aos-delay="100">
                   <div class="accordion-header">
-                    <h4>翻訳精度はどの程度ですか？</h4>
+                    <h4 data-i18n-key="faq2_q">翻訳精度はどの程度ですか？</h4>
                     <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
                   </div>
                   <div class="accordion-content">
                     <div class="accordion-inner">
-                      <p>最新のGemini AIにより、業界最高水準の精度を実現しています。文脈を理解した自然で流暢な翻訳をお楽しみください。</p>
+                      <p data-i18n-key="faq2_a">最新のGemini AIにより、業界最高水準の精度を実現しています。文脈を理解した自然で流暢な翻訳をお楽しみください。</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion" data-aos="fade-up" data-aos-delay="200">
                   <div class="accordion-header">
-                    <h4>どの言語に対応していますか？</h4>
+                    <h4 data-i18n-key="faq3_q">どの言語に対応していますか？</h4>
                     <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
                   </div>
                   <div class="accordion-content">
                     <div class="accordion-inner">
-                      <p>日本語、英語、中国語、ヒンディー語、スペイン語、ポルトガル語、韓国語、フランス語、ドイツ語、ロシア語の10言語に対応しています。</p>
+                      <p data-i18n-key="faq3_a">日本語、英語、中国語、ヒンディー語、スペイン語、ポルトガル語、韓国語、フランス語、ドイツ語、ロシア語の10言語に対応しています。</p>
                     </div>
                   </div>
                 </div>
                 <div class="accordion" data-aos="fade-up" data-aos-delay="300">
                   <div class="accordion-header">
-                    <h4>プレミアム機能を解約できますか？</h4>
+                    <h4 data-i18n-key="faq4_q">プレミアム機能を解約できますか？</h4>
                     <span class="accordion-toggle"><i class="fas fa-chevron-down"></i></span>
                   </div>
                   <div class="accordion-content">
                     <div class="accordion-inner">
-                      <p>はい、いつでもキャンセル可能です。App Storeの設定からサブスクリプションを管理できます。</p>
+                      <p data-i18n-key="faq4_a">はい、いつでもキャンセル可能です。App Storeの設定からサブスクリプションを管理できます。</p>
                     </div>
                   </div>
                 </div>
@@ -3226,19 +3254,94 @@
           <section id="contact-voicelink" class="section">
             <div class="container">
               <div class="section-title">
-                <span class="badge badge-primary" data-aos="fade-up">お問い合わせ</span>
-                <h2 data-aos="fade-up" data-aos-delay="100">サポートについて</h2>
-                <p data-aos="fade-up" data-aos-delay="200">アプリに関するご質問やご要望がありましたら、お気軽にお問い合わせください。</p>
+                <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="contact_badge">お問い合わせ</span>
+                <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="contact_title">サポートについて</h2>
+                <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="contact_desc">アプリに関するご質問やご要望がありましたら、お気軽にお問い合わせください。</p>
               </div>
               <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                <h3>お問い合わせ先</h3>
+                <h3 data-i18n-key="contact_heading">お問い合わせ先</h3>
                 <a href="mailto:trailfusionai@gmail.com" class="contact-email">trailfusionai@gmail.com</a>
               </div>
             </div>
           </section>
-        </div> 
-        <!-- 森のウッドゴーレムのコンテンツ -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="logo.PNG" alt="TrailFusion Logo">
+          <h2>TrailFusion AI</h2>
+        </div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">会社紹介</a>
+          <a href="#" class="footer-link">アプリ紹介</a>
+          <a href="#" class="footer-link">キャンピングカー紹介</a>
+          <a href="#" class="footer-link">お問い合わせ</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 TrailFusion AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+  
+  <script>
+    const languageBtn = document.getElementById('language-btn');
+    const languageDropdown = document.getElementById('language-dropdown');
+    const currentLanguage = document.getElementById('current-language');
+    
+    languageBtn.addEventListener('click', () => {
+      languageDropdown.classList.toggle('show');
+    });
+    
+    const languageOptions = document.querySelectorAll('.language-option');
+    languageOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const selectedLanguage = option.getAttribute('data-lang');
+        const selectedLanguageText = option.querySelector('span').textContent;
+        
+        currentLanguage.textContent = selectedLanguageText;
+        languageDropdown.classList.remove('show');
+        
+        // 言語切り替え時の処理
+        translatePage(selectedLanguage);
+      });
+    });
+    
+    // ページの翻訳関数
+    async function translatePage(lang) {
+      const translations = await fetch(`translations/${lang}.json`).then(res => res.json());
+      const elements = document.querySelectorAll('[data-i18n-key]');
+      
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n-key');
+        if (translations[key]) {
+          element.textContent = translations[key];
+        }
+      });
+    }
+  </script>
+</body>
+</html>
         <div id="golem-app" class="app-content golem-app">
           <!-- ヒーローセクション -->
           <section class="hero">
