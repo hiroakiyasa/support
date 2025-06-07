@@ -2476,6 +2476,127 @@ layout: null
       transform: translateY(-2px);
     }
 
+    /* 動画セクションスタイル */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-8);
+      justify-items: center;
+    }
+
+    .video-item {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: all var(--transition-normal);
+    }
+
+    .video-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      overflow: hidden;
+    }
+    
+    /* TikTok動画用スタイル */
+    .app-screens-with-videos {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .tiktok-showcase {
+      flex: 0 0 auto;
+    }
+    
+    .tiktok-video-item {
+      position: relative;
+      width: 240px;
+      min-width: 240px;
+      padding-bottom: 209.09%; /* 11:23 aspect ratio (23/11 = 2.0909) */
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .tiktok-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .video-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    
+    @media (max-width: 768px) {
+      .app-screens-with-videos {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      
+      .tiktok-video-item {
+        width: 200px;
+        min-width: 200px;
+        padding-bottom: 209.09%; /* 11:23 aspect ratio maintained for mobile */
+      }
+    }
+
+    .shorts-wrapper {
+      padding-bottom: 177.78%; /* 9:16 aspect ratio for shorts */
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-info {
+      padding: var(--spacing-6);
+    }
+
+    .video-info h3 {
+      font-size: var(--fs-xl);
+      color: var(--primary-color);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .video-info p {
+      color: var(--text-muted);
+      font-size: var(--fs-base);
+      line-height: 1.6;
+    }
+
     /* 動画ボタンスタイル */
     .hero-buttons {
       display: flex;
@@ -2648,6 +2769,11 @@ layout: null
       /* メディアグリッド */
       .media-grid { grid-template-columns: 1fr; }
       .media-card { margin-bottom: var(--spacing-4); }
+      
+      /* 動画グリッド */
+      .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-4); }
+      .video-item { margin-bottom: var(--spacing-4); max-width: 300px; }
+      .shorts-wrapper { max-width: 250px; }
     }
     @media (max-width: 576px) {
       :root { --fs-5xl: 1.75rem; --fs-4xl: 1.5rem; --fs-3xl: 1.375rem; --fs-2xl: 1.25rem; --fs-xl: 1.125rem; --fs-lg: 1rem; }
@@ -2657,6 +2783,14 @@ layout: null
       .section-title h2 { font-size: var(--fs-3xl); }
       .grid { grid-template-columns: 1fr; }
       .language-switcher { position: static; }
+      
+      /* モバイル用動画グリッド */
+      .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-3); }
+      .video-item { max-width: 180px; }
+      .shorts-wrapper { max-width: 160px; }
+      .video-info { padding: var(--spacing-3); }
+      .video-info h3 { font-size: var(--fs-base); }
+      .video-info p { font-size: var(--fs-sm); }
       .language-dropdown { right: var(--spacing-4); left: auto; transform-origin: top right; min-width: calc(100vw - var(--spacing-8)); }
       
       /* フッター - モバイル専用 */
@@ -2899,9 +3033,27 @@ layout: null
                   <i class="fas fa-play"></i> <span data-i18n-key="watch_demo">デモ動画を見る</span>
                 </button>
               </div>
-              <div class="app-screens">
-                <img src="images/gpt_hero_main.jpg" alt="英会話画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="gpt_alt_conversation_screen">
-                <img src="images/gpt_feature_levels.jpg" alt="コース選択画面" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="gpt_alt_course_selection_screen">
+              <div class="app-screens-with-videos">
+                <!-- TikTok動画セクション -->
+                <div class="tiktok-showcase">
+                  <div class="tiktok-video-item" data-aos="fade-right" data-aos-delay="200">
+                    <iframe 
+                      class="tiktok-video"
+                      src="https://www.tiktok.com/embed/v2/7508270118728781063" 
+                      title="TikTok - GPティーチャーズ紹介" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin" 
+                      allowfullscreen>
+                    </iframe>
+                    <div class="video-label">GPティーチャーズ</div>
+                  </div>
+                </div>
+                
+                <div class="app-screens">
+                  <img src="images/gpt_hero_main.jpg" alt="英会話画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="gpt_alt_conversation_screen">
+                  <img src="images/gpt_feature_levels.jpg" alt="コース選択画面" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="gpt_alt_course_selection_screen">
+                </div>
               </div>
             </div>
           </section>
@@ -3012,9 +3164,27 @@ layout: null
                   <i class="fas fa-info-circle"></i> <span>機能を見る</span>
                 </a>
               </div>
-              <div class="app-screens">
-                <img src="images/voicelink_hero_main1.png" alt="VoiceLink AI通訳メイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300">
-                <img src="images/voicelink_hero_main2.png" alt="翻訳機能画面" class="app-screen" data-aos="fade-left" data-aos-delay="300">
+              <div class="app-screens-with-videos">
+                <!-- TikTok動画セクション -->
+                <div class="tiktok-showcase">
+                  <div class="tiktok-video-item" data-aos="fade-right" data-aos-delay="200">
+                    <iframe 
+                      class="tiktok-video"
+                      src="https://www.tiktok.com/embed/v2/7512851452679752968" 
+                      title="TikTok - VoiceLink AI紹介" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin" 
+                      allowfullscreen>
+                    </iframe>
+                    <div class="video-label">VoiceLink AI</div>
+                  </div>
+                </div>
+                
+                <div class="app-screens">
+                  <img src="images/voicelink_hero_main1.png" alt="VoiceLink AI通訳メイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300">
+                  <img src="images/voicelink_hero_main2.png" alt="翻訳機能画面" class="app-screen" data-aos="fade-left" data-aos-delay="300">
+                </div>
               </div>
             </div>
           </section>
@@ -3273,32 +3443,7 @@ layout: null
     </div>
   </div>
   
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="logo.PNG" alt="TrailFusion Logo">
-          <h2>TrailFusion AI</h2>
-        </div>
-        <div class="footer-links">
-          <a href="#" class="footer-link">会社紹介</a>
-          <a href="#" class="footer-link">アプリ紹介</a>
-          <a href="#" class="footer-link">キャンピングカー紹介</a>
-          <a href="#" class="footer-link">お問い合わせ</a>
-        </div>
-        <div class="footer-social">
-          <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2023 TrailFusion AI. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
@@ -3354,9 +3499,27 @@ layout: null
               <a href="https://apps.apple.com/jp/app/%E6%A3%92%E5%8F%96%E3%82%8A%E6%94%BB%E7%95%A5-%E6%A3%AE%E3%81%AE%E3%82%A6%E3%83%83%E3%83%89%E3%82%B4%E3%83%BC%E3%83%AC%E3%83%A0%E5%A4%A7%E5%86%92%E9%99%BA/id6739466549" class="download-btn" data-aos="zoom-in" data-aos-delay="200" target="_blank">
                 <i class="fab fa-apple"></i> <span data-i18n-key="download_appstore">App Storeでダウンロード</span>
               </a>
-              <div class="app-screens">
-                <img src="images/wg_hero_title.png" alt="ウッドゴーレムタイトル画面" class="app-screen" data-aos="fade-up" data-aos-delay="300" data-i18n-alt-key="golem_alt_title_screen">
-                <img src="images/wg_gameplay1.png" alt="ウッドゴーレムゲーム画面" class="app-screen" data-aos="fade-up" data-aos-delay="300" data-i18n-alt-key="golem_alt_gameplay_screen">
+              <div class="app-screens-with-videos">
+                <!-- TikTok動画セクション -->
+                <div class="tiktok-showcase">
+                  <div class="tiktok-video-item" data-aos="fade-right" data-aos-delay="200">
+                    <iframe 
+                      class="tiktok-video"
+                      src="https://www.tiktok.com/embed/v2/7456950409228307719" 
+                      title="TikTok - ウッドゴーレム紹介" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin" 
+                      allowfullscreen>
+                    </iframe>
+                    <div class="video-label">ウッドゴーレム</div>
+                  </div>
+                </div>
+                
+                <div class="app-screens">
+                  <img src="images/wg_hero_title.png" alt="ウッドゴーレムタイトル画面" class="app-screen" data-aos="fade-up" data-aos-delay="300" data-i18n-alt-key="golem_alt_title_screen">
+                  <img src="images/wg_gameplay1.png" alt="ウッドゴーレムゲーム画面" class="app-screen" data-aos="fade-up" data-aos-delay="300" data-i18n-alt-key="golem_alt_gameplay_screen">
+                </div>
               </div>
             </div>
           </section>
@@ -3807,9 +3970,27 @@ layout: null
                   <i class="fas fa-play"></i> <span data-i18n-key="watch_demo">デモ動画を見る</span>
                 </button>
               </div>
-              <div class="app-screens">
-                <img src="images/wb_level_select.jpg" alt="ワードブラスターメイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="wb_alt_main_screen">
-                <img src="images/wb_boss_battle.jpg" alt="ワードブラスターレベル選択" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="wb_alt_level_screen">
+              <div class="app-screens-with-videos">
+                <!-- TikTok動画セクション -->
+                <div class="tiktok-showcase">
+                  <div class="tiktok-video-item" data-aos="fade-right" data-aos-delay="200">
+                    <iframe 
+                      class="tiktok-video"
+                      src="https://www.tiktok.com/embed/v2/7506530494054436103" 
+                      title="TikTok - ワードブラスター紹介" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin" 
+                      allowfullscreen>
+                    </iframe>
+                    <div class="video-label">ワードブラスター</div>
+                  </div>
+                </div>
+                
+                <div class="app-screens">
+                  <img src="images/wb_level_select.jpg" alt="ワードブラスターメイン画面" class="app-screen" data-aos="fade-right" data-aos-delay="300" data-i18n-alt-key="wb_alt_main_screen">
+                  <img src="images/wb_boss_battle.jpg" alt="ワードブラスターレベル選択" class="app-screen" data-aos="fade-left" data-aos-delay="300" data-i18n-alt-key="wb_alt_level_screen">
+                </div>
               </div>
             </div>
           </section>
@@ -3903,7 +4084,7 @@ layout: null
         <section class="hero vanlife-hero">
           <div class="hero-content">
             <h1 data-aos="fade-down" data-i18n-key="vanlife_hero_title">ハイエースキャンピングカーDIY</h1>
-            <p data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_hero_desc">素人でも作れる！中古ハイエースを本格キャンピングカーに大変身。DIY制作過程をすべて公開中。</p>
+            <p data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_hero_desc">初心者でも作れる！中古ハイエースを本格キャンピングカーに大変身。DIY制作過程をすべて公開中。</p>
             <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="200">
               <a href="https://www.youtube.com/@van_oasis" class="download-btn vanlife-btn" target="_blank">
                 <i class="fab fa-youtube"></i> <span data-i18n-key="view_youtube">YouTubeで見る</span>
@@ -3926,6 +4107,314 @@ layout: null
                   <i class="fas fa-home" style="font-size: 3rem; margin-bottom: 1rem;"></i>
                   <span>内装完成画像</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- YouTube動画セクション -->
+        <section id="vanlife-videos" class="section section-gray">
+          <div class="container">
+            <div class="section-title">
+              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="video_badge">TikTok動画</span>
+              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="video_title">DIY制作の全工程をTikTokで公開</h2>
+              <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="video_desc">ハイエース購入から完成まで、すべての制作工程をTikTokで詳しく発信。初心者でも分かりやすい解説付き。</p>
+            </div>
+            <div class="video-grid">
+              <!-- TikTok DIY ハイライト動画 -->
+              <div class="video-item" data-aos="fade-up">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    class="tiktok-video"
+                    src="https://www.tiktok.com/embed/v2/7123740258549714178" 
+                    title="TikTok - ハイエース購入と改造開始" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video1_title">🏆 DIYキャンピング車登録完了</h3>
+                  <p data-i18n-key="video1_desc">ハイエースをDIYでキャンピング車登録した全過程をまとめて紹介。素人でも可能な車両登録の実体験</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    class="tiktok-video"
+                    src="https://www.tiktok.com/embed/v2/7130760214931852545" 
+                    title="TikTok - 断熱材施工と内装準備" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video2_title">📚 北海道車中泊・朝の勉強時間</h3>
+                  <p data-i18n-key="video2_desc">ハイエース北海道車中泊の旅での朝の勉強時間。キャンピングカーでの学習環境と集中できる空間作り</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    class="tiktok-video"
+                    src="https://www.tiktok.com/embed/v2/7133978765453036801" 
+                    title="TikTok - 壁面工事と収納設計" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video3_title">👨‍👩‍👧‍👦 家族で北海道車中泊の旅</h3>
+                  <p data-i18n-key="video3_desc">息子(7歳)、娘(5歳)の2人を連れたハイエース北海道車中泊の旅。家族でのバンライフ体験記</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7159810576485453057" 
+                    title="TikTok - 電気工事とソーラーパネル設置" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video4_title">🗾 北海道車中泊おすすめ13選</h3>
+                  <p data-i18n-key="video4_desc">北海道車中泊旅行おすすめスポット13選を紹介。また絶対行きたくなる絶景ポイント厳選</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7185920419822685441" 
+                    title="TikTok - キッチン製作と設備取り付け" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video5_title">🎮 ハイエースでSwitch環境構築</h3>
+                  <p data-i18n-key="video5_desc">ハイエースでSwitchを準備しながらプレイできるゲーム環境を構築。車中泊での娯楽システム</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7193309273533795585" 
+                    title="TikTok - ベッドスペース製作とマットレス設置" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video6_title">🔥 FFヒーター自作DIY</h3>
+                  <p data-i18n-key="video6_desc">ハイエースにFFヒーターを自作で取り付け。冬の車中泊を快適にする暖房システム構築</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7282008286222716162" 
+                    title="TikTok - 最終仕上げと細部調整" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video7_title">📱 車中泊で英語学習アプリ開発</h3>
+                  <p data-i18n-key="video7_desc">ハイエース車中泊、子供が寝た後の時間で英語学習アプリを完成。車内での効率的な開発環境</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="700">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7331749376387321089" 
+                    title="TikTok - 完成披露と初回テスト走行" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video8_title">🎬 プロジェクター設置DIY</h3>
+                  <p data-i18n-key="video8_desc">ハイエースにプロジェクターを取り付けて車内シアター環境を構築。車中泊での映画鑑賞システム</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="800">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7409250336420007169" 
+                    title="TikTok - バンライフ体験と実際の使用感" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video9_title">🌪️ 台風の日のキャンピングカー生活</h3>
+                  <p data-i18n-key="video9_desc">台風の日にキャンピングカーで楽しく過ごす贅沢な時間。悪天候でも快適な車内空間の魅力</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="900">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7192977271118974210" 
+                    title="TikTok - 旅先での生活とキャンプ場体験" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video10_title">🛏️ 2段ベッドDIY製作</h3>
+                  <p data-i18n-key="video10_desc">ハイエースに2段ベッドをDIYで製作。限られた空間を有効活用する寝室設計のアイデア</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="1000">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7304907907139783938" 
+                    title="TikTok - トラブル対応と改良点" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video11_title">🏰 ディズニーランド車中泊</h3>
+                  <p data-i18n-key="video11_desc">ディズニーランドでハイエース車中泊。昼休憩中の快適な車内空間とテーマパーク攻略法</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="1100">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7204455713140247810" 
+                    title="TikTok - バンライフの魅力と新しい発見" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video12_title">❄️ 真冬の白川郷車中泊</h3>
+                  <p data-i18n-key="video12_desc">二駆ハイエースで真冬の白川郷に車中泊旅行。雪景色の中での極寒キャンプ体験記</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="1200">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7383331171653913873" 
+                    title="TikTok - 最新改良とアップデート" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video13_title">❄️ 中華系ルーフエアコン装着DIY</h3>
+                  <p data-i18n-key="video13_desc">ハイエースに中華系ルーフエアコンをDIYで装着。夏の車中泊を快適にする冷房システム構築</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="1300">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7385927321741544712" 
+                    title="TikTok - 冬季対応と寒冷地仕様" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video14_title">🔧 ルーフエアコン装着Part2</h3>
+                  <p data-i18n-key="video14_desc">ハイエースに中華系ルーフエアコンを装着せよ②。詳細な取り付け手順と配線作業の実践編</p>
+                </div>
+              </div>
+              
+              <div class="video-item" data-aos="fade-up" data-aos-delay="1400">
+                <div class="video-wrapper shorts-wrapper">
+                  <iframe 
+                    src="https://www.tiktok.com/embed/v2/7409250336420007169" 
+                    title="TikTok - 総集編と今後の展望" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="video-info">
+                  <h3 data-i18n-key="video15_title">🌪️ 台風でも快適キャンピングカー</h3>
+                  <p data-i18n-key="video15_desc">台風の日にキャンピングカーで楽しく過ごす贅沢な時間。自然の脅威も楽しみに変える車内空間</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 動画・SNS紹介 -->
+        <section id="vanlife-media" class="section section-white">
+          <div class="container">
+            <div class="section-title">
+              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="media_badge">動画・SNS</span>
+              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="media_title">製作過程をリアルタイム発信</h2>
+              <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="media_desc">YouTubeでは詳細な製作工程を、TikTokでは面白さを凝縮したハイライトをお届け。</p>
+            </div>
+            <div class="media-grid">
+              <div class="media-card youtube-card" data-aos="fade-up">
+                <div class="media-icon">
+                  <i class="fab fa-youtube"></i>
+                </div>
+                <h3 data-i18n-key="youtube_title">YouTube: van oasis</h3>
+                <p data-i18n-key="youtube_desc">ハイエースDIYの詳しい製作工程、工具の使い方、失敗談まで赤裸々に公開。初心者にも分かりやすい丁寧な解説。</p>
+                <a href="https://www.youtube.com/@van_oasis" class="media-btn" target="_blank" data-i18n-key="visit_youtube">チャンネルを見る</a>
+              </div>
+              <div class="media-card tiktok-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="media-icon">
+                  <i class="fab fa-tiktok"></i>
+                </div>
+                <h3 data-i18n-key="tiktok_title">TikTok: @trailfusionai</h3>
+                <p data-i18n-key="tiktok_desc">製作のハイライト、完成の感動、バンライフの面白ネタなどをショート動画で発信。</p>
+                <a href="https://www.tiktok.com/@trailfusionai" class="media-btn" target="_blank" data-i18n-key="visit_tiktok">アカウントを見る</a>
+              </div>
+              <div class="media-card twitter-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="media-icon">
+                  <i class="fab fa-twitter"></i>
+                </div>
+                <h3 data-i18n-key="twitter_title">X (Twitter): @trailfusionai</h3>
+                <p data-i18n-key="twitter_desc">製作進捗報告、バンライフのつぶやき、フォロワーとの交流など、リアルタイムな情報を発信。</p>
+                <a href="https://x.com/trailfusionai" class="media-btn" target="_blank" data-i18n-key="visit_twitter">フォローする</a>
               </div>
             </div>
           </div>
@@ -3988,406 +4477,292 @@ layout: null
               <p data-aos="fade-up" data-aos-delay="200">購入から完成まで、すべての工程を写真で詳しく解説。初心者でも安心して取り組める具体的な手順をご紹介します。</p>
             </div>
 
-            <!-- ギャラリーカテゴリータブ -->
-            <div class="gallery-tabs" data-aos="fade-up" data-aos-delay="300">
-              <button class="gallery-tab active" data-target="planning">設計・準備</button>
-              <button class="gallery-tab" data-target="interior">内装工事</button>
-              <button class="gallery-tab" data-target="electrical">電装工事</button>
-              <button class="gallery-tab" data-target="furniture">家具製作</button>
-              <button class="gallery-tab" data-target="completion">完成・詳細</button>
-            </div>
 
-            <!-- 設計・準備段階 -->
-            <div class="gallery-section active" id="planning" data-aos="fade-up" data-aos-delay="400">
-              <h3 class="gallery-section-title">🚐 設計・準備段階</h3>
-              <div class="photo-grid">
-                <div class="photo-item" data-aos="zoom-in">
-                  <img src="camper/IMG_0647.png" alt="ハイエース購入直後の状態" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>購入直後のハイエース</h4>
-                    <p>中古で購入したハイエース。これから大変身が始まります！</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="camper/IMG_0651.png" alt="内装設計図とプランニング" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>設計図の作成</h4>
-                    <p>限られたスペースを最大限活用するための詳細な設計図を作成。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="camper/IMG_0652.png" alt="工具と材料の準備" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>工具・材料の準備</h4>
-                    <p>DIYに必要な工具と高品質な材料を厳選して準備。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- 内装工事段階 -->
-            <div class="gallery-section" id="interior">
-              <h3 class="gallery-section-title">🔨 内装工事段階</h3>
-              <div class="photo-grid">
-                <div class="photo-item" data-aos="zoom-in">
-                  <img src="camper/IMG_0653.png" alt="断熱材の施工開始" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>断熱材の施工</h4>
-                    <p>高性能断熱材を丁寧に施工。一年中快適な室内環境の基礎作り。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="camper/IMG_0769 2.png" alt="壁材の取り付け作業" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>壁材の取り付け</h4>
-                    <p>美しい木目調の壁材を正確に測定・カット・取り付け。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="camper/IMG_0786.png" alt="床材の敷設作業" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>床材の敷設</h4>
-                    <p>耐久性の高いフローリング材を使用し、プロ級の仕上がりを実現。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                  <img src="camper/IMG_1107.png" alt="天井の仕上げ作業" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>天井の仕上げ</h4>
-                    <p>照明配線を考慮した天井材の取り付け。美しい仕上がりに。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- 電装工事段階 -->
-            <div class="gallery-section" id="electrical">
-              <h3 class="gallery-section-title">⚡ 電装工事段階</h3>
-              <div class="photo-grid">
-                <div class="photo-item" data-aos="zoom-in">
-                  <img src="camper/IMG_1115.png" alt="サブバッテリーシステムの設置" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>サブバッテリーシステム</h4>
-                    <p>大容量リチウムバッテリーとインバーターで独立電源システムを構築。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="camper/IMG_1169.png" alt="ソーラーパネルの取り付け" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>ソーラーパネル設置</h4>
-                    <p>屋根にソーラーパネルを設置。自然エネルギーで充電可能に。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="camper/IMG_1455.png" alt="配線工事の詳細" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>安全な配線工事</h4>
-                    <p>コンセント、照明、USB充電ポートなど、生活に必要な電源を完備。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- 家具製作段階 -->
-            <div class="gallery-section" id="furniture">
-              <h3 class="gallery-section-title">🪑 家具製作段階</h3>
-              <div class="photo-grid">
-                <div class="photo-item" data-aos="zoom-in">
-                  <img src="camper/IMG_1548.png" alt="キッチンユニットの製作" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>キッチンユニット製作</h4>
-                    <p>IHコンロ、シンク、収納を備えた本格的なキッチンを自作。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="camper/IMG_1650.png" alt="ベッドシステムの組み立て" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>多機能ベッドシステム</h4>
-                    <p>昼はソファ、夜はダブルベッドに変身する多機能家具。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="camper/IMG_1652.png" alt="収納棚の取り付け" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>効率的な収納システム</h4>
-                    <p>限られたスペースを活用した、機能的で美しい収納棚。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                  <img src="camper/IMG_1664.png" alt="テーブルの制作" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>折りたたみテーブル</h4>
-                    <p>使わない時はコンパクトに収納できる、実用的なテーブル。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 完成・詳細段階 -->
-            <div class="gallery-section" id="completion">
-              <h3 class="gallery-section-title">✨ 完成・詳細</h3>
-              <div class="photo-grid completion-grid">
-                <div class="photo-item large" data-aos="zoom-in">
-                  <img src="camper/IMG_5801.png" alt="完成したハイエースキャンピングカー外観" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>完成した外観</h4>
-                    <p>見た目は普通のハイエース。しかし中身は本格的なキャンピングカーに大変身！</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="camper/IMG_4569.png" alt="完成した内装全体" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>内装全体の完成</h4>
-                    <p>木の温もりを感じる、カフェのような居心地の良い空間。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="camper/IMG_4585.png" alt="キッチンエリアの詳細" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>本格キッチンエリア</h4>
-                    <p>家庭と変わらない調理環境。旅先でも本格的な料理が楽しめます。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                  <img src="camper/IMG_5359.png" alt="ベッドルーム完成" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>快適ベッドルーム</h4>
-                    <p>ダブルベッドサイズで、二人でもゆったり。快適な睡眠を約束します。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="400">
-                  <img src="camper/IMG_3791.png" alt="夜の雰囲気" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>夜の幻想的な雰囲気</h4>
-                    <p>LED照明で演出される、温かみのある夜の車内。</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 使用風景ギャラリー -->
-            <div class="usage-gallery" data-aos="fade-up" data-aos-delay="500">
-              <h3 class="gallery-section-title">🏕️ 実際の使用風景</h3>
-              <div class="photo-grid">
-                <div class="photo-item" data-aos="zoom-in">
-                  <img src="camper/IMG_2554.png" alt="キャンプ場での使用風景" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>キャンプ場での一日</h4>
-                    <p>自然の中で過ごす贅沢な時間。キャンピングカーならではの自由度。</p>
-                  </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                  <img src="camper/IMG_2601.png" alt="料理を楽しむ様子" loading="lazy">
-                  <div class="photo-overlay">
-                    <h4>車内で料理タイム</h4>
-                    <p>本格的なキッチンで作る、美味しい車中泊飯。</p>
-                  </div>
-                </div>
-                                 <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                   <img src="camper/IMG_3139.png" alt="景色を楽しむ車内" loading="lazy">
-                   <div class="photo-overlay">
-                     <h4>絶景と共に</h4>
-                     <p>窓から見える景色と共に過ごす、特別なひととき。</p>
-                   </div>
-                 </div>
-                 <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                   <img src="camper/IMG_2802 2.png" alt="車内での快適な時間" loading="lazy">
-                   <div class="photo-overlay">
-                     <h4>リラックスタイム</h4>
-                     <p>自分だけの空間で、心地よいひと時を過ごせます。</p>
-                   </div>
-                 </div>
-                 <div class="photo-item" data-aos="zoom-in" data-aos-delay="400">
-                   <img src="camper/IMG_2897.png" alt="夕暮れ時の車内" loading="lazy">
-                   <div class="photo-overlay">
-                     <h4>夕暮れの特別な時間</h4>
-                     <p>一日の終わりに、美しい夕陽と共に過ごす贅沢。</p>
-                   </div>
-                 </div>
-                 <div class="photo-item" data-aos="zoom-in" data-aos-delay="500">
-                   <img src="camper/IMG_2920.png" alt="車外での食事風景" loading="lazy">
-                   <div class="photo-overlay">
-                     <h4>アウトドア料理</h4>
-                     <p>自然の中で味わう、格別な車中泊飯の時間。</p>
-                   </div>
-                 </div>
-               </div>
-               
-               <!-- 詳細写真ギャラリー -->
-               <div class="detail-gallery" data-aos="fade-up" data-aos-delay="600">
-                 <h3 class="gallery-section-title">🔧 プロレベルの施工技術</h3>
+               <!-- 新しい生活スタイルギャラリー -->
+               <div class="lifestyle-new-gallery" data-aos="fade-up" data-aos-delay="600">
+                 <h3 class="gallery-section-title">🏠 室内空間・生活スタイル</h3>
                  <div class="photo-grid">
                    <div class="photo-item" data-aos="zoom-in">
-                     <img src="camper/IMG_1745 2.png" alt="精密な配線作業の様子" loading="lazy">
+                     <img src="camper/camper_interior_dining（大）.jpeg" alt="ファミリーダイニングスペース" loading="lazy">
                      <div class="photo-overlay">
-                       <h4>安全第一の電装工事</h4>
-                       <p>電気工事は妥協なし。配線一本一本に丁寧な処理を施し、長期間安全に使用できるシステムを構築。</p>
+                       <h4>ファミリーダイニング</h4>
+                       <p>木目調の温かい内装と広々テーブル。家族での食事や子供の遊び場に最適。</p>
                      </div>
                    </div>
                    <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                     <img src="camper/IMG_1753.png" alt="断熱材の丁寧な施工" loading="lazy">
+                     <img src="camper/camper_interior_bed_area（大）.jpeg" alt="快適なベッドルーム" loading="lazy">
                      <div class="photo-overlay">
-                       <h4>完璧な断熱施工</h4>
-                       <p>隙間を一切作らない断熱材の施工。夏は涼しく、冬は暖かく、一年中快適な室内環境を実現。</p>
+                       <h4>快適ベッドルーム</h4>
+                       <p>子供たちの特別空間。柔らかなマットレスと大きな窓から美しい景色を楽しめる。</p>
                      </div>
                    </div>
                    <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                     <img src="camper/IMG_1758.png" alt="内装材の精密な取り付け" loading="lazy">
+                     <img src="camper/camper_interior_popup_roof（大）.jpeg" alt="ポップアップルーフの開放感" loading="lazy">
                      <div class="photo-overlay">
-                       <h4>ミリ単位の精密施工</h4>
-                       <p>美しい仕上がりは精密な測定から。一分の隙もない完璧なフィッティングで、プロ級の仕上がり。</p>
+                       <h4>ポップアップルーフ</h4>
+                       <p>驚きの開放感とLED照明システム。家族全員がくつろげる居住空間。</p>
                      </div>
                    </div>
                    <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                     <img src="camper/IMG_1912.png" alt="家具の組み立て工程" loading="lazy">
+                     <img src="camper/camper_entertainment_system（大）.jpeg" alt="充実のエンターテイメント設備" loading="lazy">
                      <div class="photo-overlay">
-                       <h4>オーダーメイド家具製作</h4>
-                       <p>市販品では実現できない、車体に完全フィットするオリジナル家具。機能性とデザイン性の完璧な融合。</p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-               <!-- バンライフ追加写真ギャラリー -->
-               <div class="lifestyle-gallery" data-aos="fade-up" data-aos-delay="700">
-                 <h3 class="gallery-section-title">🌟 バンライフのリアル</h3>
-                 <div class="photo-grid">
-                   <div class="photo-item" data-aos="zoom-in">
-                     <img src="camper/IMG_2921.png" alt="車外でのリラックスタイム" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>自然と一体の特等席</h4>
-                       <p>車外にチェアを出せば、そこはプライベートキャンプサイト。360度の大自然を独り占め。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                     <img src="camper/IMG_2931.png" alt="旅先での特別な食事" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>旅先グルメ体験</h4>
-                       <p>地元の新鮮食材を車内キッチンで調理。毎日が特別なディナータイム。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                     <img src="camper/IMG_3250.png" alt="車内でのワークスペース" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>移動オフィス完備</h4>
-                       <p>WiFi環境を整えれば、どこでもリモートワーク。仕事と旅を両立する新しいライフスタイル。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                     <img src="camper/IMG_3357.png" alt="車内での快適な睡眠" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>極上の車中泊体験</h4>
-                       <p>高品質マットレスと完璧な断熱で、ホテル以上の快適な睡眠環境を実現。</p>
+                       <h4>エンターテイメント設備</h4>
+                       <p>高品質モニターとサウンドシステム。雨の日も家族で楽しく過ごせる。</p>
                      </div>
                    </div>
                    <div class="photo-item" data-aos="zoom-in" data-aos-delay="400">
-                     <img src="camper/IMG_3399.png" alt="朝の支度と身だしなみ" loading="lazy">
+                     <img src="camper/camper_kitchen_area（大）.jpeg" alt="機能的なキッチンスペース" loading="lazy">
                      <div class="photo-overlay">
-                       <h4>充実の水回り設備</h4>
-                       <p>シンク、ポータブルシャワー完備。旅先でも身だしなみをしっかり整えられます。</p>
+                       <h4>機能的キッチン</h4>
+                       <p>コンパクトながら本格調理が可能。子供でも安全に使える設計。</p>
                      </div>
                    </div>
                    <div class="photo-item" data-aos="zoom-in" data-aos-delay="500">
-                     <img src="camper/IMG_3413.png" alt="収納システムの活用" loading="lazy">
+                     <img src="camper/camper_sleeping_arrangement（大）.jpeg" alt="家族全員の安らかな眠り" loading="lazy">
                      <div class="photo-overlay">
-                       <h4>効率的収納マジック</h4>
-                       <p>旅に必要なものすべてが、決められた場所にピッタリ収納。無駄のない空間設計。</p>
+                       <h4>安らかな眠り</h4>
+                       <p>広々ベッドスペースで家族全員が快適に。木の香りに包まれた特別な夜。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="600">
+                     <img src="camper/camper_kitchen_equipment（大）.jpeg" alt="充実の調理用品" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>充実の調理用品</h4>
+                       <p>電気ケトル、コーヒー、ミネラルウォーター完備。どこでも快適な食事準備。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="700">
+                     <img src="camper/camper_bunk_bed_layout（大）.jpeg" alt="二段ベッドでスペースを最大活用" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>二段ベッドレイアウト</h4>
+                       <p>上下二段設計で空間を効率活用。子供たちの秘密基地のような特別感。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="800">
+                     <img src="camper/camper_mobile_office（大）.jpeg" alt="移動式オフィスとしての新しい働き方" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>移動式オフィス</h4>
+                       <p>好きな場所で仕事ができる自由なワークスタイル。創造性豊かな環境。</p>
                      </div>
                    </div>
                  </div>
                </div>
-             </div>
-           </div>
-        </section>
 
+               <!-- 旅の風景ギャラリー -->
+               <div class="travel-scenery-gallery" data-aos="fade-up" data-aos-delay="700">
+                 <h3 class="gallery-section-title">🌄 旅の風景・絶景スポット</h3>
+                 <div class="photo-grid">
+                   <div class="photo-item" data-aos="zoom-in">
+                     <img src="camper/camper_exterior_countryside（大）.jpeg" alt="日本の美しい風景に映える外観" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>田園風景に映える外観</h4>
+                       <p>清潔感あふれる白いボディが日本の田園風景に美しく溶け込む。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
+                     <img src="camper/camper_seaside_sunset（大）.jpeg" alt="海辺でのロマンチックな夕暮れ" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>海辺の夕暮れ</h4>
+                       <p>波の音を聞きながら美しいサンセットを楽しむ贅沢な時間。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
+                     <img src="camper/camper_countryside_sunset（大）.jpeg" alt="田園風景に映える夕焼け空" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>田園の夕焼け</h4>
+                       <p>燃えるような夕焼け空と田園風景。日本の美しい田舎道を旅する醍醐味。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
+                     <img src="camper/camper_blue_sky_fields（大）.jpeg" alt="抜けるような青空と緑の大地" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>青空と緑の大地</h4>
+                       <p>雲ひとつない青空の下、広大な農地で心身ともにリフレッシュ。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="400">
+                     <img src="camper/camper_vast_farmland（大）.jpeg" alt="地平線まで続く広大な景色" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>広大な農地</h4>
+                       <p>見渡す限りの農地と雄大な空。季節ごとに変化する風景を楽しめる。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="500">
+                     <img src="camper/camper_dramatic_sky（大）.jpeg" alt="ドラマチックな空と大地のコントラスト" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>ドラマチックな空</h4>
+                       <p>麦畑と劇的な雲が創り出す自然のアート。映画のような美しい風景。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="600">
+                     <img src="camper/camper_mount_fuji_view（大）.jpeg" alt="雄大な富士山を望む絶景ポイント" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>富士山の絶景</h4>
+                       <p>日本の象徴である富士山を背景に。この絶景を独占できる贅沢。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="700">
+                     <img src="camper/camper_snow_village（大）.jpeg" alt="雪景色の伝統的な村での冬旅" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>雪景色の伝統村</h4>
+                       <p>合掌造りの美しい村での冬旅。四季を通じた旅の魅力を実感。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="800">
+                     <img src="camper/camper_lighthouse_visit（大）.jpeg" alt="歴史ある灯台との共演" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>灯台との共演</h4>
+                       <p>真っ白な灯台を背景にした海辺での記念撮影。歴史ある観光スポットへのアクセスも楽々。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="900">
+                     <img src="camper/camper_museum_entrance（大）.jpeg" alt="歴史探訪の旅にも最適" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>歴史探訪の旅</h4>
+                       <p>網走監獄など歴史的観光施設への訪問も自由自在。教育的な家族旅行にも最適。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1000">
+                     <img src="camper/camper_moai_statue_park（大）.jpeg" alt="ユニークな観光スポットでの記念撮影" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>モアイ像との記念撮影</h4>
+                       <p>青空と緑の芝生が美しいコントラスト。まるで海外旅行のような非日常体験。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1100">
+                     <img src="camper/camper_moai_close_up（大）.jpeg" alt="古代文明との不思議な出会い" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>古代文明との出会い</h4>
+                       <p>巨大なモアイ像を間近で見上げる迫力。子供たちの好奇心を刺激する学習体験。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1200">
+                     <img src="camper/camper_outdoor_camping_setup（大）.jpeg" alt="本格アウトドアキャンプの醍醐味" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>本格アウトドアキャンプ</h4>
+                       <p>タープとテーブルを設営した本格キャンプサイト。自然と一体になった贅沢な時間。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1300">
+                     <img src="camper/camper_mountain_parking（大）.jpeg" alt="山岳地帯での絶景ドライブ" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>山岳地帯の絶景</h4>
+                       <p>雄大な山々を背景にした爽快ドライブ。澄んだ空気と壮大な景色でリフレッシュ。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1400">
+                     <img src="camper/camper_campfire_dinner（大）.jpeg" alt="焚き火を囲む特別な夕食タイム" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>焚き火の夕食タイム</h4>
+                       <p>温かい炎の明かりの中で家族団らん。子供たちにとって忘れられない思い出。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1500">
+                     <img src="camper/camper_ferry_terminal（大）.jpeg" alt="フェリー旅行にも対応" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>フェリー旅行対応</h4>
+                       <p>大型フェリーとも堂々とした存在感。島巡りや長距離移動の理想的なパートナー。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1600">
+                     <img src="camper/camper_control_tower（大）.jpeg" alt="都市部でもスマートに駐車" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>都市部でもスマート</h4>
+                       <p>管制塔などの都市施設周辺でも違和感なく溶け込むスタイリッシュなデザイン。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1700">
+                     <img src="camper/camper_twilight_parking（大）.jpeg" alt="黄昏時の都市部での快適ステイ" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>黄昏時の都市ステイ</h4>
+                       <p>夕暮れ時の都市部でも安心駐車。街の明かりが美しく輝く中での快適空間。</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+               <!-- システム・設備ギャラリー -->
+               <div class="system-gallery" data-aos="fade-up" data-aos-delay="800">
+                 <h3 class="gallery-section-title">⚡ システム・設備</h3>
+                 <div class="photo-grid">
+                   <div class="photo-item" data-aos="zoom-in">
+                     <img src="camper/camper_solar_panels_roof（大）.jpeg" alt="環境に優しいソーラーシステム" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>ソーラーシステム</h4>
+                       <p>高効率ソーラーパネルで自然エネルギー供給。環境に配慮した持続可能な旅。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
+                     <img src="camper/camper_solar_panel_detail（大）.jpeg" alt="確実な取り付けシステム" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>確実な取り付け</h4>
+                       <p>専用金具で確実固定。走行中の振動や悪天候にも耐える堅牢設計。</p>
+                     </div>
+                   </div>
+                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
+                     <img src="camper/camper_electrical_system（大）.jpeg" alt="高性能電気システム" loading="lazy">
+                     <div class="photo-overlay">
+                       <h4>高性能電気システム</h4>
+                       <p>大容量リチウムバッテリーで家庭と同等の電力供給。現代的な快適さを自然の中でも。</p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
         <!-- 特徴・こだわりポイント -->
         <section id="vanlife-features" class="section">
           <div class="container">
             <div class="section-title">
-              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_features_badge">こだわりポイント</span>
-              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_features_title">プロ級の仕上がりを実現する工夫</h2>
+              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_features_badge">主な特徴</span>
+              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_features_title">プロ級の仕上がりテクニック</h2>
             </div>
             <div class="grid">
               <div class="card" data-aos="fade-up">
                 <div class="card-icon"><i class="fas fa-snowflake"></i></div>
                 <h3 data-i18n-key="vanlife_feature1_title">完璧な断熱性能</h3>
-                <p data-i18n-key="vanlife_feature1_desc">夏は涼しく、冬は暖かく。高性能断熱材を使用し、一年中快適に過ごせる室内環境を実現。</p>
+                <p data-i18n-key="vanlife_feature1_desc">冬は暖かく、夏は涼しく。高性能断熱材を使用し、一年中快適な室内環境を実現。</p>
               </div>
               <div class="card" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
                 <h3 data-i18n-key="vanlife_feature2_title">独立電源システム</h3>
-                <p data-i18n-key="vanlife_feature2_desc">ソーラーパネル＋リチウムバッテリーで、電気のない場所でも3日間の自立生活が可能。</p>
+                <p data-i18n-key="vanlife_feature2_desc">ソーラーパネル＋リチウムバッテリーで、電源がない場所でも3日間の独立生活が可能。</p>
               </div>
               <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-icon"><i class="fas fa-utensils"></i></div>
-                <h3 data-i18n-key="vanlife_feature3_title">本格キッチン設備</h3>
-                <p data-i18n-key="vanlife_feature3_desc">IHクッキングヒーター、冷蔵庫、シンクを完備。旅先でも本格的な料理が楽しめます。</p>
+                <h3 data-i18n-key="vanlife_feature3_title">充実したキッチン設備</h3>
+                <p data-i18n-key="vanlife_feature3_desc">IHコンロ、冷蔵庫、シンクを完備。旅先でも本格的な料理を楽しめます。</p>
               </div>
               <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <div class="card-icon"><i class="fas fa-bed"></i></div>
                 <div class="card-icon"><i class="fas fa-magic"></i></div>
                 <h3 data-i18n-key="vanlife_feature4_title">多機能変形家具</h3>
-                <p data-i18n-key="vanlife_feature4_desc">昼はソファ、夜はベッドに変身。限られたスペースを最大限活用する独自設計。</p>
-              </div>
-            </div>
-        </section>
-
-  
-
-        <!-- 動画・SNS紹介 -->
-        <section id="vanlife-media" class="section">
-          <div class="container">
-            <div class="section-title">
-              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="media_badge">動画・SNS</span>
-              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="media_title">制作過程をリアルタイムで公開中</h2>
-              <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="media_desc">YouTubeでは詳しい制作過程、工具の使い方、失敗談まで包み隠さず公開。初心者向けの丁寧な解説付き。</p>
-            </div>
-            <div class="media-grid">
-              <div class="media-card youtube-card" data-aos="fade-up">
-                <div class="media-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <h3 data-i18n-key="youtube_title">YouTube: van oasis</h3>
-                <p data-i18n-key="youtube_desc">ハイエースDIYの詳しい制作過程、工具の使い方、失敗談まで包み隠さず公開。初心者向けの丁寧な解説付き。</p>
-                <a href="https://www.youtube.com/@van_oasis" class="media-btn" target="_blank" data-i18n-key="visit_youtube">チャンネルを見る</a>
-              </div>
-              <div class="media-card tiktok-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="media-icon">
-                  <i class="fab fa-tiktok"></i>
-                </div>
-                <h3 data-i18n-key="tiktok_title">TikTok: @trailfusionai</h3>
-                <p data-i18n-key="tiktok_desc">制作のハイライト、完成した瞬間の感動、バンライフの楽しい瞬間をショート動画でお届け。</p>
-                <a href="https://www.tiktok.com/@trailfusionai" class="media-btn" target="_blank" data-i18n-key="visit_tiktok">アカウントを見る</a>
-              </div>
-              <div class="media-card twitter-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="media-icon">
-                  <i class="fab fa-twitter"></i>
-                </div>
-                <h3 data-i18n-key="twitter_title">X (Twitter): @trailfusionai</h3>
-                <p data-i18n-key="twitter_desc">制作の進捗報告、バンライフのつぶやき、フォロワーとの交流など、リアルタイムな情報を発信。</p>
-                <a href="https://x.com/trailfusionai" class="media-btn" target="_blank" data-i18n-key="visit_twitter">フォローする</a>
+                <p data-i18n-key="vanlife_feature4_desc">昼はソファ、夜はベッドに変身。限られたスペースを最大限に活用するユニークなデザイン。</p>
               </div>
             </div>
           </div>
         </section>
+                <!-- お問い合わせ -->
+                <section id="contact-vanlife" class="section">
+                  <div class="container">
+                    <div class="section-title">
+                      <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_contact_badge">お問い合わせ</span>
+                      <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_contact_title">DIYに関する質問・相談</h2>
+                      <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="vanlife_contact_desc">ハイエースDIYに関するご質問、コラボレーションのご相談など、お気軽にお問い合わせください。</p>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                      <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                      <h3 data-i18n-key="vanlife_contact_heading">お問い合わせ先</h3>
+                      <a href="mailto:trailfusionai@gmail.com" class="contact-email">trailfusionai@gmail.com</a>
+                    </div>
+                  </div>
+                </section>
+             </div>
+           </div>
 
-        <!-- お問い合わせ -->
-        <section id="contact-vanlife" class="section section-white">
-          <div class="container">
-            <div class="section-title">
-              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_contact_badge">お問い合わせ</span>
-              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_contact_title">DIYに関するご質問・ご相談</h2>
-              <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="vanlife_contact_desc">ハイエースDIYに関するご質問、コラボレーションのご相談など、お気軽にお問い合わせください。</p>
-            </div>
-            <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
-              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-              <h3 data-i18n-key="vanlife_contact_heading">お問い合わせ先</h3>
-              <a href="mailto:trailfusionai@gmail.com" class="contact-email">trailfusionai@gmail.com</a>
-            </div>
-          </div>
+           
         </section>
-      </div>
-    </div>
 
     <!-- フッター -->
     <footer class="footer gpt-app"> <!-- Default class, JS will update -->
@@ -4478,6 +4853,62 @@ layout: null
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     let currentTranslations = {}; // Holds the translations for the current language
+
+    // TikTok動画の自動再生制御
+    function initVideoObserver() {
+      // 全てのTikTok埋め込み動画を自動検出
+      const allIframes = document.querySelectorAll('iframe[src*="tiktok.com/embed"]');
+      
+      // 各動画にclass属性とdata属性を設定
+      allIframes.forEach((video, index) => {
+        if (!video.classList.contains('tiktok-video')) {
+          video.classList.add('tiktok-video');
+        }
+        
+        // srcからvideo IDを抽出してdata属性を設定
+        const originalSrc = video.getAttribute('src');
+        if (originalSrc && originalSrc.includes('tiktok.com/embed/v2/')) {
+          const videoId = originalSrc.match(/\/embed\/v2\/(\d+)/);
+          if (videoId) {
+            video.setAttribute('data-video-id', videoId[1]);
+            video.setAttribute('data-src', `https://www.tiktok.com/embed/v2/${videoId[1]}?autoplay=1&muted=1&loop=1`);
+            video.setAttribute('data-original-src', originalSrc);
+            video.setAttribute('src', ''); // 初期状態では空にする
+          }
+        }
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          const dataSrc = video.getAttribute('data-src');
+          
+          if (entry.isIntersecting) {
+            // 画面に表示されたら動画を読み込んで自動再生開始
+            if (dataSrc && !video.getAttribute('src')) {
+              video.setAttribute('src', dataSrc);
+            }
+          } else {
+            // 画面外に出たら動画を停止（srcを空にする）
+            video.setAttribute('src', '');
+          }
+        });
+      }, {
+        threshold: 0.3, // 30%以上表示されたら再生開始
+        rootMargin: '50px 0px 50px 0px' // 余裕を持たせる
+      });
+
+      // 検出した全ての動画を観察対象に追加
+      allIframes.forEach(video => {
+        observer.observe(video);
+      });
+    }
+
+    // ページ読み込み完了後に動画観察を開始
+    document.addEventListener('DOMContentLoaded', () => {
+      // AOSアニメーション完了後に動画観察を開始
+      setTimeout(initVideoObserver, 1000);
+    });
 
     const langToFlag = {
       'ja': 'jp', 'en': 'us', 'zh': 'cn', 'pt': 'br', 'es': 'es',

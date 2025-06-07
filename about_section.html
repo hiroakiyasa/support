@@ -118,6 +118,86 @@
                 gap: 10px;
             }
         }
+        .media-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .youtube-card {
+            border: 2px solid #ff0000;
+        }
+        .tiktok-card {
+            border: 2px solid #000000;
+        }
+        .twitter-card {
+            border: 2px solid #1da1f2;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title .badge {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background-color: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-title p {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .media-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .media-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .media-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .media-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .media-card p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+        .media-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .media-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -194,7 +274,7 @@
               <img src="logo.PNG" alt="TrailFusion AI Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 1.5rem; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));" />
             </div>
           </div>
-          <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;" data-i18n-key="about_company_slogan">"Code on the road. Freedom in every line."</p>
+          <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">"Coding on the Road, Every Line a Trail to Freedom"</p>
         </div>
 
         <!-- プロフィールセクション -->
@@ -275,6 +355,26 @@
                 開発プロセス、価格設定、進捗状況をすべて透明に共有します。
                 約束は必ず守り、できないことは正直にお伝えする。
                 この誠実さこそが、長期的な信頼関係の基盤だと考えています。
+              </p>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                <i class="fas fa-shipping-fast"></i>
+              </div>
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;" data-i18n-key="about_mission_5_title">機動性と適応力</h4>
+              <p style="color: #cbd5e1; line-height: 1.7;" data-i18n-key="about_mission_5_description">
+                市場や技術の変化に俊敏に対応します。固定されたオフィスを持たないからこそ、
+                常に最適な環境とツールを選択し、最高のパフォーマンスを発揮します。
+              </p>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                <i class="fas fa-fire"></i>
+              </div>
+              <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;" data-i18n-key="about_mission_6_title">情熱と探究心</h4>
+              <p style="color: #cbd5e1; line-height: 1.7;" data-i18n-key="about_mission_6_description">
+                旅するように新しい技術やアイデアを探求し、開発に情熱を注ぎます。
+                未知の課題への挑戦を楽しみ、常に最高のプロダクトを追求し続けます。
               </p>
             </div>
           </div>
