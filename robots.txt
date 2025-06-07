@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hiroakiyasa.github.io/support/sitemap.xml
+
+# Allow crawling of important pages
+Allow: /index.html
+Allow: /about_section.html
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
+
+# Disallow temporary/backup files
+Disallow: /*.backup
+Disallow: /*-backup.*
+Disallow: /*-old.*
+Disallow: /*.DS_Store 
