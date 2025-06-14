@@ -3675,8 +3675,9 @@ layout: null
       }
       
       .tiktok-video-item {
-        width: 200px;
-        min-width: 200px;
+        width: 350px;
+        min-width: 350px;
+        max-width: 95vw;
         padding-bottom: 209.09%; /* 11:23 aspect ratio maintained for mobile */
       }
     }
@@ -3685,6 +3686,18 @@ layout: null
       padding-bottom: 177.78%; /* 9:16 aspect ratio for shorts */
       max-width: 400px;
       margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .shorts-wrapper {
+        max-width: 350px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .shorts-wrapper {
+        max-width: 320px;
+      }
     }
 
     .video-wrapper iframe {
@@ -3890,8 +3903,8 @@ layout: null
       
       /* 動画グリッド */
       .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-4); }
-      .video-item { margin-bottom: var(--spacing-4); max-width: 300px; }
-      .shorts-wrapper { max-width: 250px; }
+      .video-item { margin-bottom: var(--spacing-4); max-width: 350px; }
+      .shorts-wrapper { max-width: 350px; }
     }
     @media (max-width: 576px) {
       :root { --fs-5xl: 1.75rem; --fs-4xl: 1.5rem; --fs-3xl: 1.375rem; --fs-2xl: 1.25rem; --fs-xl: 1.125rem; --fs-lg: 1rem; }
@@ -3904,8 +3917,8 @@ layout: null
       
       /* モバイル用動画グリッド */
       .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-3); }
-      .video-item { max-width: 180px; }
-      .shorts-wrapper { max-width: 160px; }
+      .video-item { max-width: 320px; }
+      .shorts-wrapper { max-width: 300px; }
       .video-info { padding: var(--spacing-3); }
       .video-info h3 { font-size: var(--fs-base); }
       .video-info p { font-size: var(--fs-sm); }
@@ -4229,7 +4242,7 @@ layout: null
                   .gpt-app .tiktok-video {
                     width: 325px;
                     height: 578px;
-                    max-width: 90vw;
+                    max-width: 95vw;
                     border-radius: 20px;
                     border: none;
                   }
@@ -4253,8 +4266,10 @@ layout: null
                   
                   @media (max-width: 768px) {
                     .gpt-app .tiktok-video {
-                      width: 280px;
-                      height: 498px;
+                      width: 350px;
+                      height: 622px;
+                      max-width: 95vw;
+                      max-height: 85vh;
                     }
                     
                     .gpt-app .app-screens {
@@ -4269,8 +4284,10 @@ layout: null
                   
                   @media (max-width: 480px) {
                     .gpt-app .tiktok-video {
-                      width: 250px;
-                      height: 445px;
+                      width: 320px;
+                      height: 569px;
+                      max-width: 90vw;
+                      max-height: 80vh;
                     }
                     
                     .gpt-app .app-screen {
