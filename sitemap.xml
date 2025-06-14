@@ -7,7 +7,7 @@ layout: null
   <!-- メインページ -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -20,7 +20,7 @@ layout: null
   <!-- アプリセクション -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#apps</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28,7 +28,7 @@ layout: null
   <!-- GPティーチャーズ -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#gpt-app</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -36,7 +36,7 @@ layout: null
   <!-- 森のウッドゴーレム -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#golem-app</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,7 +44,7 @@ layout: null
   <!-- VoiceLink AI -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#voicelink-app</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,7 +52,7 @@ layout: null
   <!-- ワードブラスター -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#wordblaster-app</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -60,7 +60,7 @@ layout: null
   <!-- 論破王 -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#ronpa-app</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -68,7 +68,7 @@ layout: null
   <!-- ハッキングタイマー -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#hackingtimer-app</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -76,7 +76,7 @@ layout: null
   <!-- バンライフセクション -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#vanlife-section</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -84,7 +84,7 @@ layout: null
   <!-- FAQ -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#faq</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -92,7 +92,7 @@ layout: null
   <!-- お問い合わせ -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/#contact</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -100,7 +100,7 @@ layout: null
   <!-- プライバシーポリシー -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/privacy-policy.html</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -108,21 +108,16 @@ layout: null
   <!-- 利用規約 -->
   <url>
     <loc>https://hiroakiyasa.github.io/support/terms-of-service.html</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-{% for page in site.pages %}
-  {% unless page.sitemap_exclude == 'y' %}
-  {% unless page.url contains '.backup' or page.url contains '-old' or page.url contains '.DS_Store' %}
+  <!-- Company Section -->
   <url>
-    <loc>https://hiroakiyasa.github.io/support{{ page.url | remove: 'index.html' }}</loc>
-    <lastmod>{{ page.date | default: site.time | date_to_xmlschema }}</lastmod>
+    <loc>https://hiroakiyasa.github.io/support/#company</loc>
+    <lastmod>2025-06-14T09:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
-  {% endunless %}
-  {% endunless %}
-{% endfor %}
 </urlset>
