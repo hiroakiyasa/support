@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-key="terms_page_title">利用規約 - VoiceLink AI Translator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f7;
+        }
+        .nav-header {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .back-link {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover {
+            color: #0056CC;
+        }
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        
+        /* Language selector styles */
+        .language-selector {
+            position: relative;
+            z-index: 1000;
+        }
+        .language-btn { /* このクラス名は language-toggle に統一してもよい */
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .language-btn:hover {
+            background: #0056CC;
+            /* transform: translateY(-1px); */ /* 元のコードにあったが、privacy-policy.htmlと合わせるためコメントアウトも検討 */
+        }
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* privacy-policy.htmlと合わせる */
+            min-width: 150px; /* privacy-policy.htmlと合わせる */
+            /* overflow: hidden; */ /* 必要に応じて */
+            transform: translateY(-10px); /* privacy-policy.htmlと合わせる */
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease; /* privacy-policy.htmlと合わせる */
+            /* border: 1px solid #e5e5e7; */ /* 必要に応じて */
+        }
+        .language-dropdown.show {
+            transform: translateY(0); /* privacy-policy.htmlと合わせる */
+            opacity: 1;
+            visibility: visible;
+        }
+        .language-option {
+            display: flex; /* privacy-policy.htmlと合わせる */
+            align-items: center; /* privacy-policy.htmlと合わせる */
+            gap: 10px; /* privacy-policy.htmlと合わせる */
+            padding: 10px 15px; /* privacy-policy.htmlと合わせる */
+            cursor: pointer;
+            color: #333; /* privacy-policy.htmlと合わせる */
+            transition: background-color 0.2s ease;
+            /* border-bottom: 1px solid #f5f5f7; */ /* 必要に応じて */
+        }
+        .language-option:last-child {
+            border-bottom: none;
+        }
+        .language-option:hover {
+            background-color: #f0f0f0; /* privacy-policy.htmlと合わせる */
+        }
+        .language-option.active {
+            background-color: #007AFF;
+            color: white;
+        }
+        .language-flag {
+            font-size: 16px; /* privacy-policy.htmlと合わせる */
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1d1d1f;
+            border-bottom: 3px solid #007AFF;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1d1d1f;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #1d1d1f;
+            margin-top: 20px;
+        }
+        .last-updated {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .subscription-info {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin: 20px 0;
+        }
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .important {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 10px; /* privacy-policy.htmlと合わせる */
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            /* .language-dropdown {
+                right: 0;
+                min-width: 180px;
+            } */ /* 不要なら削除 */
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-header">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n-key="nav_back_home">ホームに戻る</span>
+        </a>
+        
+        <div class="language-selector">
+            <button class="language-btn" id="languageBtn"> <!-- idは language-toggle と統一しても良い -->
+                <span class="language-flag" id="currentFlag">🇯🇵</span> <!-- idは current-language-flag など詳細に -->
+                <span id="currentLang">日本語</span> <!-- idは current-language-name など詳細に -->
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <!-- サイズをprivacy-policy.htmlと合わせる -->
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="language-dropdown" id="languageDropdown"> <!-- idは language-dropdown と統一 -->
+                <div class="language-option active" data-lang="ja"> <!-- activeクラスはJSで制御 -->
+                    <span class="language-flag">🇯🇵</span>
+                    <span>日本語</span>
+                </div>
+                <div class="language-option" data-lang="en">
+                    <span class="language-flag">🇺🇸</span>
+                    <span>English</span>
+                </div>
+                <div class="language-option" data-lang="cn">
+                    <span class="language-flag">🇨🇳</span>
+                    <span>中文</span>
+                </div>
+                <div class="language-option" data-lang="ko">
+                    <span class="language-flag">🇰🇷</span>
+                    <span>한국어</span>
+                </div>
+                <div class="language-option" data-lang="fr">
+                    <span class="language-flag">🇫🇷</span>
+                    <span>Français</span>
+                </div>
+                <div class="language-option" data-lang="ge">
+                    <span class="language-flag">🇩🇪</span>
+                    <span>Deutsch</span>
+                </div>
+                <div class="language-option" data-lang="sp">
+                    <span class="language-flag">🇪🇸</span>
+                    <span>Español</span>
+                </div>
+                <div class="language-option" data-lang="ru">
+                    <span class="language-flag">🇷🇺</span>
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" data-lang="hi">
+                    <span class="language-flag">🇮🇳</span>
+                    <span>हिन्दी</span>
+                </div>
+                <div class="language-option" data-lang="po">
+                    <span class="language-flag">🇵🇹</span>
+                    <span>Português</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-title" data-i18n-key="terms_header_title">利用規約</div>
+    </div>
+    
+    <div class="container">
+        <h1 data-i18n-key="terms_title">利用規約</h1>
+        <p class="last-updated" data-i18n-key="terms_last_updated">最終更新日: 2025年6月4日</p>
+        
+        <p data-i18n-key="terms_intro">VoiceLink AI Translator（以下「本アプリ」）をご利用いただき、ありがとうございます。本利用規約（以下「本規約」）は、本アプリの利用に関する条件を定めるものです。</p>
+        
+        <h2 data-i18n-key="terms_section1_title">1. 本規約への同意</h2>
+        <p data-i18n-key="terms_section1_content">本アプリをダウンロード、インストール、または使用することにより、ユーザーは本規約の全ての条項に同意したものとみなされます。同意いただけない場合は、本アプリをご利用いただけません。</p>
+        
+        <h2 data-i18n-key="terms_section2_title">2. サービス概要</h2>
+        <p data-i18n-key="terms_section2_intro">本アプリは、音声認識とAI翻訳技術を活用したリアルタイム音声翻訳サービスを提供します。主な機能は以下の通りです：</p>
+        <ul data-i18n-key="terms_section2_list">
+            <li>リアルタイム音声認識</li>
+            <li>多言語間での音声翻訳</li>
+            <li>翻訳結果の要約機能（プレミアムプラン）</li>
+            <li>翻訳履歴の保存・管理</li>
+        </ul>
+        
+        <h2 data-i18n-key="terms_section3_title">3. サブスクリプションサービス</h2>
+        <div class="subscription-info">
+            <h3 data-i18n-key="terms_section3_1_title">3.1 プレミアム AI翻訳プラン</h3>
+            <ul data-i18n-key="terms_section3_1_list">
+                <li><strong>サービス名:</strong> プレミアム AI翻訳プラン</li>
+                <li><strong>期間:</strong> 1ヶ月間（自動更新）</li>
+                <li><strong>価格:</strong> ¥300/月（税込）</li>
+                <li><strong>無料トライアル:</strong> 3日間</li>
+                <li><strong>支払い方法:</strong> iTunes & App Store経由</li>
+            </ul>
+        </div>
+        
+        <h3 data-i18n-key="terms_section3_2_title">3.2 自動更新について</h3>
+        <ul data-i18n-key="terms_section3_2_list">
+            <li>サブスクリプションは自動的に更新されます</li>
+            <li>現在の期間が終了する24時間前までにキャンセルしない限り、自動的に同じ期間で更新されます</li>
+            <li>更新料金は期間終了の24時間前以内にiTunesアカウントに課金されます</li>
+        </ul>
+        
+        <h3 data-i18n-key="terms_section3_3_title">3.3 キャンセル方法</h3>
+        <div class="important">
+            <p data-i18n-key="terms_section3_3_intro"><strong>重要:</strong> サブスクリプションのキャンセルは以下の方法で行えます：</p>
+            <ol data-i18n-key="terms_section3_3_steps">
+                <li>iPhoneの「設定」アプリを開く</li>
+                <li>「Apple ID」→「サブスクリプション」を選択</li>
+                <li>「VoiceLink AI Translator」を選択</li>
+                <li>「サブスクリプションをキャンセル」をタップ</li>
+            </ol>
+        </div>
+        
+        <h3 data-i18n-key="terms_section3_4_title">3.4 返金ポリシー</h3>
+        <ul data-i18n-key="terms_section3_4_list">
+            <li>無料トライアル期間中にキャンセルした場合、料金は発生しません</li>
+            <li>既に課金された料金の返金は、Appleの標準返金ポリシーに従います</li>
+            <li>返金要求はApple経由で行ってください</li>
+        </ul>
+        
+        <h2 data-i18n-key="terms_section4_title">4. 利用条件</h2>
+        <h3 data-i18n-key="terms_section4_1_title">4.1 適切な利用</h3>
+        <p data-i18n-key="terms_section4_1_intro">ユーザーは以下の行為を行ってはなりません：</p>
+        <ul data-i18n-key="terms_section4_1_list">
+            <li>法律に違反する目的での利用</li>
+            <li>他者の権利を侵害する内容の翻訳</li>
+            <li>本アプリの機能を悪用した大量処理</li>
+            <li>サービスの安定性を損なう行為</li>
+            <li>リバースエンジニアリングや不正アクセス</li>
+        </ul>
+        
+        <h3 data-i18n-key="terms_section4_2_title">4.2 年齢制限</h3>
+        <p data-i18n-key="terms_section4_2_content">本アプリは13歳以上の方を対象としています。13歳未満の方は保護者の同意の上でご利用ください。</p>
+        
+        <h2 data-i18n-key="terms_section5_title">5. 知的財産権</h2>
+        <p data-i18n-key="terms_section5_content">本アプリおよびその全ての内容（ソフトウェア、デザイン、テキスト、画像等）に関する知的財産権は、当社またはライセンス提供者に帰属します。</p>
+        
+        <h2 data-i18n-key="terms_section6_title">6. 免責事項</h2>
+        <h3 data-i18n-key="terms_section6_1_title">6.1 翻訳精度について</h3>
+        <ul data-i18n-key="terms_section6_1_list">
+            <li>本アプリの翻訳結果は参考程度にご利用ください</li>
+            <li>医療、法律、金融等の専門分野では専門家にご相談ください</li>
+            <li>翻訳精度は100%保証されるものではありません</li>
+        </ul>
+        
+        <h3 data-i18n-key="terms_section6_2_title">6.2 サービス可用性</h3>
+        <ul data-i18n-key="terms_section6_2_list">
+            <li>インターネット接続が必要です</li>
+            <li>サーバーメンテナンスにより一時的に利用できない場合があります</li>
+            <li>第三者サービス（Google Gemini、Apple Speech Framework）の問題による影響があります</li>
+        </ul>
+        
+        <h2 data-i18n-key="terms_section7_title">7. プライバシー</h2>
+        <p data-i18n-key="terms_section7_content">個人情報の取り扱いについては、別途定める<a href="privacy-policy.html" style="color: #007AFF;">プライバシーポリシー</a>をご確認ください。</p>
+        
+        <h2 data-i18n-key="terms_section8_title">8. サービスの変更・終了</h2>
+        <p data-i18n-key="terms_section8_content">当社は、事前の通知により本サービスの内容を変更または終了することができます。サービス終了の場合、合理的な期間の事前通知を行います。</p>
+        
+        <h2 data-i18n-key="terms_section9_title">9. 損害賠償の制限</h2>
+        <p data-i18n-key="terms_section9_content">当社の損害賠償責任は、法律で許可される範囲内で、ユーザーが支払った料金の総額を上限とします。</p>
+        
+        <h2 data-i18n-key="terms_section10_title">10. 準拠法・管轄裁判所</h2>
+        <p data-i18n-key="terms_section10_content">本規約は日本法に準拠し、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+        
+        <h2 data-i18n-key="terms_section11_title">11. 規約の変更</h2>
+        <p data-i18n-key="terms_section11_content">当社は必要に応じて本規約を変更することがあります。重要な変更については、アプリ内またはサポートページで事前に通知いたします。</p>
+        
+        <h2 data-i18n-key="terms_section12_title">12. お問い合わせ</h2>
+        <div class="contact-info">
+            <p data-i18n-key="terms_contact_intro">本規約に関するご質問やお問い合わせは以下までご連絡ください：</p>
+            <p><strong data-i18n-key="terms_contact_email_label">Email:</strong> <span data-i18n-key="terms_contact_email">support@hiroakiyasa.com</span></p>
+            <p><strong data-i18n-key="terms_contact_support_label">サポートページ:</strong> <a href="https://hiroakiyasa.github.io/support/" target="_blank" data-i18n-key="terms_contact_support_url">https://hiroakiyasa.github.io/support/</a></p>
+        </div>
+    </div>
+
+    <script>
+        // 用語ページ用の翻訳データ管理（グローバルスコープを汚染しないように即時関数化も検討）
+        let termsTranslations = {}; // privacy-policy.html の currentTranslations と区別
+        let termsCurrentLanguage = 'ja'; // privacy-policy.html の currentLanguage と区別
+
+        const termsLanguageConfig = { // privacy-policy.html の languageConfig と同じ内容だが、別変数とする
+            ja: { flag: '🇯🇵', name: '日本語' },
+            en: { flag: '🇺🇸', name: 'English' },
+            cn: { flag: '🇨🇳', name: '中文' },
+            ko: { flag: '🇰🇷', name: '한국어' },
+            fr: { flag: '🇫🇷', name: 'Français' },
+            ge: { flag: '🇩🇪', name: 'Deutsch' },
+            sp: { flag: '🇪🇸', name: 'Español' },
+            ru: { flag: '🇷🇺', name: 'Русский' },
+            hi: { flag: '🇮🇳', name: 'हिन्दी' },
+            po: { flag: '🇵🇹', name: 'Português' }
+        };
+
+        async function loadTermsTranslations(lang) {
+            // termsTranslations[lang] のキャッシュチェックは削除（毎回フェッチするなら）
+            // または、キャッシュを利用する場合は、privacy-policy.htmlのコードと同様に実装
+            try {
+                const response = await fetch(`locales/${lang}.json`);
+                 if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                termsTranslations[lang] = data; // キャッシュする場合
+                return data;
+            } catch (error) {
+                console.error(`Failed to load ${lang} translations:`, error);
+                return {};
+            }
+        }
+
+        function updateTermsUI(translations) {
+            const elements = document.querySelectorAll('[data-i18n-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n-key');
+                
+                if (translations[key] !== undefined) {
+                    if (element.tagName === 'A' && key.endsWith('_url')) {
+                        if (typeof translations[key] === 'string' && !translations[key].startsWith('http')) {
+                            element.innerHTML = translations[key];
+                        } else if (typeof translations[key] === 'string') {
+                             element.textContent = translations[key]; 
+                        }
+                    } else if (Array.isArray(translations[key])) {
+                        element.innerHTML = translations[key].map(item => `<li>${item}</li>`).join('');
+                    } else {
+                        element.innerHTML = translations[key];
+                    }
+                } else {
+                     // console.warn(`翻訳キーが見つかりません: ${key}`);
+                }
+            });
+
+            if (translations.terms_page_title) {
+                document.title = translations.terms_page_title;
+            }
+            document.documentElement.lang = termsCurrentLanguage;
+        }
+
+        function updateTermsLanguageSelector() {
+            const config = termsLanguageConfig[termsCurrentLanguage];
+            if (config) { // config が存在するか確認
+                document.getElementById('currentFlag').textContent = config.flag;
+                document.getElementById('currentLang').textContent = config.name;
+
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.toggle('active', option.dataset.lang === termsCurrentLanguage);
+                });
+            }
+        }
+
+        async function changeTermsLanguage(lang) {
+            if (!termsLanguageConfig[lang]) { // サポートされていない言語の場合は何もしないか、エラー表示
+                console.warn(`Unsupported language: ${lang}`);
+                return;
+            }
+            termsCurrentLanguage = lang;
+            localStorage.setItem('preferredLanguage', lang); // preferredLanguageキーを共有
+            
+            const translationData = await loadTermsTranslations(lang);
+            if (Object.keys(translationData).length > 0) {
+                updateTermsUI(translationData);
+                updateTermsLanguageSelector();
+            }
+            
+            const dropdown = document.getElementById('languageDropdown');
+            if (dropdown) dropdown.classList.remove('show');
+        }
+
+        function detectBrowserTermsLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (!browserLang) return 'ja'; // navigator.language が未定義の場合のフォールバック
+            const langCode = browserLang.split('-')[0].toLowerCase();
+            
+            const langMapping = {
+                'ja': 'ja', 'en': 'en', 'zh': 'cn', 'ko': 'ko',
+                'fr': 'fr', 'de': 'ge', 'es': 'sp', 'ru': 'ru',
+                'hi': 'hi', 'pt': 'po'
+            };
+            
+            return langMapping[langCode] || 'ja';
+        }
+
+        async function initializeTermsLanguage() {
+            const savedLanguage = localStorage.getItem('preferredLanguage'); // preferredLanguageキーを共有
+            const detectedLanguage = detectBrowserTermsLanguage();
+            // termsLanguageConfig に存在するか確認
+            let initialLanguage = savedLanguage && termsLanguageConfig[savedLanguage] ? savedLanguage : (termsLanguageConfig[detectedLanguage] ? detectedLanguage : 'ja');
+            
+            await changeTermsLanguage(initialLanguage);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageBtn = document.getElementById('languageBtn');
+            const languageDropdown = document.getElementById('languageDropdown');
+
+            if (languageBtn && languageDropdown) {
+                languageBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('show');
+                });
+
+                document.addEventListener('click', (e) => {
+                     if (languageDropdown.classList.contains('show') && !languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                        languageDropdown.classList.remove('show');
+                    }
+                });
+
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        if (option.dataset.lang) {
+                           changeTermsLanguage(option.dataset.lang);
+                        }
+                    });
+                });
+            }
+            initializeTermsLanguage();
+        });
+    </script>
+</body>
+</html>

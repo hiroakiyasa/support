@@ -1,0 +1,10 @@
+# サイトの基本情報
+url: "https://hiroakiyasa.github.io"
+baseurl: "/support"
+
+# Jekyll設定
+plugins:
+  - jekyll-sitemap
+
+# 重要：safeをtrueにしないでください
+# safe: true  ← この行があれば削除してください

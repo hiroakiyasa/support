@@ -1,0 +1,128 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- メインページ -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hiroakiyasa.github.io/support/logo.PNG</image:loc>
+      <image:title>TrailFusion AI Logo</image:title>
+      <image:caption>TrailFusion AI アプリコレクション</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- アプリセクション -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#apps</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- GPティーチャーズ -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#gpt-app</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 森のウッドゴーレム -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#golem-app</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- VoiceLink AI -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#voicelink-app</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ワードブラスター -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#wordblaster-app</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 論破王 -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#ronpa-app</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ハッキングタイマー -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#hackingtimer-app</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- バンライフセクション -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#vanlife-section</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- FAQ -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#faq</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- お問い合わせ -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/#contact</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- プライバシーポリシー -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/privacy-policy.html</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- 利用規約 -->
+  <url>
+    <loc>https://hiroakiyasa.github.io/support/terms-of-service.html</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+{% for page in site.pages %}
+  {% unless page.sitemap_exclude == 'y' %}
+  {% unless page.url contains '.backup' or page.url contains '-old' or page.url contains '.DS_Store' %}
+  <url>
+    <loc>https://hiroakiyasa.github.io/support{{ page.url | remove: 'index.html' }}</loc>
+    <lastmod>{{ page.date | default: site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  {% endunless %}
+  {% endunless %}
+{% endfor %}
+</urlset>

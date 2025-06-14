@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-key="privacy_page_title">プライバシーポリシー - VoiceLink AI Translator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f7;
+        }
+        .nav-header {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .back-link {
+            color: #007AFF;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover {
+            color: #0056CC;
+        }
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        
+        /* 言語選択 */
+        .language-selector {
+            position: relative;
+        }
+        .language-toggle {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .language-toggle:hover {
+            background: #0056CC;
+        }
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+            z-index: 1000;
+        }
+        .language-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            color: #333;
+            transition: background-color 0.2s ease;
+        }
+        .language-option:hover {
+            background-color: #f0f0f0;
+        }
+        .language-option.active {
+            background-color: #007AFF;
+            color: white;
+        }
+        .language-flag {
+            font-size: 16px;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1d1d1f;
+            border-bottom: 3px solid #007AFF;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1d1d1f;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #1d1d1f;
+            margin-top: 20px;
+        }
+        .last-updated {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-header">
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n-key="nav_back_home">ホームに戻る</span>
+        </a>
+        <div class="page-title" data-i18n-key="privacy_header_title">プライバシーポリシー</div>
+        
+        <!-- 言語選択 -->
+        <div class="language-selector">
+            <button class="language-toggle" id="language-toggle">
+                <span class="language-flag">🌍</span>
+                <span id="current-language">日本語</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="language-dropdown" id="language-dropdown">
+                <div class="language-option active" data-lang="ja">
+                    <span class="language-flag">🇯🇵</span>
+                    <span>日本語</span>
+                </div>
+                <div class="language-option" data-lang="en">
+                    <span class="language-flag">🇺🇸</span>
+                    <span>English</span>
+                </div>
+                <div class="language-option" data-lang="cn">
+                    <span class="language-flag">🇨🇳</span>
+                    <span>中文</span>
+                </div>
+                <div class="language-option" data-lang="ko">
+                    <span class="language-flag">🇰🇷</span>
+                    <span>한국어</span>
+                </div>
+                <div class="language-option" data-lang="fr">
+                    <span class="language-flag">🇫🇷</span>
+                    <span>Français</span>
+                </div>
+                <div class="language-option" data-lang="ge">
+                    <span class="language-flag">🇩🇪</span>
+                    <span>Deutsch</span>
+                </div>
+                <div class="language-option" data-lang="sp">
+                    <span class="language-flag">🇪🇸</span>
+                    <span>Español</span>
+                </div>
+                <div class="language-option" data-lang="ru">
+                    <span class="language-flag">🇷🇺</span>
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" data-lang="hi">
+                    <span class="language-flag">🇮🇳</span>
+                    <span>हिन्दी</span>
+                </div>
+                <div class="language-option" data-lang="po">
+                    <span class="language-flag">🇵🇹</span>
+                    <span>Português</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 data-i18n-key="privacy_title">プライバシーポリシー</h1>
+        <p class="last-updated" data-i18n-key="privacy_last_updated">最終更新日: 2025年6月4日</p>
+        
+        <p data-i18n-key="privacy_intro">VoiceLink AI Translator（以下「本アプリ」）をご利用いただき、ありがとうございます。本プライバシーポリシーは、本アプリがユーザーの個人情報をどのように収集、使用、保護するかについて説明します。</p>
+        
+        <h2 data-i18n-key="privacy_section1_title">1. 収集する情報</h2>
+        <h3 data-i18n-key="privacy_section1_1_title">1.1 音声データ</h3>
+        <ul>
+            <li data-i18n-key="privacy_section1_1_item1">音声認識機能のため、一時的に音声データを処理します</li>
+            <li data-i18n-key="privacy_section1_1_item2">音声データはデバイス上またはAppleのサーバーで処理され、永続的に保存されません</li>
+            <li data-i18n-key="privacy_section1_1_item3">翻訳処理完了後、音声データは自動的に削除されます</li>
+        </ul>
+        
+        <h3 data-i18n-key="privacy_section1_2_title">1.2 翻訳データ</h3>
+        <ul>
+            <li data-i18n-key="privacy_section1_2_item1">翻訳精度向上のため、匿名化された翻訳データを収集する場合があります</li>
+            <li data-i18n-key="privacy_section1_2_item2">個人を特定できる情報は含まれません</li>
+        </ul>
+        
+        <h3 data-i18n-key="privacy_section1_3_title">1.3 使用状況データ</h3>
+        <ul>
+            <li data-i18n-key="privacy_section1_3_item1">アプリの使用頻度、機能の利用状況</li>
+            <li data-i18n-key="privacy_section1_3_item2">クラッシュレポートやエラーログ</li>
+            <li data-i18n-key="privacy_section1_3_item3">デバイスの言語設定</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section2_title">2. 情報の使用目的</h2>
+        <ul data-i18n-key="privacy_section2_list">
+            <li>音声認識および翻訳サービスの提供</li>
+            <li>アプリの機能改善および新機能の開発</li>
+            <li>技術的问题の診断と解決</li>
+            <li>ユーザーサポートの提供</li>
+            <li>サブスクリプションサービスの管理</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section3_title">3. 第三者との情報共有</h2>
+        <p data-i18n-key="privacy_section3_intro">以下の場合を除き、ユーザーの個人情報を第三者と共有することはありません：</p>
+        <ul data-i18n-key="privacy_section3_list">
+            <li>法的要求がある場合</li>
+            <li>ユーザーの明示的な同意がある場合</li>
+            <li>サービス提供に必要な技術パートナー（暗号化された形で）</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section4_title">4. 使用される第三者サービス</h2>
+        <h3 data-i18n-key="privacy_section4_1_title">4.1 Google Gemini AI</h3>
+        <ul data-i18n-key="privacy_section4_1_list">
+            <li>翻訳処理にGoogle Gemini APIを使用します</li>
+            <li>送信されるデータは翻訳対象のテキストのみです</li>
+            <li>Google のプライバシーポリシーも適用されます</li>
+        </ul>
+        
+        <h3 data-i18n-key="privacy_section4_2_title">4.2 Apple Speech Framework</h3>
+        <ul data-i18n-key="privacy_section4_2_list">
+            <li>音声認識にAppleの音声認識サービスを使用します</li>
+            <li>Apple のプライバシーポリシーが適用されます</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section5_title">5. データの保存と削除</h2>
+        <ul data-i18n-key="privacy_section5_list">
+            <li>音声データ: 処理完了後即座に削除</li>
+            <li>翻訳履歴: ユーザーがアプリを削除するまでデバイス上に保存</li>
+            <li>使用状況データ: 匿名化され、統計目的でのみ使用</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section6_title">6. セキュリティ</h2>
+        <p data-i18n-key="privacy_section6_intro">ユーザーの情報を保護するため、以下のセキュリティ対策を実施しています：</p>
+        <ul data-i18n-key="privacy_section6_list">
+            <li>データ通信の暗号化（HTTPS/TLS）</li>
+            <li>最小限の情報収集原則</li>
+            <li>定期的なセキュリティ監査</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section7_title">7. ユーザーの権利</h2>
+        <p data-i18n-key="privacy_section7_intro">ユーザーは以下の権利を有します：</p>
+        <ul data-i18n-key="privacy_section7_list">
+            <li>個人情報の削除要求</li>
+            <li>データ収集の停止要求</li>
+            <li>収集されたデータの確認要求</li>
+        </ul>
+        
+        <h2 data-i18n-key="privacy_section8_title">8. 子どものプライバシー</h2>
+        <p data-i18n-key="privacy_section8_content">本アプリは13歳未満の子どもから故意に個人情報を収集しません。13歳未満の子どもの個人情報を収集したことが判明した場合、速やかに削除いたします。</p>
+        
+        <h2 data-i18n-key="privacy_section9_title">9. ポリシーの変更</h2>
+        <p data-i18n-key="privacy_section9_content">本プライバシーポリシーは必要に応じて更新される場合があります。重要な変更がある場合は、アプリ内またはこのページで通知いたします。</p>
+        
+        <div class="contact-info">
+            <p data-i18n-key="privacy_contact_intro">本プライバシーポリシーに関するご質問やご不明な点がございましたら、以下までお問い合わせください：</p>
+            <p><strong data-i18n-key="privacy_contact_email_label">Email:</strong> <span data-i18n-key="privacy_contact_email">trailfusionai@gmail.com</span></p>
+            <p><strong data-i18n-key="privacy_contact_support_label">サポートページ:</strong> <a href="https://hiroakiyasa.github.io/support/" target="_blank" data-i18n-key="privacy_contact_support_url">https://hiroakiyasa.github.io/support/</a></p>
+        </div>
+    </div>
+
+    <script>
+        // ===== 多言語対応機能 =====
+        let currentTranslations = {};
+        let currentLanguage = 'ja';
+
+        // 言語設定マップ
+        const languageConfig = {
+            ja: { name: '日本語', flag: '🇯🇵' },
+            en: { name: 'English', flag: '🇺🇸' },
+            cn: { name: '中文', flag: '🇨🇳' },
+            ko: { name: '한국어', flag: '🇰🇷' },
+            fr: { name: 'Français', flag: '🇫🇷' },
+            ge: { name: 'Deutsch', flag: '🇩🇪' },
+            sp: { name: 'Español', flag: '🇪🇸' },
+            ru: { name: 'Русский', flag: '🇷🇺' },
+            hi: { name: 'हिन्दी', flag: '🇮🇳' },
+            po: { name: 'Português', flag: '🇵🇹' }
+        };
+
+        // JSONファイルから翻訳データを読み込む
+        async function loadTranslations(language) {
+            try {
+                const response = await fetch(`locales/${language}.json`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const translations = await response.json();
+                return translations;
+            } catch (error) {
+                console.error(`翻訳ファイル (${language}.json) の読み込みに失敗しました:`, error);
+                return {}; // エラー時は空のオブジェクトを返す
+            }
+        }
+
+        // UIを指定言語で更新
+        function updateUI(translations) {
+            // data-i18n-key属性を持つすべての要素を更新
+            document.querySelectorAll('[data-i18n-key]').forEach(element => {
+                const key = element.getAttribute('data-i18n-key');
+                if (translations[key] !== undefined) { // キーが存在するかチェック
+                    if (element.tagName === 'A' && key.endsWith('_url')) {
+                         // URLの場合はhref属性も更新することがあるかもしれないが、今回はテキストのみ
+                        if (typeof translations[key] === 'string' && !translations[key].startsWith('http')) {
+                             // URLではなく、リンクテキストの場合
+                            element.innerHTML = translations[key];
+                        } else if (typeof translations[key] === 'string') {
+                            // URL自体がキーになっている場合（例: privacy_contact_support_url）
+                            element.textContent = translations[key]; // URLをテキストとして表示
+                        }
+                    } else if (Array.isArray(translations[key])) {
+                        // リスト形式の場合
+                        element.innerHTML = translations[key].map(item => `<li>${item}</li>`).join('');
+                    } else {
+                        element.innerHTML = translations[key];
+                    }
+                } else {
+                    // console.warn(`翻訳キーが見つかりません: ${key}`);
+                }
+            });
+
+            // ページタイトルも更新
+            if (translations.privacy_page_title) {
+                document.title = translations.privacy_page_title;
+            }
+             // HTML lang属性を更新
+            document.documentElement.lang = currentLanguage;
+        }
+
+        // 言語を切り替える
+        async function switchLanguage(language) {
+            const translations = await loadTranslations(language);
+            if (Object.keys(translations).length > 0) {
+                currentTranslations = translations;
+                currentLanguage = language;
+                updateUI(translations);
+                
+                // 言語選択UIを更新
+                updateLanguageUI(language);
+                
+                // ローカルストレージに保存
+                localStorage.setItem('selectedLanguage', language);
+            } else {
+                console.warn(`言語 ${language} の翻訳データが空です。UIは更新されません。`);
+                // フォールバック言語（例: 英語や日本語）に切り替えるか、エラー表示を検討
+            }
+        }
+
+        // 言語選択UIを更新
+        function updateLanguageUI(language) {
+            const config = languageConfig[language];
+            if (config) {
+                document.getElementById('current-language').textContent = config.name;
+                
+                // アクティブな言語オプションを更新
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.classList.remove('active');
+                    if (option.dataset.lang === language) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        // ブラウザの言語設定から初期言語を決定
+        function getInitialLanguage() {
+            const saved = localStorage.getItem('selectedLanguage');
+            if (saved && languageConfig[saved]) {
+                return saved;
+            }
+            
+            const browserLang = navigator.language.toLowerCase();
+            if (browserLang.startsWith('ja')) return 'ja'; // 日本語を優先する場合
+            if (browserLang.startsWith('en')) return 'en';
+            if (browserLang.startsWith('zh-cn') || browserLang === 'zh') return 'cn'; // 中国語（簡体字）
+            if (browserLang.startsWith('ko')) return 'ko';
+            if (browserLang.startsWith('fr')) return 'fr';
+            if (browserLang.startsWith('de')) return 'ge';
+            if (browserLang.startsWith('es')) return 'sp';
+            if (browserLang.startsWith('ru')) return 'ru';
+            if (browserLang.startsWith('hi')) return 'hi';
+            if (browserLang.startsWith('pt')) return 'po';
+            
+            return 'ja'; // デフォルト
+        }
+
+        // イベントリスナーの設定
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 言語切り替えイベント
+            const languageToggle = document.getElementById('language-toggle');
+            const languageDropdown = document.getElementById('language-dropdown');
+            
+            languageToggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // ドキュメントへのクリック伝播を止める
+                languageDropdown.classList.toggle('show');
+            });
+            
+            // 言語オプションクリックイベント
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    const lang = option.dataset.lang;
+                    switchLanguage(lang);
+                    languageDropdown.classList.remove('show');
+                });
+            });
+            
+            // 外側クリックでドロップダウンを閉じる
+            document.addEventListener('click', (e) => {
+                if (languageDropdown.classList.contains('show') && !languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            });
+            
+            // 初期言語の設定
+            const initialLanguage = getInitialLanguage();
+            await switchLanguage(initialLanguage);
+        });
+    </script>
+</body>
+</html>
