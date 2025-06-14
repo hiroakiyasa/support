@@ -137,4 +137,182 @@ window.addEventListener('resize', () => {
         navMenu.classList.remove('active');
         mobileMenu.classList.remove('active');
     }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // --- START ENHANCED TIKTOK PLAYER LOGIC ---
+    class TikTokAutoPlayer {
+        constructor() {
+            this.videos = [];
+            this.currentIndex = 0;
+            this.autoPlayInterval = null;
+            this.isAutoPlaying = false;
+            this.hoverPaused = false;
+            this.currentlyPlayingVideo = null;
+            this.videoPlayDuration = 8000; // 8 seconds per video
+            
+            this.init();
+        }
+        
+        init() {
+            this.setupVideoElements();
+            this.setupEventListeners();
+            this.startAutoPlay();
+        }
+        
+        setupVideoElements() {
+            const videoItems = document.querySelectorAll('#vanlife-videos .video-item');
+            
+            videoItems.forEach((item, index) => {
+                const iframe = item.querySelector('iframe[src*="tiktok.com"]');
+                if (iframe) {
+                    const originalSrc = iframe.getAttribute('src');
+                    if (originalSrc && originalSrc.includes('tiktok.com/embed')) {
+                        // Ensure autoplay and unmuted for active videos
+                        const unmutedSrc = originalSrc.replace('muted=1', 'muted=0').replace('autoplay=0', 'autoplay=1');
+                        const mutedSrc = originalSrc.replace('muted=0', 'muted=1').replace('autoplay=1', 'autoplay=0');
+                        
+                        iframe.setAttribute('data-unmuted-src', unmutedSrc);
+                        iframe.setAttribute('data-muted-src', mutedSrc);
+                        iframe.setAttribute('data-video-index', index);
+                        
+                        // Initially mute all videos except the first one
+                        if (index === 0) {
+                            iframe.src = unmutedSrc;
+                        } else {
+                            iframe.src = mutedSrc;
+                        }
+                        
+                        this.videos.push({
+                            iframe: iframe,
+                            item: item,
+                            index: index
+                        });
+                    }
+                }
+            });
+        }
+        
+        setupEventListeners() {
+            this.videos.forEach((video) => {
+                // Mouse hover events
+                video.item.addEventListener('mouseenter', () => {
+                    this.onVideoHover(video.index);
+                });
+                
+                video.item.addEventListener('mouseleave', () => {
+                    this.onVideoLeave(video.index);
+                });
+            });
+        }
+        
+        onVideoHover(index) {
+            this.hoverPaused = true;
+            this.pauseAutoPlay();
+            this.playSpecificVideo(index);
+            this.addPlayingEffect(index);
+        }
+        
+        onVideoLeave(index) {
+            this.hoverPaused = false;
+            this.removePlayingEffect(index);
+            
+            // Resume auto-play after a short delay
+            setTimeout(() => {
+                if (!this.hoverPaused) {
+                    this.startAutoPlay();
+                }
+            }, 1000);
+        }
+        
+        startAutoPlay() {
+            if (this.hoverPaused || this.isAutoPlaying) return;
+            
+            this.isAutoPlaying = true;
+            this.playCurrentVideo();
+            
+            // Set interval to automatically move to next video
+            this.autoPlayInterval = setInterval(() => {
+                if (!this.hoverPaused) {
+                    this.nextVideo();
+                }
+            }, this.videoPlayDuration);
+        }
+        
+        pauseAutoPlay() {
+            this.isAutoPlaying = false;
+            if (this.autoPlayInterval) {
+                clearInterval(this.autoPlayInterval);
+                this.autoPlayInterval = null;
+            }
+        }
+        
+        playCurrentVideo() {
+            this.playSpecificVideo(this.currentIndex);
+            this.addPlayingEffect(this.currentIndex);
+        }
+        
+        playSpecificVideo(index) {
+            // Mute all other videos
+            this.videos.forEach((video, i) => {
+                if (i !== index) {
+                    this.muteVideo(i);
+                    this.removePlayingEffect(i);
+                }
+            });
+            
+            // Unmute and play the target video
+            this.unmuteVideo(index);
+            this.currentlyPlayingVideo = this.videos[index];
+        }
+        
+        nextVideo() {
+            this.removePlayingEffect(this.currentIndex);
+            this.muteVideo(this.currentIndex);
+            
+            this.currentIndex = (this.currentIndex + 1) % this.videos.length;
+            this.playCurrentVideo();
+        }
+        
+        unmuteVideo(index) {
+            const video = this.videos[index];
+            if (video && video.iframe) {
+                video.iframe.src = video.iframe.getAttribute('data-unmuted-src');
+            }
+        }
+        
+        muteVideo(index) {
+            const video = this.videos[index];
+            if (video && video.iframe) {
+                video.iframe.src = video.iframe.getAttribute('data-muted-src');
+            }
+        }
+        
+        addPlayingEffect(index) {
+            const video = this.videos[index];
+            if (video) {
+                video.item.classList.add('video-playing');
+                video.item.style.transform = 'scale(1.02)';
+                video.item.style.boxShadow = '0 0 30px rgba(255, 0, 80, 0.6), 0 0 60px rgba(255, 0, 80, 0.4)';
+                video.item.style.border = '2px solid #ff0050';
+                video.item.style.transition = 'all 0.3s ease';
+            }
+        }
+        
+        removePlayingEffect(index) {
+            const video = this.videos[index];
+            if (video) {
+                video.item.classList.remove('video-playing');
+                video.item.style.transform = '';
+                video.item.style.boxShadow = '';
+                video.item.style.border = '';
+            }
+        }
+    }
+    
+    // Initialize the enhanced TikTok player after DOM loads
+    setTimeout(() => {
+        new TikTokAutoPlayer();
+    }, 1000);
+    // --- END ENHANCED TIKTOK PLAYER LOGIC ---
 }); 
