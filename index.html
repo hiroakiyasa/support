@@ -1783,9 +1783,1020 @@ layout: null
     .vanlife-hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+
+    /* ========================
+       PREMIUM VANLIFE STYLES 
+    ======================== */
+    
+    .premium-vanlife-hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Animated Background Elements */
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    .floating-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: float 20s linear infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-20px) translateX(10px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+    
+    .gradient-orbs {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+    
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, rgba(255, 107, 107, 0.3), rgba(255, 142, 83, 0.3));
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(45deg, rgba(72, 85, 99, 0.3), rgba(41, 50, 65, 0.3));
+      top: 50%;
+      right: 20%;
+      animation-delay: -10s;
+    }
+    
+    .orb-3 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, rgba(139, 92, 246, 0.4), rgba(59, 130, 246, 0.4));
+      bottom: 20%;
+      left: 30%;
+      animation-delay: -5s;
+    }
+    
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(180deg); }
+    }
+    
+    /* Premium Hero Content */
+    .premium-hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1400px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+      align-items: center;
+    }
+    
+    .hero-text-section {
+      padding: 2rem 0;
+    }
+    
+    .premium-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .badge-icon {
+      font-size: 1.2rem;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.2) rotate(180deg); }
+    }
+    
+    .premium-title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 25%, #dbeafe 50%, #93c5fd 75%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    
+    .title-highlight {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    
+    .title-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      border-radius: 2px;
+      animation: underlineGlow 3s ease-in-out infinite;
+    }
+    
+    @keyframes underlineGlow {
+      0%, 100% { opacity: 0.7; transform: scaleX(1); }
+      50% { opacity: 1; transform: scaleX(1.05); }
+    }
+    
+    .premium-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+    
+    .highlight-text {
+      color: #fbbf24;
+      font-weight: 600;
+      position: relative;
+    }
+    
+    /* Premium Stats */
+    .premium-stats {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Premium Buttons */
+    .premium-cta-section {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .premium-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .premium-btn.primary {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    }
+    
+    .premium-btn.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    
+    .premium-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+    }
+    
+    .premium-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+    }
+    
+    .btn-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .btn-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .premium-btn.primary:hover .btn-glow {
+      opacity: 1;
+    }
+    
+    /* Visual Showcase */
+    .hero-visual-section {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .visual-showcase {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .main-showcase {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    
+    .showcase-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+    }
+    
+    .showcase-image {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .showcase-frame:hover .showcase-image {
+      transform: scale(1.05);
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 0.5rem 1rem;
+    }
+    
+    .overlay-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #059669;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .showcase-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 120%;
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(139, 92, 246, 0.2));
+      border-radius: 50%;
+      filter: blur(60px);
+      transform: translate(-50%, -50%);
+      animation: glowPulse 4s ease-in-out infinite;
+      z-index: -1;
+    }
+    
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+    }
+    
+    /* Floating Feature Cards */
+    .floating-features {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .feature-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
+      z-index: 20;
+    }
+    
+    .card-1 {
+      top: 15%;
+      right: 2%;
+      animation: cardFloat 6s ease-in-out infinite;
+    }
+    
+    .card-2 {
+      top: 45%;
+      left: 2%;
+      animation: cardFloat 6s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+    
+    .card-3 {
+      bottom: 25%;
+      right: 5%;
+      animation: cardFloat 6s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+    
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.25rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-desc {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      animation: bounceGently 2s ease-in-out infinite;
+    }
+    
+    @keyframes bounceGently {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+    
+    .scroll-mouse {
+      width: 24px;
+      height: 40px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+      position: relative;
+    }
+    
+    .scroll-wheel {
+      width: 4px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scrollWheel 2s ease-in-out infinite;
+    }
+    
+    @keyframes scrollWheel {
+      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(16px); }
+    }
+    
+    .scroll-text {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .premium-hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      
+      .floating-features {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      
+      .feature-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+      }
+      
+      .premium-stats {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .premium-vanlife-hero {
+        padding: 2rem 1rem;
+      }
+      
+      .premium-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+      }
+      
+      .premium-stats {
+        gap: 1.5rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .premium-cta-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .premium-btn {
+        width: 100%;
+        justify-content: center;
+        max-width: 300px;
+      }
+    }
     
     .vanlife-btn {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    }
+
+    /* ========================
+       PREMIUM GALLERY STYLES 
+    ======================== */
+    
+    .premium-gallery-section {
+      position: relative;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+    
+    .gallery-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .premium-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 25px 30px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 50px 70px, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1px 1px at 125px 40px, rgba(255,255,255,0.4), transparent);
+      background-repeat: repeat;
+      background-size: 150px 100px;
+      animation: particleFloat 25s linear infinite;
+    }
+    
+    @keyframes particleFloat {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-25px) translateX(15px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+    
+    .gallery-gradient-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 70%);
+    }
+    
+    .premium-gallery-container {
+      position: relative;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      z-index: 10;
+    }
+    
+    .premium-gallery-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .gallery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .badge-icon {
+      font-size: 1.5rem;
+      animation: photoSparkle 3s ease-in-out infinite;
+    }
+    
+    @keyframes photoSparkle {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.1) rotate(180deg); }
+    }
+    
+    .gallery-main-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 25%, #c7d2fe 50%, #a5b4fc 75%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .title-accent {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    
+    .title-accent::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+      border-radius: 2px;
+      animation: titleGlow 4s ease-in-out infinite;
+    }
+    
+    @keyframes titleGlow {
+      0%, 100% { opacity: 0.7; transform: scaleX(1); }
+      50% { opacity: 1; transform: scaleX(1.1); }
+    }
+    
+    .gallery-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .gallery-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    
+    .gallery-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.75rem 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.875rem;
+    }
+    
+    .gallery-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .gallery-nav-btn.active {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      color: white;
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    }
+    
+    .nav-icon {
+      font-size: 1.1rem;
+    }
+    
+    .premium-interactive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .luxury-photo-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .luxury-photo-card.large {
+      grid-column: span 2;
+      min-height: 400px;
+    }
+    
+    .luxury-photo-card.xlarge {
+      grid-column: span 3;
+      min-height: 500px;
+    }
+    
+    .luxury-photo-card.medium {
+      min-height: 300px;
+    }
+    
+    .luxury-photo-card.small {
+      min-height: 250px;
+    }
+    
+    .photo-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .luxury-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .luxury-photo-card:hover .luxury-image {
+      transform: scale(1.1);
+    }
+    
+    .luxury-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .luxury-photo-card:hover .luxury-overlay {
+      opacity: 1;
+    }
+    
+    .overlay-content {
+      position: relative;
+      z-index: 10;
+    }
+    
+    .photo-category {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 6px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    
+    .photo-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    
+    .photo-description {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    
+    .photo-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .hover-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+    
+    .luxury-photo-card:hover .hover-glow {
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+    
+    .gallery-stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .gallery-stats-bar .stat-item {
+      text-align: center;
+    }
+    
+    .gallery-stats-bar .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .gallery-stats-bar .stat-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Luxury Photo Grid Layout */
+    .luxury-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 20px;
+      padding: 40px 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .luxury-photo-grid .luxury-photo-card.xlarge {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .luxury-photo-grid .luxury-photo-card.large {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+
+    .luxury-photo-grid .luxury-photo-card.medium {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    .luxury-photo-grid .luxury-photo-card.small {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    /* Mega TikTok Button Styles */
+    .mega-tiktok-btn {
+      transform: scale(1.3) !important;
+      background: linear-gradient(135deg, #ff0050 0%, #ff4081 25%, #000000 50%, #ff0050 75%, #ff4081 100%) !important;
+      border: 3px solid #ff0050 !important;
+      box-shadow: 0 0 30px rgba(255, 0, 80, 0.6), 0 0 60px rgba(255, 0, 80, 0.4) !important;
+      animation: megaTikTokPulse 2s ease-in-out infinite !important;
+      position: relative !important;
+      font-size: 1.1em !important;
+      font-weight: 700 !important;
+    }
+
+    .mega-tiktok-btn:hover {
+      transform: scale(1.4) !important;
+      box-shadow: 0 0 40px rgba(255, 0, 80, 0.8), 0 0 80px rgba(255, 0, 80, 0.6) !important;
+    }
+
+    .mega-tiktok-btn .btn-glow {
+      background: radial-gradient(circle, rgba(255, 0, 80, 0.4) 0%, transparent 70%) !important;
+      animation: megaTikTokGlow 2s ease-in-out infinite !important;
+    }
+
+    @keyframes megaTikTokPulse {
+      0%, 100% { 
+        box-shadow: 0 0 30px rgba(255, 0, 80, 0.6), 0 0 60px rgba(255, 0, 80, 0.4);
+        border-color: #ff0050;
+      }
+      50% { 
+        box-shadow: 0 0 50px rgba(255, 0, 80, 0.8), 0 0 100px rgba(255, 0, 80, 0.6);
+        border-color: #ff4081;
+      }
+    }
+
+    @keyframes megaTikTokGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    
+    /* Gallery Responsive Design */
+    @media (max-width: 1200px) {
+      .luxury-photo-card.xlarge,
+      .luxury-photo-card.large {
+        grid-column: span 2;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .premium-gallery-section {
+        padding: 3rem 0;
+      }
+      
+      .premium-interactive-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .luxury-photo-card.xlarge,
+      .luxury-photo-card.large,
+      .luxury-photo-card.medium,
+      .luxury-photo-card.small {
+        grid-column: span 1;
+        min-height: 250px;
+      }
+      
+      .gallery-stats-bar {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+      }
+      
+      .gallery-nav {
+        gap: 0.5rem;
+      }
+      
+      .gallery-nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
     }
     
     .vanlife-btn.secondary {
@@ -2551,16 +3562,21 @@ layout: null
     }
 
     .video-item {
-      background: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 80px rgba(99, 102, 241, 0.2);
       overflow: hidden;
       transition: all var(--transition-normal);
+      position: relative;
     }
 
     .video-item:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 120px rgba(99, 102, 241, 0.4);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .video-wrapper {
@@ -2652,14 +3668,17 @@ layout: null
 
     .video-info h3 {
       font-size: var(--fs-xl);
-      color: var(--primary-color);
+      color: #ffffff;
       margin-bottom: var(--spacing-2);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-weight: 600;
     }
 
     .video-info p {
-      color: var(--text-muted);
+      color: rgba(255, 255, 255, 0.85);
       font-size: var(--fs-base);
       line-height: 1.6;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     /* 動画ボタンスタイル */
@@ -4139,40 +5158,132 @@ layout: null
 
       <!-- バンライフセクション -->
       <div id="vanlife-section" class="main-section">
-        <!-- ヒーローセクション -->
-        <section class="hero vanlife-hero">
-          <div class="hero-content">
-            <h1 data-aos="fade-down" data-i18n-key="vanlife_hero_title">ハイエースキャンピングカーDIY</h1>
-            <p data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_hero_desc">初心者でも作れる！中古ハイエースを本格キャンピングカーに大変身。DIY制作過程をすべて公開中。</p>
-            <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="200">
-              <a href="https://www.youtube.com/@van_oasis" class="download-btn vanlife-btn" target="_blank">
-                <i class="fab fa-youtube"></i> <span data-i18n-key="view_youtube">YouTubeで見る</span>
-              </a>
-              <a href="https://www.tiktok.com/@trailfusionai" class="download-btn vanlife-btn secondary" target="_blank">
-                <i class="fab fa-tiktok"></i> <span data-i18n-key="view_tiktok">TikTokで見る</span>
-              </a>
+        <!-- Premium Vanlife Hero Section -->
+        <section class="premium-vanlife-hero">
+          <!-- Animated Background -->
+          <div class="hero-background">
+            <div class="floating-particles"></div>
+            <div class="gradient-orbs">
+              <div class="orb orb-1"></div>
+              <div class="orb orb-2"></div>
+              <div class="orb orb-3"></div>
             </div>
-            <div class="vanlife-screens">
-              <div class="vanlife-screen" data-aos="fade-right" data-aos-delay="300">
-                <img src="images/van_exterior.jpg" alt="完成したハイエースキャンピングカー外観" data-i18n-alt-key="vanlife_alt_exterior" onerror="this.style.display='none'">
-                <div class="screen-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                  <i class="fas fa-truck" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                  <span>外観完成画像</span>
+          </div>
+          
+          <!-- Hero Content -->
+          <div class="premium-hero-content">
+            <div class="hero-text-section" data-aos="fade-up" data-aos-duration="1000">
+              <div class="premium-badge" data-aos="fade-down" data-aos-delay="200">
+                <span class="badge-icon">✨</span>
+                <span data-i18n-key="vanlife_premium_badge">PREMIUM VANLIFE JOURNEY</span>
+              </div>
+              
+              <h1 class="premium-title" data-aos="fade-up" data-aos-delay="400" data-i18n-key="vanlife_hero_title">
+                ハイエース<span class="title-highlight">キャンピングカー</span>DIY
+              </h1>
+              
+              <p class="premium-subtitle" data-aos="fade-up" data-aos-delay="600" data-i18n-key="vanlife_hero_desc">
+                初心者でも作れる！中古ハイエースを本格キャンピングカーに大変身。<br>
+                <span class="highlight-text">DIY制作過程をすべて公開中。</span>
+              </p>
+              
+              <!-- Premium Stats -->
+              <div class="premium-stats" data-aos="fade-up" data-aos-delay="800">
+                <div class="stat-item">
+                  <div class="stat-number">
+                    <span class="counter" data-target="100">0</span>%
+                  </div>
+                  <div class="stat-label" data-i18n-key="vanlife_stat_complete">完成度</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">
+                    <span class="counter" data-target="50">0</span>+
+                  </div>
+                  <div class="stat-label" data-i18n-key="vanlife_stat_videos">動画投稿</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">
+                    <span class="counter" data-target="12">0</span>ヶ月
+                  </div>
+                  <div class="stat-label" data-i18n-key="vanlife_stat_duration">制作期間</div>
                 </div>
               </div>
-              <div class="vanlife-screen" data-aos="fade-left" data-aos-delay="300">
-                <img src="images/van_interior.jpg" alt="ハイエースキャンピングカー内装" data-i18n-alt-key="vanlife_alt_interior" onerror="this.style.display='none'">
-                <div class="screen-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; flex-direction: column;">
-                  <i class="fas fa-home" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                  <span>内装完成画像</span>
+              
+              <!-- Premium CTAs -->
+              <div class="premium-cta-section" data-aos="zoom-in" data-aos-delay="1000">
+                <a href="https://www.tiktok.com/@trailfusionai" class="premium-btn primary mega-tiktok-btn" target="_blank">
+                  <span class="btn-content">
+                    <i class="fab fa-tiktok"></i>
+                    <span data-i18n-key="view_tiktok">📱 TikTokで見る</span>
+                  </span>
+                  <div class="btn-glow"></div>
+                </a>
+                <a href="https://www.youtube.com/@van_oasis" class="premium-btn secondary" target="_blank">
+                  <span class="btn-content">
+                    <i class="fab fa-youtube"></i>
+                    <span data-i18n-key="view_youtube">制作過程を見る</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Premium Visual Section -->
+            <div class="hero-visual-section" data-aos="fade-left" data-aos-delay="600">
+              <div class="visual-showcase">
+                <!-- Main Feature Image -->
+                <div class="main-showcase" data-aos="zoom-in" data-aos-delay="800">
+                  <div class="showcase-frame">
+                    <img src="camper/camper_exterior_countryside.png" alt="ハイエースキャンピングカー完成" class="showcase-image" onerror="this.src='camper/camper_blue_sky_fields.png'">
+                    <div class="image-overlay">
+                      <div class="overlay-content">
+                        <span class="overlay-badge">COMPLETED</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="showcase-glow"></div>
+                </div>
+                
+                <!-- Floating Feature Cards -->
+                <div class="floating-features">
+                  <div class="feature-card card-1" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="feature-icon">🏠</div>
+                    <div class="feature-text">
+                      <div class="feature-title" data-i18n-key="vanlife_feature_interior">完全内装</div>
+                      <div class="feature-desc" data-i18n-key="vanlife_feature_interior_desc">機能性抜群</div>
+                    </div>
+                  </div>
+                  
+                  <div class="feature-card card-2" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text">
+                      <div class="feature-title" data-i18n-key="vanlife_feature_solar">ソーラー電源</div>
+                      <div class="feature-desc" data-i18n-key="vanlife_feature_solar_desc">完全自給自足</div>
+                    </div>
+                  </div>
+                  
+                  <div class="feature-card card-3" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="feature-icon">🚐</div>
+                    <div class="feature-text">
+                      <div class="feature-title" data-i18n-key="vanlife_feature_mobile">移動オフィス</div>
+                      <div class="feature-desc" data-i18n-key="vanlife_feature_mobile_desc">どこでも仕事</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator" data-aos="bounce" data-aos-delay="2000">
+            <div class="scroll-mouse">
+              <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text" data-i18n-key="scroll_discover">スクロールして詳細を見る</span>
+          </div>
         </section>
 
         <!-- YouTube動画セクション -->
-        <section id="vanlife-videos" class="section section-gray">
+        <section id="vanlife-videos" class="section" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite;">
           <div class="container">
             <div class="section-title">
               <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="video_badge">TikTok動画</span>
@@ -4527,251 +5638,288 @@ layout: null
           </div>
         </section>
 
-        <!-- 写真ギャラリーセクション -->
-        <section id="diy-gallery" class="section section-white">
-          <div class="container">
-            <div class="section-title">
-              <span class="badge badge-primary" data-aos="fade-up">制作ギャラリー</span>
-              <h2 data-aos="fade-up" data-aos-delay="100">ハイエースDIY 完全制作記録</h2>
-              <p data-aos="fade-up" data-aos-delay="200">購入から完成まで、すべての工程を写真で詳しく解説。初心者でも安心して取り組める具体的な手順をご紹介します。</p>
+        <!-- Premium Photo Gallery Section -->
+        <section id="diy-gallery" class="premium-gallery-section">
+          <!-- Gallery Background with Particles -->
+          <div class="gallery-background">
+            <div class="premium-particles"></div>
+            <div class="gallery-gradient-overlay"></div>
+          </div>
+          
+          <div class="premium-gallery-container">
+            <!-- Premium Section Header -->
+            <div class="premium-gallery-header" data-aos="fade-up">
+              <div class="gallery-badge">
+                <span class="badge-icon">📸</span>
+                <span>PREMIUM GALLERY</span>
+              </div>
+              <h2 class="gallery-main-title">
+                ハイエースDIY <span class="title-accent">完全制作記録</span>
+              </h2>
+              <p class="gallery-subtitle">
+                購入から完成まで、すべての工程を美しい写真で詳しく解説。<br>
+                <span class="highlight-text">初心者でも安心して取り組める具体的な手順をご紹介</span>
+              </p>
+              
+              <!-- Gallery Navigation -->
+              <div class="gallery-nav" data-aos="fade-up" data-aos-delay="300">
+                <button class="gallery-nav-btn active" data-category="all">
+                  <span class="nav-icon">🌟</span>
+                  <span>すべて</span>
+                </button>
+                <button class="gallery-nav-btn" data-category="interior">
+                  <span class="nav-icon">🏠</span>
+                  <span>室内空間</span>
+                </button>
+                <button class="gallery-nav-btn" data-category="travel">
+                  <span class="nav-icon">🌄</span>
+                  <span>旅の風景</span>
+                </button>
+                <button class="gallery-nav-btn" data-category="system">
+                  <span class="nav-icon">⚡</span>
+                  <span>システム</span>
+                </button>
+              </div>
             </div>
 
 
 
 
 
-               <!-- 新しい生活スタイルギャラリー -->
-               <div class="lifestyle-new-gallery" data-aos="fade-up" data-aos-delay="600">
-                 <h3 class="gallery-section-title">🏠 室内空間・生活スタイル</h3>
-                 <div class="photo-grid">
-                   <div class="photo-item" data-aos="zoom-in">
-                     <img src="camper/camper_interior_dining（大）.jpeg" alt="ファミリーダイニングスペース" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>ファミリーダイニング</h4>
-                       <p>木目調の温かい内装と広々テーブル。家族での食事や子供の遊び場に最適。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                     <img src="camper/camper_interior_bed_area（大）.jpeg" alt="快適なベッドルーム" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>快適ベッドルーム</h4>
-                       <p>子供たちの特別空間。柔らかなマットレスと大きな窓から美しい景色を楽しめる。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                     <img src="camper/camper_interior_popup_roof（大）.jpeg" alt="ポップアップルーフの開放感" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>ポップアップルーフ</h4>
-                       <p>驚きの開放感とLED照明システム。家族全員がくつろげる居住空間。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                     <img src="camper/camper_entertainment_system（大）.jpeg" alt="充実のエンターテイメント設備" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>エンターテイメント設備</h4>
-                       <p>高品質モニターとサウンドシステム。雨の日も家族で楽しく過ごせる。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="400">
-                     <img src="camper/camper_kitchen_area（大）.jpeg" alt="機能的なキッチンスペース" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>機能的キッチン</h4>
-                       <p>コンパクトながら本格調理が可能。子供でも安全に使える設計。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="500">
-                     <img src="camper/camper_sleeping_arrangement（大）.jpeg" alt="家族全員の安らかな眠り" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>安らかな眠り</h4>
-                       <p>広々ベッドスペースで家族全員が快適に。木の香りに包まれた特別な夜。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="600">
-                     <img src="camper/camper_kitchen_equipment（大）.jpeg" alt="充実の調理用品" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>充実の調理用品</h4>
-                       <p>電気ケトル、コーヒー、ミネラルウォーター完備。どこでも快適な食事準備。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="700">
-                     <img src="camper/camper_bunk_bed_layout（大）.jpeg" alt="二段ベッドでスペースを最大活用" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>二段ベッドレイアウト</h4>
-                       <p>上下二段設計で空間を効率活用。子供たちの秘密基地のような特別感。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="800">
-                     <img src="camper/camper_mobile_office（大）.jpeg" alt="移動式オフィスとしての新しい働き方" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>移動式オフィス</h4>
-                       <p>好きな場所で仕事ができる自由なワークスタイル。創造性豊かな環境。</p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
+            <!-- Premium Luxury Interactive Photo Grid -->
+            <div class="luxury-photo-grid" data-aos="fade-up" data-aos-delay="500">
+              
+              <!-- XLarge Feature Card -->
+              <div class="luxury-photo-card xlarge" data-category="interior" data-aos="zoom-in" data-aos-delay="100">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_interior_dining（大）.jpeg" alt="ファミリーダイニングスペース" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">INTERIOR DESIGN</div>
+                    <h3 class="photo-title">ファミリーダイニング</h3>
+                    <p class="photo-description">木目調の温かい内装と広々テーブル。家族での食事や子供の遊び場に最適な設計。</p>
+                    <div class="photo-stats">
+                      <span class="stat-item"><i class="fas fa-users"></i> 4人対応</span>
+                      <span class="stat-item"><i class="fas fa-heart"></i> 98%満足度</span>
+                    </div>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
 
-               <!-- 旅の風景ギャラリー -->
-               <div class="travel-scenery-gallery" data-aos="fade-up" data-aos-delay="700">
-                 <h3 class="gallery-section-title">🌄 旅の風景・絶景スポット</h3>
-                 <div class="photo-grid">
-                   <div class="photo-item" data-aos="zoom-in">
-                     <img src="camper/camper_exterior_countryside（大）.jpeg" alt="日本の美しい風景に映える外観" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>田園風景に映える外観</h4>
-                       <p>清潔感あふれる白いボディが日本の田園風景に美しく溶け込む。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                     <img src="camper/camper_seaside_sunset（大）.jpeg" alt="海辺でのロマンチックな夕暮れ" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>海辺の夕暮れ</h4>
-                       <p>波の音を聞きながら美しいサンセットを楽しむ贅沢な時間。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                     <img src="camper/camper_countryside_sunset（大）.jpeg" alt="田園風景に映える夕焼け空" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>田園の夕焼け</h4>
-                       <p>燃えるような夕焼け空と田園風景。日本の美しい田舎道を旅する醍醐味。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="300">
-                     <img src="camper/camper_blue_sky_fields（大）.jpeg" alt="抜けるような青空と緑の大地" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>青空と緑の大地</h4>
-                       <p>雲ひとつない青空の下、広大な農地で心身ともにリフレッシュ。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="400">
-                     <img src="camper/camper_vast_farmland（大）.jpeg" alt="地平線まで続く広大な景色" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>広大な農地</h4>
-                       <p>見渡す限りの農地と雄大な空。季節ごとに変化する風景を楽しめる。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="500">
-                     <img src="camper/camper_dramatic_sky（大）.jpeg" alt="ドラマチックな空と大地のコントラスト" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>ドラマチックな空</h4>
-                       <p>麦畑と劇的な雲が創り出す自然のアート。映画のような美しい風景。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="600">
-                     <img src="camper/camper_mount_fuji_view（大）.jpeg" alt="雄大な富士山を望む絶景ポイント" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>富士山の絶景</h4>
-                       <p>日本の象徴である富士山を背景に。この絶景を独占できる贅沢。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="700">
-                     <img src="camper/camper_snow_village（大）.jpeg" alt="雪景色の伝統的な村での冬旅" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>雪景色の伝統村</h4>
-                       <p>合掌造りの美しい村での冬旅。四季を通じた旅の魅力を実感。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="800">
-                     <img src="camper/camper_lighthouse_visit（大）.jpeg" alt="歴史ある灯台との共演" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>灯台との共演</h4>
-                       <p>真っ白な灯台を背景にした海辺での記念撮影。歴史ある観光スポットへのアクセスも楽々。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="900">
-                     <img src="camper/camper_museum_entrance（大）.jpeg" alt="歴史探訪の旅にも最適" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>歴史探訪の旅</h4>
-                       <p>網走監獄など歴史的観光施設への訪問も自由自在。教育的な家族旅行にも最適。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1000">
-                     <img src="camper/camper_moai_statue_park（大）.jpeg" alt="ユニークな観光スポットでの記念撮影" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>モアイ像との記念撮影</h4>
-                       <p>青空と緑の芝生が美しいコントラスト。まるで海外旅行のような非日常体験。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1100">
-                     <img src="camper/camper_moai_close_up（大）.jpeg" alt="古代文明との不思議な出会い" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>古代文明との出会い</h4>
-                       <p>巨大なモアイ像を間近で見上げる迫力。子供たちの好奇心を刺激する学習体験。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1200">
-                     <img src="camper/camper_outdoor_camping_setup（大）.jpeg" alt="本格アウトドアキャンプの醍醐味" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>本格アウトドアキャンプ</h4>
-                       <p>タープとテーブルを設営した本格キャンプサイト。自然と一体になった贅沢な時間。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1300">
-                     <img src="camper/camper_mountain_parking（大）.jpeg" alt="山岳地帯での絶景ドライブ" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>山岳地帯の絶景</h4>
-                       <p>雄大な山々を背景にした爽快ドライブ。澄んだ空気と壮大な景色でリフレッシュ。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1400">
-                     <img src="camper/camper_campfire_dinner（大）.jpeg" alt="焚き火を囲む特別な夕食タイム" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>焚き火の夕食タイム</h4>
-                       <p>温かい炎の明かりの中で家族団らん。子供たちにとって忘れられない思い出。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1500">
-                     <img src="camper/camper_ferry_terminal（大）.jpeg" alt="フェリー旅行にも対応" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>フェリー旅行対応</h4>
-                       <p>大型フェリーとも堂々とした存在感。島巡りや長距離移動の理想的なパートナー。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1600">
-                     <img src="camper/camper_control_tower（大）.jpeg" alt="都市部でもスマートに駐車" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>都市部でもスマート</h4>
-                       <p>管制塔などの都市施設周辺でも違和感なく溶け込むスタイリッシュなデザイン。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="1700">
-                     <img src="camper/camper_twilight_parking（大）.jpeg" alt="黄昏時の都市部での快適ステイ" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>黄昏時の都市ステイ</h4>
-                       <p>夕暮れ時の都市部でも安心駐車。街の明かりが美しく輝く中での快適空間。</p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
+              <!-- Large Cards -->
+              <div class="luxury-photo-card large" data-category="interior" data-aos="zoom-in" data-aos-delay="200">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_interior_bed_area（大）.jpeg" alt="快適なベッドルーム" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">SLEEPING AREA</div>
+                    <h3 class="photo-title">快適ベッドルーム</h3>
+                    <p class="photo-description">子供たちの特別空間。柔らかなマットレスと大きな窓から美しい景色を楽しめる。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
 
-               <!-- システム・設備ギャラリー -->
-               <div class="system-gallery" data-aos="fade-up" data-aos-delay="800">
-                 <h3 class="gallery-section-title">⚡ システム・設備</h3>
-                 <div class="photo-grid">
-                   <div class="photo-item" data-aos="zoom-in">
-                     <img src="camper/camper_solar_panels_roof（大）.jpeg" alt="環境に優しいソーラーシステム" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>ソーラーシステム</h4>
-                       <p>高効率ソーラーパネルで自然エネルギー供給。環境に配慮した持続可能な旅。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="100">
-                     <img src="camper/camper_solar_panel_detail（大）.jpeg" alt="確実な取り付けシステム" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>確実な取り付け</h4>
-                       <p>専用金具で確実固定。走行中の振動や悪天候にも耐える堅牢設計。</p>
-                     </div>
-                   </div>
-                   <div class="photo-item" data-aos="zoom-in" data-aos-delay="200">
-                     <img src="camper/camper_electrical_system（大）.jpeg" alt="高性能電気システム" loading="lazy">
-                     <div class="photo-overlay">
-                       <h4>高性能電気システム</h4>
-                       <p>大容量リチウムバッテリーで家庭と同等の電力供給。現代的な快適さを自然の中でも。</p>
-                     </div>
-                   </div>
-                 </div>
-               </div>
+              <div class="luxury-photo-card large" data-category="interior" data-aos="zoom-in" data-aos-delay="300">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_interior_popup_roof（大）.jpeg" alt="ポップアップルーフの開放感" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">POPUP ROOF</div>
+                    <h3 class="photo-title">ポップアップルーフ</h3>
+                    <p class="photo-description">驚きの開放感とLED照明システム。家族全員がくつろげる居住空間。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <!-- Medium Cards -->
+              <div class="luxury-photo-card medium" data-category="interior" data-aos="zoom-in" data-aos-delay="400">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_entertainment_system（大）.jpeg" alt="充実のエンターテイメント設備" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">ENTERTAINMENT</div>
+                    <h3 class="photo-title">エンターテイメント設備</h3>
+                    <p class="photo-description">高品質モニターとサウンドシステム。雨の日も家族で楽しく過ごせる。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card medium" data-category="interior" data-aos="zoom-in" data-aos-delay="500">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_kitchen_area（大）.jpeg" alt="機能的なキッチンスペース" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">KITCHEN</div>
+                    <h3 class="photo-title">機能的キッチン</h3>
+                    <p class="photo-description">コンパクトながら本格調理が可能。子供でも安全に使える設計。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <!-- Small Cards -->
+              <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="600">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_sleeping_arrangement（大）.jpeg" alt="家族全員の安らかな眠り" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">SLEEPING</div>
+                    <h3 class="photo-title">安らかな眠り</h3>
+                    <p class="photo-description">広々ベッドスペースで家族全員が快適に。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="700">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_kitchen_equipment（大）.jpeg" alt="充実の調理用品" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">EQUIPMENT</div>
+                    <h3 class="photo-title">充実の調理用品</h3>
+                    <p class="photo-description">電気ケトル、コーヒー、ミネラルウォーター完備。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="800">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_bunk_bed_layout（大）.jpeg" alt="二段ベッドでスペースを最大活用" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">SPACE DESIGN</div>
+                    <h3 class="photo-title">二段ベッドレイアウト</h3>
+                    <p class="photo-description">上下二段設計で空間を効率活用。子供たちの秘密基地のような特別感。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card medium" data-category="interior" data-aos="zoom-in" data-aos-delay="900">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_mobile_office（大）.jpeg" alt="移動式オフィスとしての新しい働き方" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">MOBILE OFFICE</div>
+                    <h3 class="photo-title">移動式オフィス</h3>
+                    <p class="photo-description">好きな場所で仕事ができる自由なワークスタイル。創造性豊かな環境。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <!-- Travel Scenery Cards -->
+              <div class="luxury-photo-card large" data-category="travel" data-aos="zoom-in" data-aos-delay="1000">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_exterior_countryside（大）.jpeg" alt="日本の美しい風景に映える外観" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">COUNTRYSIDE</div>
+                    <h3 class="photo-title">田園風景に映える外観</h3>
+                    <p class="photo-description">清潔感あふれる白いボディが日本の田園風景に美しく溶け込む。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card medium" data-category="travel" data-aos="zoom-in" data-aos-delay="1100">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_seaside_sunset（大）.jpeg" alt="海辺でのロマンチックな夕暮れ" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">SEASIDE</div>
+                    <h3 class="photo-title">海辺の夕暮れ</h3>
+                    <p class="photo-description">波の音を聞きながら美しいサンセットを楽しむ贅沢な時間。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card medium" data-category="travel" data-aos="zoom-in" data-aos-delay="1200">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_countryside_sunset（大）.jpeg" alt="田園風景に映える夕焼け空" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">SUNSET</div>
+                    <h3 class="photo-title">田園の夕焼け</h3>
+                    <p class="photo-description">燃えるような夕焼け空と田園風景。日本の美しい田舎道を旅する醍醐味。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card small" data-category="travel" data-aos="zoom-in" data-aos-delay="1300">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_blue_sky_fields（大）.jpeg" alt="抜けるような青空と緑の大地" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">NATURE</div>
+                    <h3 class="photo-title">青空と緑の大地</h3>
+                    <p class="photo-description">雲ひとつない青空の下、広大な農地で心身ともにリフレッシュ。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <!-- System Category Cards -->
+              <div class="luxury-photo-card large" data-category="system" data-aos="zoom-in" data-aos-delay="1400">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_solar_panels_roof（大）.jpeg" alt="環境に優しいソーラーシステム" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">SOLAR SYSTEM</div>
+                    <h3 class="photo-title">ソーラーシステム</h3>
+                    <p class="photo-description">高効率ソーラーパネルで自然エネルギー供給。環境に配慮した持続可能な旅。</p>
+                    <div class="photo-stats">
+                      <span class="stat-item"><i class="fas fa-solar-panel"></i> 200W</span>
+                      <span class="stat-item"><i class="fas fa-battery-full"></i> 自給自足</span>
+                    </div>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card medium" data-category="system" data-aos="zoom-in" data-aos-delay="1500">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_electrical_system（大）.jpeg" alt="高性能電気システム" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">ELECTRICAL</div>
+                    <h3 class="photo-title">高性能電気システム</h3>
+                    <p class="photo-description">大容量リチウムバッテリーで家庭と同等の電力供給。現代的な快適さを自然の中でも。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+
+              <div class="luxury-photo-card small" data-category="system" data-aos="zoom-in" data-aos-delay="1600">
+                <div class="photo-wrapper">
+                  <img src="camper/camper_solar_panel_detail（大）.jpeg" alt="確実な取り付けシステム" class="luxury-image" loading="lazy">
+                  <div class="luxury-overlay">
+                    <div class="photo-category">INSTALLATION</div>
+                    <h3 class="photo-title">確実な取り付け</h3>
+                    <p class="photo-description">専用金具で確実固定。走行中の振動や悪天候にも耐える堅牢設計。</p>
+                  </div>
+                  <div class="hover-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Stats Bar -->
+            <div class="gallery-stats-bar" data-aos="fade-up" data-aos-delay="1400">
+              <div class="stat-item">
+                <span class="stat-number"><span class="counter" data-target="150">0</span>+</span>
+                <span class="stat-label">制作工程</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number"><span class="counter" data-target="12">0</span>ヶ月</span>
+                <span class="stat-label">制作期間</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number"><span class="counter" data-target="100">0</span>%</span>
+                <span class="stat-label">満足度</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number"><span class="counter" data-target="50">0</span>+</span>
+                <span class="stat-label">動画投稿</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- 特徴・こだわりポイント -->
-        <section id="vanlife-features" class="section">
+        <section id="vanlife-features" class="section" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite;">
           <div class="container">
             <div class="section-title">
               <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_features_badge">主な特徴</span>
@@ -4803,7 +5951,7 @@ layout: null
           </div>
         </section>
                 <!-- お問い合わせ -->
-                <section id="contact-vanlife" class="section">
+                <section id="contact-vanlife" class="section" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite;">
                   <div class="container">
                     <div class="section-title">
                       <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_contact_badge">お問い合わせ</span>
@@ -4864,49 +6012,6 @@ layout: null
               <p style="font-size: 1.5rem; font-weight: 300; color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">"Coding on the Road, Every Line a Trail to Freedom"</p>
             </div>
 
-            <!-- 動画・SNS製作過程セクション -->
-            <div style="margin-bottom: 4rem;" data-aos="fade-up" data-aos-delay="100">
-              <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; text-align: center; margin-bottom: 4rem; position: relative; background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">動画・SNS 製作過程をリアルタイム発信</h2>
-              <p style="text-align: center; margin-bottom: 3rem; font-size: 1.125rem; color: #cbd5e1; max-width: 600px; margin-left: auto; margin-right: auto;">YouTubeでは詳細な製作工程を、TikTokでは面白さを凝縮したハイライトをお届け。</p>
-              
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <!-- YouTube -->
-                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2.5rem; text-align: center; transition: all 0.3s ease; border: 2px solid #ff0000;" data-aos="fade-up" data-aos-delay="100">
-                  <div style="font-size: 3rem; margin-bottom: 1.5rem; color: #ff0000;">
-                    <i class="fab fa-youtube"></i>
-                  </div>
-                  <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">YouTube: van oasis</h3>
-                  <p style="color: #cbd5e1; margin-bottom: 2rem;">ハイエースDIYの詳しい製作工程、工具の使い方、失敗談まで赤裸々に公開。初心者にも分かりやすい丁寧な解説。</p>
-                  <a href="https://www.youtube.com/@van_oasis" target="_blank" style="display: inline-block; padding: 0.8rem 2rem; border-radius: 0.75rem; text-decoration: none; color: white; font-weight: 600; transition: all 0.3s ease; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);">
-                    <i class="fab fa-youtube"></i> チャンネルを見る
-                  </a>
-                </div>
-
-                <!-- TikTok -->
-                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2.5rem; text-align: center; transition: all 0.3s ease; border: 2px solid #000000;" data-aos="fade-up" data-aos-delay="200">
-                  <div style="font-size: 3rem; margin-bottom: 1.5rem; color: #000000;">
-                    <i class="fab fa-tiktok"></i>
-                  </div>
-                  <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">TikTok: @trailfusionai</h3>
-                  <p style="color: #cbd5e1; margin-bottom: 2rem;">製作のハイライト、完成の感動、バンライフの面白ネタなどをショート動画で発信。</p>
-                  <a href="https://www.tiktok.com/@trailfusionai" target="_blank" style="display: inline-block; padding: 0.8rem 2rem; border-radius: 0.75rem; text-decoration: none; color: white; font-weight: 600; transition: all 0.3s ease; background: linear-gradient(135deg, #000000 0%, #333333 100%);">
-                    <i class="fab fa-tiktok"></i> アカウントを見る
-                  </a>
-                </div>
-
-                <!-- Twitter -->
-                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2.5rem; text-align: center; transition: all 0.3s ease; border: 2px solid #1da1f2;" data-aos="fade-up" data-aos-delay="300">
-                  <div style="font-size: 3rem; margin-bottom: 1.5rem; color: #1da1f2;">
-                    <i class="fab fa-twitter"></i>
-                  </div>
-                  <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">X (Twitter): @trailfusionai</h3>
-                  <p style="color: #cbd5e1; margin-bottom: 2rem;">製作進捗報告、バンライフのつぶやき、フォロワーとの交流など、リアルタイムな情報を発信。</p>
-                  <a href="https://twitter.com/trailfusionai" target="_blank" style="display: inline-block; padding: 0.8rem 2rem; border-radius: 0.75rem; text-decoration: none; color: white; font-weight: 600; transition: all 0.3s ease; background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);">
-                    <i class="fab fa-twitter"></i> フォローする
-                  </a>
-                </div>
-              </div>
-            </div>
 
             <!-- プロフィールセクション -->
             <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(16px); border-radius: 2rem; padding: 3rem; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); display: grid; grid-template-columns: 350px 1fr; gap: 3rem; align-items: center; position: relative; overflow: hidden; margin-bottom: 4rem;" data-aos="fade-up" data-aos-delay="200">
@@ -6191,6 +7296,196 @@ layout: null
       });
     }
   </script>
+  
+  <!-- Premium Vanlife Counter Animation Script -->
+  <script>
+    // Premium counter animation for vanlife stats
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.getAttribute('data-target'));
+            let current = 0;
+            const increment = target / 60; // 60 frames for smooth animation
+            
+            const updateCounter = () => {
+              if (current < target) {
+                current += increment;
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target;
+              }
+            };
+            
+            // Add a small delay for dramatic effect
+            setTimeout(updateCounter, 500);
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(counter => observer.observe(counter));
+    }
+    
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      animateCounters();
+      
+      // Premium button hover effects
+      const premiumButtons = document.querySelectorAll('.premium-btn');
+      premiumButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-3px) scale(1.02)';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+      
+      // Floating feature cards interactive effects
+      const featureCards = document.querySelectorAll('.feature-card');
+      featureCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-8px) scale(1.05)';
+          this.style.zIndex = '100';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(-5px) scale(1)';
+          this.style.zIndex = '10';
+        });
+      });
+      
+      // Parallax effect for background orbs
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const vanlifeSection = document.getElementById('vanlife-section');
+        
+        if (vanlifeSection) {
+          const rect = vanlifeSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+              const speed = (index + 1) * 0.5;
+              orb.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+            });
+          }
+        }
+      });
+
+      // Premium Gallery Navigation and Filtering
+      const galleryNavBtns = document.querySelectorAll('.gallery-nav-btn');
+      const luxuryPhotoCards = document.querySelectorAll('.luxury-photo-card');
+      
+      galleryNavBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          
+          // Update active button
+          galleryNavBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter and animate cards
+          luxuryPhotoCards.forEach((card, index) => {
+            const cardCategory = card.getAttribute('data-category');
+            const shouldShow = category === 'all' || cardCategory === category;
+            
+            if (shouldShow) {
+              card.style.display = 'block';
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px) scale(0.95)';
+              
+              setTimeout(() => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+              }, index * 50);
+            } else {
+              card.style.transition = 'all 0.3s ease-out';
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(-10px) scale(0.9)';
+              
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
+      });
+
+      // Enhanced hover effects for luxury photo cards
+      luxuryPhotoCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          // Pause other cards' animations
+          luxuryPhotoCards.forEach(otherCard => {
+            if (otherCard !== this) {
+              otherCard.style.filter = 'brightness(0.7) saturate(0.8)';
+              otherCard.style.transform += ' scale(0.98)';
+            }
+          });
+          
+          // Enhance current card
+          this.style.transform += ' translateY(-8px)';
+          this.style.filter = 'brightness(1.1) saturate(1.2)';
+          this.style.zIndex = '100';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          // Reset all cards
+          luxuryPhotoCards.forEach(otherCard => {
+            otherCard.style.filter = '';
+            otherCard.style.zIndex = '';
+            if (otherCard !== this) {
+              otherCard.style.transform = otherCard.style.transform.replace(' scale(0.98)', '');
+            }
+          });
+          
+          // Reset current card
+          this.style.transform = this.style.transform.replace(' translateY(-8px)', '');
+          this.style.filter = '';
+        });
+      });
+
+      // Gallery stats animation on scroll
+      const galleryStatsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statsCounters = entry.target.querySelectorAll('.counter');
+            statsCounters.forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-target'));
+              let current = 0;
+              const increment = target / 50;
+              
+              const updateCounter = () => {
+                if (current < target) {
+                  current += increment;
+                  counter.textContent = Math.floor(current);
+                  requestAnimationFrame(updateCounter);
+                } else {
+                  counter.textContent = target;
+                }
+              };
+              
+              updateCounter();
+            });
+            
+            galleryStatsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      const galleryStatsBar = document.querySelector('.gallery-stats-bar');
+      if (galleryStatsBar) {
+        galleryStatsObserver.observe(galleryStatsBar);
+      }
+    });
+  </script>
+  
   <script src="script.js"></script>
 </body>
 </html>
