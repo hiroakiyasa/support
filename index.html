@@ -4572,6 +4572,47 @@ layout: null
 
   <!-- Enhanced TikTok Player CSS -->
   <style>
+    /* Unified Vanlife Background System */
+    #vanlife-section,
+    #vanlife-section * {
+      box-sizing: border-box;
+    }
+    
+    #vanlife-section {
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%) !important;
+      background-size: 400% 400% !important;
+      animation: gradientShift 15s ease infinite !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      min-height: 100vh;
+    }
+    
+    /* Remove all white gaps and ensure seamless flow */
+    #vanlife-section .section,
+    #vanlife-section section {
+      margin: 0 !important;
+      padding: 3rem 0 !important;
+      background: transparent !important;
+      border: none !important;
+    }
+    
+    /* Ensure gallery background is transparent */
+    .premium-gallery-section {
+      background: transparent !important;
+    }
+    
+    .gallery-background {
+      background: transparent !important;
+    }
+    
+    /* Remove any container white backgrounds */
+    #vanlife-section .container,
+    #vanlife-section .premium-gallery-container {
+      background: transparent !important;
+      margin: 0 auto !important;
+      padding: 0 20px !important;
+    }
+    
     /* Video playing effects */
     .video-playing {
       position: relative;
@@ -5682,7 +5723,7 @@ layout: null
         </section>
 
         <!-- 動画・SNS紹介 -->
-        <section id="vanlife-media" class="section section-white">
+        <section id="vanlife-media" class="section" style="background: transparent; margin: 0; padding: 3rem 0;">
           <div class="container">
             <div class="section-title">
               <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="media_badge">動画・SNS</span>
@@ -5719,7 +5760,7 @@ layout: null
         </section>
 
         <!-- DIY過程紹介セクション -->
-        <section id="diy-process" class="section section-white">
+        <section id="diy-process" class="section" style="background: transparent; margin: 0; padding: 3rem 0;">
           <div class="container">
             <div class="section-title">
               <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_process_badge">制作過程</span>
