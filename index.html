@@ -4220,13 +4220,30 @@ layout: null
                 <style>
                   .gpt-app .app-screens-with-videos {
                     display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 2rem;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 1rem;
+                  }
+                  
+                  @media (max-width: 768px) {
+                    .gpt-app .app-screens-with-videos {
+                      flex-direction: column;
+                      align-items: center;
+                      gap: 1.5rem;
+                    }
+                    
+                    .gpt-app .tiktok-showcase {
+                      width: 100%;
+                    }
+                    
+                    .gpt-app .app-screens {
+                      width: 100%;
+                    }
                   }
                   
                   .gpt-app .tiktok-showcase {
-                    width: 100%;
+                    flex: 0 0 auto;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -4253,7 +4270,7 @@ layout: null
                     align-items: center;
                     gap: 2rem;
                     flex-wrap: wrap;
-                    width: 100%;
+                    flex: 1;
                   }
                   
                   .gpt-app .app-screen {
