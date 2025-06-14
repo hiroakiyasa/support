@@ -4578,11 +4578,17 @@ layout: null
       box-sizing: border-box;
     }
     
+    /* Remove white space before vanlife section */
+    #apps-section .section:last-child {
+      margin-bottom: 0 !important;
+    }
+    
     #vanlife-section {
       background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 25%, #2d1b69 50%, #11998e 75%, #38ef7d 100%) !important;
       background-size: 400% 400% !important;
       animation: gradientShift 15s ease infinite !important;
       margin: 0 !important;
+      margin-top: 0 !important;
       padding: 0 !important;
       min-height: 100vh;
     }
@@ -5322,9 +5328,7 @@ layout: null
           </section>
           <!-- 他のハッキングタイマーセクション -->
         </div>
-
       </div>
-
       <!-- バンライフセクション -->
       <div id="vanlife-section" class="main-section">
         <!-- Premium Vanlife Hero Section -->
@@ -5759,53 +5763,6 @@ layout: null
           </div>
         </section>
 
-        <!-- DIY過程紹介セクション -->
-        <section id="diy-process" class="section" style="background: transparent; margin: 0; padding: 3rem 0;">
-          <div class="container">
-            <div class="section-title">
-              <span class="badge badge-primary" data-aos="fade-up" data-i18n-key="vanlife_process_badge">制作過程</span>
-              <h2 data-aos="fade-up" data-aos-delay="100" data-i18n-key="vanlife_process_title">素人でもできるDIY制作過程</h2>
-              <p data-aos="fade-up" data-aos-delay="200" data-i18n-key="vanlife_process_desc">中古のハイエースを購入してから、本格的なキャンピングカーに仕上げるまでの全工程を詳しく紹介。</p>
-            </div>
-            <div class="timeline">
-              <div class="timeline-item" data-aos="fade-up">
-                <div class="timeline-icon"><i class="fas fa-search"></i></div>
-                <div class="timeline-content">
-                  <h3 data-i18n-key="vanlife_step1_title">ステップ1: 車両選び・購入</h3>
-                  <p data-i18n-key="vanlife_step1_desc">予算と用途に合った中古ハイエースの選び方から購入まで。走行距離、年式、装備のチェックポイントを詳しく解説。</p>
-                </div>
-              </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="timeline-icon"><i class="fas fa-ruler-combined"></i></div>
-                <div class="timeline-content">
-                  <h3 data-i18n-key="vanlife_step2_title">ステップ2: 設計・プランニング</h3>
-                  <p data-i18n-key="vanlife_step2_desc">限られたスペースを最大限活用する内装設計。ベッド、キッチン、収納の配置を効率的に計画。</p>
-                </div>
-              </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="timeline-icon"><i class="fas fa-tools"></i></div>
-                <div class="timeline-content">
-                  <h3 data-i18n-key="vanlife_step3_title">ステップ3: 断熱・内装工事</h3>
-                  <p data-i18n-key="vanlife_step3_desc">断熱材の選び方と施工方法。壁張り、床張り、天井の仕上げまで初心者でもできる工法を紹介。</p>
-                </div>
-              </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="timeline-icon"><i class="fas fa-bolt"></i></div>
-                <div class="timeline-content">
-                  <h3 data-i18n-key="vanlife_step4_title">ステップ4: 電装・配線工事</h3>
-                  <p data-i18n-key="vanlife_step4_desc">サブバッテリーシステム、ソーラーパネル、インバーターの設置。安全な配線方法と電力管理。</p>
-                </div>
-              </div>
-              <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="timeline-icon"><i class="fas fa-couch"></i></div>
-                <div class="timeline-content">
-                  <h3 data-i18n-key="vanlife_step5_title">ステップ5: 家具・設備取り付け</h3>
-                  <p data-i18n-key="vanlife_step5_desc">ベッド、テーブル、キッチン、収納棚の製作と設置。使い勝手を重視したオリジナル家具作り。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <!-- Premium Photo Gallery Section -->
         <section id="diy-gallery" class="premium-gallery-section">
