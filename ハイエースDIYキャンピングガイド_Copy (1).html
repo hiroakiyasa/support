@@ -52,6 +52,57 @@ background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 
 background-size: cover;
 background-position: center;
 }
+
+/* キャンピングカー構造要件セクション用アニメーション */
+.fade-in-up {
+opacity: 0;
+transform: translateY(30px);
+animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.card-hover {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+transform: translateY(-4px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.icon-bounce {
+animation: iconBounce 2s infinite;
+}
+
+@keyframes iconBounce {
+0%, 20%, 50%, 80%, 100% {
+transform: translateY(0);
+}
+40% {
+transform: translateY(-10px);
+}
+60% {
+transform: translateY(-5px);
+}
+}
+
+.gradient-text {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
 </style>
 </head>
 <body class="bg-gray-50">
@@ -1242,25 +1293,25 @@ LED スポットライト 10個
 </div>
 <!-- キャンピングカー構造要件セクション -->
 <div class="bg-gradient-to-b from-gray-50 to-white">
-<div class="container mx-auto px-8 py-16 max-w-6xl">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 max-w-6xl">
 <div class="text-center mb-12">
 <span class="inline-block bg-primary text-white text-xs font-medium px-4 py-2 rounded-full mb-4">構造要件</span>
 <h2 class="text-4xl font-bold text-gray-900 mb-6">キャンピングカー構造要件</h2>
 <p class="text-gray-600 max-w-3xl mx-auto text-lg">8ナンバー（特種用途自動車）登録に必要な構造要件を詳しく解説。法的基準を満たしながら、快適な居住空間を実現するための必須要件です。</p>
 </div>
 <!-- 水道設備と炊事設備 -->
-<div class="mb-16">
-<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="mb-16 fade-in-up">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
 <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6">
 <div class="flex items-center">
 <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-<i class="ri-water-flash-line text-white text-3xl"></i>
+<i class="ri-water-flash-line text-white text-3xl icon-bounce"></i>
 </div>
 <h3 class="text-2xl font-bold text-white">水道設備と炊事設備の要件</h3>
 </div>
 </div>
 <div class="p-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 <!-- 水道設備の基準 -->
 <div class="space-y-6">
 <div class="bg-blue-50 p-6 rounded-xl">
@@ -1335,12 +1386,12 @@ LED スポットライト 10個
 </div>
 </div>
 <!-- 就寝設備の要件 -->
-<div class="mb-16">
-<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="mb-16 fade-in-up">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
 <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6">
 <div class="flex items-center">
 <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-<i class="ri-hotel-bed-line text-white text-3xl"></i>
+<i class="ri-hotel-bed-line text-white text-3xl icon-bounce"></i>
 </div>
 <h3 class="text-2xl font-bold text-white">就寝設備の要件</h3>
 </div>
@@ -1441,18 +1492,18 @@ LED スポットライト 10個
 </div>
 
 <!-- 炊事設備の要件 -->
-<div class="mb-16">
-<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="mb-16 fade-in-up">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
 <div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6">
 <div class="flex items-center">
 <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-<i class="ri-restaurant-line text-white text-3xl"></i>
+<i class="ri-restaurant-line text-white text-3xl icon-bounce"></i>
 </div>
 <h3 class="text-2xl font-bold text-white">炊事設備の要件</h3>
 </div>
 </div>
 <div class="p-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 <!-- 基本要件と安全性 -->
 <div class="space-y-6">
 <div class="bg-orange-50 p-6 rounded-xl">
@@ -1575,18 +1626,18 @@ LED スポットライト 10個
 </div>
 
 <!-- 特種な設備の占有面積 -->
-<div class="mb-16">
-<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="mb-16 fade-in-up">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
 <div class="bg-gradient-to-r from-green-500 to-green-600 p-6">
 <div class="flex items-center">
 <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-<i class="ri-layout-masonry-line text-white text-3xl"></i>
+<i class="ri-layout-masonry-line text-white text-3xl icon-bounce"></i>
 </div>
 <h3 class="text-2xl font-bold text-white">特種な設備の占有面積の取り扱い</h3>
 </div>
 </div>
 <div class="p-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 <!-- 浴室・トイレと二層構造 -->
 <div class="space-y-6">
 <div class="bg-green-50 p-6 rounded-xl">
@@ -1684,10 +1735,10 @@ LED スポットライト 10個
 </div>
 
 <!-- まとめ -->
-<div class="bg-gradient-to-r from-primary to-red-600 p-8 rounded-2xl shadow-xl text-white text-center">
+<div class="bg-gradient-to-r from-primary to-red-600 p-8 rounded-2xl shadow-xl text-white text-center fade-in-up card-hover">
 <h3 class="text-2xl font-bold mb-4">構造要件のポイント</h3>
 <p class="text-lg mb-6">これらの要件を満たすことで、8ナンバー（特種用途自動車）として登録が可能になります</p>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
 <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
 <i class="ri-water-flash-line text-3xl mb-2"></i>
 <p class="font-medium">給排水設備</p>
