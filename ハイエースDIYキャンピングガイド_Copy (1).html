@@ -1771,9 +1771,9 @@ LED スポットライト 10個
 
 </div>
 </div>
-<button id="registration-download-button" class="mt-8 bg-primary text-white px-6 py-4 rounded-button whitespace-nowrap hover:bg-red-600 transition inline-flex items-center justify-center group">
+<button id="checklist-download-button" class="mt-8 bg-primary text-white px-6 py-4 rounded-button whitespace-nowrap hover:bg-red-600 transition inline-flex items-center justify-center group">
 <i class="ri-download-line mr-2 group-hover:animate-bounce"></i>
-申請書類テンプレートをダウンロード
+キャンピングカー〈8ナンバー〉構造要件チェックリストをダウンロード
 </button>
 </div>
 </div>
@@ -2058,9 +2058,9 @@ document.body.style.overflow = 'hidden';
 form.dataset.downloadType = type;
 const title = document.querySelector('#download-modal h3');
 const description = document.querySelector('#download-modal p');
-if (type === 'registration') {
-title.textContent = '8ナンバー申請書類テンプレート';
-description.textContent = '8ナンバー申請に必要な書類のテンプレートをダウンロードするには、以下の情報を入力してください。';
+if (type === 'checklist') {
+title.textContent = 'キャンピングカー〈8ナンバー〉構造要件チェックリスト';
+description.textContent = '8ナンバー登録に必要な構造要件のチェックリストをダウンロードするには、以下の情報を入力してください。';
 } else {
 title.textContent = '資料ダウンロード';
 description.textContent = '詳細な材料・工具リストをダウンロードするには、以下の情報を入力してください。';
@@ -2145,9 +2145,9 @@ document.body.style.overflow = 'hidden';
 form.dataset.downloadType = type;
 const title = document.querySelector('#download-modal h3');
 const description = document.querySelector('#download-modal p');
-if (type === 'registration') {
-title.textContent = '8ナンバー申請書類テンプレート';
-description.textContent = '8ナンバー申請に必要な書類のテンプレートをダウンロードするには、以下の情報を入力してください。';
+if (type === 'checklist') {
+title.textContent = 'キャンピングカー〈8ナンバー〉構造要件チェックリスト';
+description.textContent = '8ナンバー登録に必要な構造要件のチェックリストをダウンロードするには、以下の情報を入力してください。';
 } else {
 title.textContent = '資料ダウンロード';
 description.textContent = '詳細な材料・工具リストをダウンロードするには、以下の情報を入力してください。';
@@ -2170,7 +2170,7 @@ closeModal();
 <script id="download-modal-script">
 document.addEventListener('DOMContentLoaded', function() {
 const downloadButton = document.getElementById('download-button');
-const registrationDownloadButton = document.getElementById('registration-download-button');
+const checklistDownloadButton = document.getElementById('checklist-download-button');
 const modal = document.getElementById('download-modal');
 const closeButton = document.getElementById('close-download-modal');
 const form = document.getElementById('download-form');
@@ -2181,9 +2181,9 @@ document.body.style.overflow = 'hidden';
 form.dataset.downloadType = type;
 const title = document.querySelector('#download-modal h3');
 const description = document.querySelector('#download-modal p');
-if (type === 'registration') {
-title.textContent = '8ナンバー申請書類テンプレート';
-description.textContent = '8ナンバー申請に必要な書類のテンプレートをダウンロードするには、以下の情報を入力してください。';
+if (type === 'checklist') {
+title.textContent = 'キャンピングカー〈8ナンバー〉構造要件チェックリスト';
+description.textContent = '8ナンバー登録に必要な構造要件のチェックリストをダウンロードするには、以下の情報を入力してください。';
 } else {
 title.textContent = '資料ダウンロード';
 description.textContent = '詳細な材料・工具リストをダウンロードするには、以下の情報を入力してください。';
@@ -2197,8 +2197,8 @@ document.body.style.overflow = '';
 downloadButton.addEventListener('click', () => {
 openModal('tools');
 });
-registrationDownloadButton.addEventListener('click', () => {
-openModal('registration');
+checklistDownloadButton.addEventListener('click', () => {
+openModal('checklist');
 });
 closeButton.addEventListener('click', closeModal);
 modal.addEventListener('click', function(e) {
@@ -2216,7 +2216,7 @@ successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-
 successMessage.textContent = 'ダウンロードを開始します';
 document.body.appendChild(successMessage);
 const downloadType = form.dataset.downloadType;
-const filename = downloadType === 'registration' ? 'eight-number-registration-template.pdf' : 'diy-camper-materials.pdf';
+const filename = downloadType === 'checklist' ? 'camper-structure-requirements-checklist.pdf' : 'diy-camper-materials.pdf';
 setTimeout(() => {
 successMessage.remove();
         // PDF download functionality has been disabled for local version
