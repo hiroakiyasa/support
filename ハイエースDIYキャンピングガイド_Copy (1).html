@@ -103,27 +103,166 @@ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 -webkit-text-fill-color: transparent;
 background-clip: text;
 }
+
+/* ラグジュアリーギャラリー用スタイル */
+.luxury-gallery-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 1.5rem;
+grid-auto-rows: 200px;
+}
+
+.luxury-photo-card {
+position: relative;
+border-radius: 20px;
+overflow: hidden;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+cursor: pointer;
+}
+
+.luxury-photo-card.xlarge {
+grid-column: span 2;
+grid-row: span 2;
+}
+
+.luxury-photo-card.large {
+grid-column: span 2;
+grid-row: span 1;
+}
+
+.luxury-photo-card.medium {
+grid-column: span 1;
+grid-row: span 1;
+}
+
+.luxury-photo-card.small {
+grid-column: span 1;
+grid-row: span 1;
+}
+
+.photo-wrapper {
+position: relative;
+width: 100%;
+height: 100%;
+overflow: hidden;
+}
+
+.luxury-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.4s ease;
+}
+
+.luxury-overlay {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding: 2rem;
+color: white;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.luxury-photo-card:hover .luxury-overlay {
+opacity: 1;
+}
+
+.luxury-photo-card:hover .luxury-image {
+transform: scale(1.05);
+}
+
+.photo-category {
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #fbbf24;
+margin-bottom: 0.5rem;
+}
+
+.photo-title {
+font-size: 1.5rem;
+font-weight: 700;
+margin-bottom: 0.5rem;
+line-height: 1.2;
+}
+
+.photo-description {
+font-size: 0.9rem;
+opacity: 0.9;
+line-height: 1.4;
+margin-bottom: 1rem;
+}
+
+.photo-stats {
+display: flex;
+gap: 1rem;
+}
+
+.stat-item {
+font-size: 0.8rem;
+display: flex;
+align-items: center;
+gap: 0.25rem;
+}
+
+.hover-glow {
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+opacity: 0;
+transition: opacity 0.3s ease;
+pointer-events: none;
+}
+
+.luxury-photo-card:hover .hover-glow {
+opacity: 1;
+}
+
+@media (max-width: 768px) {
+.luxury-gallery-grid {
+grid-template-columns: 1fr;
+grid-auto-rows: 250px;
+}
+.luxury-photo-card.xlarge,
+.luxury-photo-card.large,
+.luxury-photo-card.medium,
+.luxury-photo-card.small {
+grid-column: span 1;
+grid-row: span 1;
+}
+}
 </style>
 </head>
 <body class="bg-gray-50">
 <!-- Header -->
-<header class="bg-white shadow-lg">
+<header class="bg-white shadow-lg sticky top-0 z-50">
 <div class="container mx-auto px-4 py-4 flex items-center justify-between">
 <div class="flex items-center space-x-6">
 <img src="assets/images/b295aa9fa2c904bc29a0e5e438249d00.png" alt="TrailFusion AI" class="h-12 hover:scale-105 transition-transform duration-300">
 <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TrailFusion AI</div>
 </div>
 <nav class="hidden md:flex items-center space-x-8">
-<a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="relative overflow-hidden bg-blue-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+<a href="ハイエースDIYキャンピングガイド_Copy (1).html" class="relative overflow-hidden bg-blue-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
 <span class="relative z-10">キャンピングカー制作</span>
 <div class="absolute inset-0 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
 </a>
-<a href="https://readdy.ai/home/68549d6b-0d05-4874-b8a0-aa3c2d80e387/58fb4b85-cb2e-4d51-959f-2ea144b66e6a" data-readdy="true" class="relative overflow-hidden bg-green-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+<a href="アプリ紹介ホームページ.html" class="relative overflow-hidden bg-green-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
 <span class="relative z-10">アプリ紹介</span>
 <div class="absolute inset-0 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
 </a>
-<a href="/about.html" onclick="window.location.href='/about.html'" class="relative overflow-hidden bg-purple-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
-<span class="relative z-10">自己紹介</span>
+<a href="#about" class="relative overflow-hidden bg-purple-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+<span class="relative z-10">会社概要</span>
 <div class="absolute inset-0 bg-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
 </a>
 <div class="flex items-center space-x-4">
@@ -137,10 +276,10 @@ background-clip: text;
 <i class="ri-twitter-x-fill ri-xl"></i>
 </a>
 </div>
-<button class="relative overflow-hidden bg-primary text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+<a href="#contact" class="relative overflow-hidden bg-primary text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
 <span class="relative z-10">お問い合わせ</span>
 <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-</button>
+</a>
 </nav>
 <div class="w-10 h-10 flex items-center justify-center md:hidden hover:bg-gray-100 rounded-full transition-colors duration-300">
 <i class="ri-menu-line ri-lg"></i>
@@ -150,7 +289,7 @@ background-clip: text;
 <!-- Hero Section -->
 <section class="hero-section w-full py-20">
       <video autoplay loop muted playsinline controls>
-        <source src="../assets/videos/a2ecd24a-6985-40d3-8cc8-8d3a0f0beb0c.mp4" type="video/mp4">
+        <source src="../Users/user/Homepage/homepage1/support/images/hero_section.mp4" type="video/mp4">
         お使いのブラウザは動画再生をサポートしていません。
       </video>
 <div class="container mx-auto px-4 w-full">
@@ -1731,28 +1870,323 @@ TikTok をフォロー
 <h2 class="text-3xl font-bold text-gray-900 mb-4">完成例ギャラリー</h2>
 <p class="text-gray-600 max-w-3xl mx-auto">実際に制作されたキャンピングカーの完成例をご紹介。あなたの制作の参考にしてください。</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<img class="w-full h-64 object-cover" src="../assets/images/generated/camper_insulation_12351.jpg" alt="ミニマルスタイル">
-<div class="p-6">
-<h3 class="font-bold text-xl mb-2">シンプル・ミニマル</h3>
-<p class="text-gray-600">必要最小限の設備で機能性を重視したデザイン。</p>
-</div>
-</div>
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<img class="w-full h-64 object-cover" src="../assets/images/generated/camper_interior_12352.jpg" alt="ラグジュアリースタイル">
-<div class="p-6">
-<h3 class="font-bold text-xl mb-2">ラグジュアリー</h3>
-<p class="text-gray-600">高級素材を使用した上質な空間。</p>
-</div>
-</div>
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<img class="w-full h-64 object-cover" src="../assets/images/generated/camper_electrical_12353.jpg" alt="ハイテクスタイル">
-<div class="p-6">
-<h3 class="font-bold text-xl mb-2">ハイテク</h3>
-<p class="text-gray-600">最新テクノロジーを駆使したスマートな空間。</p>
-</div>
-</div>
+
+  <!-- Initial Luxury Gallery Grid (First 6 items) -->
+  <div class="luxury-gallery-grid" id="initial-gallery">
+  <!-- XLarge Feature Card -->
+  <div class="luxury-photo-card xlarge" data-category="landscape" data-aos="zoom-in" data-aos-delay="100">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/mountain_background_12371.jpg" alt="青空と広大な農地" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">SCENIC LANDSCAPE</div>
+  <h3 class="photo-title">青空と広大な農地</h3>
+  <p class="photo-description">抜けるような青空の下、緑豊かな農地を背景に駐車。大自然の中で過ごす贅沢な時間。</p>
+  <div class="photo-stats">
+  <span class="stat-item"><i class="fas fa-mountain"></i> 絶景ポイント</span>
+  <span class="stat-item"><i class="fas fa-heart"></i> 人気No.1</span>
+  </div>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <!-- Large Cards -->
+  <div class="luxury-photo-card large" data-category="interior" data-aos="zoom-in" data-aos-delay="200">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/camper_interior_bedroom_12348.jpg" alt="快適なダイニングスペース" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">INTERIOR DINING</div>
+  <h3 class="photo-title">快適ダイニングスペース</h3>
+  <p class="photo-description">木目調の温かい内装とゆったりとしたテーブル。家族での食事や団らんに最適な空間。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card large" data-category="landscape" data-aos="zoom-in" data-aos-delay="300">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/mountain_campsite_12350.jpg" alt="富士山を望む絶景" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">MOUNT FUJI</div>
+  <h3 class="photo-title">富士山眺望</h3>
+  <p class="photo-description">日本の象徴・富士山を望む絶景ポイント。自然の雄大さを間近で感じる特別な体験。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <!-- Medium Cards -->
+  <div class="luxury-photo-card medium" data-category="interior" data-aos="zoom-in" data-aos-delay="400">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/water_system_12393.jpg" alt="機能的なキッチンエリア" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">KITCHEN AREA</div>
+  <h3 class="photo-title">機能的キッチンエリア</h3>
+  <p class="photo-description">コンパクトながら本格調理が可能。シンクとコンロを備えた効率的なレイアウト。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="landscape" data-aos="zoom-in" data-aos-delay="500">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/beach_background_12374.jpg" alt="海辺の美しい夕日" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">SEASIDE SUNSET</div>
+  <h3 class="photo-title">海辺の夕日</h3>
+  <p class="photo-description">波の音を聞きながら美しいサンセットを楽しむ。ロマンチックな夕暮れの時間。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  </div>
+  
+  <!-- More Luxury Gallery Items (Hidden initially) -->
+  <div class="luxury-gallery-grid mt-8 hidden" id="more-gallery">
+  <!-- Interior Category -->
+  <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="600">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/completed_van_1_12355.jpg" alt="快適な就寝エリア" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">SLEEPING AREA</div>
+  <h3 class="photo-title">快適就寝エリア</h3>
+  <p class="photo-description">広々としたベッドスペースで安らかな眠り。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="interior" data-aos="zoom-in" data-aos-delay="700">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/completed_van_2_12356.jpg" alt="二段ベッドレイアウト" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">BUNK BED</div>
+  <h3 class="photo-title">二段ベッドレイアウト</h3>
+  <p class="photo-description">空間を効率活用した二段ベッド設計。子供たちの秘密基地のような特別感。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="800">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/coding_in_van_12367.jpg" alt="ポップアップルーフ" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">POPUP ROOF</div>
+  <h3 class="photo-title">ポップアップルーフ</h3>
+  <p class="photo-description">開放感抜群のポップアップルーフで天井高を確保。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="interior" data-aos="zoom-in" data-aos-delay="900">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/japanese_man_profile_12359.jpg" alt="移動式オフィス" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">MOBILE OFFICE</div>
+  <h3 class="photo-title">移動式オフィス</h3>
+  <p class="photo-description">好きな場所で仕事ができる自由なワークスタイル。集中できる快適な環境。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="1000">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/climate_control_12391.jpg" alt="充実のキッチン設備" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">KITCHEN EQUIPMENT</div>
+  <h3 class="photo-title">充実キッチン設備</h3>
+  <p class="photo-description">本格調理を可能にする設備の数々。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="interior" data-aos="zoom-in" data-aos-delay="1100">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/electrical_system_12349.jpg" alt="エンターテイメントシステム" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">ENTERTAINMENT</div>
+  <h3 class="photo-title">エンターテイメント</h3>
+  <p class="photo-description">雨の日も楽しく過ごせる娯楽設備。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <!-- Landscape Category -->
+  <div class="luxury-photo-card large" data-category="landscape" data-aos="zoom-in" data-aos-delay="1200">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/nature_background_12370.jpg" alt="田園の夕暮れ" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">COUNTRYSIDE</div>
+  <h3 class="photo-title">田園の夕暮れ</h3>
+  <p class="photo-description">燃えるような夕焼け空と田園風景。日本の美しい田舎道を旅する醍醐味。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="landscape" data-aos="zoom-in" data-aos-delay="1300">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/travel_background_12347.jpg" alt="ドラマチックな空" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">DRAMATIC SKY</div>
+  <h3 class="photo-title">ドラマチックな空</h3>
+  <p class="photo-description">迫力ある雲と空の表情。自然の壮大さを感じる瞬間。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="landscape" data-aos="zoom-in" data-aos-delay="1400">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/hokkaido_camping_12365.jpg" alt="広大な農地" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">FARMLAND</div>
+  <h3 class="photo-title">広大な農地</h3>
+  <p class="photo-description">見渡す限り続く緑の大地でリフレッシュ。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="landscape" data-aos="zoom-in" data-aos-delay="1500">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/caribbean_background_12346.jpg" alt="山間での駐車" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">MOUNTAIN</div>
+  <h3 class="photo-title">山間での駐車</h3>
+  <p class="photo-description">山々に囲まれた静寂の中での特別な時間。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="landmark" data-aos="zoom-in" data-aos-delay="1600">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/lake_background_12372.jpg" alt="モアイ像公園" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">MOAI STATUE</div>
+  <h3 class="photo-title">モアイ像公園</h3>
+  <p class="photo-description">日本のモアイ像を見学。ユニークな観光スポットでの思い出作り。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="landmark" data-aos="zoom-in" data-aos-delay="1700">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/waterfall_background_12373.jpg" alt="灯台見学" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">LIGHTHOUSE</div>
+  <h3 class="photo-title">灯台見学</h3>
+  <p class="photo-description">海岸線の美しい灯台を訪問。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="winter" data-aos="zoom-in" data-aos-delay="1800">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/camper_air_conditioning_12354.jpg" alt="雪の村" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">SNOW VILLAGE</div>
+  <h3 class="photo-title">雪の村</h3>
+  <p class="photo-description">雪景色の美しい村での冬の車中泊体験。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <!-- Outdoor & System Category -->
+  <div class="luxury-photo-card large" data-category="outdoor" data-aos="zoom-in" data-aos-delay="1900">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/camper_insulation_12351.jpg" alt="アウトドアキャンプ設営" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">OUTDOOR CAMPING</div>
+  <h3 class="photo-title">アウトドアキャンプ設営</h3>
+  <p class="photo-description">タープとテーブルを広げて本格キャンプ。自然との一体感を楽しむ贅沢な時間。</p>
+  <div class="photo-stats">
+  <span class="stat-item"><i class="fas fa-campfire"></i> 焚き火可能</span>
+  <span class="stat-item"><i class="fas fa-utensils"></i> 屋外調理</span>
+  </div>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="outdoor" data-aos="zoom-in" data-aos-delay="2000">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/camper_electrical_12353.jpg" alt="キャンプファイヤーディナー" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">CAMPFIRE</div>
+  <h3 class="photo-title">キャンプファイヤーディナー</h3>
+  <p class="photo-description">焚き火を囲んでの夕食。家族の絆を深める特別な時間。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card medium" data-category="system" data-aos="zoom-in" data-aos-delay="2100">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/electrical_diagram_12395.jpg" alt="ルーフソーラーパネル" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">SOLAR SYSTEM</div>
+  <h3 class="photo-title">ルーフソーラーパネル</h3>
+  <p class="photo-description">高効率ソーラーパネルで自然エネルギー供給。環境に配慮した持続可能な旅。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="system" data-aos="zoom-in" data-aos-delay="2200">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/ff_heater_install_12366.jpg" alt="電装システム" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">ELECTRICAL</div>
+  <h3 class="photo-title">電装システム</h3>
+  <p class="photo-description">大容量バッテリーで安定した電力供給。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="travel" data-aos="zoom-in" data-aos-delay="2300">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/entertainment_system_12390.jpg" alt="フェリーターミナル" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">FERRY</div>
+  <h3 class="photo-title">フェリーターミナル</h3>
+  <p class="photo-description">島巡りの旅への出発点。新たな冒険の始まり。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  
+  <div class="luxury-photo-card small" data-category="evening" data-aos="zoom-in" data-aos-delay="2400">
+  <div class="photo-wrapper">
+  <img src="assets/images/generated/kitchen_appliances_12392.jpg" alt="黄昏の駐車" class="luxury-image" loading="lazy">
+  <div class="luxury-overlay">
+  <div class="photo-category">TWILIGHT</div>
+  <h3 class="photo-title">黄昏の駐車</h3>
+  <p class="photo-description">一日の終わりを告げる美しい夕暮れ時。</p>
+  </div>
+  <div class="hover-glow"></div>
+  </div>
+  </div>
+  </div>
+
+<!-- Show More/Less Button -->
+<div class="text-center mt-12">
+<button id="show-more-btn" class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-red-600 transition-colors duration-300 shadow-lg">
+もっと見る
+</button>
+<button id="show-less-btn" class="bg-gray-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors duration-300 shadow-lg hidden">
+閉じる
+</button>
 </div>
 </div>
 </section>
@@ -1978,59 +2412,72 @@ TikTok をフォロー
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
 <div class="container mx-auto px-4">
-<div class="flex flex-col md:flex-row justify-between mb-8">
-    <div class="mb-8 md:mb-0">
-      <div class="flex items-center gap-4 mb-4">
-        <img src="assets/images/b295aa9fa2c904bc29a0e5e438249d00.png" alt="TrailFusion AI" class="h-12">
-        <span class="text-2xl text-white">TrailFusion AI</span>
-      </div>
-<p class="text-gray-400 max-w-xs">DIY キャンピングカー製作の完全ガイド。あなただけの理想の移動住居を作り上げるための全てのノウハウを提供します。</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="grid md:grid-cols-4 gap-8 mb-8">
 <div>
-<h3 class="font-bold text-lg mb-4">製作ガイド</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white transition">基盤の準備</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">居住空間の製作</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">電装システム</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">空調と快適性</a></li>
-</ul>
+<div class="flex items-center gap-4 mb-4">
+<img src="assets/images/b295aa9fa2c904bc29a0e5e438249d00.png" alt="TrailFusion AI" class="h-12">
+<span class="text-2xl text-white">TrailFusion AI</span>
 </div>
-<div>
-<h3 class="font-bold text-lg mb-4">リソース</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white transition">材料リスト</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">工具リスト</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">完成例ギャラリー</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">よくある質問</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-bold text-lg mb-4">お問い合わせ</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white transition">お問い合わせフォーム</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">サポートコミュニティ</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">オンラインセミナー</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition">個別相談</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="border-t border-gray-800 pt-8">
-<div class="flex flex-col md:flex-row justify-between items-center">
-<p class="text-gray-400 mb-4 md:mb-0">© 2025 DIY キャンピングカーガイド. All rights reserved.</p>
-<div class="flex space-x-6">
-<a href="https://www.youtube.com/@van_oasis" target="_blank" class="text-gray-400 hover:text-white transition">
-<i class="ri-youtube-fill ri-lg"></i>
+<p class="text-gray-400 mb-4">革新的なAIアプリケーションとDIYキャンピングカー製作ガイドで、あなたの可能性を広げます。</p>
+<div class="flex space-x-3">
+<a href="https://www.youtube.com/@van_oasis" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition">
+<i class="ri-youtube-fill"></i>
 </a>
-<a href="https://www.tiktok.com/@trailfusionai" target="_blank" class="text-gray-400 hover:text-white transition">
-<i class="ri-tiktok-fill ri-lg"></i>
+<a href="https://www.tiktok.com/@trailfusionai" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition">
+<i class="ri-tiktok-fill"></i>
 </a>
-<a href="https://x.com/trailfusionai" target="_blank" class="text-gray-400 hover:text-white transition">
-<i class="ri-twitter-x-fill ri-lg"></i>
+<a href="https://x.com/trailfusionai" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition">
+<i class="ri-twitter-x-fill"></i>
 </a>
 </div>
 </div>
+<div>
+<h4 class="text-lg font-bold mb-4">キャンピングカー</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition">製作ガイド</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">材料・工具リスト</a></li>
+<li><a href="#gallery" class="text-gray-400 hover:text-white transition">完成例ギャラリー</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">構造要件チェックリスト</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">AIアプリ</h4>
+<ul class="space-y-2">
+<li><a href="アプリ紹介ホームページ.html#gp-teachers" class="text-gray-400 hover:text-white transition">GP Teachers</a></li>
+<li><a href="アプリ紹介ホームページ.html#wood-golem" class="text-gray-400 hover:text-white transition">Wood Golem</a></li>
+<li><a href="アプリ紹介ホームページ.html#voicelink" class="text-gray-400 hover:text-white transition">VoiceLink AI通訳</a></li>
+<li><a href="アプリ紹介ホームページ.html#word-blaster" class="text-gray-400 hover:text-white transition">Word Blaster</a></li>
+<li><a href="アプリ紹介ホームページ.html#debate-master" class="text-gray-400 hover:text-white transition">Debate Master</a></li>
+<li><a href="アプリ紹介ホームページ.html#hacking-timer" class="text-gray-400 hover:text-white transition">Hacking Timer</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-4">お問い合わせ</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">〒106-0032 東京都港区六本木 1-1-1</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">info@trailfusionai.com</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">03-1234-5678</span>
+</li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition">お問い合わせフォーム</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 text-center text-gray-500">
+<p>© 2025 TrailFusion AI. All rights reserved.</p>
 </div>
 </div>
 </footer>
@@ -2393,6 +2840,66 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 5000);
   } else {
     console.log('Hero video not found');
+  }
+
+  // Gallery Show More/Less functionality
+  const showMoreBtn = document.getElementById('show-more-btn');
+  const showLessBtn = document.getElementById('show-less-btn');
+  const moreGallery = document.getElementById('more-gallery');
+
+  if (showMoreBtn && showLessBtn && moreGallery) {
+    // Show More button click handler
+    showMoreBtn.addEventListener('click', function() {
+      // Show the hidden gallery section with smooth animation
+      moreGallery.style.opacity = '0';
+      moreGallery.classList.remove('hidden');
+      
+      // Smooth fade-in animation
+      setTimeout(() => {
+        moreGallery.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+        moreGallery.style.transform = 'translateY(20px)';
+        moreGallery.style.opacity = '1';
+        moreGallery.style.transform = 'translateY(0)';
+      }, 10);
+      
+      // Hide "Show More" button and show "Close" button
+      showMoreBtn.classList.add('hidden');
+      showLessBtn.classList.remove('hidden');
+      
+      // Smooth scroll to the gallery section
+      setTimeout(() => {
+        moreGallery.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    });
+
+    // Show Less button click handler
+    showLessBtn.addEventListener('click', function() {
+      // Smooth fade-out animation
+      moreGallery.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+      moreGallery.style.opacity = '0';
+      moreGallery.style.transform = 'translateY(-20px)';
+      
+      setTimeout(() => {
+        // Hide the gallery section
+        moreGallery.classList.add('hidden');
+        moreGallery.style.transform = 'translateY(0)';
+        
+        // Show "Show More" button and hide "Close" button
+        showMoreBtn.classList.remove('hidden');
+        showLessBtn.classList.add('hidden');
+        
+        // Smooth scroll back to the "Show More" button
+        showMoreBtn.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      }, 500);
+    });
+  } else {
+    console.log('Gallery elements not found');
   }
 });
 </script>
