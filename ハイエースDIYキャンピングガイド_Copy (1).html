@@ -1242,7 +1242,7 @@ LED スポットライト 10個
 </div>
 <!-- キャンピングカー構造要件セクション -->
 <div class="bg-gradient-to-b from-gray-50 to-white">
-<div class="container mx-auto px-4 py-16">
+<div class="container mx-auto px-8 py-16 max-w-6xl">
 <div class="text-center mb-12">
 <span class="inline-block bg-primary text-white text-xs font-medium px-4 py-2 rounded-full mb-4">構造要件</span>
 <h2 class="text-4xl font-bold text-gray-900 mb-6">キャンピングカー構造要件</h2>
@@ -1334,151 +1334,238 @@ LED スポットライト 10個
 </div>
 </div>
 </div>
-<div class="space-y-6">
+<!-- 就寝設備の要件 -->
+<div class="mb-16">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6">
+<div class="flex items-center">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
+<i class="ri-hotel-bed-line text-white text-3xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-white">就寝設備の要件</h3>
+</div>
+</div>
+<div class="p-8">
+<!-- 必要な就寝人数 -->
+<div class="mb-8 bg-purple-50 p-6 rounded-xl">
+<h4 class="font-bold text-xl text-gray-900 mb-4">必要な就寝人数</h4>
 <div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">水道設備の基準</h5>
-<div class="grid grid-cols-1 gap-4">
-<div class="flex items-start space-x-3">
-<i class="ri-water-flash-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">給水タンク容量</p>
-<p class="text-gray-600">10リットル以上の貯水能力</p>
+<p class="text-2xl font-bold text-purple-600 mb-2">乗車定員の1/3以上</p>
+<p class="text-gray-700">（端数切り捨て）</p>
+<p class="text-sm text-gray-500 mt-2">※2人以下の場合は1人分以上必要</p>
 </div>
 </div>
-<div class="flex items-start space-x-3">
-<i class="ri-drop-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">排水タンク容量</p>
-<p class="text-gray-600">10リットル以上の貯水能力</p>
+
+<!-- 就寝スペースの寸法 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<div class="bg-purple-50 p-6 rounded-xl">
+<h4 class="font-bold text-xl text-gray-900 mb-4">大人用就寝設備の寸法</h4>
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-ruler-line text-purple-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">長さ</p>
+<p class="text-xl font-bold text-purple-600">1.8m以上</p>
+</div>
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-expand-left-right-line text-purple-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">幅</p>
+<p class="text-xl font-bold text-purple-600">0.5m以上</p>
+</div>
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-expand-up-down-line text-purple-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">上部空間</p>
+<p class="text-xl font-bold text-purple-600">0.5m以上</p>
 </div>
 </div>
-<div class="flex items-start space-x-3">
-<i class="ri-layout-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">洗面台等の設置位置</p>
-<ul class="text-gray-600 space-y-2">
-<li>・正対して使用可能な位置</li>
-<li>・他の設備との干渉がない</li>
-<li>・床面に著しい段差がない</li>
-</ul>
+<p class="text-sm text-gray-500 mt-4 bg-white p-3 rounded">※頭側0.9mは0.3m以上でOK</p>
+</div>
+<div class="bg-purple-50 p-6 rounded-xl">
+<h4 class="font-bold text-xl text-gray-900 mb-4">子供用就寝設備の寸法</h4>
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-ruler-line text-purple-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">長さ</p>
+<p class="text-xl font-bold text-purple-600">1.5m以上</p>
+</div>
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-expand-left-right-line text-purple-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">幅</p>
+<p class="text-xl font-bold text-purple-600">0.4m以上</p>
+</div>
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-expand-up-down-line text-purple-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">上部空間</p>
+<p class="text-xl font-bold text-purple-600">0.4m以上</p>
 </div>
 </div>
-<div class="flex items-start space-x-3">
-<i class="ri-ruler-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">有効高さ要件</p>
-<ul class="text-gray-600 space-y-2">
-<li>・基本: 床面から1,600mm以上</li>
-<li>・洗面台上端が床面から850mm以下の場合: 1,200mm以上</li>
-</ul>
+<p class="text-sm text-gray-500 mt-4 bg-white p-3 rounded">※頭側0.8mは0.3m以上でOK</p>
 </div>
 </div>
+
+<!-- 換算と兼用規定 -->
+<div class="bg-purple-50 p-6 rounded-xl">
+<h4 class="font-bold text-xl text-gray-900 mb-4">換算規定と座席兼用</h4>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-lg">
+<h5 class="font-semibold text-gray-800 mb-3 flex items-center">
+<i class="ri-group-line text-purple-500 mr-2"></i>
+子供用就寝設備の換算
+</h5>
+<p class="text-lg font-medium text-purple-600">子供用2人分 = 大人用1人分</p>
+<p class="text-sm text-gray-500 mt-2">※大人用1人分以上は必須</p>
 </div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">給排水システムの構造</h5>
-<div class="flex items-start space-x-3">
-<i class="ri-settings-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700">タンクから洗面台等への給水機能を備えた構造であること</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-6">
-<div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-lg border border-gray-100 hover:shadow-lg transition-all duration-300">
-<div class="flex items-start space-x-6">
-<div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-xl mr-4">
-<i class="ri-hotel-bed-line text-primary text-3xl"></i>
-</div>
-<div class="flex-1">
-<h4 class="font-bold text-xl text-gray-900 mb-4">就寝設備の要件</h4>
-<div class="space-y-6">
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">必要な就寝人数</h5>
-<div class="flex items-center space-x-2 text-gray-700">
-<i class="ri-user-line text-primary"></i>
-<p>乗車定員の3分の1以上（端数切り捨て）</p>
-</div>
-<div class="text-sm text-gray-500 mt-2">※2人以下の場合は1人分以上必要</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">就寝スペースの寸法</h5>
-<div class="grid grid-cols-1 gap-4">
-<div class="flex items-center space-x-3">
-<i class="ri-ruler-line text-primary"></i>
-<div>
-<p class="text-gray-700">長さ: 1.8m以上</p>
-<p class="text-gray-700">幅: 0.5m以上</p>
-</div>
-</div>
-<div class="flex items-center space-x-3">
-<i class="ri-space-ship-line text-primary"></i>
-<div>
-<p class="text-gray-700">上部空間: 0.5m以上</p>
-<p class="text-sm text-gray-500">※頭側0.9mは0.3m以上でOK</p>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-6">
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">子供用就寝設備の換算</h5>
-<div class="flex items-center space-x-2 text-gray-700">
-<i class="ri-group-line text-primary"></i>
-<p>子供用2人分 = 大人用1人分</p>
-</div>
-<div class="text-sm text-gray-500 mt-2">※大人用1人分以上は必須</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">子供用就寝設備の寸法</h5>
-<div class="grid grid-cols-1 gap-4">
-<div class="flex items-center space-x-3">
-<i class="ri-ruler-line text-primary"></i>
-<div>
-<p class="text-gray-700">長さ: 1.5m以上</p>
-<p class="text-gray-700">幅: 0.4m以上</p>
-</div>
-</div>
-<div class="flex items-center space-x-3">
-<i class="ri-space-ship-line text-primary"></i>
-<div>
-<p class="text-gray-700">上部空間: 0.4m以上</p>
-<p class="text-sm text-gray-500">※頭側0.8mは0.3m以上でOK</p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">就寝設備と座席の兼用</h5>
-<div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-checkbox-circle-line text-primary mt-1"></i>
-<p class="text-gray-700">原則として就寝設備は座席と兼用不可</p>
-</div>
+<div class="bg-white p-6 rounded-lg">
+<h5 class="font-semibold text-gray-800 mb-3 flex items-center">
+<i class="ri-seat-line text-purple-500 mr-2"></i>
+就寝設備と座席の兼用
+</h5>
+<p class="text-gray-700 mb-3"><span class="font-medium text-red-600">原則：</span>就寝設備は座席と兼用不可</p>
 <div class="bg-gray-50 p-4 rounded-lg">
-<p class="font-medium text-gray-800 mb-2">例外：以下の全ての要件を満たす場合</p>
+<p class="font-medium text-gray-800 mb-2">例外：以下の全要件を満たす場合</p>
+<ul class="space-y-1 text-sm text-gray-700">
+<li class="flex items-start">
+<i class="ri-check-line text-green-500 mr-1 mt-0.5"></i>
+<span>座面・背もたれが就寝設備として設計</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-green-500 mr-1 mt-0.5"></i>
+<span>展開時に連続した平面を形成可能</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 炊事設備の要件 -->
+<div class="mb-16">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="bg-gradient-to-r from-orange-500 to-orange-600 p-6">
+<div class="flex items-center">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
+<i class="ri-restaurant-line text-white text-3xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-white">炊事設備の要件</h3>
+</div>
+</div>
+<div class="p-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- 基本要件と安全性 -->
+<div class="space-y-6">
+<div class="bg-orange-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-dashboard-3-line text-orange-500 mr-2"></i>
+基本要件
+</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-ruler-2-line text-orange-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">調理スペース</p>
+<p class="font-bold text-orange-600">0.3m × 0.2m以上</p>
+</div>
+<div class="bg-white p-4 rounded-lg text-center">
+<i class="ri-fire-line text-orange-500 text-2xl mb-2"></i>
+<p class="text-sm text-gray-600">調理機能</p>
+<p class="font-bold text-orange-600">コンロ等設置</p>
+</div>
+</div>
+</div>
+<div class="bg-orange-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-shield-flash-line text-orange-500 mr-2"></i>
+安全性要件
+</h4>
+<div class="space-y-3">
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">耐熱・耐火性</p>
+<p class="text-gray-700 text-sm">火気使用箇所は十分な耐熱性・耐火性を確保</p>
+</div>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">換気機能</p>
+<p class="text-gray-700 text-sm">窓または換気扇等による適切な換気機能</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 燃料システムと使用性 -->
+<div class="space-y-6">
+<div class="bg-orange-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-gas-station-line text-orange-500 mr-2"></i>
+燃料システム要件
+</h4>
+<div class="space-y-4">
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">LPガス等の燃料タンク</p>
+<ul class="space-y-1 text-gray-700 text-sm">
+<li>• 車室内と隔壁で区切られた設置場所</li>
+<li>• 車外との十分な通気を確保</li>
+<li>• 衝突時の損傷を受けにくい位置</li>
+</ul>
+</div>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">燃料配管</p>
+<ul class="space-y-1 text-gray-700 text-sm">
+<li>• 振動による損傷を防ぐ確実な取り付け</li>
+<li>• 損傷の恐れがある部分は保護カバー</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-orange-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-layout-line text-orange-500 mr-2"></i>
+使用性要件
+</h4>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-3">調理台・コンロの設置条件</p>
+<ul class="space-y-2 text-gray-700 text-sm">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-orange-500 mr-2 mt-0.5"></i>
+<span>正対して使用可能</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-orange-500 mr-2 mt-0.5"></i>
+<span>利用者との間に障害物なし</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-orange-500 mr-2 mt-0.5"></i>
+<span>使用時の動線を確保</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-orange-500 mr-2 mt-0.5"></i>
+<span>床面に著しい段差がない</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-fill text-orange-500 mr-2 mt-0.5"></i>
+<span>有効高さ1,600mm以上（調理台850mm以下なら1,200mm）</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- 設置方法と面積要件 -->
+<div class="mt-8 bg-gradient-to-r from-orange-100 to-yellow-100 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-install-line text-orange-600 mr-2"></i>
+設置方法と面積要件
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<h5 class="font-medium text-gray-800 mb-3">設置方法の柔軟性</h5>
 <ul class="space-y-2 text-gray-700">
-<li class="flex items-start space-x-2">
-<i class="ri-check-line text-primary mt-1"></i>
-<span>座面・背もたれが就寝設備として設計されている</span>
-</li>
-<li class="flex items-start space-x-2">
-<i class="ri-check-line text-primary mt-1"></i>
-<span>展開時に連続した平面を形成できる</span>
-</li>
+<li>• 水タンク、燃料タンク、配線・配管は床下配置可</li>
+<li>• 専用設置場所がある場合、取り外し可能な構造も可</li>
 </ul>
 </div>
-</div>
-</div>
 <div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">格納式・折りたたみ式・脱着式</h5>
-<div class="flex items-start space-x-3">
-<i class="ri-information-line text-primary mt-1"></i>
-<p class="text-gray-700">展開・拡張時に大人用または子供用の寸法要件を満たすこと</p>
+<h5 class="font-medium text-gray-800 mb-3">必要床面積</h5>
+<p class="text-2xl font-bold text-orange-600 mb-2">0.5㎡以上</p>
+<p class="text-gray-700 text-sm">洗面台等、調理台・コンロ等、およびこれらの利用場所の床面投影面積の合計</p>
 </div>
 </div>
 </div>
@@ -1486,248 +1573,142 @@ LED スポットライト 10個
 </div>
 </div>
 </div>
-<div class="bg-white p-8 rounded-lg shadow-lg">
-<div class="flex items-start space-x-6">
-<div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-xl mr-4">
-<i class="ri-layout-masonry-line text-primary text-3xl"></i>
+
+<!-- 特種な設備の占有面積 -->
+<div class="mb-16">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+<div class="bg-gradient-to-r from-green-500 to-green-600 p-6">
+<div class="flex items-center">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
+<i class="ri-layout-masonry-line text-white text-3xl"></i>
 </div>
-<div class="flex-1">
-<h4 class="font-bold text-xl text-gray-900 mb-4">特種な設備の占有面積の取り扱い</h4>
+<h3 class="text-2xl font-bold text-white">特種な設備の占有面積の取り扱い</h3>
+</div>
+</div>
+<div class="p-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- 浴室・トイレと二層構造 -->
 <div class="space-y-6">
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">浴室・トイレ設備</h5>
-<div class="flex items-start space-x-3">
-<i class="ri-home-gear-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700">車室内の他の設備と隔壁により区分された専用の場所に設けられた浴室設備及びトイレ設備の占める面積は、「特種な設備の占有する面積」に加算可能。</p>
+<div class="bg-green-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-home-gear-line text-green-500 mr-2"></i>
+浴室・トイレ設備
+</h4>
+<p class="text-gray-700">車室内の他の設備と<span class="font-semibold text-green-600">隔壁により区分された専用の場所</span>に設けられた浴室設備及びトイレ設備の占める面積は、「特種な設備の占有する面積」に加算可能。</p>
 </div>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">二層構造の定義と要件</h5>
+<div class="bg-green-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-building-2-line text-green-500 mr-2"></i>
+二層構造の定義と要件
+</h4>
 <div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-building-2-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">二層構造の基準</p>
-<ul class="text-gray-600 space-y-2 mt-2">
-<li class="flex items-start space-x-2">
-<i class="ri-checkbox-circle-line text-primary mt-1"></i>
-<span>上層部の最下部と床面との間：全ての位置で1,200mm以上の有効高さが必要</span>
-</li>
-<li class="flex items-start space-x-2">
-<i class="ri-checkbox-circle-line text-primary mt-1"></i>
-<span>上層部の上面と屋根内側との間：</span>
-<ul class="ml-4 mt-1">
-<li>・通常時：全ての位置で1,200mm以上</li>
-<li>・就寝設備の場合：500mm以上（就寝設備の短辺から長手方向0.9mまでは300mm以上）</li>
-</ul>
-</li>
-</ul>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">上層部の最下部と床面との間</p>
+<p class="text-lg font-semibold text-green-600">全位置で1,200mm以上</p>
 </div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-information-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700">上層部分に就寝設備を有する場合、運転者席を除く客室の床面積等の合計面積に当該就寝設備の占める面積を加える場合に限り、「特種な設備の占有する面積」に加算可能。</p>
-<p class="text-gray-600 text-sm mt-2">※キャンプ時において屋根部を拡張させることにより車室内が二層構造となる自動車を含む</p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">就寝設備と座席の兼用</h5>
-<div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-seat-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700">就寝設備と乗車装置の座席を兼用とする場合、当該就寝設備のうちの乗車装置の座席と兼用される部分の2分の1を「特種な設備の占有する面積」とみなすことが可能。</p>
-</div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-error-warning-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">重要な注意点</p>
-<ul class="text-gray-600 space-y-2">
-<li>・乗用自動車用又は貨物自動車用に製作された標準座席は、就寝設備としての要件を満たさない</li>
-<li>・つなぎ目に穴・すき間があいているものは、展開時に連続した平面を形成する要件を満たさない</li>
-<li>・脱着式の設備は車両重量に含める</li>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">上層部の上面と屋根内側との間</p>
+<ul class="space-y-1 text-gray-700">
+<li>• 通常時：全位置で1,200mm以上</li>
+<li>• 就寝設備：500mm以上<br><span class="text-sm text-gray-500 ml-3">（短辺から長手方向0.9mまでは300mm以上）</span></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm mt-4">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">車室の拡張と収納場所</h5>
-<div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-expand-up-down-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">車室拡張に関する規定</p>
-<p class="text-gray-600">キャンプ時において車室を拡張させることができる構造のものであって、展開した状態において規定の有効高さを満足する場合を含む</p>
-</div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-archive-drawer-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">専用収納場所の定義</p>
-<p class="text-gray-600">以下の設備と兼用である部位は「専用の収納場所」に該当しない：</p>
-<ul class="text-gray-600 space-y-2">
-<li>・乗車設備</li>
-<li>・構造要件で規定する設備（二層構造の上層部分に設ける就寝設備を除く）</li>
-<li>・その他構造要件で規定されていない任意の設備</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">任意設備と格納式設備</h5>
-<div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-folder-unfill-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">任意設備の面積計算</p>
-<ul class="text-gray-600 space-y-2">
-<li>・構造要件に規定されない任意の設備（乗車設備以外の座席及びテーブル）は、その他の面積として計算</li>
-<li>・格納式/折りたたみ式就寝設備と重複する場合、重複部分の2分の1を「特種な設備の占有する面積」に加算可能</li>
-</ul>
-</div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-tools-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">脱着式設備の要件</p>
-<ul class="text-gray-600 space-y-2">
-<li>・走行中の振動等で移動しないよう確実に固定できること</li>
-<li>・専用収納場所がある場合、その面積を「特種な設備の占有する面積」に加算可能（格納時の面積を上限）</li>
-</ul>
-</div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-error-warning-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">制限事項</p>
-<p class="text-gray-600">物品積載設備を有していないこと</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- 車室拡張と設備要件 -->
 <div class="space-y-6">
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">基本要件</h5>
-<div class="grid grid-cols-1 gap-4">
-<div class="flex items-start space-x-3">
-<i class="ri-ruler-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">調理スペース</p>
-<p class="text-gray-600">調理台等の寸法: 0.3m × 0.2m以上の平面が必要</p>
+<div class="bg-green-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-expand-up-down-line text-green-500 mr-2"></i>
+車室の拡張と収納場所
+</h4>
+<div class="bg-white p-4 rounded-lg mb-4">
+<p class="font-medium text-gray-800 mb-2">車室拡張に関する規定</p>
+<p class="text-gray-700">キャンプ時において車室を拡張させることができる構造で、展開時に規定の有効高さを満足する場合を含む</p>
+</div>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">専用収納場所に該当しない部位</p>
+<ul class="space-y-1 text-gray-700 text-sm">
+<li>• 乗車設備</li>
+<li>• 構造要件で規定する設備</li>
+<li>• その他構造要件で規定されていない任意の設備</li>
+</ul>
 </div>
 </div>
-<div class="flex items-start space-x-3">
-<i class="ri-fire-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">調理機能</p>
-<p class="text-gray-600">コンロ等による炊事が可能な設備</p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">安全性要件</h5>
+<div class="bg-green-50 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-tools-line text-green-500 mr-2"></i>
+任意設備と格納式設備
+</h4>
 <div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-shield-flash-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">耐熱・換気</p>
-<ul class="text-gray-600 space-y-2">
-<li>・火気使用箇所は十分な耐熱性・耐火性を確保</li>
-<li>・窓または換気扇等による適切な換気機能</li>
+<div class="bg-white p-4 rounded-lg">
+<p class="font-medium text-gray-800 mb-2">脱着式設備の要件</p>
+<ul class="space-y-1 text-gray-700 text-sm">
+<li>• 走行中の振動で移動しないよう確実に固定</li>
+<li>• 専用収納場所がある場合、面積加算可能</li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">燃料システム要件</h5>
-<div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-gas-station-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">LPガス等の燃料タンク</p>
-<ul class="text-gray-600 space-y-2">
-<li>・車室内と隔壁で区切られた設置場所</li>
-<li>・車外との十分な通気を確保</li>
-<li>・衝突時の損傷を受けにくい位置に設置</li>
-</ul>
-</div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-settings-3-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">燃料配管</p>
-<ul class="text-gray-600 space-y-2">
-<li>・振動による損傷を防ぐ確実な取り付け</li>
-<li>・損傷の恐れがある部分は適切な保護カバー</li>
-</ul>
+<div class="bg-red-50 border border-red-200 p-4 rounded-lg">
+<p class="font-medium text-red-800 flex items-center">
+<i class="ri-error-warning-line mr-2"></i>
+制限事項
+</p>
+<p class="text-red-700">物品積載設備を有していないこと</p>
 </div>
 </div>
 </div>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">使用性要件</h5>
-<div class="flex items-start space-x-3">
-<i class="ri-layout-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700">調理台・コンロ等は以下の条件を満たす位置に設置</p>
-<ul class="text-gray-600 space-y-2">
-<li>・正対して使用可能</li>
-<li>・利用者との間に障害物なし</li>
-<li>・使用時の動線を確保</li>
-<li>・床面に著しい段差がないこと</li>
-<li>・床面から上方に有効高さ1,600mm以上の空間を確保（調理台等の上面が床面から850mm以下の場合は1,200mm以上）</li>
-</ul>
 </div>
+
+<!-- 重要な注意点 -->
+<div class="mt-8 bg-yellow-50 border-2 border-yellow-200 p-6 rounded-xl">
+<h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center">
+<i class="ri-error-warning-line text-yellow-600 mr-2"></i>
+重要な注意点
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white p-4 rounded-lg">
+<p class="text-gray-700 text-sm">• 乗用/貨物自動車用の標準座席は就寝設備要件を満たさない</p>
 </div>
+<div class="bg-white p-4 rounded-lg">
+<p class="text-gray-700 text-sm">• つなぎ目に穴・すき間があるものは連続平面要件を満たさない</p>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-sm">
-<h5 class="font-semibold text-lg text-gray-800 mb-3">設置方法と面積要件</h5>
-<div class="space-y-4">
-<div class="flex items-start space-x-3">
-<i class="ri-install-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">設置方法の柔軟性</p>
-<ul class="text-gray-600 space-y-2">
-<li>・水タンク、燃料タンク、配線・配管は床下配置可</li>
-<li>・専用設置場所がある場合、取り外し可能な構造も可</li>
-</ul>
-</div>
-</div>
-<div class="flex items-start space-x-3">
-<i class="ri-ruler-2-line text-primary mt-1"></i>
-<div>
-<p class="text-gray-700 font-medium">必要床面積</p>
-<p class="text-gray-600">洗面台等、調理台・コンロ等、およびこれらの利用場所の床面投影面積が0.5㎡以上必要</p>
+<div class="bg-white p-4 rounded-lg">
+<p class="text-gray-700 text-sm">• 脱着式設備は車両重量に含める</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
+
+<!-- まとめ -->
+<div class="bg-gradient-to-r from-primary to-red-600 p-8 rounded-2xl shadow-xl text-white text-center">
+<h3 class="text-2xl font-bold mb-4">構造要件のポイント</h3>
+<p class="text-lg mb-6">これらの要件を満たすことで、8ナンバー（特種用途自動車）として登録が可能になります</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+<i class="ri-water-flash-line text-3xl mb-2"></i>
+<p class="font-medium">給排水設備</p>
+<p class="text-sm opacity-90">10L以上のタンク</p>
+</div>
+<div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+<i class="ri-hotel-bed-line text-3xl mb-2"></i>
+<p class="font-medium">就寝設備</p>
+<p class="text-sm opacity-90">乗車定員の1/3以上</p>
+</div>
+<div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+<i class="ri-restaurant-line text-3xl mb-2"></i>
+<p class="font-medium">炊事設備</p>
+<p class="text-sm opacity-90">0.3×0.2m以上</p>
+</div>
+<div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+<i class="ri-ruler-2-line text-3xl mb-2"></i>
+<p class="font-medium">床面積</p>
+<p class="text-sm opacity-90">合計0.5㎡以上</p>
 </div>
 </div>
-<div class="bg-gray-50 p-6 rounded-lg">
-<div class="flex items-center mb-3">
-<div class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4">
-<i class="ri-water-flash-line text-primary text-2xl"></i>
-</div>
-<h4 class="font-bold text-lg text-gray-900">給排水設備</h4>
-</div>
-<p class="text-gray-700">10リットル以上の給排水タンクの設置が必要</p>
 </div>
 </div>
 </div>
