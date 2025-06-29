@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../homepage1/support/camper"
+		},
+		{
+			"path": "../homepage1/support/images"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "homepage2"
+	}
+}
