@@ -245,48 +245,65 @@ grid-row: span 1;
 </style>
 </head>
 <body class="bg-gray-50">
-<!-- Header -->
+<!-- ヘッダー -->
 <header class="bg-white shadow-lg sticky top-0 z-50">
-<div class="container mx-auto px-4 py-4 flex items-center justify-between">
-<div class="flex items-center space-x-6">
-<img src="assets/images/b295aa9fa2c904bc29a0e5e438249d00.png" alt="TrailFusion AI" class="h-12 hover:scale-105 transition-transform duration-300">
-<div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TrailFusion AI</div>
-</div>
-<nav class="hidden md:flex items-center space-x-8">
-<a href="ハイエースDIYキャンピングガイド_Copy (1).html" class="relative overflow-hidden bg-blue-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
-<span class="relative z-10">キャンピングカー製作</span>
-<div class="absolute inset-0 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-</a>
-<a href="アプリ紹介ホームページ (4).html" class="relative overflow-hidden bg-green-500 text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
-<span class="relative z-10">アプリ紹介</span>
-<div class="absolute inset-0 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-</a>
-
-<div class="flex items-center space-x-4">
-<a href="https://www.youtube.com/@van_oasis" target="_blank" class="flex items-center justify-center w-10 h-10 bg-red-500 text-white rounded-full hover:bg-red-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-red-500/50">
-<i class="ri-youtube-fill ri-xl"></i>
-</a>
-<a href="https://www.tiktok.com/@trailfusionai" target="_blank" class="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full hover:from-pink-600 hover:to-purple-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-pink-500/50">
-<i class="ri-tiktok-fill ri-xl"></i>
-</a>
-<a href="https://x.com/trailfusionai" target="_blank" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-black/50">
-<i class="ri-twitter-x-fill ri-xl"></i>
-</a>
-</div>
-<a href="#contact" class="relative overflow-hidden bg-primary text-white px-6 py-2.5 rounded-button whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
-<span class="relative z-10">お問い合わせ</span>
-<div class="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-</a>
-</nav>
-<div class="w-10 h-10 flex items-center justify-center md:hidden hover:bg-gray-100 rounded-full transition-colors duration-300">
-<i class="ri-menu-line ri-lg"></i>
-</div>
-</div>
+  <div class="container mx-auto px-2 sm:px-4 py-3 sm:py-4">
+      <!-- モバイル表示 -->
+      <div class="flex items-center justify-between md:hidden">
+          <a href="home.html" class="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-300 flex-shrink-0">
+              <img src="assets/images/b295aa9fa2c904bc29a0e5e438249d00.png" alt="TrailFusion AI" class="h-8 sm:h-10 hover:scale-105 transition-transform duration-300">
+              <div class="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TrailFusion AI</div>
+          </a>
+          <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors duration-300">
+              <i class="ri-menu-line ri-lg"></i>
+          </div>
+      </div>
+      
+      <!-- デスクトップ表示 -->
+      <div class="hidden md:flex items-center justify-between">
+          <a href="home.html" class="flex items-center space-x-6 hover:opacity-80 transition-opacity duration-300 flex-shrink-0">
+              <img src="assets/images/b295aa9fa2c904bc29a0e5e438249d00.png" alt="TrailFusion AI" class="h-12 hover:scale-105 transition-transform duration-300">
+              <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TrailFusion AI</div>
+          </a>
+          
+          <nav class="flex items-center space-x-2 lg:space-x-4 xl:space-x-6">
+              <a href="home.html" class="relative overflow-hidden bg-gray-500 text-white px-3 lg:px-4 xl:px-6 py-2 lg:py-2.5 rounded-button text-sm lg:text-base whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+                  <span class="relative z-10">ホーム</span>
+                  <div class="absolute inset-0 bg-gray-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </a>
+              <a href="ハイエースDIYキャンピングガイド_Copy (1).html" class="relative overflow-hidden bg-blue-500 text-white px-3 lg:px-4 xl:px-6 py-2 lg:py-2.5 rounded-button text-sm lg:text-base whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+                  <span class="relative z-10">キャンピングカー製作</span>
+                  <div class="absolute inset-0 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </a>
+              <a href="アプリ紹介ホームページ (4).html" class="relative overflow-hidden bg-green-500 text-white px-3 lg:px-4 xl:px-6 py-2 lg:py-2.5 rounded-button text-sm lg:text-base whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+                  <span class="relative z-10">アプリ紹介</span>
+                  <div class="absolute inset-0 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </a>
+              
+              <div class="flex items-center space-x-2 lg:space-x-3">
+                  <a href="https://www.youtube.com/@van_oasis" target="_blank" class="flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 bg-red-500 text-white rounded-full hover:bg-red-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-red-500/50">
+                      <i class="ri-youtube-fill text-sm lg:ri-xl"></i>
+                  </a>
+                  <a href="https://www.tiktok.com/@trailfusionai" target="_blank" class="flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full hover:from-pink-600 hover:to-purple-600 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-pink-500/50">
+                      <i class="ri-tiktok-fill text-sm lg:ri-xl"></i>
+                  </a>
+                  <a href="https://x.com/trailfusionai" target="_blank" class="flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 bg-black text-white rounded-full hover:bg-gray-800 transform hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-black/50">
+                      <i class="ri-twitter-x-fill text-sm lg:ri-xl"></i>
+                  </a>
+              </div>
+              
+              <a href="#contact" class="relative overflow-hidden bg-primary text-white px-3 lg:px-4 xl:px-6 py-2 lg:py-2.5 rounded-button text-sm lg:text-base whitespace-nowrap group hover:shadow-lg transition-all duration-300 ease-in-out">
+                  <span class="relative z-10">お問い合わせ</span>
+                  <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </a>
+          </nav>
+      </div>
+  </div>
 </header>
 <!-- Hero Section -->
 <section class="hero-section w-full py-20">
-      <video autoplay loop muted playsinline controls>
-        <source src="../Users/user/Homepage/homepage1/support/images/hero_section.mp4" type="video/mp4">
+      <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        <source src="assets/videos/a2ecd24a-6985-40d3-8cc8-8d3a0f0beb0c.mp4" type="video/mp4">
         お使いのブラウザは動画再生をサポートしていません。
       </video>
 <div class="container mx-auto px-4 w-full">
@@ -339,6 +356,311 @@ grid-row: span 1;
 </div>
 </div>
 </section>
+
+<!-- TikTok Video Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+  <div class="text-center mb-12">
+  <span class="inline-block bg-primary text-white text-xs font-medium px-3 py-1 rounded-full mb-2">TikTok</span>
+  <h2 class="text-3xl font-bold text-gray-900 mb-4">DIY 製作の全工程を TikTok で公開</h2>
+  <p class="text-gray-600 max-w-3xl mx-auto">ハイエース購入から完成まで、すべての製作工程を詳しく発信。初心者でも分かりやすい解説付き。</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6" id="tiktok-container">
+  <!-- TikTok Video 1 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7123740258549714178?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - ハイエース購入と改造開始"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🏆 DIYキャンピング車登録完了</h3>
+  <p class="text-gray-600 text-sm">ハイエースをDIYでキャンピング車登録した全過程をまとめて紹介。素人でも可能な車両登録の実体験</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 2 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7130760214931852545?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 断熱材施工と内装準備"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">📚 北海道車中泊・朝の勉強時間</h3>
+  <p class="text-gray-600 text-sm">ハイエース北海道車中泊の旅での朝の勉強時間。キャンピングカーでの学習環境と集中できる空間作り</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 3 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7133978765453036801?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 壁面工事と収納設計"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">👨‍👩‍👧‍👦 家族で北海道車中泊の旅</h3>
+  <p class="text-gray-600 text-sm">息子(7歳)、娘(5歳)の2人を連れたハイエース北海道車中泊の旅。家族でのバンライフ体験記</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 4 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7159810576485453057?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 電気工事とソーラーパネル設置"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🗾 北海道車中泊おすすめ13選</h3>
+  <p class="text-gray-600 text-sm">北海道車中泊旅行おすすめスポット13選を紹介。また絶対行きたくなる絶景ポイント厳選</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 5 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7185920419822685441?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - キッチン製作と設備取り付け"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🎮 ハイエースでSwitch環境構築</h3>
+  <p class="text-gray-600 text-sm">ハイエースでSwitchを準備しながらプレイできるゲーム環境を構築。車中泊での娯楽システム</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 6 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7193309273533795585?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - ベッドスペース製作とマットレス設置"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🔥 FFヒーター自作DIY</h3>
+  <p class="text-gray-600 text-sm">ハイエースにFFヒーターを自作で取り付け。冬の車中泊を快適にする暖房システム構築</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 7 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7282008286222716162?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 最終仕上げと細部調整"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">📱 車中泊で英語学習アプリ開発</h3>
+  <p class="text-gray-600 text-sm">ハイエース車中泊、子供が寝た後の時間で英語学習アプリを完成。車内での効率的な開発環境</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 8 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7331749376387321089?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 完成披露と初回テスト走行"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🎬 プロジェクター設置DIY</h3>
+  <p class="text-gray-600 text-sm">ハイエースにプロジェクターを取り付けて車内シアター環境を構築。車中泊での映画鑑賞システム</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 9 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7409250336420007169?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - バンライフ体験と実際の使用感"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🌪️ 台風の日のキャンピングカー生活</h3>
+  <p class="text-gray-600 text-sm">台風の日にキャンピングカーで楽しく過ごす贅沢な時間。悪天候でも快適な車内空間の魅力</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 10 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7192977271118974210?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 旅先での生活とキャンプ場体験"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🛏️ 2段ベッドDIY製作</h3>
+  <p class="text-gray-600 text-sm">ハイエースに2段ベッドをDIYで製作。限られた空間を有効活用する寝室設計のアイデア</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 11 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7304907907139783938?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - トラブル対応と改良点"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🏰 ディズニーランド車中泊</h3>
+  <p class="text-gray-600 text-sm">ディズニーランドでハイエース車中泊。昼休憩中の快適な車内空間とテーマパーク攻略法</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 12 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7204455713140247810?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - バンライフの魅力と新しい発見"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">❄️ 真冬の白川郷車中泊</h3>
+  <p class="text-gray-600 text-sm">二駆ハイエースで真冬の白川郷に車中泊旅行。雪景色の中での極寒キャンプ体験記</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 13 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7383331171653913873?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 最新改良とアップデート"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">❄️ 中華系ルーフエアコン装着DIY</h3>
+  <p class="text-gray-600 text-sm">ハイエースに中華系ルーフエアコンをDIYで装着。夏の車中泊を快適にする冷房システム構築</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 14 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7385927321741544712?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 冬季対応と寒冷地仕様"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🔧 ルーフエアコン装着Part2</h3>
+  <p class="text-gray-600 text-sm">ハイエースに中華系ルーフエアコンを装着せよ②。詳細な取り付け手順と配線作業の実践編</p>
+  </div>
+  </div>
+  
+  <!-- TikTok Video 15 -->
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-full pt-[177.77%]">
+  <iframe
+  src="https://www.tiktok.com/embed/v2/7409250336420007169?autoplay=1&muted=0&loop=1"
+  class="absolute top-0 left-0 w-full h-full tiktok-video"
+  title="TikTok - 総集編と今後の展望"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+  </iframe>
+  </div>
+  <div class="p-4">
+  <h3 class="font-bold text-lg mb-2">🌪️ 台風でも快適キャンピングカー</h3>
+  <p class="text-gray-600 text-sm">台風の日にキャンピングカーで楽しく過ごす贅沢な時間。自然の脅威も楽しみに変える車内空間</p>
+  </div>
+  </div>
+  </div>
+  <div class="text-center mt-12">
+  <p class="text-gray-600 mb-8">製作の様子は TikTok で詳しく公開しています。フォローして最新の投稿をチェックしてください！</p>
+  <a href="https://www.tiktok.com/@trailfusionai" target="_blank" class="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-button hover:from-pink-600 hover:to-purple-600 transition">
+  <i class="ri-tiktok-fill mr-2"></i>
+  TikTok をフォロー
+  </a>
+  </div>
+  </div>
+  </section>
+  
 <!-- Features Section -->
 <section id="features" class="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
 <div class="absolute inset-0 opacity-10">
@@ -521,11 +843,11 @@ grid-row: span 1;
 <div class="bg-white p-8 rounded shadow-lg mb-12">
 <div class="flex flex-col md:flex-row gap-8">
 <div class="md:w-1/2">
-    <img class="w-full h-80 object-cover object-top rounded" src="assets/images/572fbfac75d66db42945623d8047885b.jfif" alt="8ナンバー登録">
+    <img class="w-full h-80 object-cover object-top rounded" src="assets/images/572fbfac75d66db42945623d8047885b.jpg" alt="8ナンバー登録">
 </div>
 <div class="md:w-1/2">
 <span class="inline-block bg-primary text-white text-xs font-medium px-3 py-1 rounded-full mb-2">第 5 部</span>
-<h3 class="text-2xl font-bold text-gray-900 mb-4">8ナンバー登録 – 合法キャンピングカーの完成</h3>
+<h3 class="text-2xl font-bold text-gray-900 mb-4">8ナンバー登録 – キャンピングカーの完成</h3>
 <div class="mb-6">
 <h4 class="font-bold text-lg mb-2">構造要件の確認</h4>
 <p class="text-gray-700 mb-4">8ナンバー（特種用途自動車）として登録するための法的要件を満たしているかの最終確認です。</p>
@@ -953,7 +1275,7 @@ LED スポットライト 10個
 <i class="ri-draft-line text-primary text-xl mt-1 mr-3"></i>
 <div class="w-full">
 <h4 class="font-bold mb-2">詳細図面</h4>
-<img src="assets/images/d729086d454a7d37c4f7b79d08a489be.jfif" alt="キャンピングカー詳細図面" class="w-full rounded-lg mb-2">
+<img src="assets/images/d729086d454a7d37c4f7b79d08a489be.jpg" alt="キャンピングカー詳細図面" class="w-full rounded-lg mb-2">
 <p class="text-gray-600 text-sm">平面図・立面図を含む改造部分の詳細設計図</p>
 </div>
 </div>
@@ -1545,316 +1867,12 @@ LED スポットライト 10個
 
 </div>
 </div>
-<button id="checklist-download-button" class="mt-8 bg-primary text-white px-6 py-4 rounded-button whitespace-nowrap hover:bg-red-600 transition inline-flex items-center justify-center group">
+<a href="キャンピングカー〈8ナンバー〉構造要件チェックリスト.pdf" download="キャンピングカー〈8ナンバー〉構造要件チェックリスト.pdf" class="mt-8 bg-primary text-white px-6 py-4 rounded-button whitespace-nowrap hover:bg-red-600 transition inline-flex items-center justify-center group">
 <i class="ri-download-line mr-2 group-hover:animate-bounce"></i>
 キャンピングカー〈8ナンバー〉構造要件チェックリストをダウンロード
-</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- TikTok Video Section -->
-<section class="py-16 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<span class="inline-block bg-primary text-white text-xs font-medium px-3 py-1 rounded-full mb-2">TikTok</span>
-<h2 class="text-3xl font-bold text-gray-900 mb-4">DIY 製作の全工程を TikTok で公開</h2>
-<p class="text-gray-600 max-w-3xl mx-auto">ハイエース購入から完成まで、すべての製作工程を詳しく発信。初心者でも分かりやすい解説付き。</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6" id="tiktok-container">
-<!-- TikTok Video 1 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7123740258549714178?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - ハイエース購入と改造開始"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🏆 DIYキャンピング車登録完了</h3>
-<p class="text-gray-600 text-sm">ハイエースをDIYでキャンピング車登録した全過程をまとめて紹介。素人でも可能な車両登録の実体験</p>
-</div>
-</div>
-
-<!-- TikTok Video 2 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7130760214931852545?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 断熱材施工と内装準備"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">📚 北海道車中泊・朝の勉強時間</h3>
-<p class="text-gray-600 text-sm">ハイエース北海道車中泊の旅での朝の勉強時間。キャンピングカーでの学習環境と集中できる空間作り</p>
-</div>
-</div>
-
-<!-- TikTok Video 3 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7133978765453036801?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 壁面工事と収納設計"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">👨‍👩‍👧‍👦 家族で北海道車中泊の旅</h3>
-<p class="text-gray-600 text-sm">息子(7歳)、娘(5歳)の2人を連れたハイエース北海道車中泊の旅。家族でのバンライフ体験記</p>
-</div>
-</div>
-
-<!-- TikTok Video 4 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7159810576485453057?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 電気工事とソーラーパネル設置"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🗾 北海道車中泊おすすめ13選</h3>
-<p class="text-gray-600 text-sm">北海道車中泊旅行おすすめスポット13選を紹介。また絶対行きたくなる絶景ポイント厳選</p>
-</div>
-</div>
-
-<!-- TikTok Video 5 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7185920419822685441?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - キッチン製作と設備取り付け"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🎮 ハイエースでSwitch環境構築</h3>
-<p class="text-gray-600 text-sm">ハイエースでSwitchを準備しながらプレイできるゲーム環境を構築。車中泊での娯楽システム</p>
-</div>
-</div>
-
-<!-- TikTok Video 6 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7193309273533795585?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - ベッドスペース製作とマットレス設置"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🔥 FFヒーター自作DIY</h3>
-<p class="text-gray-600 text-sm">ハイエースにFFヒーターを自作で取り付け。冬の車中泊を快適にする暖房システム構築</p>
-</div>
-</div>
-
-<!-- TikTok Video 7 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7282008286222716162?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 最終仕上げと細部調整"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">📱 車中泊で英語学習アプリ開発</h3>
-<p class="text-gray-600 text-sm">ハイエース車中泊、子供が寝た後の時間で英語学習アプリを完成。車内での効率的な開発環境</p>
-</div>
-</div>
-
-<!-- TikTok Video 8 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7331749376387321089?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 完成披露と初回テスト走行"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🎬 プロジェクター設置DIY</h3>
-<p class="text-gray-600 text-sm">ハイエースにプロジェクターを取り付けて車内シアター環境を構築。車中泊での映画鑑賞システム</p>
-</div>
-</div>
-
-<!-- TikTok Video 9 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7409250336420007169?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - バンライフ体験と実際の使用感"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🌪️ 台風の日のキャンピングカー生活</h3>
-<p class="text-gray-600 text-sm">台風の日にキャンピングカーで楽しく過ごす贅沢な時間。悪天候でも快適な車内空間の魅力</p>
-</div>
-</div>
-
-<!-- TikTok Video 10 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7192977271118974210?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 旅先での生活とキャンプ場体験"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🛏️ 2段ベッドDIY製作</h3>
-<p class="text-gray-600 text-sm">ハイエースに2段ベッドをDIYで製作。限られた空間を有効活用する寝室設計のアイデア</p>
-</div>
-</div>
-
-<!-- TikTok Video 11 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7304907907139783938?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - トラブル対応と改良点"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🏰 ディズニーランド車中泊</h3>
-<p class="text-gray-600 text-sm">ディズニーランドでハイエース車中泊。昼休憩中の快適な車内空間とテーマパーク攻略法</p>
-</div>
-</div>
-
-<!-- TikTok Video 12 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7204455713140247810?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - バンライフの魅力と新しい発見"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">❄️ 真冬の白川郷車中泊</h3>
-<p class="text-gray-600 text-sm">二駆ハイエースで真冬の白川郷に車中泊旅行。雪景色の中での極寒キャンプ体験記</p>
-</div>
-</div>
-
-<!-- TikTok Video 13 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7383331171653913873?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 最新改良とアップデート"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">❄️ 中華系ルーフエアコン装着DIY</h3>
-<p class="text-gray-600 text-sm">ハイエースに中華系ルーフエアコンをDIYで装着。夏の車中泊を快適にする冷房システム構築</p>
-</div>
-</div>
-
-<!-- TikTok Video 14 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7385927321741544712?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 冬季対応と寒冷地仕様"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🔧 ルーフエアコン装着Part2</h3>
-<p class="text-gray-600 text-sm">ハイエースに中華系ルーフエアコンを装着せよ②。詳細な取り付け手順と配線作業の実践編</p>
-</div>
-</div>
-
-<!-- TikTok Video 15 -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-<div class="relative w-full pt-[177.77%]">
-<iframe
-src="https://www.tiktok.com/embed/v2/7409250336420007169?autoplay=1&muted=0&loop=1"
-class="absolute top-0 left-0 w-full h-full tiktok-video"
-title="TikTok - 総集編と今後の展望"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen>
-</iframe>
-</div>
-<div class="p-4">
-<h3 class="font-bold text-lg mb-2">🌪️ 台風でも快適キャンピングカー</h3>
-<p class="text-gray-600 text-sm">台風の日にキャンピングカーで楽しく過ごす贅沢な時間。自然の脅威も楽しみに変える車内空間</p>
-</div>
-</div>
-</div>
-<div class="text-center mt-12">
-<p class="text-gray-600 mb-8">製作の様子は TikTok で詳しく公開しています。フォローして最新の投稿をチェックしてください！</p>
-<a href="https://www.tiktok.com/@trailfusionai" target="_blank" class="inline-flex items-center bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-button hover:from-pink-600 hover:to-purple-600 transition">
-<i class="ri-tiktok-fill mr-2"></i>
-TikTok をフォロー
 </a>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -2406,6 +2424,571 @@ TikTok をフォロー
 </div>
 </div>
 </section>
+
+<!-- 完成例ギャラリーセクション -->
+<section id="gallery" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+    <!-- 背景装飾 -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-gray-900"></div>
+    <div class="absolute top-0 left-0 w-full h-full opacity-5">
+        <div class="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- ヘッダー -->
+        <div class="text-center mb-16 fade-in-up">
+            <span class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium px-6 py-2 rounded-full mb-6 shadow-lg">
+                PREMIUM GALLERY
+            </span>
+            <h2 class="text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+                完成例ギャラリー
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                プロフェッショナルな仕上がりを実現したキャンピングカーの数々。<br>
+                あなたの理想の一台を見つけてください。
+            </p>
+        </div>
+        
+        <!-- フィルター -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="gallery-filter-btn active px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105" data-filter="all">
+                すべて
+            </button>
+            <button class="gallery-filter-btn px-6 py-3 bg-gray-800 text-gray-300 rounded-full font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:shadow-lg hover:scale-105" data-filter="exterior">
+                エクステリア
+            </button>
+            <button class="gallery-filter-btn px-6 py-3 bg-gray-800 text-gray-300 rounded-full font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:shadow-lg hover:scale-105" data-filter="interior">
+                インテリア
+            </button>
+            <button class="gallery-filter-btn px-6 py-3 bg-gray-800 text-gray-300 rounded-full font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:shadow-lg hover:scale-105" data-filter="system">
+                システム
+            </button>
+            <button class="gallery-filter-btn px-6 py-3 bg-gray-800 text-gray-300 rounded-full font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:shadow-lg hover:scale-105" data-filter="travel">
+                旅先風景
+            </button>
+        </div>
+        
+        <!-- ギャラリーグリッド -->
+        <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <!-- エクステリア画像 -->
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_exterior_countryside（大）.jpeg" alt="夕焼けとキャンピングカー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">夕焼けの田園風景</h3>
+                        <p class="text-sm text-gray-300">美しい夕焼けの中でのキャンピングカー</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_countryside_sunset（大） copy.jpeg" alt="田園風景のキャンピングカー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">田園風景でのキャンピング</h3>
+                        <p class="text-sm text-gray-300">自然豊かな環境でのアウトドア体験</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_mountain_parking（大）.jpeg" alt="山間部でのキャンピングカー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">山間部パーキング</h3>
+                        <p class="text-sm text-gray-300">山の景色を楽しむキャンピングスタイル</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_snow_village（大）.jpg" alt="雪景色の村でのキャンピングカー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">雪景色の村</h3>
+                        <p class="text-sm text-gray-300">冬季キャンピングの魅力を体験</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <!-- インテリア画像 -->
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_interior_bed_area（大）.jpeg" alt="ベッドエリア" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">快適なベッドエリア</h3>
+                        <p class="text-sm text-gray-300">ゆったりとした就寝スペース</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_interior_dining（大）.jpeg" alt="ダイニングエリア" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">ダイニングスペース</h3>
+                        <p class="text-sm text-gray-300">家族での食事を楽しむ空間</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_kitchen_area（大）.jpeg" alt="キッチンエリア" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">機能的なキッチン</h3>
+                        <p class="text-sm text-gray-300">本格的な料理が楽しめる設備</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_sleeping_arrangement（大）.jpeg" alt="就寝レイアウト" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">就寝レイアウト</h3>
+                        <p class="text-sm text-gray-300">最適化された睡眠環境</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <!-- システム画像 -->
+            <div class="gallery-item system" data-category="system">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_electrical_system（大）.jpeg" alt="電気システム" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">電気システム</h3>
+                        <p class="text-sm text-gray-300">安全で効率的な電力供給</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        システム
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item system" data-category="system">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_solar_panels_roof（大）.jpeg" alt="ソーラーパネル" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">ソーラーパネル設置</h3>
+                        <p class="text-sm text-gray-300">持続可能なエネルギー供給</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        システム
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item system" data-category="system">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_entertainment_system（大）.jpeg" alt="エンターテイメントシステム" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">エンターテイメント</h3>
+                        <p class="text-sm text-gray-300">快適な娯楽システム</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        システム
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 旅先風景 -->
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_mount_fuji_view（大）.jpeg" alt="富士山ビュー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">富士山ビュー</h3>
+                        <p class="text-sm text-gray-300">日本を代表する絶景スポット</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_lighthouse_visit（大）.jpeg" alt="灯台見学" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">灯台巡り</h3>
+                        <p class="text-sm text-gray-300">海辺の美しい景色を満喫</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_moai_statue_park（大）.jpeg" alt="モアイ像公園" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">モアイ像公園</h3>
+                        <p class="text-sm text-gray-300">ユニークな観光スポット</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_campfire_dinner（大）.jpeg" alt="キャンプファイヤー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">キャンプファイヤー</h3>
+                        <p class="text-sm text-gray-300">夜の特別なひととき</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 追加のエクステリア画像 -->
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_blue_sky_fields（大）.jpeg" alt="青空と田園風景" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">青空と田園風景</h3>
+                        <p class="text-sm text-gray-300">爽やかな青空の下でのキャンピング</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_blue_sky_fields.png" alt="広大な農地" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">広大な農地</h3>
+                        <p class="text-sm text-gray-300">のどかな田園地帯での休憩</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_dramatic_sky（大）.jpg" alt="ドラマチックな空" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">ドラマチックな空</h3>
+                        <p class="text-sm text-gray-300">印象的な雲と空の風景</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item exterior" data-category="exterior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_twilight_parking（大）.jpg" alt="夕暮れパーキング" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">夕暮れパーキング</h3>
+                        <p class="text-sm text-gray-300">静寂な夕暮れの駐車場</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        エクステリア
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 追加のインテリア画像 -->
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_bunk_bed_layout（大）.jpeg" alt="二段ベッドレイアウト" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">二段ベッドレイアウト</h3>
+                        <p class="text-sm text-gray-300">効率的な空間活用の就寝設備</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_interior_popup_roof（大）.jpeg" alt="ポップアップルーフ" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">ポップアップルーフ</h3>
+                        <p class="text-sm text-gray-300">開放感のある室内空間</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_kitchen_equipment（大）.jpeg" alt="キッチン機器" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">キッチン機器</h3>
+                        <p class="text-sm text-gray-300">プロ仕様の調理設備</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item interior" data-category="interior">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_mobile_office（大）.jpeg" alt="モバイルオフィス" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">モバイルオフィス</h3>
+                        <p class="text-sm text-gray-300">移動しながら仕事ができる環境</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        インテリア
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 追加のシステム画像 -->
+            <div class="gallery-item system" data-category="system">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_solar_panel_detail（大）.jpeg" alt="ソーラーパネル詳細" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">ソーラーパネル詳細</h3>
+                        <p class="text-sm text-gray-300">高効率ソーラーシステムの構造</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        システム
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item system" data-category="system">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_control_tower（大）.jpeg" alt="制御タワー" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">制御システム</h3>
+                        <p class="text-sm text-gray-300">統合制御パネルとモニター</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        システム
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 追加の旅先風景 -->
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_ferry_terminal（大）.JPEG" alt="フェリーターミナル" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">フェリーターミナル</h3>
+                        <p class="text-sm text-gray-300">島旅への玄関口</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_seaside_sunset（大）.JPEG" alt="海辺の夕焼け" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">海辺の夕焼け</h3>
+                        <p class="text-sm text-gray-300">美しいサンセットビュー</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_moai_close_up（大）.jpeg" alt="モアイ像クローズアップ" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">モアイ像クローズアップ</h3>
+                        <p class="text-sm text-gray-300">神秘的な石像との出会い</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_museum_entrance（大）.jpeg" alt="博物館入口" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">博物館見学</h3>
+                        <p class="text-sm text-gray-300">文化と歴史に触れる旅</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item travel" data-category="travel">
+                <div class="relative group overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2">
+                    <img src="assets/images/camper/camper_outdoor_camping_setup（大）.JPEG" alt="アウトドアキャンプセット" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-lg font-bold mb-2">アウトドアセットアップ</h3>
+                        <p class="text-sm text-gray-300">本格的なキャンプ環境</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        旅先風景
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- 詳細モーダル表示ボタン -->
+        <div class="text-center mt-12">
+            <button class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                もっと見る
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+.gallery-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-filter-btn.active {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    color: white;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+</style>
+
+<script>
+// ギャラリーフィルター機能
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // アクティブボタンの切り替え
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            // アイテムの表示/非表示
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+    
+    // スクロールアニメーション
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+    
+    galleryItems.forEach(item => {
+        observer.observe(item);
+    });
+});
+</script>
+
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12">
 <div class="container mx-auto px-4">
@@ -2440,12 +3023,12 @@ TikTok をフォロー
 <div>
 <h4 class="text-lg font-bold mb-4">AIアプリ</h4>
 <ul class="space-y-2">
-<li><a href="アプリ紹介ホームページ.html#gp-teachers" class="text-gray-400 hover:text-white transition">GP Teachers</a></li>
-<li><a href="アプリ紹介ホームページ.html#wood-golem" class="text-gray-400 hover:text-white transition">Wood Golem</a></li>
-<li><a href="アプリ紹介ホームページ.html#voicelink" class="text-gray-400 hover:text-white transition">VoiceLink AI通訳</a></li>
-<li><a href="アプリ紹介ホームページ.html#word-blaster" class="text-gray-400 hover:text-white transition">Word Blaster</a></li>
-<li><a href="アプリ紹介ホームページ.html#debate-master" class="text-gray-400 hover:text-white transition">Debate Master</a></li>
-<li><a href="アプリ紹介ホームページ.html#hacking-timer" class="text-gray-400 hover:text-white transition">Hacking Timer</a></li>
+<li><a href="アプリ紹介ホームページ (4).html#gp-teachers" class="text-gray-400 hover:text-white transition">GP Teachers</a></li>
+<li><a href="アプリ紹介ホームページ (4).html#wood-golem" class="text-gray-400 hover:text-white transition">Wood Golem</a></li>
+<li><a href="アプリ紹介ホームページ (4).html#voicelink" class="text-gray-400 hover:text-white transition">VoiceLink AI通訳</a></li>
+<li><a href="アプリ紹介ホームページ (4).html#word-blaster" class="text-gray-400 hover:text-white transition">Word Blaster</a></li>
+<li><a href="アプリ紹介ホームページ (4).html#debate-master" class="text-gray-400 hover:text-white transition">Debate Master</a></li>
+<li><a href="アプリ紹介ホームページ (4).html#hacking-timer" class="text-gray-400 hover:text-white transition">Hacking Timer</a></li>
 </ul>
 </div>
 <div>
